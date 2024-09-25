@@ -1,0 +1,10 @@
+@import "../scss/base/typography";
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: red;
+  font-family: $secondFont;
+}
+a {
+  text-decoration: none;
+}
