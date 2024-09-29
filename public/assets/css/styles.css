@@ -1,10 +1,69 @@
-body {
-  height: 100vh;
-  width: 100vw;
-  background-color: red;
-  font-family: Homenaje, sans-serif;
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-a {
+nav {
+  display: flex;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav img {
+  width: 44px;
+  height: 44px;
+}
+
+.main__title {
+  color: white;
+  font-family: IBM Plex Serif, serif;
+  font-weight: bold;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+header button {
+  width: 216px;
+  height: 52px;
+  background: none;
+  border: 1px solid white;
+}
+header button a {
+  color: white;
+  font-family: IBM Plex Serif, serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.5rem;
   text-decoration: none;
+}
+
+header {
+  height: 100vh;
+  width: 100vw;
+}
+header > img {
+  height: 100vh;
+  overflow: hidden;
+  width: -webkit-fill-available;
+  position: relative;
+}
+header section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+header section div {
+  width: 100vw;
+  height: 80px;
+  background: #092D00;
+  position: relative;
+  top: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=styles.css.map */

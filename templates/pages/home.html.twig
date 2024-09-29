@@ -1,5 +1,13 @@
 {% extends "base.html.twig" %}
-{% block title %}Zoo - Arcadia{% endblock %}
+{% block title %}Arcadia | Accueil{% endblock %}
+{% block style %} 
+  <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}?{{ "now"|date("U") }}" type="text/css">
+{% endblock %}
+
+{# BODY #}
 {% block body %}
-<h1>Test</h1>
+
+  {# HEADER #}
+  {% include 'components/header.html.twig' %}
+
 {% endblock %}
