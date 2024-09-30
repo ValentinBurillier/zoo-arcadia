@@ -5,3 +5,8 @@
   font-size: 2rem;
   text-transform: uppercase;
 }
+@media screen and (min-width: 600px) {
+  .main__title {
+    font-size: 3rem;
+  }
+}

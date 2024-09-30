@@ -2,12 +2,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-size: 16px;
 }
 
 nav {
   display: flex;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 7%;
+  padding-right: 7%;
+  padding-top: 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,6 +19,21 @@ nav img {
   height: 44px;
 }
 
+@media screen and (min-width: 600px) {
+  nav {
+    padding-top: 1.2rem;
+  }
+  nav img {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+@media screen and (min-width: 1000px) {
+  nav {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+}
 .main__title {
   color: white;
   font-family: IBM Plex Serif, serif;
@@ -25,6 +42,11 @@ nav img {
   text-transform: uppercase;
 }
 
+@media screen and (min-width: 600px) {
+  .main__title {
+    font-size: 3rem;
+  }
+}
 header button {
   width: 216px;
   height: 52px;
@@ -62,8 +84,17 @@ header section div {
   height: 80px;
   background: #092D00;
   position: relative;
-  top: 400px;
+  top: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (min-width: 600px) {
+  header img {
+    object-fit: cover;
+  }
+  header section div {
+    top: 62%;
+  }
 }/*# sourceMappingURL=styles.css.map */
