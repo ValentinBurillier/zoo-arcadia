@@ -11,6 +11,11 @@ nav {
     height: 44px;
   }
 }
+@media screen and (max-width:999px) {
+  header nav ul {
+    display: none;
+  }
+}
 @media screen and (min-width: 600px) {
   nav {
     padding-top: 1.2rem;
@@ -22,7 +27,27 @@ nav {
 }
 @media screen and (min-width: 1000px) {
   nav {
+    background: linear-gradient(to right, rgba(44, 138, 0, 0.47), rgba(217, 130, 0, 0.62));
     padding-left: 4%;
     padding-right: 4%;
+    padding-top: 0%;
+    .img__display {
+      display: none;
+    }
+    ul {
+      display: inherit;
+      list-style-type: none;
+      display: flex;
+      column-gap: 1rem;
+      li a {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+        
+      }
+    }
   }
-}
+  .nav__div {
+    display: none;
+  }
+} 

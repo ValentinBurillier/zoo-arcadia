@@ -38,3 +38,30 @@ header {
     }
   }
 }
+@media screen and (min-width: 1000px) {
+  header img:first-child {
+    position: absolute;
+    z-index: 2;
+    width: 50%;
+    height: 150vh;
+    transform: rotate(20deg);
+    right: -10%;
+    top: -20%;
+    overflow: hidden;
+    box-shadow: -39px 4px 45.1px -13px white;
+  }
+  .header__elephant {
+    height: 100vh;
+    overflow: hidden;
+    width: -webkit-fill-available;
+    position: absolute;
+    top: 0;
+    left: -5%;
+    width: 80%;
+    z-index: 1;
+  }
+  header section {
+    position: absolute;
+    z-index: 3;
+  }
+}
