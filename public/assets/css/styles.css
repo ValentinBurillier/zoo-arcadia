@@ -3,6 +3,11 @@
   padding: 0;
   box-sizing: border-box;
   font-size: 16px;
+  overflow: hidden;
+}
+
+body {
+  position: relative;
 }
 
 a {
@@ -91,6 +96,30 @@ header button a {
   text-decoration: none;
 }
 
+.btn__computer {
+  display: none;
+}
+
+@media screen and (min-width: 1000px) {
+  .btn__computer {
+    display: block;
+    position: absolute;
+    top: 82%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(77, 28, 0, 0.97);
+    border: 4px solid #5E3800;
+    box-shadow: 9px 1px 44.2px 3px white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .btn__computer #btn__link--computer {
+    font-family: Homenaje, sans-serif;
+    letter-spacing: 5px;
+    font-weight: normal;
+  }
+}
 header {
   height: 100vh;
   width: 100vw;
@@ -130,7 +159,7 @@ header section div {
 @media screen and (min-width: 1000px) {
   header img:first-child {
     position: absolute;
-    z-index: 2;
+    z-index: 1;
     width: 50%;
     height: 150vh;
     transform: rotate(20deg);
@@ -147,10 +176,9 @@ header section div {
     top: 0;
     left: -5%;
     width: 80%;
-    z-index: 1;
   }
   header section {
     position: absolute;
-    z-index: 3;
+    z-index: 999;
   }
 }/*# sourceMappingURL=styles.css.map */

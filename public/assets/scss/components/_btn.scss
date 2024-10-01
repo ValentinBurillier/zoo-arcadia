@@ -12,3 +12,27 @@ header button {
       text-decoration: none;
     }
  }
+ .btn__computer {
+  display: none;
+ }
+ @media screen and (min-width: 1000px) {
+  .btn__computer {
+    display: block;
+    position: absolute;
+    top: 82%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(77, 28, 0, 0.97);
+    border: 4px solid #5E3800;
+    box-shadow: 9px 1px 44.2px 3px white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    #btn__link--computer {
+      font-family: $secondFont;
+      letter-spacing: 5px;
+      font-weight: normal;
+     }
+   }
+   
+ }

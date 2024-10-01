@@ -41,7 +41,7 @@ header {
 @media screen and (min-width: 1000px) {
   header img:first-child {
     position: absolute;
-    z-index: 2;
+    z-index: 1;
     width: 50%;
     height: 150vh;
     transform: rotate(20deg);
@@ -58,10 +58,9 @@ header {
     top: 0;
     left: -5%;
     width: 80%;
-    z-index: 1;
   }
   header section {
     position: absolute;
-    z-index: 3;
+    z-index: 999;
   }
 }
