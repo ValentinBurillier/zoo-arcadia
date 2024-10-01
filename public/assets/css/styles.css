@@ -213,6 +213,61 @@ header section div {
   text-align: center;
 }
 
+#secondSection {
+  position: relative;
+}
+
+#secondSection img:last-child {
+  display: none;
+}
+
 #thirdSection {
   background: #092D00;
+}
+
+@media screen and (min-width: 1000px) {
+  #secondSection, #thirdSection {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #secondSection h2, #thirdSection h2 {
+    font-size: 2rem;
+  }
+  #secondSection img, #thirdSection img {
+    display: none;
+  }
+  #secondSection p, #thirdSection p {
+    width: 70%;
+    max-width: none;
+    font-size: 1.5rem;
+  }
+  #secondSection h2, #secondSection p, #thirdSection h2, #thirdSection p {
+    max-width: 700px;
+    margin: none;
+  }
+  #secondSection img:last-child {
+    display: block;
+    width: 100vw;
+    margin: 0;
+    max-width: none;
+    position: absolute;
+    z-index: 999;
+    top: 35%;
+  }
+}
+@media screen and (min-width: 1550px) {
+  #secondSection img:last-child {
+    top: 10%;
+  }
+}
+@media screen and (min-height: 700px) {
+  #secondSection, #thirdSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }/*# sourceMappingURL=styles.css.map */
