@@ -2,21 +2,13 @@
   <section id="fifthSection">
   <h2>Nos habitats</h2>
     <div class="container">
+      {% for service in services %}
       <div>
-        <h3>Restaurant</h3>
-        <p>Pause gourmande entre deux habitats</p>
-        <img src="{{asset('assets/images/couverts.png')}}"/>
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description }}</p>
+        <img src="{{ asset('assets/images/' ~ service.UrlIcon) }}" />
       </div>
-      <div>
-        <h3>Visite en petit train</h3>
-        <p>Moment de détente</p>
-        <img src="{{asset('assets/images/train.png')}}"/>
-      </div>
-      <div>
-         <h3>Visite guidée (gratuit)</h3>
-        <p>Visite des habitats</p>
-        <img src="{{asset('assets/images/carte.png')}}"/>
-      </div>
+      {% endfor %}
     </div>
   </section>
 {% endblock %}
