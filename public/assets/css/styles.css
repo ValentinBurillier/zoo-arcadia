@@ -354,6 +354,12 @@ header section div {
   width: 100vw;
   background: linear-gradient(61deg, #006333 50%, #054000 50%);
   overflow-y: scroll;
+  position: relative;
+  max-width: 1500px;
+  margin: auto;
+}
+#fifthSection h2 {
+  display: none;
 }
 #fifthSection .container div {
   width: 80%;
@@ -363,6 +369,7 @@ header section div {
   background: white;
   overflow-x: hidden;
   position: relative;
+  max-width: 340px;
 }
 #fifthSection .container div img {
   width: 50px;
@@ -398,4 +405,47 @@ header section div {
 }
 #fifthSection .container div {
   margin-bottom: 3.2rem;
+}
+
+@media screen and (min-width: 700px) {
+  #fifthSection {
+    background: linear-gradient(23deg, #006333 50%, #054000 50%);
+  }
+  #fifthSection h2 {
+    display: block;
+    font-size: 2rem;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background-color: #0C3F03;
+    text-align: center;
+    width: 100%;
+    padding: 0.8rem;
+    color: white;
+    transform: none;
+    padding-top: 1.5rem;
+  }
+  #fifthSection .container div {
+    border-radius: 10%;
+    scale: 1.2;
+  }
+  #fifthSection .container div:first-child {
+    top: 25%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+  #fifthSection .container div:nth-child(2) {
+    top: 75%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+  #fifthSection .container div:last-child {
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
 }/*# sourceMappingURL=styles.css.map */
