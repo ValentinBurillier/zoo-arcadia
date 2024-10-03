@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *, ::before, ::after {
   margin: 0;
   padding: 0;
@@ -448,4 +449,50 @@ header section div {
     transform: translate(-50%, -50%);
     position: absolute;
   }
+}
+/* Cache les boutons radio */
+.stars input[type=radio] {
+  display: none;
+}
+
+/* Style pour les labels qui afficheront les étoiles */
+.stars label:not(:first-child):before {
+  font-size: 2em;
+  color: gray;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+}
+
+/* Masquer le texte dans le label */
+.stars label span {
+  display: none;
+}
+
+/* Afficher une étoile vide dans les labels */
+.stars label:before {
+  content: "☆"; /* Étoile vide */
+  position: absolute;
+  font-size: 2em;
+  color: gray;
+}
+
+/* Si le bouton radio est coché, on affiche une étoile pleine */
+.stars input[type=radio]:checked + .stars label:before {
+  content: "★"; /* Étoile pleine */
+  color: gold;
+}
+
+/* Surligne les étoiles au survol */
+.stars label:hover:before,
+.stars label:hover ~ .stars label:before {
+  content: "★"; /* Étoile pleine au survol */
+  color: gold;
+}
+
+/* Dispose les étoiles sur une seule ligne */
+.stars {
+  display: flex;
+  flex-direction: row; /* Pour permettre de cliquer de droite à gauche */
+  gap: 50px;
 }/*# sourceMappingURL=styles.css.map */
