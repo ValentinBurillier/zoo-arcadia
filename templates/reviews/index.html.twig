@@ -1,3 +1,5 @@
+{% set iconMenu = 'menu_blue' %}
+{% set pageName = 'reviews' %}
 {% extends "base.html.twig" %}
 {% block title %}Arcadia | Avis{% endblock %}
 {% block style %} 
@@ -6,9 +8,14 @@
 
 {# BODY #}
 {% block body %}
-<img src="{{asset('assets/images/dolphin.jpg')}}"/>
+<header id="header__{{ pageName }}">
+{% include "components/nav.html.twig" %}
+</header>
+
+<main id="main__{{ pageName }}">
 {{ form_start(form) }}
-    {{ form_row(form.pseudo) }} {# label + input #}
+      {{ form_label(form.pseudo) }}  {# Affiche le label #}
+    {{ form_widget(form.pseudo) }} {# Affiche le champ input #}
 
      <label for="{{ form.score.vars.id }}">{{ form.score.vars.label }}</label> <!-- Affiche le label "Note" -->
      <div class="container_stars">
@@ -18,12 +25,10 @@
             {# <label><span>{{ form_label(choice) }}</span></label> #}
         {% endfor %}
     </div>
-    {# {{ form_row(form.comment) }}
-    <button type="submit">Envoyer</button> #}
+     {{ form_label(form.comment) }}  {# Affiche le label #}
+    {{ form_widget(form.comment) }} {# Affiche le champ input #}
+    <button type="submit">Envoyer</button>
 {{ form_end(form) }}
-
-
-
 
 
 {% endblock %}

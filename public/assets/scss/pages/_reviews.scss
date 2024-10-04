@@ -1,21 +1,95 @@
 body {
-  position: relative;
-  overflow:hidden;
+  // position: relative;
+  // overflow:hidden;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden; /* Cache les parties qui dépassent */
+    background-image: url('../images/dolphin.jpg'); /* Remplace par le chemin de ton image */
+    background-size: cover; /* Fait en sorte que l'image couvre tout l'écran */
+    background-position: 35% center; /* Décale l'image légèrement vers la droite */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
 }
-img {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover; /* Remplit l'écran tout en gardant les proportions */
-  object-position: 35% center; /* Centre l'image dans l'écran */
-  position: absolute;
-  top: 0;
-  left: 0;
+#header__reviews {
+  .img__display {
+    box-shadow: -7px 0px 19px 20px white;
+    border-radius: 10px;
+  }
 }
-form {
-  position: absolute;
-  left: 0;
-  top: 0;
+#main__reviews {
+  height: calc(100% - 54px);
+  form {
+    width: 80%;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 3%;
+    > input {
+      height: 35px;
+      border: none;
+      width: 100%;
+    }
+    > label {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: left;
+    }
+    > input, textarea, .container_stars {
+      max-width: 280px;
+    }
+    textarea {
+      width: 100%;
+      height: 120px;
+      margin-bottom: 10px;
+      border: none;
+    }
+    .container_stars {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .container_stars label {
+      font-size: 2rem;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    button {
+      color: white;
+      background: #31CEFF;
+      font-style: $secondFont;
+      font-size: 1rem;
+      padding: 10px;
+      letter-spacing: 2px;
+      font-weight: 500;
+      border: none;
+      border-left: 5px solid white;
+      box-shadow: 5px 6px 12.3px white;
+      scale: 1.1;
+      width: 120px;
+    }
+  }
+
 }
+// img {
+//   width: 100vw;
+//   height: 100vh;
+//   object-fit: cover; /* Remplit l'écran tout en gardant les proportions */
+//   object-position: 35% center; /* Centre l'image dans l'écran */
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+// }
+// form {
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+// }
 form div:not([class=container_stars]) {
   display: flex;
   flex-direction: column;

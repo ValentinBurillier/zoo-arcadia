@@ -1,7 +1,7 @@
 @import "../components/_nav";
 @import "../components/_logo";
 @import "../components/_btn";
-header {
+#homepage {
   height: 100vh;
   width: 100vw;
   >img {
@@ -29,7 +29,7 @@ header {
   }
 }
 @media screen and (min-width: 600px) {
-  header {
+  #homepage {
     img {
       object-fit: cover;
     }
@@ -39,7 +39,7 @@ header {
   }
 }
 @media screen and (min-width: 1000px) {
-  header img:first-child {
+  #homepage img:first-child {
     position: absolute;
     z-index: 1;
     width: 50%;
@@ -59,7 +59,7 @@ header {
     left: -5%;
     width: 80%;
   }
-  header section {
+  #homepage section {
     position: absolute;
     z-index: 999;
   }

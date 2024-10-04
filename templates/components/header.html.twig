@@ -1,18 +1,12 @@
 {% block header %}
-<header>
+<header id="homepage">
   <img src="{{asset('assets/images/background.jpg')}}"/>
   <img src="{{asset('assets/images/elephant.jpg')}}" class="header__elephant" />
   <section>
-    <nav>
-      <h1 class="main__title">Arcadia</h1>
-      <img src="{{asset('assets/images/menu_green.png')}}" class="img__display"/>
-      <ul>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Habitats</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Connexion</a></li>
-      </ul>
-    </nav>
+  {% block nav %}
+  {% include "components/nav.html.twig" %}
+  {% endblock %}
+   
     <div class="nav__div">
       <button>
         <a href="#">Decouvrir</a>

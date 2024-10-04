@@ -1,0 +1,15 @@
+{% block nav %}
+  <nav>
+    <h1 class="main__title">Arcadia</h1>
+    {% block menuImage %}
+      {% include "components/menuImage.html.twig" %}
+    {% endblock %}
+    <img src="{{asset('assets/images/'~ iconMenu ~'.png')}}" class="img__display"/>
+    <ul>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Habitats</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Connexion</a></li>
+    </ul>
+  </nav>
+{% endblock %}

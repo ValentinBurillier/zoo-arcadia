@@ -120,24 +120,24 @@ header button a {
     font-weight: normal;
   }
 }
-header {
+#homepage {
   height: 100vh;
   width: 100vw;
 }
-header > img {
+#homepage > img {
   height: 100vh;
   overflow: hidden;
   width: -webkit-fill-available;
   position: relative;
 }
-header section {
+#homepage section {
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
 }
-header section div {
+#homepage section div {
   width: 100vw;
   height: 80px;
   background: #092D00;
@@ -149,15 +149,15 @@ header section div {
 }
 
 @media screen and (min-width: 600px) {
-  header img {
+  #homepage img {
     object-fit: cover;
   }
-  header section div {
+  #homepage section div {
     top: 62%;
   }
 }
 @media screen and (min-width: 1000px) {
-  header img:first-child {
+  #homepage img:first-child {
     position: absolute;
     z-index: 1;
     width: 50%;
@@ -177,7 +177,7 @@ header section div {
     left: -5%;
     width: 80%;
   }
-  header section {
+  #homepage section {
     position: absolute;
     z-index: 999;
   }
@@ -451,24 +451,79 @@ header section div {
   }
 }
 body {
-  position: relative;
-  overflow: hidden;
-}
-
-img {
-  width: 100vw;
   height: 100vh;
-  object-fit: cover; /* Remplit l'écran tout en gardant les proportions */
-  object-position: 35% center; /* Centre l'image dans l'écran */
-  position: absolute;
-  top: 0;
-  left: 0;
+  width: 100vw;
+  overflow: hidden; /* Cache les parties qui dépassent */
+  background-image: url("../images/dolphin.jpg"); /* Remplace par le chemin de ton image */
+  background-size: cover; /* Fait en sorte que l'image couvre tout l'écran */
+  background-position: 35% center; /* Décale l'image légèrement vers la droite */
+  background-repeat: no-repeat; /* Empêche la répétition de l'image */
 }
 
-form {
-  position: absolute;
-  left: 0;
-  top: 0;
+#header__reviews .img__display {
+  box-shadow: -7px 0px 19px 20px white;
+  border-radius: 10px;
+}
+
+#main__reviews {
+  height: calc(100% - 54px);
+}
+#main__reviews form {
+  width: 80%;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 3%;
+}
+#main__reviews form > input {
+  height: 35px;
+  border: none;
+  width: 100%;
+}
+#main__reviews form > label {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: left;
+}
+#main__reviews form > input, #main__reviews form textarea, #main__reviews form .container_stars {
+  max-width: 280px;
+}
+#main__reviews form textarea {
+  width: 100%;
+  height: 120px;
+  margin-bottom: 10px;
+  border: none;
+}
+#main__reviews form .container_stars {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#main__reviews form .container_stars label {
+  font-size: 2rem;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#main__reviews form button {
+  color: white;
+  background: #31CEFF;
+  font-style: Homenaje, sans-serif;
+  font-size: 1rem;
+  padding: 10px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  border: none;
+  border-left: 5px solid white;
+  box-shadow: 5px 6px 12.3px white;
+  scale: 1.1;
+  width: 120px;
 }
 
 form div:not([class=container_stars]) {
