@@ -6,20 +6,20 @@
 
 {# BODY #}
 {% block body %}
-
+<img src="{{asset('assets/images/dolphin.jpg')}}"/>
 {{ form_start(form) }}
-    {{ form_row(form.pseudo) }}
-    {{ form_row(form.comment) }}
+    {{ form_row(form.pseudo) }} {# label + input #}
 
-    <div class="stars">
      <label for="{{ form.score.vars.id }}">{{ form.score.vars.label }}</label> <!-- Affiche le label "Note" -->
+     <div class="container_stars">
         {% for choice in form.score %}
-            {{ form_widget(choice) }}
-            <label><span>{{ form_label(choice) }}</span></label>
+            {{ form_widget(choice) }} {# INPUT #}
+            {{ form_label(choice, '☆') }} {# LABEL #}
+            {# <label><span>{{ form_label(choice) }}</span></label> #}
         {% endfor %}
     </div>
-
-    <button type="submit">Envoyer</button>
+    {# {{ form_row(form.comment) }}
+    <button type="submit">Envoyer</button> #}
 {{ form_end(form) }}
 
 
