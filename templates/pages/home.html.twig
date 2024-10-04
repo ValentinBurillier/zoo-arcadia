@@ -8,6 +8,15 @@
 {# BODY #}
 {% block body %}
 
+{% for review in reviews %}
+  <div class="homepage__review">
+    <p>{{ review.score}}</p>
+    <p>{{ review.pseudo }}</p>
+    <p>{{ review.comment }}</p>
+
+  </div>
+{% endfor %}
+
   {# HEADER #}
   {% include 'components/header.html.twig' %}
 
@@ -16,6 +25,7 @@
     {% include 'components/homePage/thirdSection.html.twig' %}
     {% include 'components/homePage/fourthSection.html.twig' %}
     {% include 'components/homePage/fifthSection.html.twig' %}
+    {% include 'components/homePage/sixthSection.html.twig' %}
   </main>
   
 {% endblock %}

@@ -453,6 +453,25 @@ header button a {
     position: absolute;
   }
 }
+#sixthSection {
+  height: 100vh;
+  width: 100vw;
+}
+#sixthSection h2 {
+  background-color: #0C3F03;
+  text-align: center;
+  width: 100%;
+  font-family: Homenaje, sans-serif;
+  font-weight: normal;
+  letter-spacing: 4px;
+  font-size: 1.2rem;
+  color: white;
+  padding: 0.8rem;
+}
+#sixthSection h2:first-child {
+  margin-top: 10px;
+}
+
 body {
   height: 100vh;
   width: 100vw;
