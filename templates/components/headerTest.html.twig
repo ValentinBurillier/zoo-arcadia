@@ -1,0 +1,19 @@
+{% block header %}
+<header id="homepage">
+  {# <img src="{{asset('assets/images/background.jpg')}}" class="header__lion" /> #}
+  <section>
+  {% block nav %}
+  {% include "components/nav.html.twig" %}
+  {% endblock %}
+   
+    <div class="nav__div">
+      <button>
+        <a href="#">Decouvrir</a>
+      </button>
+    </div>
+    <button class="btn__computer">
+        <a href="#" id="btn__link--computer">Decouvrir</a>
+      </button>
+  </section>
+</header>
+{% endblock %}

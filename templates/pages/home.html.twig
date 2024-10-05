@@ -4,25 +4,16 @@
 {% extends "base.html.twig" %}
 {% block title %}Arcadia | Accueil{% endblock %}
 {% block style %} 
-  <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}?{{ "now"|date("U") }}" type="text/css">
+  <link rel="stylesheet" href="{{ asset('assets/css/stylesTest.css') }}?{{ "now"|date("U") }}" type="text/css">
 {% endblock %}
 
 {# BODY #}
 {% block body %}
 
-{% for review in reviews %}
-  <div class="homepage__review">
-    <p>{{ review.score}}</p>
-    <p>{{ review.pseudo }}</p>
-    <p>{{ review.comment }}</p>
-
-  </div>
-{% endfor %}
-
   {# HEADER #}
-  {% include 'components/header.html.twig' %}
+  {% include 'components/headerTest.html.twig' %}
 
-  <main>
+  <main id="main__{{ pageName }}">
     {% include 'components/homePage/secondSection.html.twig' %}
     {% include 'components/homePage/thirdSection.html.twig' %}
     {% include 'components/homePage/fourthSection.html.twig' %}
