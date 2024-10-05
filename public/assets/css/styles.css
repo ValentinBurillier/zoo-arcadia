@@ -472,7 +472,7 @@ header button a {
   margin-top: 10px;
 }
 
-body {
+#body__reviews {
   height: 100vh;
   width: 100vw;
   overflow: hidden; /* Cache les parties qui dépassent */
@@ -527,6 +527,9 @@ body {
   justify-content: space-around;
   align-items: center;
 }
+#main__reviews form .container_stars .star {
+  height: 100%;
+}
 #main__reviews form .container_stars label {
   font-size: 2rem;
   height: 30px;
@@ -572,7 +575,7 @@ body {
     scale: 1.4;
   }
 }
-form div:not([class=container_stars]) {
+#main__reviews form div:not([class=container_stars]) {
   display: flex;
   flex-direction: column;
 }

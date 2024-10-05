@@ -1,10 +1,13 @@
-body {
-  // position: relative;
-  // overflow:hidden;
+@import "../base/_typography";
+@import "../base/_colors";
+@import "../base/_reset";
+@import "../components/_nav";
+@import "../components/_logo";
+#body__reviews {
     height: 100vh;
     width: 100vw;
     overflow: hidden; /* Cache les parties qui dépassent */
-    background-image: url('../images/dolphin.jpg'); /* Remplace par le chemin de ton image */
+    background-image: url('../../images/dolphin.jpg'); /* Remplace par le chemin de ton image */
     background-size: cover; /* Fait en sorte que l'image couvre tout l'écran */
     background-position: 35% center; /* Décale l'image légèrement vers la droite */
     background-repeat: no-repeat; /* Empêche la répétition de l'image */
@@ -52,6 +55,9 @@ body {
       display: flex;
       justify-content: space-around;
       align-items: center;
+      .star {
+        height: 100%;
+      }
     }
     .container_stars label {
       font-size: 2rem;
@@ -118,7 +124,7 @@ body {
 //   left: 0;
 //   top: 0;
 // }
-form div:not([class=container_stars]) {
+#main__reviews form div:not([class=container_stars]) {
   display: flex;
   flex-direction: column;
 }
