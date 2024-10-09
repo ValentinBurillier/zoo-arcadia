@@ -1,4 +1,4 @@
-{% set iconMenu = 'menu_blue' %}
+{% set iconMenu = 'zoo-arcadia-blue_menu' %}
 {% set pageName = 'reviews' %}
 {% extends "base.html.twig" %}
 {% block title %}Arcadia | Avis{% endblock %}
@@ -22,7 +22,7 @@
         {% for choice in form.score %}
             {{ form_widget(choice) }} {# INPUT #}
             {# {{ form_label(choice, '☆') }} LABEL #}
-            {{ form_label(choice, '<img src="' ~ asset('assets/images/white_star.webp') ~ '" class="star"/>') | raw }}
+            {{ form_label(choice, '<img src="' ~ asset('assets/images/zoo-arcadia-white_star.webp') ~ '" class="star"/>') | raw }}
 
             {# <label><span>{{ form_label(choice) }}</span></label> #}
         {% endfor %}
