@@ -82,7 +82,9 @@
     }
   }
 }
-
+input[name="reviews[pseudo]"], textarea[name="reviews[comment]"] {
+  text-align: center;
+}
 @media screen and (min-width: 600px) {
   #main__reviews form {
     scale: 1.15;

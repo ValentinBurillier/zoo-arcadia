@@ -16,7 +16,11 @@ class ReviewsType extends AbstractType
     {
         $builder
             ->add('pseudo',TextType::class, [
-                'label' => 'Entrez un pseudo'
+                'label' => 'Entrez un pseudo',
+                'required' =>true,
+                'attr' => [
+                    'maxLength' => 255
+                ]
             ])
             ->add('score', ChoiceType::class, [
                 'label' => 'Notez le parc',
@@ -32,7 +36,8 @@ class ReviewsType extends AbstractType
                 'label_html' => true, // Permet d'utiliser HTML dans les labels
             ])
             ->add('comment', TextareaType::class, [
-                'label' => 'Votre commentaire'
+                'label' => 'Votre commentaire',
+                'required' => true
             ])
         ;
     }

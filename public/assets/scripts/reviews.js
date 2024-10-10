@@ -4,9 +4,9 @@ console.log(nbstars);
 stars.forEach((star, index) => { // 
   star.addEventListener('click', () => {
     for(let i = 0; i < index; i++) {
-        stars[i].src= "/assets/images/gold_star.webp";
+        stars[i].src= "/assets/images/gold_star.png";
     }
-    stars[index].src = "/assets/images/gold_star.webp";
+    stars[index].src = "/assets/images/gold_star.png";
     for(let dif = (index + 1); dif < nbstars; dif++) {
       stars[dif].src= "/assets/images/zoo-arcadia-white_star.webp";
     }
