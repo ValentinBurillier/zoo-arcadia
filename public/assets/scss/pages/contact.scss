@@ -29,6 +29,8 @@
     align-items: center;
     row-gap: 10px;
     transform: translateY(20px);
+    width: 70%;
+    max-width: 400px;
     h2 {
       font-size: 24px;
     }
@@ -64,11 +66,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 500px;
   p {
     font-family: $secondFont;
     font-size: 1.1rem;
     font-weight: light;
-    width: 200px;
+    width: 60%;
     height: 80%;
     line-height: 150%;
     transform: translateX(20px);
@@ -91,6 +94,36 @@
       height: 100%;
       width: auto;
     }
+  }
+}
+
+@media screen and (min-width: 700px) {
+  #main__contactPage section:first-child form {
+    transform: translateY(10px);
+    h2 {
+      font-size: 1.7rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #body__contactPage {
+    height: 100vh;
+  }
+  #header__contactPage {
+    position: initial;
+    nav {
+      background: #243123;
+      border-bottom: 4px solid white;
+    }
+  }
+  #main__contactPage {
+    height: 100%;
+    display: flex;
+  }
+  #body__contactPage footer {
+    border-top: 4px solid white;
+    height: 54px;
   }
  
 }
