@@ -14,7 +14,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-color: rgba(36, 49, 35, 0.38);
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -44,7 +43,6 @@
       background-color: #D9D9D9;
       border: none;
       text-align: center;
-      vertical-align: center;
       letter-spacing: 1px;
     }
     button {
@@ -74,9 +72,25 @@
     height: 80%;
     line-height: 150%;
     transform: translateX(20px);
+    input {
+      width: 15px;
+      height: 15px;
+      margin-right: 5px;
+    }
   }
 }
 #body__contactPage footer {
   height: 30px;
   background: #525C2A;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  a {
+    height: 100%;
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+ 
 }
