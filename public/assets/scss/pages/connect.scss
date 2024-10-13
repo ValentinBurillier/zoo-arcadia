@@ -13,6 +13,9 @@ body {
   z-index: 5;
   width: 100%;
 }
+.div {
+  display: none;
+}
 #main__loginPage section:first-child {
   height: 100%;
   width: 100vw;
@@ -80,6 +83,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  border-top: 4px solid white;
   a {
     height: 100%;
     img {
@@ -87,4 +91,95 @@ body {
       width: auto;
     }
   }
+}
+
+@media screen and (min-width: 1000px) {
+  #header__loginPage {
+    position: relative;
+    nav {
+      background: #7F4C27;
+      border-bottom: 4px solid white;
+    }
+  }
+  #main__loginPage {
+    overflow: hidden;
+    background-image: none;
+    height: calc(100% - 89px);
+    section:first-child {
+      display: none;
+    }
+  }
+  .div {
+    height: 100%;
+    display: inline-block;
+    width: 50%;
+  }
+  #left {
+    width: 100%;
+    color: #7F4C27;
+    background: rgba(127, 76, 39, 0.21);
+    position: relative;
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 100px;
+      row-gap: 1.2rem;
+      height: 100%;
+      h2 {
+        font-size: 2rem;
+        position: absolute;
+        left: 5%;
+        top: 5%;
+      }
+      label {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+      input {
+        width: 50%;
+        border-radius: 5px;
+        height: 40px;
+        background-color: #D9D9D9;
+        border: none;
+        text-align: center;
+        letter-spacing: 1px;
+        max-width: 370px;
+      }
+      button {
+        font-family: Homenaje, sans-serif;
+        font-size: 18px;
+        letter-spacing: 5px;
+        background-color: #7F4C27;
+        border: none;
+        width: 180px;
+        height: 45px;
+        color: white;
+        border-radius: 20px;
+      }
+    }
+  }
+  #right {
+    background-image: url("../../images/zoo-arcadia-elephant.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -50px;
+    background-position-x: center;
+    width: 55%;
+    position: absolute;
+    transform: rotateZ(14deg);
+    height: 150vh;
+    transform-origin: center;
+    right: -5%;
+    top: -20%;
+  }
+}
+@media screen and (min-width: 1100px) {
+  #header__loginPage, #main__loginPage, #body__loginPage footer {
+    max-width: 1336px;
+    margin: 0 auto;
+  }
+  // #right {
+  //   background-position-y: -250px;
+  // }
 }
