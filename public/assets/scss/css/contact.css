@@ -114,7 +114,7 @@ nav img {
   max-width: 400px;
 }
 #main__contactPage section:first-child form h2 {
-  font-size: 24px;
+  font-size: 1.3rem;
 }
 #main__contactPage section:first-child form label {
   align-self: flex-start;
@@ -142,18 +142,22 @@ nav img {
   border-radius: 20px;
 }
 
+#input__computer {
+  display: none;
+}
+
 #main__contactPage section:last-child {
-  height: 346px;
+  padding: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: 500px;
+  margin: 0 auto;
 }
 #main__contactPage section:last-child p {
   font-family: Homenaje, sans-serif;
   font-size: 1.1rem;
   font-weight: light;
-  width: 60%;
   height: 80%;
   line-height: 150%;
   transform: translateX(20px);
@@ -192,18 +196,46 @@ nav img {
     height: 100vh;
   }
   #header__contactPage {
-    position: initial;
+    position: relative;
   }
   #header__contactPage nav {
     background: #243123;
     border-bottom: 4px solid white;
   }
   #main__contactPage {
-    height: 100%;
+    height: calc(100% - 116px);
     display: flex;
+    overflow: hidden;
+    position: relative;
+  }
+  #main__contactPage section:first-child, #main__contactPage section:last-child {
+    display: none;
+  }
+  #input__mobil {
+    display: none;
   }
   #body__contactPage footer {
     border-top: 4px solid white;
-    height: 54px;
+    height: 58px;
+  }
+  .div {
+    height: 100%;
+    display: inline-block;
+  }
+  #left {
+    background: red;
+    width: 70%;
+  }
+  #right {
+    background-image: url("../../images/zoo-arcadia-background.webp");
+    background-repeat: no-repeat;
+    background-position-y: -50px;
+    width: 55%;
+    position: absolute;
+    transform: rotateZ(23deg);
+    height: 150vh;
+    transform-origin: center;
+    right: -10%;
+    top: -20%;
   }
 }/*# sourceMappingURL=contact.css.map */

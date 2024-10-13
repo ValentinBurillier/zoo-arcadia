@@ -28,17 +28,25 @@
         {{ form_widget(form.mail) }} {# Affiche le champ input #}
         {{ form_label(form.message) }}  {# Affiche le label #}
         {{ form_widget(form.message) }} {# Affiche le champ input #}
+        <p id="input__computer"><input type="checkbox"/>J’accepte que le zoo Arcadia conserve mon adresse mail le temps de répondre à ma demande.<br />
+        Conformément à la règlementation relative des données, vous pouvez exercer vos droits (accès, suppression, opposition, 
+        rectification, limitation, portabilité) sur les données vous concernant en contactant le Zoo Arcadia.
+        </p>
         <button type="submit">Envoyer</button>
     {{ form_end(form) }}
     </section>
 
 
     <section>
-        <p><input type="checkbox"/>J’accepte que le zoo Arcadia conserve mon adresse mail le temps de répondre à ma demande.<br />
+        <p id="input__mobil"><input type="checkbox"/>J’accepte que le zoo Arcadia conserve mon adresse mail le temps de répondre à ma demande.<br />
         Conformément à la règlementation relative des données, vous pouvez exercer vos droits (accès, suppression, opposition, 
         rectification, limitation, portabilité) sur les données vous concernant en contactant le Zoo Arcadia.
         </p>
     </section>
+    
+    {# TESTS DIV COMPUTER #}
+    <div id="left" class="div"></div>
+    <div id="right" class="div"></div>
 
 
     </main>
