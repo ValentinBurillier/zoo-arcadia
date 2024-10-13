@@ -147,14 +147,30 @@
   #right {
     background-image: url("../../images/zoo-arcadia-background.webp");
     background-repeat: no-repeat;
-    // background-size: cover;
+    background-size: cover;
     background-position-y: -50px;
     width: 55%;
     position: absolute;
-    transform: rotateZ(23deg);
+    transform: rotateZ(14deg);
     height: 150vh;
     transform-origin: center;
-    right: -10%;
+    right: -5%;
     top: -20%;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  #header__contactPage, #main__contactPage, #body__contactPage footer {
+    max-width: 1336px;
+    margin: 0 auto;
+  }
+  #right {
+    background-position-y: -250px;
+  }
+}
+
+@media screen and (min-height: 700px) {
+  #right {
+    background-position-x: center;
   }
 }
