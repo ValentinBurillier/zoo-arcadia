@@ -9,6 +9,14 @@
   z-index: 5;
   width: 100%;
 }
+#contact__secondSection {
+  padding: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.div {
+  display: none;
+}
 #main__contactPage section:first-child {
   background-image: url("../../images/zoo-arcadia-background.webp");
   background-repeat: no-repeat;
@@ -126,7 +134,7 @@
     overflow: hidden;
     position: relative;
   }
-  #main__contactPage section:first-child, #main__contactPage section:last-child {
+  #main__contactPage section:first-child, #main__contactPage section:last-child, #contact__secondSection {
     display: none;
   }
   #input__mobil {
@@ -141,8 +149,60 @@
     display: inline-block;
   }
   #left {
-    background: red;
     width: 70%;
+    color: white;
+    form {
+      background: rgba(36, 49, 35, 0.8);
+      border: 1px solid blue;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 100px;
+      row-gap: 0.3rem;
+      height: 100%;
+      h2 {
+        font-size: 1.6rem;
+        padding-left: 50px;
+      }
+      label {
+        font-size: 18px;
+      }
+      input, textarea {
+        width: 50%;
+        border-radius: 5px;
+        height: 40px;
+        background-color: #D9D9D9;
+        border: none;
+        text-align: center;
+        letter-spacing: 1px;
+      }
+      #input__computer2 {
+        font-size: 0.8rem;
+        max-width: 324px;
+        text-align: justify;
+        input {
+        width: 15px;
+        height: 15px;
+        margin-right: 0.5rem;
+        }
+      }
+      button {
+        font-family: Homenaje, sans-serif;
+        font-size: 24px;
+        letter-spacing: 5px;
+        background-color: #525C2A;
+        padding: 4px;
+        border: none;
+        width: 140px;
+        height: 45px;
+        color: white;
+        border-radius: 20px;
+        position: absolute;
+        left: 70%;
+        z-index: 1000;
+        top: 85%;
+      }
+    }
   }
   #right {
     background-image: url("../../images/zoo-arcadia-background.webp");
@@ -169,6 +229,16 @@
   }
 }
 
+@media screen and (min-width: 1170px) {
+  #left {
+    form {
+      padding-left: 150px;
+      h2 {
+        padding-left: 90px;
+      }
+    }
+  }
+}
 @media screen and (min-height: 700px) {
   #right {
     background-position-x: center;
