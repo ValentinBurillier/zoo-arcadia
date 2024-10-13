@@ -1,0 +1,38 @@
+{% set iconMenu = 'zoo-arcadia-brown_menu' %}
+{% set pageName = 'loginPage' %}
+
+{% extends "base.html.twig" %}
+{% block title %}Arcadia | Connexion{% endblock %}
+{% block style %} 
+  <link rel="stylesheet" href="{{ asset('assets/scss/css/connect.css') }}?{{ "now"|date("U") }}" type="text/css">
+{% endblock %}
+
+{# BODY #}
+{% block body %}
+
+  {# HEADER #}
+    <header id="header__{{ pageName }}">
+        {% include "components/nav.html.twig" %}
+    </header>
+
+  <main id="main__{{ pageName }}">
+    <section>
+
+      {{ form_start(form) }}
+
+        <h2>Connexion</h2>
+        {{ form_label(form.email) }}  {# Affiche le label #}
+        {{ form_widget(form.email) }} {# Affiche le champ input #}
+        {{ form_label(form.password) }}  {# Affiche le label #}
+        {{ form_widget(form.password) }} {# Affiche le champ input #}
+        <button type="submit">Se connecter</button>
+
+      {{ form_end(form) }}
+    </section>
+  </main>
+  
+  {% block f_socialsNetwork %}
+    {% include "components/footer_socialsNetwork.html.twig" %}
+  {% endblock %}
+
+{% endblock %}
