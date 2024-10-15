@@ -1,18 +1,11 @@
 @import "../base/_typography";
 @import "../base/_colors";
 @import "../base/_reset";
-@import "../components/_nav";
-@import "../components/_logo";
+@import "../layouts/_bodyFullViewport";
+@import "../layouts/_headerFillComputer";
+@import "../layouts/_footerSocialNetworks";
 
-body {
-  height: 100vh;
-  width: 100vw;
-}
-#header__loginPage {
-  position: absolute;
-  z-index: 5;
-  width: 100%;
-}
+
 .div {
   display: none;
 }
@@ -77,30 +70,9 @@ body {
   align-items: center;
 }
 
-#body__loginPage footer {
-  height: 30px;
-  background: #7F4C27;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-top: 4px solid white;
-  a {
-    height: 100%;
-    img {
-      height: 100%;
-      width: auto;
-    }
-  }
-}
+
 
 @media screen and (min-width: 1000px) {
-  #header__loginPage {
-    position: relative;
-    nav {
-      background: #7F4C27;
-      border-bottom: 4px solid white;
-    }
-  }
   #main__loginPage {
     overflow: hidden;
     background-image: none;
@@ -175,11 +147,8 @@ body {
   }
 }
 @media screen and (min-width: 1100px) {
-  #header__loginPage, #main__loginPage, #body__loginPage footer {
+  #main__loginPage {
     max-width: 1336px;
     margin: 0 auto;
   }
-  // #right {
-  //   background-position-y: -250px;
-  // }
 }
