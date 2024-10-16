@@ -11,12 +11,12 @@
 {% block body %}
 
     {# HEADER #}
-    <header id="header__{{ pageName }}">
+    <header id="header">
         {% include "components/nav.html.twig" %}
     </header>
 
     {# MAIN #}
-    <main id="main__{{ pageName }}">
+    <main id="main">
     <section>
     {{ form_start(formSmall) }}
     <h2>Demande de contact</h2>
@@ -67,9 +67,7 @@
 
 
     </main>
-    <footer>
-        <a href="#" target="_blank"><img src="{{asset('assets/socials_network/logo_x_arcadia.png')}}" alt="logo x aoo arcadia"/></a>
-        <a href="#" target="_blank"><img src="{{asset('assets/socials_network/logo_facebook_arcadia.png')}}" alt="logo Facebook zoo arcadia"/></a>
-        <a href="#" target="_blank"><img src="{{asset('assets/socials_network/logo_instagram_arcadia.png')}}" alt="logo instagram zoo arcadia"/></a>
-    </footer>
+    {% block f_socialsNetwork %}
+        {% include "components/footer_socialsNetwork.html.twig" %}
+    {% endblock %}
 {% endblock %}

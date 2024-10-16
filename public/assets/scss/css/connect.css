@@ -14,6 +14,11 @@ a {
   color: inherit;
 }
 
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
 nav {
   display: flex;
   padding-left: 7%;
@@ -83,17 +88,49 @@ nav img {
     font-size: 3rem;
   }
 }
-body {
-  height: 100vh;
-  width: 100vw;
-}
-
-#header__loginPage {
+#header {
   position: absolute;
   z-index: 5;
   width: 100%;
 }
 
+@media screen and (min-width: 1000px) {
+  #header {
+    position: relative;
+  }
+  #header nav {
+    background: #7F4C27;
+    border-bottom: 4px solid white;
+  }
+}
+@media screen and (min-width: 1100px) {
+  #header {
+    max-width: 1336px;
+    margin: 0 auto;
+  }
+}
+footer {
+  height: 30px;
+  background: #7F4C27;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 4px solid white;
+}
+footer a {
+  height: 100%;
+}
+footer a img {
+  height: 100%;
+  width: auto;
+}
+
+@media screen and (min-width: 1100px) {
+  footer {
+    max-width: 1336px;
+    margin: 0 auto;
+  }
+}
 .div {
   display: none;
 }
@@ -160,30 +197,7 @@ body {
   align-items: center;
 }
 
-#body__loginPage footer {
-  height: 30px;
-  background: #7F4C27;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-top: 4px solid white;
-}
-#body__loginPage footer a {
-  height: 100%;
-}
-#body__loginPage footer a img {
-  height: 100%;
-  width: auto;
-}
-
 @media screen and (min-width: 1000px) {
-  #header__loginPage {
-    position: relative;
-  }
-  #header__loginPage nav {
-    background: #7F4C27;
-    border-bottom: 4px solid white;
-  }
   #main__loginPage {
     overflow: hidden;
     background-image: none;
@@ -258,7 +272,7 @@ body {
   }
 }
 @media screen and (min-width: 1100px) {
-  #header__loginPage, #main__loginPage, #body__loginPage footer {
+  #main__loginPage {
     max-width: 1336px;
     margin: 0 auto;
   }

@@ -83,24 +83,29 @@ nav img {
     font-size: 3rem;
   }
 }
-#header__contactPage {
+#header {
   position: absolute;
   z-index: 5;
   width: 100%;
 }
 
-#contact__secondSection {
-  padding: 1rem;
-  max-width: 400px;
-  margin: 0 auto;
+@media screen and (min-width: 1000px) {
+  #header {
+    position: relative;
+  }
+  #header nav {
+    background: #243123;
+    border-bottom: 4px solid white;
+  }
 }
-
-.div {
-  display: none;
+@media screen and (min-width: 1100px) {
+  #header {
+    max-width: 1336px;
+    margin: 0 auto;
+  }
 }
-
-#main__contactPage section:first-child {
-  background-image: url("../../images/zoo-arcadia-background.webp");
+#main section:first-child {
+  background-image: url(`../../images/zoo-arcadia-background.webp`);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -110,7 +115,62 @@ nav img {
   justify-content: center;
   align-items: center;
 }
-#main__contactPage section:first-child form {
+
+@media screen and (min-width: 1100px) {
+  #main {
+    max-width: 1336px;
+    margin: 0 auto;
+  }
+}
+.div {
+  display: none;
+}
+
+@media screen and (min-width: 1000px) {
+  .div {
+    height: 100%;
+    display: inline-block;
+  }
+}
+@media screen and (min-width: 1100px) {
+  #right {
+    background-position-y: -250px;
+  }
+}
+@media screen and (min-height: 700px) {
+  #right {
+    background-position-x: center;
+  }
+}
+footer {
+  height: 30px;
+  background: #525C2A;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 4px solid white;
+}
+footer a {
+  height: 100%;
+}
+footer a img {
+  height: 100%;
+  width: auto;
+}
+
+@media screen and (min-width: 1100px) {
+  footer {
+    max-width: 1336px;
+    margin: 0 auto;
+  }
+}
+#contact__secondSection {
+  padding: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#main section:first-child form {
   color: white;
   font-family: IBM Plex Serif, serif;
   font-weight: bold;
@@ -123,14 +183,14 @@ nav img {
   width: 70%;
   max-width: 400px;
 }
-#main__contactPage section:first-child form h2 {
+#main section:first-child form h2 {
   font-size: 1.3rem;
 }
-#main__contactPage section:first-child form label {
+#main section:first-child form label {
   align-self: flex-start;
   font-size: 20px;
 }
-#main__contactPage section:first-child form input, #main__contactPage section:first-child form textarea {
+#main section:first-child form input, #main section:first-child form textarea {
   width: 100%;
   border-radius: 5px;
   height: 42px;
@@ -139,7 +199,7 @@ nav img {
   text-align: center;
   letter-spacing: 1px;
 }
-#main__contactPage section:first-child form button {
+#main section:first-child form button {
   font-family: Homenaje, sans-serif;
   font-size: 24px;
   letter-spacing: 5px;
@@ -156,7 +216,7 @@ nav img {
   display: none;
 }
 
-#main__contactPage section:last-child {
+#main section:last-child {
   padding: 2rem;
   display: flex;
   justify-content: center;
@@ -164,7 +224,7 @@ nav img {
   max-width: 500px;
   margin: 0 auto;
 }
-#main__contactPage section:last-child p {
+#main section:last-child p {
   font-family: Homenaje, sans-serif;
   font-size: 1.1rem;
   font-weight: light;
@@ -172,32 +232,17 @@ nav img {
   line-height: 150%;
   transform: translateX(20px);
 }
-#main__contactPage section:last-child p input {
+#main section:last-child p input {
   width: 15px;
   height: 15px;
   margin-right: 5px;
 }
 
-#body__contactPage footer {
-  height: 30px;
-  background: #525C2A;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-#body__contactPage footer a {
-  height: 100%;
-}
-#body__contactPage footer a img {
-  height: 100%;
-  width: auto;
-}
-
 @media screen and (min-width: 700px) {
-  #main__contactPage section:first-child form {
+  #main section:first-child form {
     transform: translateY(10px);
   }
-  #main__contactPage section:first-child form h2 {
+  #main section:first-child form h2 {
     font-size: 1.7rem;
   }
 }
@@ -205,32 +250,20 @@ nav img {
   #body__contactPage {
     height: 100vh;
   }
-  #header__contactPage {
-    position: relative;
-  }
-  #header__contactPage nav {
-    background: #243123;
-    border-bottom: 4px solid white;
-  }
-  #main__contactPage {
+  #main {
     height: calc(100% - 116px);
     display: flex;
     overflow: hidden;
     position: relative;
   }
-  #main__contactPage section:first-child, #main__contactPage section:last-child, #contact__secondSection {
+  #main section:first-child, #main section:last-child, #contact__secondSection {
     display: none;
   }
   #input__mobil {
     display: none;
   }
-  #body__contactPage footer {
-    border-top: 4px solid white;
+  footer {
     height: 58px;
-  }
-  .div {
-    height: 100%;
-    display: inline-block;
   }
   #left {
     width: 70%;
@@ -302,25 +335,11 @@ nav img {
     top: -20%;
   }
 }
-@media screen and (min-width: 1100px) {
-  #header__contactPage, #main__contactPage, #body__contactPage footer {
-    max-width: 1336px;
-    margin: 0 auto;
-  }
-  #right {
-    background-position-y: -250px;
-  }
-}
 @media screen and (min-width: 1170px) {
   #left form {
     padding-left: 150px;
   }
   #left form h2 {
     padding-left: 90px;
-  }
-}
-@media screen and (min-height: 700px) {
-  #right {
-    background-position-x: center;
   }
 }/*# sourceMappingURL=contact.css.map */

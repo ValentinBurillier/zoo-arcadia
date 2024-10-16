@@ -1,21 +1,22 @@
 @import "../components/_nav";
 @import "../components/_logo";
-#header__loginPage {
+#header {
   position: absolute;
   z-index: 5;
   width: 100%;
 }
 @media screen and (min-width: 1000px) {
-  #header__loginPage {
+  #header {
     position: relative;
     nav {
-      background: #7F4C27;
+      background: $bg__header;
+      // background: #7F4C27;
       border-bottom: 4px solid white;
     }
   }
 }
 @media screen and (min-width: 1100px) {
-  #header__loginPage {
+  #header {
     max-width: 1336px;
     margin: 0 auto;
   }
