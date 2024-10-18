@@ -24,6 +24,7 @@ $bg__footer: #7F4C27;
     height: calc(100% / 3);
     background-size: cover;
     position: relative;
+    background-position: center;
     h2, button {
       position: absolute;
       z-index: 10;
@@ -36,12 +37,12 @@ $bg__footer: #7F4C27;
       font-weight: bold;
       text-transform: capitalize;
       bottom: 15px;
-      left: 15px;
+      left: 7%;
       letter-spacing: 2px;
       font-size: 1.5rem;
     }
     button {
-      right: 15px;
+      right: 7%;
       bottom: 15px;
       padding: 8px 16px;
       border-radius: 20%;
@@ -63,7 +64,61 @@ $bg__footer: #7F4C27;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.28); // Couleur et opacité (ici, noir à 50%)
+    background-color: rgba(0, 0, 0, 0.10); // Couleur et opacité (ici, noir à 50%)
     z-index: 5;
   }
+}
+
+@media screen and (min-width: 1000px) {
+  #header {
+    position: absolute;
+    nav {
+      border: none;
+      background: linear-gradient(
+        to bottom, 
+      rgba(102, 102, 102, 0.38) 0%,    /* Couleur au début avec une opacité de 38% */
+      rgba(102, 102, 102, 0.38) 11%,   /* La même couleur avec la même opacité à 11% */
+      rgba(255, 255, 255, 0.38) 66%,   /* Transition vers une autre couleur avec opacité à 66% */
+      rgba(255, 255, 255, 0.38) 100%   /* Couleur finale avec opacité de 38% */
+      );
+    }
+  }
+  #main section {
+    height: 50vh;       // Hauteur des sections dans la première ligne
+    h2 {
+      display: none;
+    }
+    button {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: fit-content;
+      max-height: fit-content;
+      border-radius: inherit;
+      box-shadow: 5px 6px 12.3px 0px white;
+      border-left: 5px solid white;
+    }
+  }
+  
+  #section__aquatique button {
+    background: #31CEFF;
+  }
+  #section__jungle button {
+    background: #0C3F03;
+  }
+  #section__savane,
+  #section__aquatique {
+    width: 50vw;        // Largeur des sections dans la première ligne
+    float: left;        // Positionne les sections côte à côte
+  }
+  #section__aquatique {
+    box-shadow: -39px 4px 45.1px -13px #FFFCFC;
+  }
+  #section__jungle {
+    width: 100vw;       // Prend toute la largeur de la deuxième ligne
+    height: 50vh;       // Hauteur de la deuxième ligne
+    clear: both;        // S'assure que cette section commence sous les précédentes
+    box-shadow: 15px -45px 45.1px -13px #FFFCFC;
+  }
+  
 }
