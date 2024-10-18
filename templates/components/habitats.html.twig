@@ -1,0 +1,11 @@
+{% block habitats %}
+
+  {% set order = {'savane': 1, 'aquatique': 2, 'jungle': 3} %}
+  {% for habitat in habitats|sort((a, b) => order[a.name] <=> order[b.name]) %}
+      <section id="section__{{ habitat.name }}"style="background-image: url('assets/images/{{habitat.image}}')">
+          <h2>{{ habitat.name }}</h2>
+          <button><a href="">Découvrir</a></button>
+      </section>
+  {% endfor %}
+
+{% endblock %}
