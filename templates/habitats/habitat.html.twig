@@ -1,0 +1,37 @@
+{% if habitat.name == 'jungle' %}
+  {% set iconMenu = 'zoo-arcadia-green_menu' %}
+
+{% elseif habitat.name == 'savane' %}
+  {% set iconMenu = 'zoo-arcadia-brown_menu' %}
+
+{% elseif habitat.name == 'aquatique' %}
+  {% set iconMenu = 'zoo-arcadia-blue_menu' %}
+
+{% endif %}
+
+{% set pageName = 'habitatPage' %}
+
+{% extends "base.html.twig" %}
+{% block title %}Arcadia | Habitat {{ habitat.name }}{% endblock %}
+{% block style %} 
+  <link rel="stylesheet" href="{{ asset('assets/scss/css/habitat.css') }}?{{ "now"|date("U") }}" type="text/css">
+{% endblock %}
+
+{# BODY #}
+{% block body %}
+
+  {# HEADER #}
+    <header id="header">
+        {% include "components/nav.html.twig" %}
+    </header>
+
+  <main id="main" style="background-image: url('../assets/images/{{habitat.image}}')">
+      <h2>{{ habitat.name }}</h2>
+      <p>{{ habitat.description }}</p>
+      <button>Découvrir</button>
+    
+    
+    {# <a href="{{ path('app_habitat', {'name': habitat.name|lower}) }}">Retour à la liste des habitats</a> #}
+  </main>
+
+{% endblock %}

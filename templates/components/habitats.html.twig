@@ -4,7 +4,7 @@
   {% for habitat in habitats|sort((a, b) => order[a.name] <=> order[b.name]) %}
       <section id="section__{{ habitat.name }}"style="background-image: url('assets/images/{{habitat.image}}')">
           <h2>{{ habitat.name }}</h2>
-          <button><a href="">Découvrir</a></button>
+          <button><a href="{{ path('app_habitat', {'name': habitat.name|lower }) }}">Découvrir</a></button>
       </section>
   {% endfor %}
 
