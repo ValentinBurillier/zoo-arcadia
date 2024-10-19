@@ -21,14 +21,14 @@
 {% block body %}
 
   {# HEADER #}
-    <header id="header">
+    <header id="header" class="box-menu">
         {% include "components/nav.html.twig" %}
     </header>
 
-  <main id="main" style="background-image: url('../assets/images/{{habitat.image}}')">
-      <h2>{{ habitat.name }}</h2>
-      <p>{{ habitat.description }}</p>
-      <button>Découvrir</button>
+  <main id="main" style="background-image: url('../assets/images/{{habitat.image}}')" class="main__{{ habitat.name }}">
+      <h2 id="title__{{ habitat.name }}">{{ habitat.name }}</h2>
+      <p id="parah__{{ habitat.name }}">{{ habitat.description }}</p>
+      <button id="btn__{{ habitat.name }}">Découvrir</button>
     
     
     {# <a href="{{ path('app_habitat', {'name': habitat.name|lower}) }}">Retour à la liste des habitats</a> #}
