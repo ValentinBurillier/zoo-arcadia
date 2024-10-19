@@ -30,8 +30,23 @@
       <p id="parah__{{ habitat.name }}">{{ habitat.description }}</p>
       <button id="btn__{{ habitat.name }}">Découvrir</button>
     
-    
+    <section id="section__Container">
+      <section>
+        {% for habitatTwo in habitats %}
+          {% if habitatTwo.name == habitat.name %}
+            <h2 class="bg__{{ habitat.name }}" style="border-radius: 0% 0% 0% 50%; text-decoration: underline; width: initial; padding: 0.5rem 4rem;">{{ habitatTwo.name }}</h2>
+          {% else %}
+            <h2>{{ habitatTwo.name }}</h2>
+          {% endif %}
+        {% endfor %}
+      </section>
+      <section>
+        <p id="parah__{{ habitat.name }}">{{ habitat.description }}</p>
+        <button id="btn__{{ habitat.name }}">Découvrir</button>
+      </section>
+    </section>
+
     {# <a href="{{ path('app_habitat', {'name': habitat.name|lower}) }}">Retour à la liste des habitats</a> #}
   </main>
-
+  <script src="{{ asset('assets/scripts/changeHabitat.js' )}}"></script>
 {% endblock %}

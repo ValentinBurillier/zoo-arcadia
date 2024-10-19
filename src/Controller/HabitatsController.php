@@ -23,13 +23,16 @@ class HabitatsController extends AbstractController
     #[Route('/habitats/{name}', name: 'app_habitat')]
     public function show(string $name, HabitatRepository $habitatRepository): Response
     {
+        $habitats = $habitatRepository->findAll();
+        // dd($habitats);
         $habitat = $habitatRepository->findOneBy(['name' => $name]);
         if(!$habitat) {
             return new JsonResponse(['error' => 'Habitat not found'], Response::HTTP_NOT_FOUND);
         }
 
         return $this->render('habitats/habitat.html.twig', [
-            'habitat' => $habitat
+            'habitat' => $habitat,
+            'habitats' => $habitats
         ]);
     }
 }
