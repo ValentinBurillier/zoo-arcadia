@@ -1,0 +1,26 @@
+{% if habitat.name == 'jungle' %}
+  {% set iconMenu = 'zoo-arcadia-green_menu' %}
+
+{% elseif habitat.name == 'savane' %}
+  {% set iconMenu = 'zoo-arcadia-brown_menu' %}
+
+{% elseif habitat.name == 'aquatique' %}
+  {% set iconMenu = 'zoo-arcadia-blue_menu' %}
+
+{% endif %}
+
+{% set pageName = 'animalPage' %}
+
+{% extends "base.html.twig" %}
+{% block title %}Arcadia | {{ animal }} {% endblock %}
+{% block style %} 
+  <link rel="stylesheet" href="{{ asset('assets/scss/css/animal.css') }}?{{ "now"|date("U") }}" type="text/css">
+{% endblock %}
+
+{# BODY #}
+{% block body %}
+  {# HEADER #}
+    <header id="header" class="box-menu">
+        {% include "components/nav.html.twig" %}
+    </header>
+{% endblock %}

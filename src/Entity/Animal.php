@@ -49,9 +49,6 @@ class Animal
     #[ORM\Column(length: 255)]
     private ?string $state = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $date_exam = null;
-
     public function __construct()
     {
         $this->exams = new ArrayCollection();

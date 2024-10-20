@@ -55,6 +55,28 @@ $bg__footer: #7F4C27;
     border: none;
     padding: 0.5rem 1.5rem;
   }
+  ul {
+    position: fixed;
+    display: flex;
+    transform: translate(-50%, -50%);
+    bottom: 2vh;
+    left: 50%;
+    list-style: none;
+    column-gap: 1.5rem;
+    z-index: 100;
+    li {
+      border-radius: 50%;
+      width: 1rem;
+      height: 1rem;
+    }
+    li:not([class^="selected__"]) {
+      background-color: white;
+    }
+    li:not([class^="selected__"]):hover {
+      cursor: pointer;
+      scale: 1.1;
+    }
+  }
 }
 
 // GESTION DYNAMIQUE DES COULEURS
@@ -69,7 +91,7 @@ $bg__footer: #7F4C27;
   z-index: 1;
 }
 
-#title__savane, #btn__savane, .bg__savane {
+#title__savane, #btn__savane, .bg__savane, .selected__savane {
   background: $terre;
 }
 
@@ -84,7 +106,7 @@ $bg__footer: #7F4C27;
   z-index: 1;
 }
 
-#title__aquatique, #btn__aquatique, .bg__aquatique {
+#title__aquatique, #btn__aquatique, .bg__aquatique, .selected__aquatique {
   background: #31CEFF;
 }
 
@@ -99,7 +121,7 @@ $bg__footer: #7F4C27;
   z-index: 1;
 }
 
-#title__jungle, #btn__jungle, .bg__jungle {
+#title__jungle, #btn__jungle, .bg__jungle, .selected__jungle {
   background: #0C3F03;
 }
 
@@ -171,4 +193,17 @@ $bg__footer: #7F4C27;
       line-height: 4rem;
     }
   } 
+}
+
+@media screen and (min-width: 1200px) {
+  #main h2 {
+    font-size: 2.2rem;
+  }
+  #main p {
+    font-size: 2rem;
+    max-width: 550px;
+  }
+  #main button {
+    font-size: 1.5rem;
+  }
 }

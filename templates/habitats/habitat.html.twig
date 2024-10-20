@@ -28,7 +28,7 @@
   <main id="main" style="background-image: url('../assets/images/{{habitat.image}}')" class="main__{{ habitat.name }}">
       <h2 id="title__{{ habitat.name }}">{{ habitat.name }}</h2>
       <p id="parah__{{ habitat.name }}">{{ habitat.description }}</p>
-      <button id="btn__{{ habitat.name }}">Découvrir</button>
+      <button id="btn__{{ habitat.name }}"><a href="{{ path('app_animal', {'name': habitat.name|lower, 'animal': habitat.animals|first.name }) }}">Découvrir</a></button>
     
     <section id="section__Container">
       <section>
@@ -42,11 +42,20 @@
       </section>
       <section>
         <p id="parah__{{ habitat.name }}">{{ habitat.description }}</p>
-        <button id="btn__{{ habitat.name }}">Découvrir</button>
+        <button id="btn__{{ habitat.name }}"><a href="{{ path('app_animal', {'name': habitat.name|lower, 'animal': habitat.animals| first.name } ) }}">Découvrir</a></button>
       </section>
     </section>
 
-    {# <a href="{{ path('app_habitat', {'name': habitat.name|lower}) }}">Retour à la liste des habitats</a> #}
+    <ul>
+      {% for habitatTwo in habitats %}
+        {% if habitatTwo.name == habitat.name %}
+          <li class="selected__{{ habitatTwo.name }} list__{{ habitatTwo.name }}"></li>
+        {% else %}
+          <li class="list__{{ habitatTwo.name }}"></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
   </main>
   <script src="{{ asset('assets/scripts/changeHabitat.js' )}}"></script>
 {% endblock %}
