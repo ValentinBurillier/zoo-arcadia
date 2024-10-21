@@ -23,4 +23,34 @@
     <header id="header" class="box-menu">
         {% include "components/nav.html.twig" %}
     </header>
+
+  <main style="background-image: url('../../assets/images/{{image}}')" class="{{ animal }}">
+  <section>
+  {% for habitat in habitats %}
+      {% for anim in habitat.animals %}
+        {% if anim.name == animal %}
+          <h2>{{ anim.name }}</h2>
+          <h2>{{ anim.description }}</h2>
+        {% endif %}
+      {% endfor %}
+   {% endfor %}
+  </section>
+    <ul>
+
+      {% for habitatTwo in habitats %}
+        {% if habitat.name == habitatTwo.name %}
+          {% for anim in habitat.animals %}
+            {% if anim.name == animal %}
+              <li class="selected__{{ anim.name }} list__{{ anim.name }}"></li>
+            {% else %}
+            <li class="list__{{ anim.name }}"></li>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+
+    </ul>
+
+  </main>
+  <script src="{{ asset('assets/scripts/changeAnimal.js' )}}"></script>
 {% endblock %}

@@ -108,4 +108,261 @@ nav img {
     max-width: 1336px;
     margin: 0 auto;
   }
+}
+main {
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-transform: capitalize;
+}
+main section {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 2px;
+}
+main section h2:first-child {
+  font-size: 2rem;
+  border: 1px solid #31CEFF;
+  background: rgba(255, 255, 255, 0.23);
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+main section h2:last-child {
+  font-size: 1.3rem;
+}
+
+main ul {
+  position: fixed;
+  display: flex;
+  transform: translate(-50%, -50%);
+  bottom: 2vh;
+  left: 50%;
+  list-style: none;
+  column-gap: 1.5rem;
+  z-index: 100;
+}
+main ul li {
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+}
+main ul li:not([class^=selected__]) {
+  background-color: white;
+}
+main ul li:not([class^=selected__]):hover {
+  cursor: pointer;
+  scale: 1.1;
+}
+
+li[class^=selected__] {
+  background: #FFD771;
+}
+
+@media screen and (min-width: 700px) {
+  main section h2:first-child {
+    font-size: 2.5rem;
+  }
+  main section h2:last-child {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (min-width: 1000px) {
+  #header {
+    position: absolute;
+    max-width: none;
+  }
+  #header nav {
+    background: none;
+    border: none;
+  }
+  main section h2:first-child {
+    font-size: 3rem;
+  }
+  main section h2:last-child {
+    font-size: 2rem;
+  }
+  main ul {
+    column-gap: 2rem;
+  }
+  main ul li {
+    width: 25px;
+    height: 25px;
+  }
+}
+@media screen and (min-width: 820px) {
+  .daphne {
+    background-position-y: -200px;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .daphne {
+    background-position-y: -350px;
+  }
+}
+@media screen and (min-width: 1500px) {
+  .daphne {
+    background-position-y: -450px;
+  }
+}
+@media screen and (min-width: 540px) {
+  .phoebe {
+    background-position-y: 0px;
+  }
+}
+@media screen and (min-width: 850px) {
+  .phoebe {
+    background-position-y: -180px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .phoebe {
+    background-position-y: -270px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .phoebe {
+    background-position-y: -350px;
+  }
+}
+@media screen and (min-width: 450px) {
+  .pedro {
+    background-position-y: inherit;
+  }
+}
+@media screen and (min-width: 320px) {
+  .pedro {
+    background-position-y: inherit;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .pedro {
+    background-position-y: -250px;
+  }
+}
+@media screen and (min-width: 320px) {
+  .gru {
+    background-position-y: inherit;
+  }
+}
+@media screen and (min-width: 850px) {
+  .gru {
+    background-position-y: -290px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .gru {
+    background-position-y: -500px;
+  }
+}
+@media screen and (min-width: 320px) {
+  .martin {
+    background-position-y: inherit;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .martin {
+    background-position-y: -250px;
+  }
+}
+@media screen and (min-width: 320px) {
+  .sophie {
+    background-position-y: inherit;
+  }
+}
+@media screen and (min-width: 510px) {
+  .sophie {
+    background-position-y: -220px;
+  }
+}
+@media screen and (min-width: 850px) {
+  .sophie {
+    background-position-y: -370px;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .sophie {
+    background-position-y: -550px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .sophie {
+    background-position-y: -750px;
+  }
+}
+@media screen and (min-width: 750px) {
+  .lucie {
+    background-position-y: -500px;
+  }
+}
+@media screen and (min-width: 890px) {
+  .lucie {
+    background-position-y: -700px;
+  }
+}
+@media screen and (min-width: 1088px) {
+  .lucie {
+    background-position-y: -850px;
+  }
+}
+@media screen and (min-width: 1230px) {
+  .lucie {
+    background-position-y: -950px;
+  }
+}
+@media screen and (min-width: 1330px) {
+  .lucie {
+    background-position-y: -1050px;
+  }
+}
+@media screen and (min-width: 1430px) {
+  .lucie {
+    background-position-y: -1120px;
+  }
+}
+@media screen and (min-width: 1530px) {
+  .lucie {
+    background-position-y: -1220px;
+  }
+}
+@media screen and (min-width: 1630px) {
+  .lucie {
+    background-position-y: -1300px;
+  }
+}
+@media screen and (min-width: 1730px) {
+  .lucie {
+    background-position-y: -1400px;
+  }
+}
+@media screen and (min-height: 650px) {
+  .lucie {
+    background-position-y: center;
+  }
+}
+@media screen and (min-width: 700px) and (min-height: 650px) {
+  .lucie {
+    background-position-y: bottom;
+  }
+}
+@media screen and (min-width: 900px) and (min-height: 650px) {
+  .lucie {
+    background-position-y: center;
+  }
+}
+@media screen and (min-width: 1200px) and (min-height: 650px) {
+  .lucie {
+    background-position-y: -940px;
+  }
+}
+@media screen and (min-width: 1500px) and (min-height: 650px) {
+  .lucie {
+    background-position-y: -1200px;
+  }
 }/*# sourceMappingURL=animal.css.map */

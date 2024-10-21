@@ -39,11 +39,21 @@ class HabitatsController extends AbstractController
     public function animals(string $name, string $animal, HabitatRepository $habitatRepository): Response
     {
         $habitats = $habitatRepository->findAll();
+        foreach($habitats as $hab) {
+            foreach($hab->getAnimals() as $anim){
+                if($animal === $anim->getName()) {
+                    $image = $anim->getImage();
+                }
+            };
+           
+        }
         $habitat = $habitatRepository->findOneBy(['name' => $name]);
         if(!$habitat) {
             return new JsonResponse(['error' => 'Habitat not found'], Response::HTTP_NOT_FOUND);
         }
         return $this->render('habitats/animal.html.twig', [
+            'image' => $image,
+            'name' => $name,
             'animal' => $animal,
             'habitat' => $habitat,
             'habitats' => $habitats
