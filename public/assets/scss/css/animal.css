@@ -109,6 +109,61 @@ nav img {
     margin: 0 auto;
   }
 }
+#cardAnimal {
+  position: fixed;
+  min-height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 100;
+  top: 0;
+  left: 0;
+  display: flex;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  row-gap: 2rem;
+}
+#cardAnimal #cross {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 25px;
+  height: 25px;
+}
+#cardAnimal #view {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  width: 25px;
+  height: 25px;
+}
+#cardAnimal h2 {
+  font-size: 1.3rem;
+  text-align: center;
+  max-width: 80%;
+}
+#cardAnimal p {
+  font-size: 1.1rem;
+  text-align: center;
+  max-width: 80%;
+}
+
+@media screen and (min-width: 700px) {
+  #cardAnimal h2 {
+    font-size: 1.5rem;
+  }
+  #cardAnimal p {
+    font-size: 1.3rem;
+  }
+}
+@media screen and (min-height: 700px) {
+  #cardAnimal h2 {
+    font-size: 1.6rem;
+  }
+  #cardAnimal p {
+    font-size: 1.4rem;
+  }
+}
 main {
   height: 100vh;
   width: 100vw;
@@ -133,6 +188,10 @@ main section h2:first-child {
   background: rgba(255, 255, 255, 0.23);
   padding: 0 1rem;
   margin-bottom: 1rem;
+}
+main section h2:first-child:hover {
+  cursor: pointer;
+  scale: 1.1;
 }
 main section h2:last-child {
   font-size: 1.3rem;

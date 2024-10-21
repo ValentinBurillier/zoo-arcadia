@@ -50,7 +50,22 @@
       {% endfor %}
 
     </ul>
+  <section id="cardAnimal">
+    <img id="cross" src="{{ asset('assets/images/cross.png') }}"/>
+    <img id="view" src="{{ asset('assets/images/view_white.png') }}"/>
+    <h2>Fiche technique de<br/> {{ animal }}</h2>
+    <p>Espèce : {{ animalData.species }}</p>
+    <p>Date d'arrivée : {{ animalData.arrivalDate | date('d/m/Y') }}</p>
+    <p>Habitat : {{ animalData.habitat.name }}</p>
+    <p>Notes vétérinaires</p>
+    {% for dataVeto in animalData.exams %}
+      <p>{{ dataVeto.date | date('d/m/Y') }}</p>
+      <p>Etat : {{ dataVeto.state }} </p>
+      <p>Nourriture : {{ dataVeto.food }} </p>
+    {% endfor %}
 
+  </section>
   </main>
   <script src="{{ asset('assets/scripts/changeAnimal.js' )}}"></script>
+  <script src="{{ asset('assets/scripts/dataAnimal.js' )}}"></script>
 {% endblock %}

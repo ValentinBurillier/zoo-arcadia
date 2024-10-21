@@ -49,6 +49,9 @@ class Animal
     #[ORM\Column(length: 255)]
     private ?string $state = null;
 
+    #[ORM\Column]
+    private ?int $views = null;
+
     public function __construct()
     {
         $this->exams = new ArrayCollection();
@@ -193,6 +196,18 @@ class Animal
     public function setState(string $state): static
     {
         $this->state = $state;
+
+        return $this;
+    }
+
+    public function getViews(): ?int
+    {
+        return $this->views;
+    }
+
+    public function setViews(int $views): static
+    {
+        $this->views = $views;
 
         return $this;
     }

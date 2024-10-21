@@ -36,7 +36,7 @@ class HabitatsController extends AbstractController
     }
 
     #[Route('/habitats/{name}/{animal}', name: 'app_animal')]
-    public function animals(string $name, string $animal, HabitatRepository $habitatRepository): Response
+    public function animals(string $name, string $animal, HabitatRepository $habitatRepository, AnimalRepository $animalRepository): Response
     {
         $habitats = $habitatRepository->findAll();
         foreach($habitats as $hab) {
@@ -47,11 +47,13 @@ class HabitatsController extends AbstractController
             };
            
         }
+        $animalData = $animalRepository->findOneBy(['name' => $animal]);
         $habitat = $habitatRepository->findOneBy(['name' => $name]);
         if(!$habitat) {
             return new JsonResponse(['error' => 'Habitat not found'], Response::HTTP_NOT_FOUND);
         }
         return $this->render('habitats/animal.html.twig', [
+            'animalData' => $animalData,
             'image' => $image,
             'name' => $name,
             'animal' => $animal,
