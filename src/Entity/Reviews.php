@@ -23,6 +23,9 @@ class Reviews
     #[ORM\Column(type: Types::TEXT)]
     private ?string $comment = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $statut = 'check';
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class Reviews
     public function setComment(string $comment): static
     {
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    public function getStatut(): ?string
+    {
+        return $this->statut;
+    }
+
+    public function setStatut(string $statut): static
+    {
+        $this->statut = $statut;
 
         return $this;
     }

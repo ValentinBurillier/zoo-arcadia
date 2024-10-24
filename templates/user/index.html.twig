@@ -1,0 +1,63 @@
+{% set iconMenu = 'zoo-arcadia-green_menu' %}
+{% set pageName = 'EmployePage' %}
+
+{% extends "base.html.twig" %}
+{% block title %}Arcadia | Interface Employe{% endblock %}
+{% block style %} 
+  <link rel="stylesheet" href="{{ asset('assets/scss/css/employe.css') }}?{{ "now"|date("U") }}" type="text/css">
+{% endblock %}
+
+{# BODY #}
+{% block body %}
+
+    <header>Arcadia</header>
+
+    <main id="main">
+        <details>
+            <summary>Avis à vérifier</summary>
+            {% for review in reviews %}
+                <ul id="reviews__list">
+                    <ul class="user__data">
+                        <li>19/09/24</li>{# <li>{{ review.date }}</li> #}
+                        <li>{{ review.pseudo }}</li>
+                    </ul>
+
+                    <li id="stars__score">
+                        {% set score = review.score %}
+                        {% for i in 1..5 %}
+                            <img src="{{ asset('assets/images/gold_star.png') }}" width="20" height="20" />
+                        {% endfor %}
+                    </li>
+
+                    <li>{{ review.comment }}</li>
+                    <li id="icon__statut">
+                        <img src="{{ asset('assets/images/zoo-arcadia-valid.webp') }}" width="20" height="20" />
+                        <img src="{{ asset('assets/images/zoo-arcadia-cancel.webp') }}" width="20" height="20" />
+                    </li>
+                    
+                    <hr />
+                </ul>
+            {% endfor %}
+        </details>
+
+        <details>
+            <summary>Services</summary>
+            
+                {% for service in services %}
+                    <ul id="services">
+                        <li>{{ service.title }}</li>
+                        <li>{{ service.description }}</li>
+                        <img src="{{ asset('assets/images/' ~ service.urlIcon) }}" width="25" height:"25" />
+                        <hr />
+                    </ul>
+                {% endfor %}
+            
+            
+        </details>
+
+        <details>
+            <summary>Alimentation</summary>
+        </details>
+    </main>
+  
+{% endblock %}
