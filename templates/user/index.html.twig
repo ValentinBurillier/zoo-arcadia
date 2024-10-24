@@ -55,9 +55,21 @@
             
         </details>
 
-        <details>
+        <details id="alimentation">
             <summary>Alimentation</summary>
+            {% for habitat in habitats %}
+                <details>
+                    <summary class="habitat">{{ habitat.name }}</summary>
+                    {% for animals in habitat.animals %}
+                        <details class="animals">
+                            <summary>{{ animals.name }}</summary>
+                        </details>
+                    {% endfor %}
+                </details>
+            {% endfor %}
+
         </details>
+
     </main>
-  
+    <script src="{{ asset('assets/scripts/test.js' )}}"></script>
 {% endblock %}

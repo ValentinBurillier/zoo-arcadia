@@ -21,13 +21,13 @@ final class Version20241024083104 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         // $this->addSql('ALTER TABLE animal ADD views INT NOT NULL');
-        $this->addSql('ALTER TABLE reviews ADD statut VARCHAR(255) NOT NULL');
+        // $this->addSql('ALTER TABLE reviews ADD statut VARCHAR(255) NOT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE animal DROP views');
-        $this->addSql('ALTER TABLE reviews DROP statut');
+        // $this->addSql('ALTER TABLE reviews DROP statut');
     }
 }

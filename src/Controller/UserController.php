@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\HabitatRepository;
 use App\Repository\ReviewsRepository;
 use App\Repository\ServicesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -11,7 +12,7 @@ use Symfony\Component\Routing\Attribute\Route;
 class UserController extends AbstractController
 {
     #[Route('/employe', name: 'app_user')]
-    public function index(ServicesRepository $servicesRepository, ReviewsRepository $reviewsRepository): Response
+    public function index(ServicesRepository $servicesRepository, ReviewsRepository $reviewsRepository, HabitatRepository $habitatRepository): Response
     {
         $reviews = $reviewsRepository
             ->createQueryBuilder('r')
@@ -20,8 +21,10 @@ class UserController extends AbstractController
             ->getQuery()
             ->getResult();
    
+        $habitats = $habitatRepository->findAll();
         $services = $servicesRepository->findAll();
         return $this->render('user/index.html.twig', [
+            'habitats' => $habitats,
             'services' => $services,
             'reviews' => $reviews
         ]);

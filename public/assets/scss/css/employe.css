@@ -40,10 +40,11 @@ header {
   height: 75%;
   overflow: scroll;
   color: #7A4200;
+  position: relative;
 }
 #main details {
   width: 75%;
-  background-color: white;
+  background-color: #D9D9D9;
   text-align: center;
   margin: 0 auto;
 }
@@ -121,4 +122,34 @@ header {
   justify-content: center;
   align-items: center;
   column-gap: 0.5rem;
+}
+
+#alimentation details {
+  width: 100%;
+}
+#alimentation details .habitat {
+  font-size: 1.3rem;
+  text-transform: capitalize;
+}
+#alimentation details:not(details[open]) summary::before {
+  content: "▶";
+}
+
+#alimentation[open] > summary {
+  margin-bottom: 1.2rem;
+}
+
+#alimentation[open] summary {
+  text-align: left;
+  padding-left: 3rem;
+}
+
+#main #alimentation[open] details {
+  margin-bottom: 1rem;
+}
+
+#alimentation .animals summary {
+  font-size: 1rem;
+  color: black;
+  text-transform: capitalize;
 }/*# sourceMappingURL=employe.css.map */

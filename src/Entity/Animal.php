@@ -52,9 +52,16 @@ class Animal
     #[ORM\Column]
     private ?int $views = null;
 
+    /**
+     * @var Collection<int, Meal>
+     */
+    #[ORM\OneToMany(targetEntity: Meal::class, mappedBy: 'animal')]
+    private Collection $meals;
+
     public function __construct()
     {
         $this->exams = new ArrayCollection();
+        $this->meals = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -208,6 +215,36 @@ class Animal
     public function setViews(int $views): static
     {
         $this->views = $views;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Meal>
+     */
+    public function getMeals(): Collection
+    {
+        return $this->meals;
+    }
+
+    public function addMeal(Meal $meal): static
+    {
+        if (!$this->meals->contains($meal)) {
+            $this->meals->add($meal);
+            $meal->setAnimal($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMeal(Meal $meal): static
+    {
+        if ($this->meals->removeElement($meal)) {
+            // set the owning side to null (unless already changed)
+            if ($meal->getAnimal() === $this) {
+                $meal->setAnimal(null);
+            }
+        }
 
         return $this;
     }
