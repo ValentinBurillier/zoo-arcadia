@@ -1,0 +1,11 @@
+@mixin d-flex-col-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@mixin bg-img-cover-no-repeat($img-url) {
+  background: url(#{$img-url});
+  background-repeat: no-repeat;
+  background-size: cover;
+}

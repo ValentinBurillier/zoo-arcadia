@@ -1,0 +1,17 @@
+{% block formReviews %}
+{{ form_start(form) }}
+      {{ form_label(form.pseudo) }}
+    {{ form_widget(form.pseudo) }}
+
+     <label for="{{ form.score.vars.id }}">{{ form.score.vars.label }}</label>
+     <div class="container_stars">
+        {% for choice in form.score %}
+            {{ form_widget(choice) }}
+            {{ form_label(choice, '<img src="' ~ asset('assets/images/zoo-arcadia-white_star.webp') ~ '" class="star"/>') | raw }}
+        {% endfor %}
+    </div>
+     {{ form_label(form.comment) }}
+    {{ form_widget(form.comment) }}
+    <button type="submit">Envoyer</button>
+{{ form_end(form) }}
+{% endblock %}

@@ -8,35 +8,19 @@
 
 {# BODY #}
 {% block body %}
-<header id="header__{{ pageName }}">
-{% include "components/nav.html.twig" %}
-</header>
+  <header id="header">
+    {% include "components/nav.html.twig" %}
+  </header>
 
-<main id="main__{{ pageName }}">
-{{ form_start(form) }}
-      {{ form_label(form.pseudo) }}  {# Affiche le label #}
-    {{ form_widget(form.pseudo) }} {# Affiche le champ input #}
-
-     <label for="{{ form.score.vars.id }}">{{ form.score.vars.label }}</label> <!-- Affiche le label "Note" -->
-     <div class="container_stars">
-        {% for choice in form.score %}
-            {{ form_widget(choice) }} {# INPUT #}
-            {# {{ form_label(choice, '☆') }} LABEL #}
-            {{ form_label(choice, '<img src="' ~ asset('assets/images/zoo-arcadia-white_star.webp') ~ '" class="star"/>') | raw }}
-
-            {# <label><span>{{ form_label(choice) }}</span></label> #}
-        {% endfor %}
-    </div>
-     {{ form_label(form.comment) }}  {# Affiche le label #}
-    {{ form_widget(form.comment) }} {# Affiche le champ input #}
-    <button type="submit">Envoyer</button>
-{{ form_end(form) }}
-
-
+  <main id="main">
+    {% block formReviews %}
+      {% include "components/formReviews.html.twig" %}
+    {% endblock %}
+  </main>
 {% endblock %}
 {# END BODY #}
 
 {# SCRIPTS JS #}
 {% block scripts %}
-<script src="{{ asset('assets/scripts/reviews.js' )}}" defer></script>
+  <script src="{{ asset('assets/scripts/reviews.js' )}}" defer></script>
 {% endblock %}

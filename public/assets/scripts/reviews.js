@@ -1,6 +1,5 @@
 let stars = document.querySelectorAll('.star'); // recup all stars
 let nbstars = stars.length;
-console.log(nbstars);
 stars.forEach((star, index) => { // 
   star.addEventListener('click', () => {
     for(let i = 0; i < index; i++) {

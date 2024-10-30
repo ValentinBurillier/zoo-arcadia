@@ -1,0 +1,81 @@
+form {
+  color: $white;
+  font-family: $mainTitle;
+  font-weight: bold;
+  @include d-flex-col-center;
+  row-gap: 1.5rem;
+  transform: translateY(20px);
+  width: 70%;
+  max-width: 400px;
+  h2 {
+    font-size: 1.7rem;
+  }
+  label {
+    align-self: flex-start;
+    font-size: 20px;
+  }
+  input, textarea {
+    width: 100%;
+    border-radius: 5px;
+    height: 42px;
+    background-color: $grey;
+    border: none;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  button {
+    font-family: $secondFont;
+    font-size: 1.3rem;
+    letter-spacing: 5px;
+    background-color: $terre;
+    padding: 1rem;
+    border: none;
+    width: 180px;
+    height: 52px;
+    color: $white;
+    border-radius: 20px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #main__loginPage #left {
+    form {
+      @include d-flex-col-center;
+      align-items: initial;
+      padding-left: 100px;
+      row-gap: 1.2rem;
+      height: 100%;
+      h2 {
+        font-size: 2rem;
+        position: absolute;
+        left: 5%;
+        top: 5%;
+      }
+      label {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+      input {
+        width: 50%;
+        border-radius: 5px;
+        height: 40px;
+        background-color: $grey;
+        border: none;
+        text-align: center;
+        letter-spacing: 1px;
+        max-width: 370px;
+      }
+      button {
+        font-family: Homenaje, sans-serif;
+        font-size: 18px;
+        letter-spacing: 5px;
+        background-color: $terre;
+        border: none;
+        width: 180px;
+        height: 45px;
+        color: $white;
+        border-radius: 20px;
+      }
+    }
+  }
+}

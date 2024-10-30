@@ -140,11 +140,12 @@ footer a img {
   width: 100vw;
   background: rgba(127, 76, 39, 0.21);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 #main__loginPage section:first-child form {
-  color: white;
+  color: #FFFFFF;
   font-family: IBM Plex Serif, serif;
   font-weight: bold;
   display: flex;
@@ -181,7 +182,7 @@ footer a img {
   border: none;
   width: 180px;
   height: 52px;
-  color: white;
+  color: #FFFFFF;
   border-radius: 20px;
 }
 
@@ -193,6 +194,7 @@ footer a img {
   height: calc(100% - 34px);
   width: 100vw;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -221,6 +223,8 @@ footer a img {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    align-items: initial;
     padding-left: 100px;
     row-gap: 1.2rem;
     height: 100%;
@@ -253,7 +257,7 @@ footer a img {
     border: none;
     width: 180px;
     height: 45px;
-    color: white;
+    color: #FFFFFF;
     border-radius: 20px;
   }
   #right {
