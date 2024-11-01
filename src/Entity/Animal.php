@@ -129,7 +129,7 @@ class Animal
         return $this;
     }
 
-    public function getHabitat(): ?habitat
+    public function getHabitat(): ?Habitat
     {
         return $this->habitat;
     }

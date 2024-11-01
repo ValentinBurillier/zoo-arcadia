@@ -4,13 +4,14 @@ document.addEventListener("DOMContentLoaded", function () {
   detailsElements.forEach((details) => {
       details.addEventListener("toggle", function () {
           if (details.open) {
+            details.classList.add("actif");
             detailsElements.forEach((otherDetails) => {
               if (otherDetails !== details) {
                   otherDetails.open = false;
+                  otherDetails.classList.remove("actif");
               }
           });
             main.prepend(details);
-            
           }
       });
   });

@@ -36,6 +36,11 @@ header {
   margin-bottom: 2.5rem;
 }
 
+.actif {
+  height: 75vh;
+  overflow-y: scroll;
+}
+
 #main {
   height: 75%;
   overflow: scroll;
@@ -152,4 +157,46 @@ header {
   font-size: 1rem;
   color: black;
   text-transform: capitalize;
+}
+
+form label, form h3 {
+  display: block;
+  text-align: left;
+  margin: 0 auto;
+  font-family: Tahoma, sans-serif;
+  font-weight: normal;
+  font-size: 0.8rem;
+  width: 80%;
+  color: black;
+  padding: 1rem 0rem;
+  letter-spacing: 1px;
+}
+form input {
+  background: #5F2D00;
+  color: #FFFFFF;
+}
+form input:not([value=valider]) {
+  border-left: 5px solid #5E1515;
+  box-shadow: 3px 4px 0px -3px rgba(55, 55, 55, 0.79);
+}
+form .food input {
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+form input[type=submit] {
+  border: none;
+  border-left: 5px solid #FFFFFF;
+  box-shadow: 5px 6px 12.3px 0px #FFFFFF;
+  background: #7F4C27;
+  font-family: Homenaje, sans-serif;
+  font-weight: normal;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  letter-spacing: 4px;
+  padding: 0.25rem 1.8rem;
 }/*# sourceMappingURL=employe.css.map */

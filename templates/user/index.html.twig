@@ -60,9 +60,28 @@
             {% for habitat in habitats %}
                 <details>
                     <summary class="habitat">{{ habitat.name }}</summary>
-                    {% for animals in habitat.animals %}
+                    {% for animal in habitat.animals %}
                         <details class="animals">
-                            <summary>{{ animals.name }}</summary>
+                            <summary>{{ animal.name }}</summary>
+                            {{ form_start(forms[animal.id]) }}
+
+                    {# Supposons que votre formulaire a des champs "food" et "quantity" #}
+                    <div class="timeOfDish">
+                        {{ form_label(forms[animal.id].timeOfDish) }}  {# Afficher le label #}
+                        {{ form_widget(forms[animal.id].timeOfDish) }} {# Afficher l'input #}
+
+                        
+                    </div>
+                    
+                    <div class="food">
+                    <h3>Nourriture et quantité (kg) :</h3>
+                        {{ form_widget(forms[animal.id].food) }} {# Afficher l'input #}
+                        {{ form_widget(forms[animal.id].quantity) }} {# Afficher l'input #}
+                    </div>
+
+                    <input type="submit" value="Valider" class="btnForm"/>
+                    {{ form_end(forms[animal.id]) }}
+
                         </details>
                     {% endfor %}
                 </details>
