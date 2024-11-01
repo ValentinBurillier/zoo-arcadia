@@ -1,0 +1,78 @@
+{% block formEmploye %}
+<details>
+            <summary>Avis à vérifier</summary>
+            {% for review in reviews %}
+                <ul id="reviews__list">
+                    <ul class="user__data">
+                        <li>19/09/24</li>{# <li>{{ review.date }}</li> #}
+                        <li>{{ review.pseudo }}</li>
+                    </ul>
+
+                    <li id="stars__score">
+                        {% set score = review.score %}
+                        {% for i in 1..5 %}
+                            <img src="{{ asset('assets/images/gold_star.png') }}" width="20" height="20" />
+                        {% endfor %}
+                    </li>
+
+                    <li>{{ review.comment }}</li>
+                    <li id="icon__statut">
+                        <img src="{{ asset('assets/images/zoo-arcadia-valid.webp') }}" width="20" height="20" />
+                        <img src="{{ asset('assets/images/zoo-arcadia-cancel.webp') }}" width="20" height="20" />
+                    </li>
+                    
+                    <hr />
+                </ul>
+            {% endfor %}
+        </details>
+
+        <details>
+            <summary>Services</summary>
+            
+                {% for service in services %}
+                    <ul id="services">
+                        <li>{{ service.title }}</li>
+                        <li>{{ service.description }}</li>
+                        <img src="{{ asset('assets/images/' ~ service.urlIcon) }}" width="25" height:"25" />
+                        <hr />
+                    </ul>
+                {% endfor %}
+            
+            
+        </details>
+
+        <details id="alimentation">
+            <summary>Alimentation</summary>
+            {% for habitat in habitats %}
+                <details>
+                    <summary class="habitat">{{ habitat.name }}</summary>
+                    {% for animal in habitat.animals %}
+                        <details class="animals">
+                            <summary>{{ animal.name }}</summary>
+                            {{ form_start(forms[animal.id]) }}
+
+                    {# Supposons que votre formulaire a des champs "food" et "quantity" #}
+                    <div class="timeOfDish">
+                        {{ form_label(forms[animal.id].timeOfDish) }}  {# Afficher le label #}
+                        {{ form_widget(forms[animal.id].timeOfDish) }} {# Afficher l'input #}
+
+                        
+                    </div>
+                    
+                    <div class="food">
+                    <h3>Nourriture et quantité (kg) :</h3>
+                        {{ form_widget(forms[animal.id].food) }} {# Afficher l'input #}
+                        {{ form_widget(forms[animal.id].quantity) }} {# Afficher l'input #}
+                    </div>
+
+                    <input type="submit" value="Valider" class="btnForm"/>
+                    {{ form_end(forms[animal.id]) }}
+
+                        </details>
+                    {% endfor %}
+                </details>
+            {% endfor %}
+
+        </details>
+
+{% endblock %}
