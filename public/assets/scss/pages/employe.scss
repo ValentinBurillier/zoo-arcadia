@@ -269,18 +269,63 @@ form {
     flex-direction: column;
     row-gap: 1rem;
     border-left: 4px solid $white;
-}
-    #reviews_list {
-      display: flex;
-      list-style:none;
+  }
+  #alimentation__laptop {
+    position: relative;
+    z-index: 100;
+  }
+  #reviews__list {
+    position: relative;
+    z-index: 10;
+    margin-top: 1.5rem;
+    hr {
+      height: 5px;
+      background: $terre;
+      border: none;
+    }
+  }
+  .user__data {
+    margin-bottom: 1rem;
+    &~li {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      list-style: none;
+      letter-spacing: 1px;
+    }
+    li {
+      font-size: 1.5rem;
+      font-weight: bold;
+      list-style: none;
+    }
+    #stars__score img {
+      width: 30px;
+      height: 30px;
+    }
+    #icon__statut img {
+      height: 30px;
+      width: 30px;
+    }
+  }
+  #services__laptop {
+    position: relative;
+    #services {
       position: relative;
       z-index: 10;
-      .user__data {
-        justify-content: initial;
-        li {
-          width: max-content;
-          list-style:none;
-        }
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      row-gap: 1rem;
+      &>li {
+        display: flex;
+        column-gap: 1.5rem;
+        font-size: 1.5rem;
+      h3 {
+        font-size: 1.5rem;
+      }
+      img {
+        width: 30px;
+        height: 30px;
       }
     }
     hr {
@@ -288,4 +333,78 @@ form {
       background: $terre;
       border: none;
     }
+    }
   }
+  .btn__submit {
+    font-size: 1.3rem;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    border: none;
+    margin-top: 2rem;
+    color: $white;
+    position: relative;
+    z-index: 10;
+    letter-spacing: 4px;
+    background: $terre;
+    padding: 1rem 2rem;
+    box-shadow: 5px 6px 12.3px 0px $white;
+    border-left: 5px solid $white;
+  }
+}
+
+#alimentation__laptop {
+  position: relative;
+  z-index: 100;
+  &>ul {
+    margin-bottom: 2rem;
+    .habitats__list, .animals__list {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      h3 {
+        font-size: 1.7rem;
+      }
+      li {
+        list-style: none;
+        width: calc(100% / 3);
+        text-align: center;
+        text-transform: capitalize;
+        font-weight: bold;
+        font-size: 1.4rem;
+        letter-spacing: 0.5px;
+      }
+    }
+    .animals__list {
+      margin-top: 2rem;
+    }
+  }
+  form {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      h3 {
+        text-align: center;
+        font-size: 1.4rem;
+        font-weight: bold;
+      }
+      input {
+        border: none;
+        height: 3rem;
+        padding: 0rem 2rem;
+        font-size: 1.5rem;
+      }
+    }
+    .food {
+      display: block;
+    }
+    input[type=submit] {
+      padding: 0.5rem 2rem;
+    }
+  }
+}

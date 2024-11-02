@@ -46,6 +46,7 @@ class UserController extends AbstractController
             'habitats' => $habitats,
             'services' => $services,
             'reviews' => $reviews,
+            'form' => $form->createView(),
             'forms' => $forms // Passer les formulaires à la vue
         ]);
     }
