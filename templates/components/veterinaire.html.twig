@@ -7,6 +7,27 @@
                     {% for animal in habitat.animals %}
                         <details class="animals">
                             <summary>{{ animal.name }}</summary>
+                            {% for animal in habitat.animals %}
+                <details class="animals">
+                    <summary>{{ animal.name }}</summary>
+                    
+                    {{ form_start(forms[animal.id]) }} {# Commence le formulaire pour l'animal #}
+
+                    {{ form_row(forms[animal.id].name) }}
+                    {{ form_row(forms[animal.id].species) }}
+                    {{ form_row(forms[animal.id].arrival_date) }}
+                    {{ form_row(forms[animal.id].image) }}
+                    {{ form_row(forms[animal.id].habitat) }}
+
+                    <h4>Détails du repas</h4>
+                    {# Affiche les détails du repas #}
+                    {# {{ form_widget(forms[animal.id].meals) }} #}
+
+                    <button type="submit">Enregistrer</button>
+                    {{ form_end(forms[animal.id]) }} {# Fin du formulaire #}
+
+                </details>
+            {% endfor %}
                         </details>
                     {% endfor %}
                 </details>

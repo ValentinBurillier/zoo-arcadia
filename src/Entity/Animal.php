@@ -32,7 +32,7 @@ class Animal
     private ?string $image = null;
 
     #[ORM\ManyToOne(inversedBy: 'animals')]
-    private ?habitat $habitat = null;
+    private ?Habitat $habitat = null;
 
     #[ORM\ManyToOne(inversedBy: 'animals')]
     private ?User $veterinaire = null;
