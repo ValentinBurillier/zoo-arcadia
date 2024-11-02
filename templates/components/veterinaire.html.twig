@@ -1,0 +1,16 @@
+{% block veterinaire %}
+<details id="habitats">
+            <summary>Habitats</summary>
+            {% for habitat in habitats %}
+                <details>
+                    <summary class="habitat">{{ habitat.name }}</summary>
+                    {% for animal in habitat.animals %}
+                        <details class="animals">
+                            <summary>{{ animal.name }}</summary>
+                        </details>
+                    {% endfor %}
+                </details>
+            {% endfor %}
+
+        </details>
+{% endblock %}

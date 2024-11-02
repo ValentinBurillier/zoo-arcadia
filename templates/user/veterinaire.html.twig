@@ -1,0 +1,22 @@
+{% set iconMenu = 'zoo-arcadia-green_menu' %}
+{% set pageName = 'EmployePage' %}
+
+{% extends "base.html.twig" %}
+{% block title %}Arcadia | Interface Employe{% endblock %}
+{% block style %} 
+  <link rel="stylesheet" href="{{ asset('assets/scss/css/veterinaire.css') }}?{{ "now"|date("U") }}" type="text/css">
+{% endblock %}
+
+{# BODY #}
+{% block body %}
+    <header>
+        <h1>Arcadia</h1>
+    </header>
+
+    <main id="main">
+        {% block formEmploye %}
+            {% include "components/veterinaire.html.twig" %}
+        {% endblock %}
+    </main>
+    <script src="{{ asset('assets/scripts/test.js' )}}"></script>
+{% endblock %}

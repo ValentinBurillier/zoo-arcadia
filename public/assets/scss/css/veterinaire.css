@@ -1,0 +1,145 @@
+@charset "UTF-8";
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+body, main {
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: url("../../images/zoo-arcadia-elephant.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+header h1 {
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-family: IBM Plex Serif, serif;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  padding-top: 1rem;
+  letter-spacing: 1px;
+  margin-bottom: 2.5rem;
+}
+
+.actif {
+  height: 75vh;
+  overflow-y: scroll;
+}
+
+#main {
+  height: 75%;
+  overflow: scroll;
+  color: #7A4200;
+  position: relative;
+}
+#main details {
+  width: 75%;
+  background-color: #D9D9D9;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 500px;
+}
+#main details summary {
+  background-color: #D9D9D9;
+  font-family: IBM Plex Serif, serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding-left: 20px;
+  list-style: none;
+  position: relative;
+}
+#main details summary:hover {
+  cursor: pointer;
+}
+#main details summary::before {
+  content: "▶"; /* Utilisez le symbole que vous préférez pour la flèche */
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#main details ul {
+  padding: 0rem 1rem;
+  padding-top: 1rem;
+  margin: 0 auto;
+  position: relative;
+  background-color: #D9D9D9;
+}
+#main details ul li {
+  text-align: left;
+  font-family: IBM Plex Serif, serif;
+  font-size: 1rem;
+  padding-left: 0.5rem;
+  font-weight: bold;
+  list-style: none;
+}
+#main details ul li:not(li:last-child) {
+  margin-bottom: 0.5rem;
+}
+#main details ul img {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+#main details ul hr {
+  background: #7A4200;
+  height: 0.25rem;
+  width: 100%;
+}
+#main details ul:last-child {
+  padding-bottom: 1rem;
+}
+#main details ul:last-child hr {
+  display: none;
+}
+#main details:not(details:last-child) {
+  margin-bottom: 1.5rem;
+}
+#main details[open] summary::before {
+  content: "▼"; /* Changez la flèche pour un triangle vers le bas */
+}
+
+#habitats details {
+  width: 100%;
+}
+#habitats details .habitat {
+  font-size: 1.3rem;
+  text-transform: capitalize;
+}
+#habitats details:not(details[open]) summary::before {
+  content: "▶";
+}
+
+#habitats[open] > summary {
+  margin-bottom: 1.2rem;
+}
+
+#habitats[open] summary {
+  text-align: left;
+  padding-left: 3rem;
+}
+
+#main #habitats[open] details {
+  margin-bottom: 1rem;
+}
+
+#habitats .animals summary {
+  font-size: 1rem;
+  color: black;
+  text-transform: capitalize;
+}/*# sourceMappingURL=veterinaire.css.map */
