@@ -408,3 +408,23 @@ form {
     }
   }
 }
+
+@media screen and (min-width: 1400px) {
+  form {
+    scale: 1.1;
+  }
+}
+@media screen and (min-width: 1600px) {
+  body {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+  #main {
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    align-self: center;
+    padding: none;
+
+  }
+}
