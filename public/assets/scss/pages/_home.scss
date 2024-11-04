@@ -3,3 +3,27 @@
 @import "../layouts/homepage/_fourthSection";
 @import "../layouts/homepage/_fifthSection";
 @import "../layouts/homepage/_sixthSection";
+
+@media screen and (min-width: 1000px) {
+  body, main, #homepage, #homepage section{
+    width: 100vw;
+    overflow-x: hidden;
+  }
+  #homepage {
+    background: none;
+  }
+  #homepage section {
+    height: 100vh;
+    overflow: hidden;
+  }
+  #homepage section .nav__div {
+    display: none;
+  }
+  #main__homePage {
+    position: relative;
+    z-index: 1000;
+  }
+  #right {
+    transform-origin: none;
+  }
+}

@@ -55,6 +55,8 @@ nav img {
     padding-left: 4%;
     padding-right: 4%;
     padding-top: 0%;
+    position: relative;
+    z-index: 1000;
   }
   nav .img__display {
     display: none;

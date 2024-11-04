@@ -1,0 +1,144 @@
+@media screen and (max-width: 999px) {
+  #homepage .div {
+    display: none;
+  }
+}
+@media screen and (min-width: 1000px) {
+  #homepage #left {
+    background: url("../images/zoo-arcadia-elephant-xl.webp");
+    width: 100%;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: -20%;
+    background-size: 90%;
+  }
+  #homepage #right {
+    background: url("../images/zoo-arcadia-background.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -50px;
+    background-position-x: center;
+    width: 55%;
+    position: absolute;
+    transform: rotateZ(14deg);
+    height: 150vh;
+    transform-origin: center;
+    right: -9%;
+    top: -20%;
+  }
+  #homepage .div {
+    height: 100%;
+    display: inline-block;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #homepage #left {
+    background-size: 80%;
+  }
+  #homepage #right {
+    top: -30%;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  #homepage #left {
+    background-size: 70%;
+    width: 120vw;
+    top: -15%;
+    height: 120%;
+    left: -20%;
+  }
+  #homepage #right {
+    top: -30%;
+    background-size: 75%;
+    width: 60%;
+    height: 150vh;
+    transform-origin: center;
+    right: -12%;
+  }
+}
+
+@media screen and (min-width: 1650px) {
+  #homepage #left {
+    background-size: 50%;
+    width: 165vw;
+    top: -30%;
+    height: 140%;
+    left: -20%;
+  }
+  #homepage #right {
+    top: -40%;
+    background-size: 50%;
+    width: 95%;
+    height: 170vh;
+    transform-origin: center;
+    right: -30%;
+  }
+}
+
+@media screen and (min-height: 670px) {
+  #homepage #left {
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: 1046px) and (min-height: 670px) {
+  #homepage #right {
+    transform: rotateZ(10deg);
+    right: -11%;
+  }
+  #homepage #left {
+    background-size: cover;
+    background-position-y: center;
+  }
+}
+@media screen and (min-width: 1046px) and (min-height: 670px) {
+  #homepage #left {
+    background-size: cover;
+  }
+  #homepage #right {
+    top: -15%;
+    background-size: contain;
+    width: 60%;
+    height: 150vh;
+    right: -14%;
+  }
+}
+
+@media screen and (min-width: 1400px) and (min-height: 670px) {
+  #homepage #left {
+    background-size: cover;
+    width: 87vw;
+  }
+}
+
+@media screen and (min-width: 1534px) and (min-height: 670px) {
+  #homepage #left {
+    background-size: cover;
+    width: 90vw;
+  }
+}
+
+@media screen and (min-width: 1650px) and (min-height: 670px) {
+  #homepage #left {
+    background-size: cover;
+    width: 90vw;
+    top: -25%;
+  }
+}
+@media screen and (min-width: 1864px) and (min-height: 670px) {
+  #homepage #left {
+    top: -10%;
+  }
+}
+
+@media screen and (min-width: 1046px) and (min-height: 744px) {
+  #homepage #right {
+    top: -10%;
+    width: 67%;
+    height: 140vh;
+    right: -17.5%;
+  }
+}
