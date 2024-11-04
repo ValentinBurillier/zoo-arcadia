@@ -4,7 +4,7 @@
 {% extends "base.html.twig" %}
 {% block title %}Arcadia | Accueil{% endblock %}
 {% block style %} 
-  <link rel="stylesheet" href="{{ asset('assets/css/stylesTest.css') }}?{{ "now"|date("U") }}" type="text/css">
+  <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}?{{ "now"|date("U") }}" type="text/css">
 {% endblock %}
 
 {# BODY #}
@@ -14,11 +14,11 @@
   {% include 'components/headerTest.html.twig' %}
 
   <main id="main__{{ pageName }}">
-    {% include 'components/homePage/secondSection.html.twig' %}
+    {% include 'components/homePage/secondSection.html.twig' %}s
     {% include 'components/homePage/thirdSection.html.twig' %}
     {% include 'components/homePage/fourthSection.html.twig' %}
     {% include 'components/homePage/fifthSection.html.twig' %}
     {% include 'components/homePage/sixthSection.html.twig' %}
   </main>
-  
+  <script src="{{ asset('assets/scripts/menu.js') }}"></script>
 {% endblock %}

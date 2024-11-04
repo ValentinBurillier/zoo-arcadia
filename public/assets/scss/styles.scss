@@ -1,7 +1,6 @@
 @import "../scss/base/_typography";
 @import "../scss/base/_colors";
 @import "../scss/base/_reset";
-
+@import "./base/_mixins";
 @import "./pages/_home";
-// @import "./pages/_reviews";
-@import "./pages/_contact";
+@import "./components/_menuDisplay";

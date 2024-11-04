@@ -1,5 +1,17 @@
 {% block header %}
 <header id="homepage">
+  <section id="menuDisplay" style="display:none">
+    <img src="{{ asset('assets/images/cross-zoo-arcadia-valentin-burillier.webp') }}"/>
+    <nav id="navMobil">
+      <ul>
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/login">Se connecter</a></li>
+        <li><a href="#">Nos animaux</a></li>
+        <li><a href="#">Leurs habitats</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </section>
   {# <img src="{{asset('assets/images/background.jpg')}}" class="header__lion" /> #}
   <section>
   {% block nav %}
