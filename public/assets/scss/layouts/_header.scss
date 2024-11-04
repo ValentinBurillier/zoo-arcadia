@@ -4,6 +4,8 @@
 #homepage {
   height: 100vh;
   width: 100vw;
+  @include bg-img-cover-no-repeat("../images/zoo-arcadia-background.webp");
+  background-position: center;
   >img {
     height: 100vh;
     overflow: hidden;
@@ -32,9 +34,6 @@
   #homepage {
     img {
       object-fit: cover;
-    }
-    section div {
-      top: 62%
     }
   }
 }

@@ -129,6 +129,10 @@ header button a {
 #homepage {
   height: 100vh;
   width: 100vw;
+  background: url(../images/zoo-arcadia-background.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 #homepage > img {
   height: 100vh;
@@ -157,9 +161,6 @@ header button a {
 @media screen and (min-width: 600px) {
   #homepage img {
     object-fit: cover;
-  }
-  #homepage section div {
-    top: 62%;
   }
 }
 @media screen and (min-width: 1000px) {
