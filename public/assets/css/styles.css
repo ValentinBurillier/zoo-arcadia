@@ -505,7 +505,7 @@ header button a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  row-gap: 1.5rem;
+  row-gap: 5vh;
 }
 #homepage #menuDisplay #navMobil ul li a {
   color: #FFFFFF;
@@ -519,4 +519,11 @@ header button a {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+}
+
+@media screen and (min-width: 500px) {
+  #homepage #menuDisplay #navMobil ul li a {
+    font-size: 2.2rem;
+    letter-spacing: 5px;
+  }
 }/*# sourceMappingURL=styles.css.map */

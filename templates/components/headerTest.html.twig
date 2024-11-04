@@ -1,31 +1,25 @@
 {% block header %}
-<header id="homepage">
-  <section id="menuDisplay" style="display:none">
-    <img src="{{ asset('assets/images/cross-zoo-arcadia-valentin-burillier.webp') }}"/>
-    <nav id="navMobil">
-      <ul>
-        <li><a href="/">Accueil</a></li>
-        <li><a href="/login">Se connecter</a></li>
-        <li><a href="#">Nos animaux</a></li>
-        <li><a href="#">Leurs habitats</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-    </nav>
-  </section>
-  {# <img src="{{asset('assets/images/background.jpg')}}" class="header__lion" /> #}
-  <section>
-  {% block nav %}
-  {% include "components/nav.html.twig" %}
-  {% endblock %}
+  <header id="homepage">
+
+    {% block menuMobil %}
+      {% include "components/menuMobil.html.twig" %}
+    {% endblock %}
+  
+    {# <img src="{{asset('assets/images/background.jpg')}}" class="header__lion" /> #}
+    <section>
+      {% block nav %}
+        {% include "components/nav.html.twig" %}
+      {% endblock %}
    
-    <div class="nav__div">
-      <button>
-        <a href="#">Decouvrir</a>
+      <div class="nav__div">  
+        <button>
+          <a href="#secondSection">Decouvrir</a>
+        </button>
+      </div>
+      <button class="btn__computer">
+          <a href="#secondSection" id="btn__link--computer">Decouvrir</a>
       </button>
-    </div>
-    <button class="btn__computer">
-        <a href="#" id="btn__link--computer">Decouvrir</a>
-      </button>
-  </section>
-</header>
+    </section>
+
+  </header>
 {% endblock %}

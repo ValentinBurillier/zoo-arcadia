@@ -20,7 +20,7 @@
     ul {
       display: block;
       @include d-flex-col-center;
-      row-gap: 1.5rem;
+      row-gap: 5vh;
       li {
         a {
           color: $white;
@@ -37,4 +37,15 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+}
+
+@media screen and (min-width: 500px) {
+  #homepage #menuDisplay #navMobil {
+    ul {
+      li a {
+        font-size: 2.2rem;
+        letter-spacing: 5px;
+      }
+    }
+  }
 }
