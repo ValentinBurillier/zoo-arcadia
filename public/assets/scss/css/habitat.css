@@ -36,6 +36,9 @@ nav img {
   width: 44px;
   height: 44px;
 }
+nav img:hover {
+  cursor: pointer;
+}
 
 @media screen and (max-width: 999px) {
   header nav ul {
@@ -105,7 +108,7 @@ nav img {
     position: relative;
   }
   #header nav {
-    background: #7F4C27;
+    background: white;
     border-bottom: 4px solid white;
   }
 }

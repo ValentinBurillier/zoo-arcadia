@@ -36,6 +36,9 @@ nav img {
   width: 44px;
   height: 44px;
 }
+nav img:hover {
+  cursor: pointer;
+}
 
 @media screen and (max-width: 999px) {
   header nav ul {

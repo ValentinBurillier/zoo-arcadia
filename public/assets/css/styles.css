@@ -31,6 +31,9 @@ nav img {
   width: 44px;
   height: 44px;
 }
+nav img:hover {
+  cursor: pointer;
+}
 
 @media screen and (max-width: 999px) {
   header nav ul {
@@ -330,9 +333,13 @@ header button a {
   height: 100vh;
   width: 100vw;
   background: #7F4C27;
-  color: white;
+  color: #FFFFFF;
   font-family: Homenaje, sans-serif;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 #secondSection h2, #secondSection img, #secondSection p, #thirdSection h2, #thirdSection img, #thirdSection p {
   margin: 0 auto;
@@ -349,11 +356,11 @@ header button a {
 #secondSection img, #thirdSection img {
   width: 75%;
   display: block;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 #secondSection p, #thirdSection p {
   font-size: 1.3rem;
-  line-height: 2.5rem;
+  line-height: 2.2rem;
   width: 75%;
   text-align: center;
 }
@@ -403,17 +410,88 @@ header button a {
     top: 35%;
   }
 }
-@media screen and (min-width: 1550px) {
-  #secondSection img:last-child {
-    top: 10%;
-  }
-}
 @media screen and (min-height: 700px) {
   #secondSection, #thirdSection {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+}
+@media screen and (min-width: 750px) and (min-height: 650px) {
+  #secondSection, #thirdSection {
+    row-gap: 2vh;
+  }
+  #secondSection h2, #thirdSection h2 {
+    font-size: 2rem;
+    margin-bottom: none;
+  }
+  #secondSection img, #secondSection p, #thirdSection img, #thirdSection p {
+    max-width: 400px;
+    margin-bottom: none;
+  }
+  #secondSection p, #thirdSection p {
+    font-size: 1.7rem;
+  }
+}
+@media screen and (min-width: 674px) and (min-height: 750px) {
+  #secondSection, #thirdSection {
+    row-gap: 2vh;
+  }
+  #secondSection h2, #thirdSection h2 {
+    font-size: 2.5rem;
+    margin-bottom: none;
+  }
+  #secondSection img, #secondSection p, #thirdSection img, #thirdSection p {
+    max-width: 450px;
+    margin-bottom: none;
+  }
+  #secondSection p, #thirdSection p {
+    font-size: 1.9rem;
+    line-height: 150%;
+  }
+}
+@media screen and (min-width: 890px) and (min-height: 850px) {
+  #secondSection, #thirdSection {
+    row-gap: 3vh;
+  }
+  #secondSection h2, #thirdSection h2 {
+    font-size: 2.75rem;
+    margin-bottom: none;
+  }
+  #secondSection img, #secondSection p, #thirdSection img, #thirdSection p {
+    max-width: 475px;
+    margin-bottom: none;
+  }
+  #secondSection p, #thirdSection p {
+    font-size: 1.9rem;
+    line-height: 175%;
+  }
+}
+@media screen and (min-width: 1000px) and (min-height: 568px) {
+  #secondSection, #thirdSection {
+    row-gap: 4vh;
+  }
+  #secondSection h2, #thirdSection h2 {
+    padding-top: 0;
+    margin-bottom: 0;
+    transform: inherit;
+  }
+  #secondSection img:last-child, #thirdSection img:last-child {
+    max-width: 1000px;
+  }
+  #secondSection p, #thirdSection p {
+    line-height: 175%;
+  }
+}
+@media screen and (min-width: 1000px) and (min-height: 650px) {
+  #secondSection p, #thirdSection p {
+    max-width: 700px;
+  }
+}
+@media screen and (min-width: 1000px) and (min-height: 700px) {
+  #secondSection img:last-child, #thirdSection img:last-child {
+    top: 50%;
   }
 }
 #fourthSection, .computer {
@@ -430,7 +508,7 @@ header button a {
   font-weight: normal;
   letter-spacing: 4px;
   font-size: 1.2rem;
-  color: white;
+  color: #FFFFFF;
 }
 #fourthSection div, .computer div {
   display: flex;
@@ -464,6 +542,21 @@ header button a {
   display: none;
 }
 
+@media screen and (min-width: 600px) {
+  #fourthSection h2 {
+    font-size: 1.5rem;
+  }
+  #fourthSection .fourthSection__container img {
+    width: 100%;
+    max-width: 500px;
+  }
+  #fourthSection button {
+    width: 15rem;
+  }
+  #fourthSection .linkBtn {
+    font-size: 1.4rem;
+  }
+}
 @media screen and (min-width: 1000px) {
   #fourthSection {
     display: none;
@@ -475,7 +568,7 @@ header button a {
     display: block;
   }
   .computer h2 {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
   .computer section {
     display: flex;
@@ -485,13 +578,22 @@ header button a {
     height: calc(100% - 51.59px);
   }
   .computer section div, .computer section img {
-    max-width: 550px;
+    max-width: 650px;
   }
   .computer section div {
     margin-left: 1rem;
   }
   .computer section button {
     scale: 1.1;
+  }
+}
+@media screen and (min-width: 1350) {
+  .computer {
+    width: 15rem;
+  }
+  #linkComputer, #btnComputer {
+    font-size: 1.5rem;
+    line-height: 150%;
   }
 }
 #fifthSection {
