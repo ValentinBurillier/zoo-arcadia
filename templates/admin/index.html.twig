@@ -16,8 +16,28 @@
     </header>
 
   <main id="main">
-    <ul>
-      <li><h2>Créer un compte</h2></li>
+    <ul class="menu">
+      <li>
+        <h2>Créer un compte</h2>
+        
+        {{ form_start(form) }}
+          {{ form_row(form.email) }}
+          <div class="containerForm">
+          <div>
+          <label>{{ form_label(form.roles) }}</label>
+          </div>
+          <div>
+          {% for choice in form.roles %}
+            <div class="radio-wrapper">
+              {{ form_widget(choice) }}
+              {{ form_label(choice) }}
+            </div>
+          {% endfor %}
+          </div>
+          </div>
+          <input value="Envoyer" type="button" class="btn-submit"/>
+        {{ form_end(form) }}
+      </li>
       <li><h2>Services</h2></li>
       <li><h2>Horaires</h2></li>
       <li><h2>Habitat</h2></li>
@@ -25,5 +45,8 @@
     <ul>
   </main>
 
-
+{# SCRIPTS JS #}
+{% block scripts %}
+  <script src="{{ asset('assets/scripts/admin.js' )}}" defer></script>
+{% endblock %}
 {% endblock %}

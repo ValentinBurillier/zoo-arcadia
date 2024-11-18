@@ -6,6 +6,12 @@
   text-align: center;
   color: $white;
 }
+form {
+  display: none;
+}
+// ul li:not(li:nth-child(1)) {
+//   display: none;
+// }
 body {
   @include fullScreen;
   @include bg-img-cover-no-repeat("../../images/zoo-arcadia-dauphin-2.webp");
@@ -42,7 +48,61 @@ main {
       font-size: 1.5rem;
       font-weight: 600;
     }
+  } 
+}
+form {
+  flex-direction: column;
+  row-gap: 2vh;
+  input[type="email"] {
+    padding: 0.25rem 0rem;
+    color: #1A7996;
   }
-  
+  input[type="email"]::placeholder {
+    color: #1A7996;
+  }
+  input[type="radio"]::selection {
+    font-style: italic;
+  }
+}
+.firstItem {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5vh;
+}
+@media screen and (min-width: 500px) {
+  .firstItem {
+    scale: 1.2;
+  }
+}
+.containerForm {
+  display: flex;
+  margin-bottom: 1.5rem;
+  .radio-wrapper {
+    text-align: left;
+  }
+  & > div:first-child{
+    margin-right: 0.25rem;
+  }
+  & > div:last-child {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5vh;
+  }
+}
+.btn-submit {
+  font-family: $secondFont;
+  font-size: 1.1rem;
+  font-weight: lighter;
+  padding: 0.5rem 1.2rem;
+  letter-spacing: 2px;
+  background: #1A7996;
+  box-shadow: 5px 6px 12.3px 0px white;
+  border: none;
+  border-left: 5px solid white;
+}
+@media screen and (min-width: 600px) {
+  ul {
+    scale: 1.2;
+  }
 }
 
