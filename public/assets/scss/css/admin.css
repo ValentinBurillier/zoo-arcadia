@@ -1,0 +1,80 @@
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+body, main {
+  position: relative;
+}
+
+ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+* {
+  text-align: center;
+  color: #FFFFFF;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background: url(../../images/zoo-arcadia-dauphin-2.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: 40%;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 35, 46, 0.66);
+  z-index: 5;
+}
+
+header {
+  position: fixed;
+  z-index: 15;
+  width: 100vw;
+}
+header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-top: 0.5rem;
+}
+
+h1, h2 {
+  font-family: IBM Plex Serif, serif;
+}
+
+main, ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  z-index: 10;
+  height: 100vh;
+  width: 100vw;
+}
+main ul {
+  row-gap: 2vh;
+}
+main ul h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}/*# sourceMappingURL=admin.css.map */

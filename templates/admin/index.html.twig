@@ -1,0 +1,29 @@
+{% set iconMenu = 'zoo-arcadia-brown_menu' %}
+{% set pageName = 'loginPage' %}
+
+{% extends "base.html.twig" %}
+{% block title %}Arcadia | Administrateur{% endblock %}
+{% block style %} 
+  <link rel="stylesheet" href="{{ asset('assets/scss/css/admin.css') }}?{{ "now"|date("U") }}" type="text/css">
+{% endblock %}
+
+{# BODY #}
+{% block body %}
+
+  {# HEADER #}
+    <header id="header">
+        <h1>Arcadia</h1>
+    </header>
+
+  <main id="main">
+    <ul>
+      <li><h2>Créer un compte</h2></li>
+      <li><h2>Services</h2></li>
+      <li><h2>Horaires</h2></li>
+      <li><h2>Habitat</h2></li>
+      <li><h2>Animaux</h2></li>
+    <ul>
+  </main>
+
+
+{% endblock %}

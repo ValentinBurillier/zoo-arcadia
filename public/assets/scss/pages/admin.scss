@@ -1,0 +1,48 @@
+@import "../base/_typography";
+@import "../base/_colors";
+@import "../base/_reset";
+@import "../base/_mixins";
+* {
+  text-align: center;
+  color: $white;
+}
+body {
+  @include fullScreen;
+  @include bg-img-cover-no-repeat("../../images/zoo-arcadia-dauphin-2.webp");
+  background-position-x: 40%;
+}
+body::before {
+  @include opacity("rgba(0, 35, 46, 0.66)");
+}
+header {
+  position: fixed;
+  z-index: 15;
+  width: 100vw;
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-top: 0.5rem;
+  }
+}
+
+h1, h2 {
+  font-family: $mainTitle;
+}
+main, ul {
+  @include d-flex-col-center;
+}
+main {
+  z-index: 10;
+  height: 100vh;
+  width: 100vw;
+  ul {
+    row-gap: 2vh;
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+  }
+  
+}
+
