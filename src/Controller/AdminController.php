@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Entity\Horaires;
+use App\Entity\Habitat;
 use App\Entity\Services;
+use App\Form\HabitatsType;
 use App\Form\HorairesType;
 use App\Form\ServicesType;
 use App\Form\UserType;
@@ -41,9 +43,17 @@ class AdminController extends AbstractController
         }
 
         // SecondItem (Services)
+        $services = $entityManagerInterface->getRepository(Services::class)->findAll();
         $newServices = new Services();
         $formServices = $this->createForm(ServicesType::class, $newServices);
-        $services = $entityManagerInterface->getRepository(Services::class)->findAll();
+        $formServices->handleRequest($request);
+        if($formServices->isSubmitted() && $formServices->isValid()) {
+            $entityManagerInterface->persist($newServices);
+            $entityManagerInterface->flush();
+
+            $this->addFlash('success', 'Service ajouté !');
+        }
+        
 
         // ThirdItem (Horaires)
         $hours = new Horaires();
@@ -79,16 +89,45 @@ class AdminController extends AbstractController
 
             $this->addFlash('success', 'Les horaires ont été enregistrés');
         }
+
+        //fourthItem (Habitats)
+        $habitats = $entityManagerInterface->getRepository(Habitat::class)->findAll();
+        $newHabitat = new Habitat();
+        $formHabitats = $this->createForm(HabitatsType::class, $newHabitat);
+        $formHabitats->handleRequest($request);
+        if($formHabitats->isSubmitted() && $formHabitats->isValid()) {
+            $entityManagerInterface->persist($newHabitat);
+            $entityManagerInterface->flush();
+
+            $this->addFlash('success', 'Service ajouté !');
+        }
+
         return $this->render('admin/index.html.twig', [
             'controller_name' => 'AdminController',
             'form' => $form->createView(),
             'formHours' => $formHours->createView(),
             'formServices' => $formServices->createView(),
             'services' => $services,
+            'habitats' => $habitats,
+            'formhabitats' => $formHabitats->createView(),
         ]);
     }
     private function generateRandomPassword(int $length = 12): string
     {
         return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+'), 0, $length);
+    }
+
+    #[Route('/admin/delete/{title}', name: 'app_admin_delete', methods: "DELETE")]
+    public function delete(string $title, EntityManagerInterface $entityManagerInterface): Response
+    {
+        $deleteService = $entityManagerInterface->getRepository(Services::class)->findOneBy(['title' => $title]);
+        $deleteService2 = $entityManagerInterface->getRepository(Habitat::class)->findOneBy(['name' => $title]);
+        if(isset($deleteService)) {
+            $entityManagerInterface->remove($deleteService);
+        } else {
+            $entityManagerInterface->remove($deleteService2);
+        }
+        $entityManagerInterface->flush();
+        return new Response('Supprimé avec succès.', 200);
     }
 }

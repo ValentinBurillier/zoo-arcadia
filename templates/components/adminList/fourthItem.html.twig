@@ -1,3 +1,25 @@
 {% block fourthItem %}
-<h2>Habitat</h2>
+<h2>Habitats</h2>
+<ul>
+{% for habitat in habitats %}
+
+    <details>
+    <summary>
+      {{ habitat.name }}
+      <div class="cross-container" data-id={{ habitat.name}}>
+        <span>&#10060;</span>
+      </div>
+    </summary>
+    <p>{{ habitat.description }}</p>
+    <p>{{ habitat.image }}</p>
+  </details> 
+{% endfor %}
+</ul>
+{{form_start(formhabitats)}}
+  <h3>Ajouter</h3>
+  {{ form_row(formhabitats.name) }}
+  {{ form_row(formhabitats.description) }}
+  {{ form_row(formhabitats.image) }}
+  <input value="Envoyer" type="submit" class="btn-submit btn-habitats"/>
+{{form_end(formhabitats)}}
 {% endblock %}

@@ -11,7 +11,36 @@ menuList.forEach((e) => {
     })
   })
 })
+const crossServices = document.querySelectorAll('.cross-container');
+crossServices.forEach((e) => {
+  e.addEventListener('click', () => {
+    const id = e.getAttribute('data-id');
+    deleteService(id);
+  })
+})
 
+function deleteService(id) {
+  if(!confirm(`Voulez-vous vraiment supprimer cet élément ? ${id}`)) {
+    return;
+  }
+
+  fetch(`/admin/delete/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+  .then(response => {
+    console.log(response);
+    if(response.ok) {
+      document.querySelector(`[data-id="${id}"]`).parentElement.parentElement.remove();
+      alert('Supprimé avec succès');
+    } else {
+      alert('Erreur lors de la suppression');
+    }
+  })
+  .catch(error => console.error('Erreur:', error));
+}
 function selected(item) {
   switch (item.innerText) {
     case "Créer un compte":
@@ -23,12 +52,23 @@ function selected(item) {
       let formHours = item.nextElementSibling;
       formHours.style.display = 'flex';
       formHours.parentElement.className = "thirdItem";
+      break;
     case "Services":
+      item.parentElement.parentElement.style.display = 'block';
       let containerServices = item.nextElementSibling;
       let formServices = item.nextElementSibling.nextElementSibling;
       containerServices.style.display = 'flex';
       formServices.style.display = 'flex';
       formServices.parentElement.className = "secondItem";
+      break;
+    case "Habitats":
+      item.parentElement.parentElement.style.display = 'block';
+      let containerHabitats = item.nextElementSibling;
+      let formHabitats = item.nextElementSibling.nextElementSibling;
+      containerHabitats.style.display = 'flex';
+      formHabitats.style.display = 'flex';
+      formHabitats.parentElement.className = "secondItem";
+    break;
     default:
       break;
   }

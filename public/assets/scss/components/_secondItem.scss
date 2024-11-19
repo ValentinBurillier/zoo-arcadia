@@ -1,7 +1,7 @@
-.secondItem > ul {
+.secondItem > ul, .fourthItem ul {
   display: none;
 }
-form[name="services"] {
+form[name="services"], form[name="habitats"] {
   margin-top: 1.5rem;
   .btn-services {
     width: max-content;
@@ -26,7 +26,7 @@ form[name="services"] {
   }
 }
 
-.secondItem > ul {
+.secondItem > ul, .fourthItem ul  {
   margin-top: 1rem;
 }
 .cross-container {
@@ -36,5 +36,10 @@ form[name="services"] {
   span {
     color: red; 
     font-size: 0.5rem;
+  }
+}
+@media screen and (min-width: 450px) {
+  .menu {
+    scale: 1.1;
   }
 }

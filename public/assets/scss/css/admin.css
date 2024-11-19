@@ -37,36 +37,36 @@ form[name=horaires] div:nth-child(n+2):nth-child(-n+4) label {
   margin-right: 1rem;
 }
 
-.secondItem > ul {
+.secondItem > ul, .fourthItem ul {
   display: none;
 }
 
-form[name=services] {
+form[name=services], form[name=habitats] {
   margin-top: 1.5rem;
 }
-form[name=services] .btn-services {
+form[name=services] .btn-services, form[name=habitats] .btn-services {
   width: max-content;
   align-self: center;
   margin-top: 0.5rem;
 }
-form[name=services] h3 {
+form[name=services] h3, form[name=habitats] h3 {
   font-size: 1.2rem;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
 }
-form[name=services] input:not(.btn-services) {
+form[name=services] input:not(.btn-services), form[name=habitats] input:not(.btn-services) {
   background: none;
   border: 1px solid rgba(255, 255, 255, 0.3215686275);
 }
-form[name=services] > div {
+form[name=services] > div, form[name=habitats] > div {
   display: flex;
   justify-content: space-between;
 }
-form[name=services] > div label {
+form[name=services] > div label, form[name=habitats] > div label {
   margin-right: 1rem;
 }
 
-.secondItem > ul {
+.secondItem > ul, .fourthItem ul {
   margin-top: 1rem;
 }
 
@@ -80,6 +80,11 @@ form[name=services] > div label {
   font-size: 0.5rem;
 }
 
+@media screen and (min-width: 450px) {
+  .menu {
+    scale: 1.1;
+  }
+}
 * {
   text-align: center;
   color: #FFFFFF;
