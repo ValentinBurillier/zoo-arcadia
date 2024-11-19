@@ -9,7 +9,12 @@
   </ul>  #}
 
     <details>
-    <summary>{{ service.title }}</summary>
+    <summary>
+      {{ service.title }}
+      <div class="cross-container">
+        <span>&#10060;</span>
+      </div>
+    </summary>
     <p>{{ service.description }}</p>
     <p>{{ service.urlIcon }}</p>
   </details> 

@@ -24,8 +24,9 @@ function selected(item) {
       formHours.style.display = 'flex';
       formHours.parentElement.className = "thirdItem";
     case "Services":
+      let containerServices = item.nextElementSibling;
       let formServices = item.nextElementSibling.nextElementSibling;
-      console.log(formServices);
+      containerServices.style.display = 'flex';
       formServices.style.display = 'flex';
       formServices.parentElement.className = "secondItem";
     default:

@@ -1,3 +1,6 @@
+.secondItem > ul {
+  display: none;
+}
 form[name="services"] {
   margin-top: 1.5rem;
   .btn-services {
@@ -22,9 +25,16 @@ form[name="services"] {
     margin-right: 1rem;
   }
 }
+
 .secondItem > ul {
   margin-top: 1rem;
 }
-.secondItem summary {
-  
+.cross-container {
+  display: inline-block; 
+  align-items: center; 
+  gap: 5px;
+  span {
+    color: red; 
+    font-size: 0.5rem;
+  }
 }
