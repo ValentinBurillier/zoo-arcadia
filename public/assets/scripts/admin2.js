@@ -19,6 +19,10 @@ function selected(item) {
       form.style.display = 'flex';
       form.parentElement.className = "firstItem";
       break;
+    case "Horaires":
+      let formHours = item.nextElementSibling;
+      formHours.style.display = 'flex';
+      formHours.parentElement.className = "thirdItem";
     default:
       break;
   }
@@ -33,7 +37,7 @@ listInputRoles.forEach((e) => {
     })
   })
 })
-console.log(listInputRoles);
+
 let alertMsg = document.querySelector('.alert-success');
 console.log(alertMsg);
 alertMsg.addEventListener('click', () => {

@@ -19,6 +19,24 @@ a {
   color: inherit;
 }
 
+form[name=horaires] {
+  margin-top: 1.5rem;
+  row-gap: 4vh;
+}
+form[name=horaires] label {
+  font-size: 1.4rem;
+}
+form[name=horaires] select, form[name=horaires] option {
+  background: none;
+  border: none;
+}
+form[name=horaires] option {
+  background: #0C4A63;
+}
+form[name=horaires] > div:nth-child(4) label {
+  margin-right: 1rem;
+}
+
 * {
   text-align: center;
   color: #FFFFFF;

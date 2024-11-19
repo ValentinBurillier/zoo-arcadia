@@ -1,0 +1,24 @@
+{% block thirdItem %}
+
+<h2>Horaires</h2>
+
+{{ form_start(formHours) }}
+
+  {{ form_row(formHours.jour) }}
+  {{ form_row(formHours.openingHours) }}
+  {{ form_row(formHours.closingHours) }}
+  {{ form_row(formHours.ferme) }}
+  <input value="Envoyer" type="submit" class="btn-submit"/>
+
+{{ form_end(formHours) }}
+
+{# Afficher les messages flash #}
+
+{% for message in app.flashes('success') %}
+  <div class="alert alert-success">
+    {{ message }}
+  </div>
+  
+{% endfor %}
+
+{% endblock %}

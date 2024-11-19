@@ -1,0 +1,26 @@
+{% block firstItem %}
+<h2>Créer un compte</h2>
+        {# Affichage des messages flash #}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+        {{ form_start(form) }}
+          {{ form_row(form.email) }}
+          <div class="containerForm">
+          <div>
+          <label>{{ form_label(form.roles) }}</label>
+          </div>
+          <div>
+          {% for choice in form.roles %}
+            <div class="radio-wrapper">
+              {{ form_widget(choice) }}
+              {{ form_label(choice) }}
+            </div>
+          {% endfor %}
+          </div>
+          </div>
+          <input value="Envoyer" type="submit" class="btn-submit"/>
+        {{ form_end(form) }}
+{% endblock %}
