@@ -23,14 +23,14 @@ class UserType extends AbstractType
             ])
             ->add('roles', ChoiceType::class, [
                 'choices' => [
-                    'Employé' => 'Employé',
-                    'Vétérinaire' => 'Vétérinaire'
+                    'Employé' => User::ROLE_EMPLOYE,
+                    'Vétérinaire' => User::ROLE_VETERINAIRE
                 ],
                 'row_attr' => [
                     'class' => "container-types"
                 ],
                 'expanded' => true,
-                'multiple' => false,
+                'multiple' => true,
                 'required' => true,
                 'choice_attr' => function () {
                     return ['class' => 'radio-wrapper']; // Ajoute une classe spécifique

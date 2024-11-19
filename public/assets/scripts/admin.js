@@ -1,5 +1,4 @@
 const menuList = document.querySelectorAll('.menu li h2');
-console.log(menuList);
 menuList.forEach((e) => {
   e.addEventListener('click', () => {
     menuList.forEach((y) => {
@@ -24,3 +23,20 @@ function selected(item) {
       break;
   }
 }
+let listInputRoles = document.querySelectorAll('.radio-wrapper input');
+listInputRoles.forEach((e) => {
+  e.addEventListener('click', () => {
+    listInputRoles.forEach((otherRole) => {
+      if(otherRole !== e) {
+        otherRole.checked = false;
+      }
+    })
+  })
+})
+console.log(listInputRoles);
+let alertMsg = document.querySelector('.alert-success');
+console.log(alertMsg);
+alertMsg.addEventListener('click', () => {
+  alertMsg.style.display = "none";
+})
+
