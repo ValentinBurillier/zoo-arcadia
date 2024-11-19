@@ -26,15 +26,44 @@ form[name=horaires] {
 form[name=horaires] label {
   font-size: 1.4rem;
 }
-form[name=horaires] select, form[name=horaires] option {
+form[name=horaires] input[type=time], form[name=horaires] select, form[name=horaires] option {
   background: none;
   border: none;
 }
 form[name=horaires] option {
   background: #0C4A63;
 }
-form[name=horaires] > div:nth-child(4) label {
+form[name=horaires] div:nth-child(n+2):nth-child(-n+4) label {
   margin-right: 1rem;
+}
+
+form[name=services] {
+  margin-top: 1.5rem;
+}
+form[name=services] .btn-services {
+  width: max-content;
+  align-self: center;
+  margin-top: 0.5rem;
+}
+form[name=services] h3 {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+form[name=services] input:not(.btn-services) {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.3215686275);
+}
+form[name=services] > div {
+  display: flex;
+  justify-content: space-between;
+}
+form[name=services] > div label {
+  margin-right: 1rem;
+}
+
+.secondItem > ul {
+  margin-top: 1rem;
 }
 
 * {
@@ -162,10 +191,16 @@ form input[type=radio]::selection {
   }
 }
 /* Exemple d'un style personnalisé pour les alertes */
+@keyframes fadeOut {
+  100% {
+    display: none; /* L'alerte devient invisible à la fin */
+  }
+}
 .alert {
   padding: 10px;
   margin-bottom: 20px;
   border-radius: 5px;
+  animation: fadeOut 2s forwards;
 }
 
 .alert-success {

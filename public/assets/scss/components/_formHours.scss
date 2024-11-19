@@ -4,14 +4,14 @@ form[name="horaires"] {
   label {
     font-size: 1.4rem;
   }
-  select, option {
+  input[type="time"], select, option {
     background: none;
     border: none;
   }
   option {
     background: #0C4A63;
   }
-  & > div:nth-child(4) label {
+  div:nth-child(n+2):nth-child(-n+4) label {
     margin-right: 1rem;
   }
 }

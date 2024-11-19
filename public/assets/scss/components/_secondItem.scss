@@ -1,0 +1,30 @@
+form[name="services"] {
+  margin-top: 1.5rem;
+  .btn-services {
+    width: max-content;
+    align-self: center;
+    margin-top: 0.5rem;
+  }
+  h3 {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  input:not(.btn-services) {
+    background: none;
+    border: 1px solid #ffffff52;
+  }
+  & > div {
+    display: flex;
+    justify-content: space-between;
+  }
+  & > div label {
+    margin-right: 1rem;
+  }
+}
+.secondItem > ul {
+  margin-top: 1rem;
+}
+.secondItem summary {
+  
+}

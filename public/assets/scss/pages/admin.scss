@@ -3,6 +3,7 @@
 @import "../base/_reset";
 @import "../base/_mixins";
 @import "../components/_formHours";
+@import "../components/_secondItem";
 * {
   text-align: center;
   color: $white;
@@ -108,10 +109,16 @@ form {
 }
 
 /* Exemple d'un style personnalisé pour les alertes */
+@keyframes fadeOut {
+  100% {
+    display: none; /* L'alerte devient invisible à la fin */
+  }
+}
 .alert {
   padding: 10px;
   margin-bottom: 20px;
   border-radius: 5px;
+  animation: fadeOut 2s forwards;
 }
 
 .alert-success {

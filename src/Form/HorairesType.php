@@ -30,13 +30,14 @@ class HorairesType extends AbstractType
                 'multiple' => false,
                 'required' => true,
             ])
-            ->add('openingHours', ChoiceType::class, [
-                'choices' => $this->getHoraires(),
+            ->add('openingHours', TimeType::class, [
+                // 'choices' => $this->getHoraires(),
+                'input' => 'datetime',
                 'label' => 'Horaire d\'ouverture',
                 'required' => true,
             ])
-            ->add('closingHours', ChoiceType::class, [
-                'choices' => $this->getHoraires(),
+            ->add('closingHours', TimeType::class, [
+                'input' => 'datetime',
                 'label' => 'Horaire de fermeture',
                 'required' => true,
             ])

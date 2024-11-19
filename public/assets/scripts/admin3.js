@@ -23,6 +23,11 @@ function selected(item) {
       let formHours = item.nextElementSibling;
       formHours.style.display = 'flex';
       formHours.parentElement.className = "thirdItem";
+    case "Services":
+      let formServices = item.nextElementSibling.nextElementSibling;
+      console.log(formServices);
+      formServices.style.display = 'flex';
+      formServices.parentElement.className = "secondItem";
     default:
       break;
   }
