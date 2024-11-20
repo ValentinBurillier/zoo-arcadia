@@ -9,7 +9,7 @@
  </ul>
 
   {% for habitat in habitats %}
-      <ul class="animal-habitat habitat-{{ loop.index }}">
+      <ul class="animal-habitat habitat-{{ loop.index }}" data-id="{{habitat.name}}">
       {% for animal in habitat.animals %}
         <li>{{ animal.name }}</li>
       {% endfor %}
@@ -21,7 +21,7 @@
 {% for habitat in habitats %}
     {% for animal in habitat.animals %}
         {% set global_index = global_index + 1 %}
-        <ul class="animal-data animal-{{ global_index }}">
+        <ul class="animal-data animal-{{ global_index }}" data-animal="{{animal.name}}">
             <ul>
                 <li>Prénom :</li>
                 <li>{{ animal.name }}</li>

@@ -11,6 +11,85 @@ menuList.forEach((e) => {
     })
   })
 })
+
+// change habitat&animaux
+let habitatList = document.querySelectorAll('.habitat-list li');
+habitatList.forEach((e) => {
+  e.addEventListener('click', () => {
+    habitatList.forEach((otherElement) => {
+      if (e === otherElement) {
+        e.style.textDecoration = "underline";
+        changeAnimals(e.innerText.toLowerCase());
+        switch(e.innerText.toLowerCase()) {
+          case "jungle":
+            let x = document.querySelector('.animal-1');
+            let allAnimalsList = document.querySelectorAll('.animal-data');
+            allAnimalsList.forEach((element) => {
+              if(element === x){
+                element.style.display = "flex";
+              } else {
+                element.style.display = "none";
+              }
+            })
+            break;
+          case "aquatique":
+            let y = document.querySelector('.animal-4');
+            let allAnimalsList2 = document.querySelectorAll('.animal-data');
+            allAnimalsList2.forEach((element) => {
+              if(element === y){
+                element.style.display = "flex";
+              } else {
+                element.style.display = "none";
+              }
+            })
+            break;
+          case "savane":
+            let z = document.querySelector('.animal-7');
+            let allAnimalsList3 = document.querySelectorAll('.animal-data');
+            allAnimalsList3.forEach((element) => {
+              if(element === z){
+                element.style.display = "flex";
+              } else {
+                element.style.display = "none";
+              }
+            })
+            break;
+          default:
+            break;
+        }
+      } else {
+        otherElement.style.textDecoration = "none";
+      }
+    })
+  })
+})
+
+function changeAnimals(animals) {
+    let animalsList = document.querySelectorAll('.animal-habitat');
+    animalsList.forEach((containerAnimals) => {
+      if(containerAnimals.attributes[1].value === animals) {
+        containerAnimals.children[0].style.textDecoration = "underline";
+        containerAnimals.style.display = "flex";
+      } else {
+        containerAnimals.style.display = "none";
+      }
+    })
+
+}
+
+let allAnimals = document.querySelectorAll('.animal-habitat li');
+allAnimals.forEach((animalSelected) => {
+  animalSelected.addEventListener('click', () => {
+    allAnimals.forEach((noSelect) => {
+      if (animalSelected === noSelect) {
+        animalSelected.style.textDecoration = "underline";
+        displayAnimal(animalSelected);
+      } else {
+        noSelect.style.textDecoration = "none";
+      }
+    })
+  })
+})
 const crossServices = document.querySelectorAll('.cross-container');
 crossServices.forEach((e) => {
   e.addEventListener('click', () => {
@@ -19,6 +98,18 @@ crossServices.forEach((e) => {
   })
 })
 
+function displayAnimal(animal) {
+  let newAnimal = animal.innerText.toLowerCase();
+  let x = document.querySelector(`[data-animal="${newAnimal}"]`);
+  let allAnimals = document.querySelectorAll('.animal-data');
+  allAnimals.forEach((y) => {
+    if(y === x) {
+      y.style.display = "flex";
+    } else {
+      y.style.display = "none";
+    }
+  })
+}
 function deleteService(id) {
   if(!confirm(`Voulez-vous vraiment supprimer cet élément ? ${id}`)) {
     return;
