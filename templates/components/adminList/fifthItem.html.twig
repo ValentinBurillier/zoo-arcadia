@@ -1,3 +1,65 @@
 {% block fifthItem %}
 <h2>Animaux</h2>
+<ul class="animaux-container">
+<ul class="habitat-list">
+
+  {% for habitat in habitats %}
+    <li>{{ habitat.name }}</li>
+  {% endfor %}
+ </ul>
+
+  {% for habitat in habitats %}
+      <ul class="animal-habitat habitat-{{ loop.index }}">
+      {% for animal in habitat.animals %}
+        <li>{{ animal.name }}</li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+   
+</ul>
+{% set global_index = 0 %}
+{% for habitat in habitats %}
+    {% for animal in habitat.animals %}
+        {% set global_index = global_index + 1 %}
+        <ul class="animal-data animal-{{ global_index }}">
+            <ul>
+                <li>Prénom :</li>
+                <li>{{ animal.name }}</li>
+            </ul>
+            <ul>
+                <li>Race :</li>
+                <li>{{ animal.species }}</li>
+            </ul>
+            <ul>
+                <li>Habitat :</li>
+                <li>{{ habitat.name }}</li>
+            </ul>
+            <ul>
+                {% for exam in animal.exams %}
+                    <li>État :</li>
+                    <li>{{ exam.state }}</li>
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for exam in animal.exams %}
+                    <li>Nourriture :</li>
+                    <li>{{ exam.food }}</li>
+                {% endfor %}
+            </ul>
+        </ul>
+    {% endfor %}
+{% endfor %}
+
+
+</ul>
+
 {% endblock %}
+
+
+  {# <ul>
+    {% for animal in habitat.animals %}
+      <li>
+        {{ animal.name }}
+      </li>
+    {% endfor %}
+  </ul> #}

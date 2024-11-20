@@ -1,0 +1,63 @@
+.animaux-container {
+  display: none;
+  flex-direction: column;
+  .habitat-list {
+    display: flex;
+    flex-direction: row;
+    padding-top: 1rem;
+    li {
+      padding: 10px;
+      text-transform: capitalize;
+      font-size: 1.3rem;
+    }
+  }
+}
+.animal-habitat {
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  li {
+    text-transform: capitalize;
+    padding: 10px;
+    font-size: 1.2rem;
+  }
+}
+.habitat-list li:nth-child(1), .habitat-1 li:nth-child(1) {
+  text-decoration: underline;
+}
+.animal-habitat, .animal-data {
+  display: none;
+}
+.animal-data {
+  align-items: baseline;
+  padding-top: 0.5rem;
+}
+.animal-data ul {
+  flex-direction: row;
+  padding: 0.7rem;
+  li {
+    text-transform: capitalize;
+    letter-spacing: 1px;
+  }
+  li:nth-child(1) {
+    margin-right: 0.75rem;
+  }
+}
+@media screen and (min-width: 600px){
+  .animaux-container {
+    margin-top: 0.75rem;
+  }
+  .animaux-container .habitat-list li, .animal-habitat li {
+    font-size: 1rem;
+  }
+  .animal-data {
+    padding-top: 2rem;
+  }
+  .animal-data ul li {
+    font-size: 0.75rem;
+  }
+  .animal-data ul {
+    padding: 0%;
+    padding-top: 0.5rem;
+  }
+}

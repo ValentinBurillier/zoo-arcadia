@@ -102,6 +102,15 @@ class AdminController extends AbstractController
             $this->addFlash('success', 'Service ajouté !');
         }
 
+        // FifthItem (Animaux)
+        //$habitats = array [0;3]
+        //$habitats : 4 propriétés : id, name, description, image, animals(liaison)
+        // Pour récupérer tous les animaux d'un habitat : $habitats[0]->getAnimals()
+        // Attention, getAnimals() ne va pas afficher les animaux car il s'agit d'une collection non initialisée. Solution : convertir la collection
+        // en un tableau php classique en utilisant la méthode ->toArray() : getAnimals()->toArray()
+        // Savoir combien il y a d'animaux dans cet habitat : count($habitats[0]->getAnimals())
+
+        // dd($habitats[0]->getAnimals()[0]->getExams()[0]->getState());
         return $this->render('admin/index.html.twig', [
             'controller_name' => 'AdminController',
             'form' => $form->createView(),

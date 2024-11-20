@@ -68,6 +68,12 @@ function selected(item) {
       containerHabitats.style.display = 'flex';
       formHabitats.style.display = 'flex';
       formHabitats.parentElement.className = "secondItem";
+      break;
+    case "Animaux":
+      item.nextElementSibling.style.display = "flex";
+      document.querySelector('.animal-1').style.display = "flex";
+      document.querySelector('.habitat-1').style.display = "flex";
+      document.querySelector('.menu').className = "menu-animaux";
     break;
     default:
       break;
