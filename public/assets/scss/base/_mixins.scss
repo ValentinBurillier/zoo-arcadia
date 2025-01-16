@@ -9,6 +9,9 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+@mixin bg-footer-links($color) {
+  background-color: #{$color};
+}
 @mixin fullScreen {
   height: 100vh;
   width: 100vw;
