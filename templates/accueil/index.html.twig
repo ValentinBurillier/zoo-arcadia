@@ -12,7 +12,11 @@
 
   {# HEADER #}
   {% include 'components/headerTest.html.twig' %}
-
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+{% endfor %}
   <main id="main__{{ pageName }}">
     {% include 'components/homePage/secondSection.html.twig' %}
     {% include 'components/homePage/thirdSection.html.twig' %}

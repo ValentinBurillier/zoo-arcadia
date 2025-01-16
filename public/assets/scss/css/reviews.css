@@ -166,6 +166,15 @@ input[name="reviews[pseudo]"], textarea[name="reviews[comment]"] {
   text-align: center;
 }
 
+#errorForm, #errorFormComment {
+  color: red;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 10px;
+  padding: 2px;
+  background: #FFFFFF;
+}
+
 @media screen and (min-width: 600px) {
   form {
     scale: 1.15;
@@ -230,6 +239,7 @@ footer ul li a {
   }
 }
 #body {
+  overflow-y: hidden;
   background: url(../../images/zoo-arcadia-loutre.webp);
   background-repeat: no-repeat;
   background-size: cover;

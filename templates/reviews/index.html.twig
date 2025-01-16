@@ -13,6 +13,11 @@
   </header>
 
   <main id="main">
+  {% for message in app.flashes('error') %}
+    <div class="alert alert-danger">
+        {{ message }}
+    </div>
+{% endfor %}
     {% block formReviews %}
       {% include "components/formReviews.html.twig" %}
     {% endblock %}
@@ -28,5 +33,6 @@
 
 {# SCRIPTS JS #}
 {% block scripts %}
-  <script src="{{ asset('assets/scripts/reviews.js' )}}" defer></script>
+  <script src="{{ asset('assets/scripts/reviews.js' )}}?{{ "now"|date("U") }}" defer></script>
+  <script src="{{ asset('assets/scripts/forms/controlReviewsForm.js' )}}?{{ "now"|date("U") }}"></script>
 {% endblock %}

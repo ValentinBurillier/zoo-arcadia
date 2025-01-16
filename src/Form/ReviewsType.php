@@ -19,7 +19,7 @@ class ReviewsType extends AbstractType
                 'label' => 'Entrez un pseudo',
                 'required' =>true,
                 'attr' => [
-                    'maxLength' => 255
+                    'maxLength' => 50
                 ]
             ])
             ->add('score', ChoiceType::class, [

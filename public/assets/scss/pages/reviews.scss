@@ -9,6 +9,7 @@ $bg__header: white;
 @import "../components/_formReviews";
 @import "../components/_footerReviews";
 #body {
+    overflow-y: hidden;
     @include bg-img-cover-no-repeat('../../images/zoo-arcadia-loutre.webp');
     background-position: 35% center;
 

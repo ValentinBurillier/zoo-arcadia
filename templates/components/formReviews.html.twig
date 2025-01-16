@@ -1,7 +1,9 @@
 {% block formReviews %}
 {{ form_start(form) }}
       {{ form_label(form.pseudo) }}
+
     {{ form_widget(form.pseudo) }}
+          <span id="errorForm"></span>
 
      <label for="{{ form.score.vars.id }}">{{ form.score.vars.label }}</label>
      <div class="container_stars">
@@ -12,6 +14,7 @@
     </div>
      {{ form_label(form.comment) }}
     {{ form_widget(form.comment) }}
+    <span id="errorFormComment"></span>
     <button type="submit">Envoyer</button>
 {{ form_end(form) }}
 {% endblock %}
