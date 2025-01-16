@@ -7,15 +7,14 @@ $bg__header: white;
 @import "../components/_nav";
 @import "../components/_logo";
 @import "../components/_formReviews";
+@import "../components/_footerReviews";
 #body {
-    overflow: hidden;
-    @include bg-img-cover-no-repeat('../../images/zoo-arcadia-dauphin-2.webp');
+    @include bg-img-cover-no-repeat('../../images/zoo-arcadia-loutre.webp');
     background-position: 35% center;
 
 }
 #header {
   .img__display {
-    box-shadow: -7px 0px 19px 20px $white;
     border-radius: 10px;
   }
 }

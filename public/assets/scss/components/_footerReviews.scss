@@ -1,0 +1,44 @@
+footer {
+    background-color: $dark-grey;
+    width: 100vw;
+    height: 164px;
+    @include d-flex-col-center;
+    ul {
+        @include d-flex-col-center;
+        row-gap: 1rem;
+        li {
+            font-family: $thirdFont;
+            font-weight: normal;
+            color: $white;
+            letter-spacing: 1.5px;
+            text-align: center;
+            a {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 744px) {
+    footer {
+        height: 66px;
+        ul {
+            width: 100vw;
+            flex-direction: row;
+            justify-content: space-around;
+            row-gap: 0px;
+        }
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    footer {
+        ul {
+            li {
+                a {
+                    font-size: 18px;
+                }   
+            }
+        }
+    }
+}

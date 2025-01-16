@@ -149,7 +149,7 @@ form .container_stars input {
 }
 form button {
   color: #FFFFFF;
-  background: #31CEFF;
+  background: #D4C9A1;
   font-style: Homenaje, sans-serif;
   font-size: 1rem;
   padding: 10px;
@@ -186,16 +186,57 @@ input[name="reviews[pseudo]"], textarea[name="reviews[comment]"] {
     scale: 1.4;
   }
 }
+footer {
+  background-color: #363636;
+  width: 100vw;
+  height: 164px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+footer ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1rem;
+}
+footer ul li {
+  font-family: Tahoma, sans-serif;
+  font-weight: normal;
+  color: #FFFFFF;
+  letter-spacing: 1.5px;
+  text-align: center;
+}
+footer ul li a {
+  font-size: 16px;
+}
+
+@media screen and (min-width: 744px) {
+  footer {
+    height: 66px;
+  }
+  footer ul {
+    width: 100vw;
+    flex-direction: row;
+    justify-content: space-around;
+    row-gap: 0px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  footer ul li a {
+    font-size: 18px;
+  }
+}
 #body {
-  overflow: hidden;
-  background: url(../../images/zoo-arcadia-dauphin-2.webp);
+  background: url(../../images/zoo-arcadia-loutre.webp);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 35% center;
 }
 
 #header .img__display {
-  box-shadow: -7px 0px 19px 20px #FFFFFF;
   border-radius: 10px;
 }
 
@@ -208,4 +249,4 @@ input[name="reviews[pseudo]"], textarea[name="reviews[comment]"] {
   #header nav {
     background: none;
   }
-}/*# sourceMappingURL=reviews.css.map */
+}

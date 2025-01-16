@@ -53,6 +53,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function __construct()
     {
+        $this->roles = [self::ROLE_EMPLOYE];
         $this->animals = new ArrayCollection();
         $this->exams = new ArrayCollection();
     }

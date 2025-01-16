@@ -1,4 +1,4 @@
-{% set iconMenu = 'zoo-arcadia-blue_menu' %}
+{% set iconMenu = 'zoo-arcadia-marais-menu' %}
 {% set pageName = 'reviews' %}
 {% extends "base.html.twig" %}
 {% block title %}Arcadia | Avis{% endblock %}
@@ -16,9 +16,15 @@
     {% block formReviews %}
       {% include "components/formReviews.html.twig" %}
     {% endblock %}
+    
   </main>
+  {% block footerReviews %}
+    {% include "components/footerReviews.html.twig" %}
+  {% endblock %}
 {% endblock %}
 {# END BODY #}
+
+  
 
 {# SCRIPTS JS #}
 {% block scripts %}

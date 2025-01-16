@@ -23,8 +23,13 @@ class Reviews
     #[ORM\Column(type: Types::TEXT)]
     private ?string $comment = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $statut = 'check';
+    // Relation ManyToOne vers StatutAvis
+    #[ORM\ManyToOne(targetEntity: StatutAvis::class)]
+    #[ORM\JoinColumn(name: "statut_id", referencedColumnName: "id", nullable: false)]
+    private ?StatutAvis $statut = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, options: ["default" => "CURRENT_TIMESTAMP"])]
+    private ?\DateTimeInterface $date = null;
 
     public function getId(): ?int
     {
@@ -67,14 +72,26 @@ class Reviews
         return $this;
     }
 
-    public function getStatut(): ?string
+    public function getStatut(): ?StatutAvis
     {
         return $this->statut;
     }
 
-    public function setStatut(string $statut): static
+    public function setStatut(?StatutAvis $statut): static
     {
         $this->statut = $statut;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): static
+    {
+        $this->date = $date;
 
         return $this;
     }

@@ -1,0 +1,795 @@
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+body, main {
+  position: relative;
+}
+
+ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav {
+  display: flex;
+  padding-left: 7%;
+  padding-right: 7%;
+  padding-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav img {
+  width: 44px;
+  height: 44px;
+}
+nav img:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 999px) {
+  header nav ul {
+    display: none;
+  }
+}
+@media screen and (min-width: 600px) {
+  nav {
+    padding-top: 0.5rem;
+  }
+  nav .main__title {
+    font-size: 2.2rem;
+  }
+  nav img {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+@media screen and (min-width: 1000px) {
+  nav {
+    background: linear-gradient(to right, rgba(44, 138, 0, 0.47), rgba(217, 130, 0, 0.62));
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 0%;
+    position: relative;
+    z-index: 1000;
+  }
+  nav .img__display {
+    display: none;
+  }
+  nav ul {
+    display: inherit;
+    list-style-type: none;
+    display: flex;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
+  }
+  nav ul li a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+  }
+  .nav__div {
+    display: none;
+  }
+}
+.main__title {
+  color: white;
+  font-family: IBM Plex Serif, serif;
+  font-weight: bold;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 600px) {
+  .main__title {
+    font-size: 3rem;
+  }
+}
+header button {
+  width: 216px;
+  height: 52px;
+  background: none;
+  border: 1px solid white;
+}
+header button a {
+  color: white;
+  font-family: IBM Plex Serif, serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.btn__computer {
+  display: none;
+}
+
+@media screen and (min-width: 1000px) {
+  .btn__computer {
+    display: block;
+    position: absolute;
+    top: 82%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(77, 28, 0, 0.97);
+    border: 4px solid #5E3800;
+    box-shadow: 9px 1px 44.2px 3px white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .btn__computer #btn__link--computer {
+    font-family: Homenaje, sans-serif;
+    letter-spacing: 5px;
+    font-weight: normal;
+  }
+}
+@media screen and (max-width: 999px) {
+  #homepage .div {
+    display: none;
+  }
+}
+@media screen and (min-width: 1000px) {
+  #homepage #left {
+    background: url("../images/zoo-arcadia-elephant-xl.webp");
+    width: 100%;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: -20%;
+    background-size: 90%;
+  }
+  #homepage #right {
+    background: url("../images/zoo-arcadia-background.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -50px;
+    background-position-x: center;
+    width: 55%;
+    position: absolute;
+    transform: rotateZ(14deg);
+    height: 150vh;
+    transform-origin: center;
+    right: -9%;
+    top: -20%;
+  }
+  #homepage .div {
+    height: 100%;
+    display: inline-block;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #homepage #left {
+    background-size: 80%;
+  }
+  #homepage #right {
+    top: -30%;
+  }
+}
+@media screen and (min-width: 1400px) {
+  #homepage #left {
+    background-size: 70%;
+    width: 120vw;
+    top: -15%;
+    height: 120%;
+    left: -20%;
+  }
+  #homepage #right {
+    top: -30%;
+    background-size: 75%;
+    width: 60%;
+    height: 150vh;
+    transform-origin: center;
+    right: -12%;
+  }
+}
+@media screen and (min-width: 1650px) {
+  #homepage #left {
+    background-size: 50%;
+    width: 165vw;
+    top: -30%;
+    height: 140%;
+    left: -20%;
+  }
+  #homepage #right {
+    top: -40%;
+    background-size: 50%;
+    width: 95%;
+    height: 170vh;
+    transform-origin: center;
+    right: -30%;
+  }
+}
+@media screen and (min-height: 670px) {
+  #homepage #left {
+    background-size: cover;
+  }
+}
+@media screen and (min-width: 1046px) and (min-height: 670px) {
+  #homepage #right {
+    transform: rotateZ(10deg);
+    right: -11%;
+  }
+  #homepage #left {
+    background-size: cover;
+    background-position-y: center;
+  }
+}
+@media screen and (min-width: 1046px) and (min-height: 670px) {
+  #homepage #left {
+    background-size: cover;
+  }
+  #homepage #right {
+    top: -15%;
+    background-size: contain;
+    width: 60%;
+    height: 150vh;
+    right: -14%;
+  }
+}
+@media screen and (min-width: 1400px) and (min-height: 670px) {
+  #homepage #left {
+    background-size: cover;
+    width: 87vw;
+  }
+}
+@media screen and (min-width: 1534px) and (min-height: 670px) {
+  #homepage #left {
+    background-size: cover;
+    width: 90vw;
+  }
+}
+@media screen and (min-width: 1650px) and (min-height: 670px) {
+  #homepage #left {
+    background-size: cover;
+    width: 90vw;
+    top: -25%;
+  }
+}
+@media screen and (min-width: 1864px) and (min-height: 670px) {
+  #homepage #left {
+    top: -10%;
+  }
+}
+@media screen and (min-width: 1046px) and (min-height: 744px) {
+  #homepage #right {
+    top: -10%;
+    width: 67%;
+    height: 140vh;
+    right: -17.5%;
+  }
+}
+#homepage {
+  height: 100vh;
+  width: 100vw;
+  background: url(../images/zoo-arcadia-background.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+#homepage > img {
+  height: 100vh;
+  overflow: hidden;
+  width: -webkit-fill-available;
+  position: relative;
+}
+#homepage section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+#homepage section div {
+  width: 100vw;
+  height: 80px;
+  background: #092D00;
+  position: relative;
+  top: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 600px) {
+  #homepage img {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+@media screen and (min-width: 1000px) {
+  #homepage img:first-child {
+    position: absolute;
+    z-index: 1;
+    width: 50%;
+    height: 150vh;
+    transform: rotate(20deg);
+    right: -10%;
+    top: -20%;
+    overflow: hidden;
+    box-shadow: -39px 4px 45.1px -13px white;
+  }
+  .header__elephant {
+    height: 100vh;
+    overflow: hidden;
+    width: -webkit-fill-available;
+    position: absolute;
+    top: 0;
+    left: -5%;
+    width: 80%;
+  }
+  #homepage section {
+    position: absolute;
+    z-index: 999;
+  }
+}
+#secondSection, #thirdSection {
+  height: 100vh;
+  width: 100vw;
+  background: #7F4C27;
+  color: #FFFFFF;
+  font-family: Homenaje, sans-serif;
+  border-bottom: 1px solid #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#secondSection h2, #secondSection img, #secondSection p, #thirdSection h2, #thirdSection img, #thirdSection p {
+  margin: 0 auto;
+  font-weight: normal;
+  letter-spacing: 4px;
+  max-width: 350px;
+}
+#secondSection h2, #thirdSection h2 {
+  font-size: 1.5rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+#secondSection img, #thirdSection img {
+  width: 75%;
+  display: block;
+  margin-bottom: 1rem;
+}
+#secondSection p, #thirdSection p {
+  font-size: 1.3rem;
+  line-height: 2.2rem;
+  width: 75%;
+  text-align: center;
+}
+
+#secondSection {
+  position: relative;
+}
+
+#secondSection img:last-child {
+  display: none;
+}
+
+#thirdSection {
+  background: #092D00;
+}
+
+@media screen and (min-width: 1000px) {
+  #secondSection, #thirdSection {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #secondSection h2, #thirdSection h2 {
+    font-size: 2rem;
+  }
+  #secondSection img, #thirdSection img {
+    display: none;
+  }
+  #secondSection p, #thirdSection p {
+    width: 70%;
+    max-width: none;
+    font-size: 1.5rem;
+  }
+  #secondSection h2, #secondSection p, #thirdSection h2, #thirdSection p {
+    max-width: 700px;
+    margin: none;
+  }
+  #secondSection img:last-child {
+    display: block;
+    width: 100vw;
+    margin: 0;
+    max-width: none;
+    position: absolute;
+    z-index: 999;
+    top: 35%;
+  }
+}
+@media screen and (min-height: 700px) {
+  #secondSection, #thirdSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 750px) and (min-height: 650px) {
+  #secondSection, #thirdSection {
+    row-gap: 2vh;
+  }
+  #secondSection h2, #thirdSection h2 {
+    font-size: 2rem;
+    margin-bottom: none;
+  }
+  #secondSection img, #secondSection p, #thirdSection img, #thirdSection p {
+    max-width: 400px;
+    margin-bottom: none;
+  }
+  #secondSection p, #thirdSection p {
+    font-size: 1.7rem;
+  }
+}
+@media screen and (min-width: 674px) and (min-height: 750px) {
+  #secondSection, #thirdSection {
+    row-gap: 2vh;
+  }
+  #secondSection h2, #thirdSection h2 {
+    font-size: 2.5rem;
+    margin-bottom: none;
+  }
+  #secondSection img, #secondSection p, #thirdSection img, #thirdSection p {
+    max-width: 450px;
+    margin-bottom: none;
+  }
+  #secondSection p, #thirdSection p {
+    font-size: 1.9rem;
+    line-height: 150%;
+  }
+}
+@media screen and (min-width: 890px) and (min-height: 850px) {
+  #secondSection, #thirdSection {
+    row-gap: 3vh;
+  }
+  #secondSection h2, #thirdSection h2 {
+    font-size: 2.75rem;
+    margin-bottom: none;
+  }
+  #secondSection img, #secondSection p, #thirdSection img, #thirdSection p {
+    max-width: 475px;
+    margin-bottom: none;
+  }
+  #secondSection p, #thirdSection p {
+    font-size: 1.9rem;
+    line-height: 175%;
+  }
+}
+@media screen and (min-width: 1000px) and (min-height: 568px) {
+  #secondSection, #thirdSection {
+    row-gap: 4vh;
+  }
+  #secondSection h2, #thirdSection h2 {
+    padding-top: 0;
+    margin-bottom: 0;
+    transform: inherit;
+  }
+  #secondSection img:last-child, #thirdSection img:last-child {
+    max-width: 1000px;
+  }
+  #secondSection p, #thirdSection p {
+    line-height: 175%;
+  }
+}
+@media screen and (min-width: 1000px) and (min-height: 650px) {
+  #secondSection p, #thirdSection p {
+    max-width: 700px;
+  }
+}
+@media screen and (min-width: 1000px) and (min-height: 700px) {
+  #secondSection img:last-child, #thirdSection img:last-child {
+    top: 50%;
+  }
+}
+#fourthSection, .computer {
+  height: 100vh;
+  width: 100vw;
+  background: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  max-height: 568px;
+}
+#fourthSection *, .computer * {
+  font-family: Homenaje, sans-serif;
+  font-weight: normal;
+  letter-spacing: 4px;
+  font-size: 1.2rem;
+  color: #FFFFFF;
+}
+#fourthSection div, .computer div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+  align-self: center;
+}
+#fourthSection div img, .computer div img {
+  width: 85%;
+  max-width: 400px;
+}
+#fourthSection h2, .computer h2 {
+  background-color: #0C3F03;
+  text-align: center;
+  width: 100%;
+  padding: 0.8rem;
+}
+#fourthSection button, .computer button {
+  background: #525C2A;
+  border-radius: 50px;
+  width: 13rem;
+  align-self: center;
+  padding: 0.8rem;
+}
+#fourthSection button a, .computer button a {
+  font-size: 1.1rem;
+}
+
+.computer {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  #fourthSection h2 {
+    font-size: 1.5rem;
+  }
+  #fourthSection .fourthSection__container img {
+    width: 100%;
+    max-width: 500px;
+  }
+  #fourthSection button {
+    width: 15rem;
+  }
+  #fourthSection .linkBtn {
+    font-size: 1.4rem;
+  }
+}
+@media screen and (min-width: 1000px) {
+  #fourthSection {
+    display: none;
+  }
+  h2 {
+    transform: translateY(2.2rem);
+  }
+  .computer {
+    display: block;
+  }
+  .computer h2 {
+    font-size: 1.75rem;
+  }
+  .computer section {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 51.59px);
+  }
+  .computer section div, .computer section img {
+    max-width: 650px;
+  }
+  .computer section div {
+    margin-left: 1rem;
+  }
+  .computer section button {
+    scale: 1.1;
+  }
+}
+@media screen and (min-width: 1350) {
+  .computer {
+    width: 15rem;
+  }
+  #linkComputer, #btnComputer {
+    font-size: 1.5rem;
+    line-height: 150%;
+  }
+}
+#fifthSection {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(61deg, #006333 50%, #054000 50%);
+  overflow-y: scroll;
+  position: relative;
+  max-width: 1500px;
+  margin: auto;
+}
+#fifthSection h2 {
+  display: none;
+}
+#fifthSection .container div {
+  width: 80%;
+  height: 210px;
+  margin: 0 auto;
+  border-radius: 20%;
+  background: white;
+  overflow-x: hidden;
+  position: relative;
+  max-width: 340px;
+}
+#fifthSection .container div img {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  display: block;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#fifthSection .container div h3 {
+  color: white;
+  background: rgba(6, 40, 0, 0.8);
+  font-size: 1.3rem;
+  text-align: center;
+  padding: 1rem;
+  letter-spacing: 1px;
+}
+#fifthSection .container div p {
+  font-size: 1.5rem;
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+  padding: 1.2rem 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#fifthSection .container div:first-child {
+  margin-top: 3.2rem;
+}
+#fifthSection .container div {
+  margin-bottom: 3.2rem;
+}
+
+@media screen and (min-width: 700px) {
+  #fifthSection {
+    background: linear-gradient(23deg, #006333 50%, #054000 50%);
+  }
+  #fifthSection h2 {
+    display: block;
+    font-size: 2rem;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background-color: #0C3F03;
+    text-align: center;
+    width: 100%;
+    padding: 0.8rem;
+    color: white;
+    transform: none;
+    padding-top: 1.5rem;
+  }
+  #fifthSection .container div {
+    border-radius: 10%;
+    scale: 1.2;
+  }
+  #fifthSection .container div:first-child {
+    top: 25%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+  #fifthSection .container div:nth-child(2) {
+    top: 75%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+  #fifthSection .container div:last-child {
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+}
+#sixthSection {
+  height: 100vh;
+  width: 100vw;
+}
+#sixthSection h2 {
+  background-color: #0C3F03;
+  text-align: center;
+  width: 100%;
+  font-family: Homenaje, sans-serif;
+  font-weight: normal;
+  letter-spacing: 4px;
+  font-size: 1.2rem;
+  color: white;
+  padding: 0.8rem;
+}
+#sixthSection h2:first-child {
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 1000px) {
+  body, main, #homepage, #homepage section {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+  #homepage {
+    background: none;
+  }
+  #homepage section {
+    height: 100vh;
+    overflow: hidden;
+  }
+  #homepage section .nav__div {
+    display: none;
+  }
+  #main__homePage {
+    position: relative;
+    z-index: 1000;
+  }
+  #right {
+    transform-origin: none;
+  }
+}
+#homepage #menuDisplay {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: linear-gradient(to bottom, #0C3F03, #000000);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#homepage #menuDisplay img {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  box-shadow: 3px 6px 3.4px 1px #092D00;
+  width: 2rem;
+  height: 2rem;
+}
+#homepage #menuDisplay #navMobil {
+  padding: inherit;
+}
+#homepage #menuDisplay #navMobil ul {
+  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 5vh;
+}
+#homepage #menuDisplay #navMobil ul li a {
+  color: #FFFFFF;
+  font-family: Homenaje, sans-serif;
+  font-size: 1.75rem;
+  letter-spacing: 3px;
+  font-weight: 500;
+}
+
+.menuActif {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 500px) {
+  #homepage #menuDisplay #navMobil ul li a {
+    font-size: 2.2rem;
+    letter-spacing: 5px;
+  }
+}/*# sourceMappingURL=styles.css.map */
