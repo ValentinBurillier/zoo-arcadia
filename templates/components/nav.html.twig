@@ -1,9 +1,6 @@
 {% block nav %}
   <nav>
     <h1 class="main__title">Arcadia</h1>
-    {% block menuImage %}
-      {% include "components/menuImage.html.twig" %}
-    {% endblock %}
     <img src="{{asset('assets/images/'~ iconMenu ~'.webp')}}" class="img__display"/>
     <ul>
       <li><a href="#">Services</a></li>

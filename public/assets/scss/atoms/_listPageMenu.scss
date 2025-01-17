@@ -1,0 +1,18 @@
+header nav ul {
+    display: none;
+}
+
+@media screen and (min-width: 1280px) {
+    header nav ul {
+        display: flex;
+        align-items: center;
+        column-gap: 16px;
+        letter-spacing: 2px;
+        li a {
+            color: $white;
+            font-family: $mainTitle;
+            font-weight: normal;
+            font-size: 24px;
+        }
+    }
+}

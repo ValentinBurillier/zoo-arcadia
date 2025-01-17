@@ -1,0 +1,16 @@
+header nav {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (min-width: 1280px) {
+    nav {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}

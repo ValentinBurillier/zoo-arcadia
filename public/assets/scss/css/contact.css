@@ -153,11 +153,11 @@ nav img:hover {
 }
 footer {
   height: 30px;
-  background: #525C2A;
+  background: black;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-top: 4px solid white;
+  border-top: 4px solid #FFFFFF;
 }
 footer a {
   height: 100%;

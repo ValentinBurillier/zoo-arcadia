@@ -4,16 +4,16 @@
 {% extends "base.html.twig" %}
 {% block title %}Arcadia | Connexion{% endblock %}
 {% block style %} 
-  <link rel="stylesheet" href="{{ asset('assets/scss/css/connect.css') }}?{{ "now"|date("U") }}" type="text/css">
+  <link rel="stylesheet" href="{{ asset('assets/scss/css/connect2.css') }}?{{ "now"|date("U") }}" type="text/css">
 {% endblock %}
 
 {# BODY #}
 {% block body %}
 
   {# HEADER #}
-    <header id="header">
-        {% include "components/nav.html.twig" %}
-    </header>
+    {% block header %}
+        {% include "components/headerConnect.html.twig" %}
+    {% endblock %}
 
   <main id="main__loginPage">
     <section>

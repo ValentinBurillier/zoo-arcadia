@@ -1,0 +1,32 @@
+footer {
+    overflow: hidden;
+    width: 100vw;
+    height: 28px;
+    background-color: $terre;
+    border-top: 4px solid $white;
+    @include d-flex-col-center;
+    ul {
+        width: 80vw;
+        display: flex;
+        justify-content: space-between;
+        li, a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    img {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media screen and (min-width: 744px) {
+    footer {
+        height: 40px;
+        img {
+            width: 32px;
+            height: 32px;
+        }
+    }
+}

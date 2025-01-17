@@ -1,0 +1,14 @@
+h1 {
+    color: $white;
+    font-family: $mainTitle;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 32px;
+    text-transform: uppercase;
+}
+
+@media screen and (min-width: 744px) {
+    h1 {
+        font-size: 36px;
+    }
+}

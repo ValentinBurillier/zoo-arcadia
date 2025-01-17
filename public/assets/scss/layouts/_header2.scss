@@ -1,0 +1,20 @@
+@import "../atoms/_navHeader";
+@import "../atoms/_title1";
+@import "../atoms/_iconMenu";
+@import "../atoms/_listPageMenu";
+
+header {
+    width: 100vw;
+    height: 45px;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+   
+}
+
+@media screen and (min-width: 744px) {
+    header {
+        height: 60px;
+    }
+}

@@ -1,0 +1,19 @@
+main {
+    height: calc(100vh - 28px);
+    width: 100vw;
+    @include bg-img-cover-no-repeat("../../images/deux.png");
+    background-position: center;
+}
+
+@media screen and (min-width: 744px) {
+    main {
+        height: calc(100vh - 40px);
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    main {
+        height: calc(100vh - 100px);
+        @include bg-img-cover-no-repeat("../../images/deux-2.png");
+    }
+}

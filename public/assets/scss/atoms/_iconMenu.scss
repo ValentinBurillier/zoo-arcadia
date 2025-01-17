@@ -1,0 +1,17 @@
+.iconMenu__header{
+    width: 45px;
+    height: 45px;
+}
+
+@media screen and (min-width: 744px) {
+    .iconMenu__header{
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .iconMenu__header {
+        display: none;
+    }
+}
