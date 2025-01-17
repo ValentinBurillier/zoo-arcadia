@@ -1,7 +1,8 @@
+@import "../components/formConnect";
 main {
     height: calc(100vh - 28px);
     width: 100vw;
-    @include bg-img-cover-no-repeat("../../images/deux.png");
+    @include bg-img-cover-no-repeat("../../images/zoo-arcadia-elephant.png");
     background-position: center;
     @include d-flex-col-center;
 }
@@ -15,6 +16,6 @@ main {
 @media screen and (min-width: 1280px) {
     main {
         height: calc(100vh - 100px);
-        @include bg-img-cover-no-repeat("../../images/deux-2.png");
+        @include bg-img-cover-no-repeat("../../images/zoo-arcadia-elephant-bgWhite.png");
     }
 }
