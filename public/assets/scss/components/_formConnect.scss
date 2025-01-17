@@ -1,0 +1,41 @@
+@import "../atoms/_containerForm";
+@import "../atoms/_title2Form";
+@import "../atoms/_btnForm";
+form {
+    height: 100%;
+    width: 85%;
+    row-gap: 7vh;
+    @include d-flex-col-center;
+    .container-data {
+        max-width: 500px;
+        @include d-flex-col-center;
+        width: 100%;
+        row-gap: 2vh;
+        label, input {
+            width: 100%;
+            letter-spacing: 1px;
+        }
+        label {
+            color: $white;
+            font-family: $mainTitle;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        input {
+            background: #D9D9D9;
+            border-radius: 5px;
+            height: 42px;
+            border: 1px solid rgba(128, 128, 128, 0.5);
+            padding-left: 5px;
+        }
+    }    
+}
+
+@media screen and (min-width: 1280px) {
+    form {
+        scale: 1.1;
+        label {
+            color: $terre;
+        }
+    }
+}

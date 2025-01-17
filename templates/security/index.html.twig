@@ -16,34 +16,22 @@
     {% endblock %}
 
   <main id="main__loginPage">
-    <section>
 
       {{ form_start(form) }}
 
         <h2>Connexion</h2>
+
+        <div class="container-data">
         {{ form_label(form.email) }}  {# Affiche le label #}
         {{ form_widget(form.email) }} {# Affiche le champ input #}
         {{ form_label(form.password) }}  {# Affiche le label #}
         {{ form_widget(form.password) }} {# Affiche le champ input #}
-        <button type="submit">Se connecter</button>
+        </div>
 
+        <button type="submit">Se connecter</button>
       {{ form_end(form) }}
-    </section>
 
-    {# TESTS DIV COMPUTER #}
-    <div id="left" class="div">
-      {{ form_start(formLarge) }}
-
-        <h2>Connexion</h2>
-        {{ form_label(formLarge.email) }}  {# Affiche le label #}
-        {{ form_widget(formLarge.email) }} {# Affiche le champ input #}
-        {{ form_label(formLarge.password) }}  {# Affiche le label #}
-        {{ form_widget(formLarge.password) }} {# Affiche le champ input #}
-        <button type="submit">Se connecter</button>
-
-      {{ form_end(formLarge) }}
-    </div>
-    <div id="right" class="div"></div>
+      
 
   </main>
   

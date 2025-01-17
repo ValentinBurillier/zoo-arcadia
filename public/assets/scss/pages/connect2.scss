@@ -5,16 +5,16 @@
 
 @import "../layouts/_header2";
 @import "../layouts/_mainConnect";
+@import "../components/formConnect";
 @import "../components/_footerSocialNetworks";
-
-form, section {
-    display: none;
-}
 
 @media screen and (min-width: 1280px) {
     header {
         position: relative;
         border-bottom: 4px solid $white;
         background: $terre;
+    }
+    h2 {
+        color: $terre;
     }
 }

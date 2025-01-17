@@ -103,6 +103,10 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (min-width: 744px) {
@@ -116,6 +120,71 @@ main {
     background: url(../../images/deux-2.png);
     background-repeat: no-repeat;
     background-size: cover;
+  }
+}
+h2 {
+  color: #FFFFFF;
+  font-family: IBM Plex Serif, serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 28px;
+}
+
+form button {
+  font-family: Homenaje, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #FFFFFF;
+  background-color: #7F4C27;
+  letter-spacing: 2px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 117px;
+}
+
+form {
+  height: 100%;
+  width: 85%;
+  row-gap: 7vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+form label, form input {
+  width: 100%;
+  letter-spacing: 1px;
+}
+form label {
+  color: #FFFFFF;
+  font-family: IBM Plex Serif, serif;
+  font-size: 20px;
+  font-weight: bold;
+}
+form input {
+  background: #D9D9D9;
+  border-radius: 5px;
+  height: 42px;
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  padding-left: 5px;
+}
+
+.container-data {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  row-gap: 2vh;
+}
+
+@media screen and (min-width: 1280px) {
+  form {
+    scale: 1.1;
+  }
+  form input, form label {
+    color: #7F4C27;
   }
 }
 footer {
@@ -153,14 +222,13 @@ footer img {
     height: 32px;
   }
 }
-form, section {
-  display: none;
-}
-
 @media screen and (min-width: 1280px) {
   header {
     position: relative;
     border-bottom: 4px solid #FFFFFF;
     background: #7F4C27;
+  }
+  h2 {
+    color: #7F4C27;
   }
 }
