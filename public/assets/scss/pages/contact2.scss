@@ -15,12 +15,24 @@
       padding: 2px;
       background: $white;
   }
-
-@media screen and (min-width: 1280px) {
-    header {
-        background: $terre;
+form {
+    width: 95%;
+    row-gap: 2vh;
+    scale: 0.8;
+    .container-data label {
+        color: $white;
     }
-    h2 {
-        color: $terre;
+}
+form button {
+    background-color: $greenLow;
+}
+footer {
+    background-color: $greenLow;
+}
+@media screen and (min-width: 744px) {
+    main {
+        form {
+            scale: 0.9;
+        }
     }
 }

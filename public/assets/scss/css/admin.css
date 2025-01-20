@@ -169,6 +169,7 @@ body {
   background: url(../../images/zoo-arcadia-dauphin-2.webp);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   background-position-x: 40%;
 }
 

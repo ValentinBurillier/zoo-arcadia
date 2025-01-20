@@ -2,9 +2,14 @@
 main {
     height: calc(100vh - 28px);
     width: 100vw;
-    @include bg-img-cover-no-repeat("../../images/zoo-arcadia-elephant.png");
-    background-position: center;
     @include d-flex-col-center;
+    &.bg-contact {
+        @include bg-img-cover-no-repeat("../../images/zoo-arcadia-bg-contact-full.webp");
+    }
+    &.bg-login {
+        @include bg-img-cover-no-repeat("../../images/zoo-arcadia-elephant.png");
+    }
+    background-position: center;
 }
 
 @media screen and (min-width: 744px) {
@@ -16,6 +21,11 @@ main {
 @media screen and (min-width: 1280px) {
     main {
         height: calc(100vh - 100px);
-        @include bg-img-cover-no-repeat("../../images/zoo-arcadia-elephant-bgWhite.png");
+        &.bg-contact {
+            @include bg-img-cover-no-repeat("../../images/zoo-arcadia-bg-contact-mi.webp");
+        }
+        &.bg-login {
+            @include bg-img-cover-no-repeat("../../images/zoo-arcadia-elephant-bgWhite.png");
+        }
     }
 }

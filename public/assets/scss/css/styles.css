@@ -273,6 +273,7 @@ header button a {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-position: center;
 }
 #homepage > img {
   height: 100vh;

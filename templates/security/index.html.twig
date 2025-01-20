@@ -12,10 +12,10 @@
 
   {# HEADER #}
     {% block header %}
-        {% include "components/headerConnect.html.twig" %}
+        {% include "components/headerConnect.html.twig" with { 'class': 'fill--brown'} %}
     {% endblock %}
 
-  <main id="main__loginPage">
+  <main id="main__loginPage" class="bg-login">
       {{ form_start(form) }}
 
         <h2>Connexion</h2>

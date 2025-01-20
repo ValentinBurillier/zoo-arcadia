@@ -18,3 +18,13 @@ header {
         height: 60px;
     }
 }
+
+@media screen and (min-width: 1280px) {
+    header {
+        &.fill {
+            position: relative;
+            border-bottom: 4px solid $white;
+            background: $darkGreen;
+        }
+    }
+}

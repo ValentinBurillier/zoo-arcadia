@@ -8,6 +8,7 @@
   background: url(#{$img-url});
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 @mixin bg-footer-links($color) {
   background-color: #{$color};

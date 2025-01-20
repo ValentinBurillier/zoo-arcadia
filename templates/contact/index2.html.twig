@@ -1,0 +1,73 @@
+{% set iconMenu = 'zoo-arcadia-green_menu' %}
+{% set pageName = 'contactPage' %}
+
+{% extends "base.html.twig" %}
+{% block title %}Arcadia | Contact{% endblock %}
+{% block style %} 
+  <link rel="stylesheet" href="{{ asset('assets/scss/css/contact.css') }}?{{ "now"|date("U") }}" type="text/css">
+{% endblock %}
+
+{# BODY #}
+{% block body %}
+
+    {# HEADER #}
+    <header id="header">
+        {% include "components/nav.html.twig" %}
+    </header>
+
+    {# MAIN #}
+    <main id="main">
+    <section>
+    {{ form_start(formSmall) }}
+    <h2>Demande de contact</h2>
+        {{ form_label(formSmall.title) }}  {# Affiche le label #}
+        {{ form_widget(formSmall.title) }} {# Affiche le champ input #}
+        {{ form_label(formSmall.description) }}  {# Affiche le label #}
+        {{ form_widget(formSmall.description) }} {# Affiche le champ input #}
+        {{ form_label(formSmall.mail) }}  {# Affiche le label #}
+        {{ form_widget(formSmall.mail) }} {# Affiche le champ input #}
+        {{ form_label(formSmall.message) }}  {# Affiche le label #}
+        {{ form_widget(formSmall.message) }} {# Affiche le champ input #}
+        <p id="input__computer"><input type="checkboxLarge"/>J’accepte que le zoo Arcadia conserve mon adresse mail le temps de répondre à ma demande.<br />
+        Conformément à la règlementation relative des données, vous pouvez exercer vos droits (accès, suppression, opposition, 
+        rectification, limitation, portabilité) sur les données vous concernant en contactant le Zoo Arcadia.
+        </p>
+        <button type="submit">Envoyer</button>
+    {{ form_end(formSmall) }}
+    </section>
+
+
+    <section id="contact__secondSection">
+        <p id="input__mobil"><input type="checkbox"/>J’accepte que le zoo Arcadia conserve mon adresse mail le temps de répondre à ma demande.<br />
+        Conformément à la règlementation relative des données, vous pouvez exercer vos droits (accès, suppression, opposition, 
+        rectification, limitation, portabilité) sur les données vous concernant en contactant le Zoo Arcadia.
+        </p>
+    </section>
+    
+    {# TESTS DIV COMPUTER #}
+    <div id="left" class="div">
+        {{ form_start(formLarge) }}
+        <h2>Demande de contact</h2>
+        {{ form_label(formLarge.title) }}  {# Affiche le label #}
+        {{ form_widget(formLarge.title) }} {# Affiche le champ input #}
+        {{ form_label(formLarge.description) }}  {# Affiche le label #}
+        {{ form_widget(formLarge.description) }} {# Affiche le champ input #}
+        {{ form_label(formLarge.mail) }}  {# Affiche le label #}
+        {{ form_widget(formLarge.mail) }} {# Affiche le champ input #}
+        {{ form_label(formLarge.message) }}  {# Affiche le label #}
+        {{ form_widget(formLarge.message) }} {# Affiche le champ input #}
+        <p id="input__computer2"><input type="checkboxLarge"/>J’accepte que le zoo Arcadia conserve mon adresse mail le temps de répondre à ma demande.<br />
+        Conformément à la règlementation relative des données, vous pouvez exercer vos droits (accès, suppression, opposition, 
+        rectification, limitation, portabilité) sur les données vous concernant en contactant le Zoo Arcadia.
+        </p>
+        <button type="submit">Envoyer</button>
+    {{ form_end(formSmall) }}
+    </div>
+    <div id="right" class="div"></div>
+
+
+    </main>
+    {% block f_socialsNetwork %}
+        {% include "components/footer_socialsNetwork.html.twig" %}
+    {% endblock %}
+{% endblock %}

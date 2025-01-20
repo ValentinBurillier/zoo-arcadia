@@ -243,6 +243,7 @@ footer ul li a {
   background: url(../../images/zoo-arcadia-loutre.webp);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   background-position: 35% center;
 }
 

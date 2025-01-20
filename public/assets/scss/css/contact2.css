@@ -259,11 +259,25 @@ footer img {
   background: #FFFFFF;
 }
 
-@media screen and (min-width: 1280px) {
-  header {
-    background: #7F4C27;
-  }
-  h2 {
-    color: #7F4C27;
+form {
+  width: 95%;
+  row-gap: 2vh;
+  scale: 0.8;
+}
+form .container-data label {
+  color: #FFFFFF;
+}
+
+form button {
+  background-color: #525C2A;
+}
+
+footer {
+  background-color: #525C2A;
+}
+
+@media screen and (min-width: 744px) {
+  main form {
+    scale: 0.9;
   }
 }

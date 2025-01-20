@@ -234,6 +234,7 @@ footer a img {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-position: center;
   height: calc(100% - 34px);
   width: 100vw;
   display: flex;
@@ -275,6 +276,7 @@ footer a img {
     background: url(../../images/zoo-arcadia-elephant.webp);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     background-position-y: -50px;
     background-position-x: center;
     width: 55%;
