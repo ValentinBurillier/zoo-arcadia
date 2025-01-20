@@ -16,16 +16,21 @@
     {% endblock %}
 
   <main id="main__loginPage">
-
       {{ form_start(form) }}
 
         <h2>Connexion</h2>
-
+        {% for message in app.flashes('error') %}
+        <div id="errorMsg"class="alert alert-error">
+          {{ message }}
+        </div>
+{% endfor %}
         <div class="container-data">
         {{ form_label(form.email) }}  {# Affiche le label #}
         {{ form_widget(form.email) }} {# Affiche le champ input #}
+        <span id="emailError"></span>
         {{ form_label(form.password) }}  {# Affiche le label #}
         {{ form_widget(form.password) }} {# Affiche le champ input #}
+        <span id="passwordError"></span>
         </div>
 
         <button type="submit">Se connecter</button>

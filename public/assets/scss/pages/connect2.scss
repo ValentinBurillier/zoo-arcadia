@@ -5,8 +5,16 @@
 
 @import "../layouts/_header2";
 @import "../layouts/_mainConnect";
-@import "../components/formConnect";
 @import "../components/_footerSocialNetworks";
+
+#emailError, #passwordError, #errorMsg {
+    color: $red;
+      font-weight: bold;
+      letter-spacing: 2px;
+      font-size: 10px;
+      padding: 2px;
+      background: $white;
+  }
 
 @media screen and (min-width: 1280px) {
     header {

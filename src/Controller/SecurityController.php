@@ -2,28 +2,42 @@
 // src/Controller/SecurityController.php
 namespace App\Controller;
 
+use App\Entity\User;
+use Doctrine\ORM\EntityManagerInterface;
 use App\Form\LoginType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
     #[Route('/login', name: 'login')]
-    public function login(AuthenticationUtils $authenticationUtils)
+    public function login(Request $request, EntityManagerInterface $em)
     {
-        // Obtenez l'erreur de connexion, si elle existe
-        $error = $authenticationUtils->getLastAuthenticationError();
-
-        // Dernier nom d'utilisateur saisi par l'utilisateur
-        $lastUsername = $authenticationUtils->getLastUsername();
-
-        $form = $this->createForm(LoginType::class);
-        $formLarge = $this->createForm(LoginType::class);
+        $user = new User();
+  
+        $form = $this->createForm(LoginType::class, $user);
+        $form->handleRequest($request);
+        if($form->isSubmitted()) {
+            if($form->isValid()) {
+                $email = $user->getEmail();
+                $password = $user->getPassword();
+                $getUser = $em->getRepository(User::class)->findOneBy(['email' => $email]);
+                if(isset($getUser)) {
+                    if (password_verify($password, $getUser->getPassword())) {
+                        return $this->redirectToRoute('app_home');
+                    } else {
+                        $this->addFlash('error', 'Mot de passe incorrect.');
+                    }
+                } else {
+                    $this->addFlash('error', 'Utilisateur non trouvé.');
+                }
+            } else {
+                $this->addFlash('error', 'Formulaire invalide.');
+            }
+        }
         return $this->render('security/index.html.twig', [
-            'form' => $form->createView(),
-            'formLarge' => $formLarge->createView(),
+            'form' => $form->createView()
         ]);
     }
 
