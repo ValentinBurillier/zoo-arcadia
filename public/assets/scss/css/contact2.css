@@ -102,6 +102,12 @@ header {
     border-bottom: 4px solid #FFFFFF;
     background: #243123;
   }
+  header.bg--green {
+    background-color: #243123;
+  }
+  header.bg--brown {
+    background-color: #7F4C27;
+  }
 }
 h2 {
   text-align: center;
@@ -250,7 +256,7 @@ footer img {
     height: 32px;
   }
 }
-#emailError, #passwordError, #errorMsg {
+#emailError, #passwordError, #errorMsg, #titleError, #descriptionError, #messageError {
   color: red;
   font-weight: bold;
   letter-spacing: 2px;

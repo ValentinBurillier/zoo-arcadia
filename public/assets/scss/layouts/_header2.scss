@@ -26,5 +26,11 @@ header {
             border-bottom: 4px solid $white;
             background: $darkGreen;
         }
+        &.bg--green {
+            background-color: $darkGreen;
+        }
+        &.bg--brown {
+            background-color: $terre;
+        }
     }
 }

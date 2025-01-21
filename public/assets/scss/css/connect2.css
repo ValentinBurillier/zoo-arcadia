@@ -102,6 +102,12 @@ header {
     border-bottom: 4px solid #FFFFFF;
     background: #243123;
   }
+  header.bg--green {
+    background-color: #243123;
+  }
+  header.bg--brown {
+    background-color: #7F4C27;
+  }
 }
 h2 {
   text-align: center;

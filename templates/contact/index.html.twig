@@ -12,7 +12,7 @@
 
   {# HEADER #}
     {% block header %}
-        {% include "components/headerConnect.html.twig" with { 'class': 'fill'} %}
+        {% include "components/headerConnect.html.twig" with { 'class': 'fill bg--green'} %}
     {% endblock %}
 
   <main class="bg-contact">
@@ -21,12 +21,16 @@
     <div class="container-data">
         {{ form_label(form.title) }}  {# Affiche le label #}
         {{ form_widget(form.title) }} {# Affiche le champ input #}
+        <span id="titleError"></span>
         {{ form_label(form.description) }}  {# Affiche le label #}
         {{ form_widget(form.description) }} {# Affiche le champ input #}
+        <span id="descriptionError"></span>
         {{ form_label(form.mail) }}  {# Affiche le label #}
         {{ form_widget(form.mail) }} {# Affiche le champ input #}
+        <span id="emailError"></span>
         {{ form_label(form.message) }}  {# Affiche le label #}
         {{ form_widget(form.message) }} {# Affiche le champ input #}
+        <span id="messageError"></span>
         </div>
         <button type="submit">Envoyer</button>
     {{ form_end(form) }}
@@ -36,5 +40,5 @@
     {% include "components/footer_socialsNetwork.html.twig" %}
   {% endblock %}
 
-<script src="{{ asset('assets/scripts/forms/controlConnectForm.js' )}}?{{ "now"|date("U") }}"></script>
+<script src="{{ asset('assets/scripts/forms/controlContactForm.js' )}}?{{ "now"|date("U") }}"></script>
 {% endblock %}
