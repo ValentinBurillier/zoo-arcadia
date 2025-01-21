@@ -16,24 +16,9 @@
     {% endblock %}
 
   <main class="bg-contact">
- {{ form_start(form) }}
-    <h2>Demande de contact</h2>
-    <div class="container-data">
-        {{ form_label(form.title) }}  {# Affiche le label #}
-        {{ form_widget(form.title) }} {# Affiche le champ input #}
-        <span id="titleError"></span>
-        {{ form_label(form.description) }}  {# Affiche le label #}
-        {{ form_widget(form.description) }} {# Affiche le champ input #}
-        <span id="descriptionError"></span>
-        {{ form_label(form.mail) }}  {# Affiche le label #}
-        {{ form_widget(form.mail) }} {# Affiche le champ input #}
-        <span id="emailError"></span>
-        {{ form_label(form.message) }}  {# Affiche le label #}
-        {{ form_widget(form.message) }} {# Affiche le champ input #}
-        <span id="messageError"></span>
-        </div>
-        <button type="submit">Envoyer</button>
-    {{ form_end(form) }}
+    {% block formContact %}
+      {% include "components/formContact.html.twig" %}
+    {% endblock %}
   </main>
   
   {% block f_socialsNetwork %}

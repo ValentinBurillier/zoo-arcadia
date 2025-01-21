@@ -130,6 +130,16 @@ form button {
   border-radius: 117px;
 }
 
+span[id$=Error] {
+  display: none;
+  color: red;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 10px;
+  padding: 2px;
+  background: #FFFFFF;
+}
+
 form {
   height: 100%;
   width: 85%;

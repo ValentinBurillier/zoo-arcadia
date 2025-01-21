@@ -22,11 +22,14 @@ formToCheck.forEach((e) => {
 function toCheck(textToCheck, regexToControl) {
     const result = regexToControl.test(textToCheck.value);
     if(result) {
+        textToCheck.nextElementSibling.style.display = "none";
         textToCheck.nextElementSibling.innerHTML = "";
     } else {
         if(textToCheck.id === "contact_mail") {
+            textToCheck.nextElementSibling.style.display = "initial";
             textToCheck.nextElementSibling.innerHTML = "L'email doit être de forme '@example.com ou .fr'";
         } else {
+            textToCheck.nextElementSibling.style.display = "initial";
             textToCheck.nextElementSibling.innerHTML = 'Autorisés : a-z, A-Z, 0-9, -, _, "espace"';
         }
     }

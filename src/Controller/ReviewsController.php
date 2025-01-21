@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use DateTime;
 use App\Entity\Reviews;
-use App\Entity\StatutAvis;
+use App\Entity\Statut;
 use App\Form\ReviewsType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -22,8 +22,8 @@ class ReviewsController extends AbstractController
         $form = $this->createForm(ReviewsType::class, $review);
         $form->handleRequest($request);
 
-        // Récupérer l'objet StatutAvis avec l'id = 1
-        $statut = $entityManager->getRepository(StatutAvis::class)->find(1);
+        // Récupérer l'objet Statut avec l'id = 1
+        $statut = $entityManager->getRepository(Statut::class)->find(1);
 
         // Si le formulaire a été soumis
         if ($form->isSubmitted()) {
@@ -38,7 +38,7 @@ class ReviewsController extends AbstractController
                 $review->setScore($score);
                 $review->setDate($date);
 
-                // Vérifier si l'objet StatutAvis existe
+                // Vérifier si l'objet Statut existe
                 if ($statut) {
                     $review->setStatut($statut);
                 }

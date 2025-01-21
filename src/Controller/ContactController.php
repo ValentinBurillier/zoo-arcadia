@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Contact;
+use App\Entity\Statut;
 use App\Form\ContactType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
@@ -22,6 +23,12 @@ class ContactController extends AbstractController
         $form->handleRequest($request);
         if($form->isSubmitted()) {
             if($form->isValid()) {
+                // Récupérer l'objet Statut avec l'id = 1
+                $statut = $em->getRepository(Statut::class)->find(1);
+                // Vérifier si l'objet Statut existe
+                if ($statut) {
+                    $contact->setStatut($statut);
+                }
                 $em->persist($contact);
                 $em->flush();
 

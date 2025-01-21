@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\StatutAvisRepository;
+use App\Repository\StatutRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
-#[ORM\Entity(repositoryClass: StatutAvisRepository::class)]
-class StatutAvis
+#[ORM\Entity(repositoryClass: StatutRepository::class)]
+class Statut
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -21,8 +21,12 @@ class StatutAvis
     #[ORM\OneToMany(mappedBy: "statut", targetEntity: Reviews::class)]
     private Collection $reviews;
 
+    #[ORM\OneToMany(mappedBy: "statut", targetEntity: Contact::class)]
+    private Collection $contacts;
+
     public function __construct()
     {
+        $this->contacts = new ArrayCollection();
         $this->reviews = new ArrayCollection();
     }
 
@@ -46,5 +50,9 @@ class StatutAvis
     public function getReviews(): Collection
     {
         return $this->reviews;
+    }
+    public function getContacts(): Collection
+    {
+        return $this->contacts;
     }
 }
