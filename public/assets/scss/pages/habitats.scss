@@ -7,6 +7,7 @@
 @import "../atoms/_imgHabitat";
 @import "../atoms/_btnHabitat";
 @import "../atoms/_title2Habitat";
+@import "../components/habitat";
 
 body {
   background-color: grey;
@@ -16,7 +17,14 @@ body {
     background: linear-gradient(to bottom, rgb(0 0 0 / 54%), #49494900);
   }
 }
-
+ul {
+  display: none;
+}
+@media screen and (min-width: 1280px) {
+  ul {
+    display: initial;
+  }
+}
 
 
 // @import "../layouts/_bodyFullViewport";

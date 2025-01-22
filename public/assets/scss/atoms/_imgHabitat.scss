@@ -8,15 +8,15 @@
 }
 
 @media screen and (min-width: 744px) {
-    .img--habitat {
+    .img--habitat:not([data-habitat="selected"]) {
         float: left;
     }
-    section:first-child, section:nth-child(2) {
+    section:first-child:not([data-habitat="selected"]), section:nth-child(2):not([data-habitat="selected"]) {
         width: 50vw;
         height: 50vh;
         box-shadow: 8px -3px 20px 13px #FFFCFC;
     }
-    section:last-child {
+    section:last-child:not([data-habitat="selected"]) {
         height: 50vh;
         box-shadow: -2px 5px 20px 13px #FFFCFC;
     }

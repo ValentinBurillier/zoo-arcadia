@@ -1,0 +1,25 @@
+section[data-habitat="selected"] {
+    h2 {
+        width: 100vw;
+        position: initial;
+        text-align: center;
+        padding: 8px 0px;
+        font-size: 24px;
+        max-width: 500px;
+    }
+    &#section__savane {
+        h2 {
+            background-color: $terre;
+        }
+    }
+    &#section__marais {
+        h2 {
+            background-color: $marais;
+        }
+    }
+    &#section__jungle {
+        h2 {
+            background-color: $greenLow;
+        }
+    }
+}

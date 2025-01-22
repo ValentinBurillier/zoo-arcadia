@@ -7,6 +7,11 @@
           <button><a href="{{ path('app_habitat', {'name': habitat.name|lower }) }}">Découvrir</a></button>
       </section>
   {% endfor %} #}
+  <ul>
+   {% for habitat in habitats %}
+      <li><button class="btnList" data-li="{{ habitat.name }}"></button></li>
+  {% endfor %}
+  </ul>
   {% for habitat in habitats %}
     <section 
       id="section__{{ habitat.name }}"
@@ -14,7 +19,10 @@
       style="background-image: url('assets/images/{{habitat.image}}')"
     >
       <h2>{{ habitat.name }}</h2>
-      <button class="bgBtn--{{ habitat.name }}"><a href="{{ path('app_habitat', {'name': habitat.name|lower }) }}">Découvrir</a></button>
+      <p>{{ habitat.description }}</p>
+      {# <button class="bgBtn--{{ habitat.name }}" data-id="{{ habitat.name }}"><a href="{{ path('app_habitat', {'name': habitat.name|lower }) }}">Découvrir</a></button> #}
+      <button class="bgBtn--{{ habitat.name }}" data-id="{{ habitat.name }}">Découvrir</button>
     </section>
+
   {% endfor %}
 {% endblock %}

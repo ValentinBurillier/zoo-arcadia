@@ -21,17 +21,18 @@ class HabitatsController extends AbstractController
     }
 
     #[Route('/habitats/{name}', name: 'app_habitat')]
-    public function show(string $name, HabitatsRepository $habitatsRepository): Response
+    public function show(string $name, HabitatsRepository $habitatsRepository): JsonResponse
     {
-        $habitats = $habitatRepository->findAll();
         $habitat = $habitatsRepository->findOneBy(['name' => $name]);
+
         if(!$habitat) {
             return new JsonResponse(['error' => 'Habitat not found'], Response::HTTP_NOT_FOUND);
         }
 
-        return $this->render('habitats/habitat.html.twig', [
-            'habitat' => $habitat,
-            'habitats' => $habitats
+        return new JsonResponse([
+            'id' => $habitat->getId(),
+            'name' => $habitat->getName(),
+            'description' => $habitat->getDescription()
         ]);
     }
 
