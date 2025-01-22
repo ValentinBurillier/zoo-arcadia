@@ -2,22 +2,22 @@
 
 namespace App\Repository;
 
-use App\Entity\Habitat;
+use App\Entity\Habitats;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Habitat>
+ * @extends ServiceEntityRepository<Habitats>
  */
-class HabitatRepository extends ServiceEntityRepository
+class HabitatsRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Habitat::class);
+        parent::__construct($registry, Habitats::class);
     }
 
     //    /**
-    //     * @return Habitat[] Returns an array of Habitat objects
+    //     * @return Habitats[] Returns an array of Habitats objects
     //     */
     //    public function findByExampleField($value): array
     //    {
@@ -31,7 +31,7 @@ class HabitatRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?Habitat
+    //    public function findOneBySomeField($value): ?Habitats
     //    {
     //        return $this->createQueryBuilder('h')
     //            ->andWhere('h.exampleField = :val')

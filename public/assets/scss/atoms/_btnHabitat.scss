@@ -1,0 +1,38 @@
+button {
+    @include d-flex-col-center;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    font-family: $secondFont;
+    font-weight: 400;
+    color: $white;
+    letter-spacing: 2px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 117px;
+    &.bgBtn--marais {
+      background-color: $marais;
+    }
+    &.bgBtn--jungle {
+      background-color: $greenLow;
+    }
+    &.bgBtn--savane {
+      background-color: $terre;
+    }
+}
+
+@media screen and (min-width: 744px) {
+    button a {
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    button {
+        top: 50%;
+        left: 50%;
+        bottom: unset;
+        right: unset;
+        transform: translate(-50%, -50%);
+    }
+}

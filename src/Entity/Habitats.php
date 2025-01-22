@@ -2,14 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\HabitatRepository;
+use App\Repository\HabitatsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: HabitatRepository::class)]
-class Habitat
+#[ORM\Entity(repositoryClass: HabitatsRepository::class)]
+class Habitats
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -28,7 +28,7 @@ class Habitat
     /**
      * @var Collection<int, Animal>
      */
-    #[ORM\OneToMany(targetEntity: Animal::class, mappedBy: 'habitat')]
+    #[ORM\OneToMany(targetEntity: Animal::class, mappedBy: 'habitats')]
     private Collection $animals;
 
     public function __construct()
@@ -89,7 +89,7 @@ class Habitat
     {
         if (!$this->animals->contains($animal)) {
             $this->animals->add($animal);
-            $animal->setHabitat($this);
+            $animal->setHabitats($this);
         }
 
         return $this;
@@ -99,8 +99,8 @@ class Habitat
     {
         if ($this->animals->removeElement($animal)) {
             // set the owning side to null (unless already changed)
-            if ($animal->getHabitat() === $this) {
-                $animal->setHabitat(null);
+            if ($animal->getHabitats() === $this) {
+                $animal->setHabitats(null);
             }
         }
 

@@ -10,9 +10,9 @@
 {# BODY #}
 {% block body %}
   {# HEADER #}
-    <header id="header">
-        {% include "components/nav.html.twig" %}
-    </header>
+    {% block header %}
+        {% include "components/headerConnect.html.twig" %}
+    {% endblock %}
 
   <main id="main">
     {% block habitats %}

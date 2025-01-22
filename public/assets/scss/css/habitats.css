@@ -18,220 +18,193 @@ a {
   color: inherit;
 }
 
-body {
-  height: 100vh;
-  width: 100vw;
-}
-
-nav {
+header nav {
   display: flex;
-  padding-left: 7%;
-  padding-right: 7%;
-  padding-top: 0.5rem;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-}
-nav img {
-  width: 44px;
-  height: 44px;
-}
-nav img:hover {
-  cursor: pointer;
 }
 
-@media screen and (max-width: 999px) {
-  header nav ul {
-    display: none;
-  }
-}
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 1280px) {
   nav {
-    padding-top: 0.5rem;
-  }
-  nav .main__title {
-    font-size: 2.2rem;
-  }
-  nav img {
-    width: 3rem;
-    height: 3rem;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 }
-@media screen and (min-width: 1000px) {
-  nav {
-    background: linear-gradient(to right, rgba(44, 138, 0, 0.47), rgba(217, 130, 0, 0.62));
-    padding-left: 4%;
-    padding-right: 4%;
-    padding-top: 0%;
-    position: relative;
-    z-index: 1000;
-  }
-  nav .img__display {
-    display: none;
-  }
-  nav ul {
-    display: inherit;
-    list-style-type: none;
-    display: flex;
-    column-gap: 1rem;
-  }
-  nav ul li a {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
-  }
-  .nav__div {
-    display: none;
-  }
-}
-.main__title {
-  color: white;
+h1 {
+  color: #FFFFFF;
   font-family: IBM Plex Serif, serif;
-  font-weight: bold;
-  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 32px;
   text-transform: uppercase;
 }
 
-@media screen and (min-width: 600px) {
-  .main__title {
-    font-size: 3rem;
+@media screen and (min-width: 744px) {
+  h1 {
+    font-size: 36px;
   }
 }
-#header {
-  position: absolute;
-  z-index: 5;
-  width: 100%;
+.iconMenu__header {
+  width: 45px;
+  height: 45px;
 }
 
-@media screen and (min-width: 1000px) {
-  #header {
+@media screen and (min-width: 744px) {
+  .iconMenu__header {
+    width: 50px;
+    height: 50px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .iconMenu__header {
+    display: none;
+  }
+}
+header nav ul {
+  display: none;
+}
+
+@media screen and (min-width: 1280px) {
+  header nav ul {
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+    letter-spacing: 2px;
+  }
+  header nav ul li a {
+    color: #FFFFFF;
+    font-family: IBM Plex Serif, serif;
+    font-weight: normal;
+    font-size: 24px;
+  }
+}
+header {
+  width: 100vw;
+  height: 45px;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (min-width: 744px) {
+  header {
+    height: 60px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  header.fill {
     position: relative;
+    border-bottom: 4px solid #FFFFFF;
+    background: #243123;
   }
-  #header nav {
-    background: white;
-    border-bottom: 4px solid white;
+  header.bg--green {
+    background-color: #243123;
   }
-}
-@media screen and (min-width: 1100px) {
-  #header {
-    max-width: 1336px;
-    margin: 0 auto;
+  header.bg--brown {
+    background-color: #7F4C27;
   }
 }
-#section__savane button {
+.img--habitat {
+  height: 33.3333333333vh;
+  width: 100vw;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 744px) {
+  .img--habitat {
+    float: left;
+  }
+  section:first-child, section:nth-child(2) {
+    width: 50vw;
+    height: 50vh;
+    box-shadow: 8px -3px 20px 13px #FFFCFC;
+  }
+  section:last-child {
+    height: 50vh;
+    box-shadow: -2px 5px 20px 13px #FFFCFC;
+  }
+}
+button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  font-family: Homenaje, sans-serif;
+  font-weight: 400;
+  color: #FFFFFF;
+  letter-spacing: 2px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 117px;
+}
+button.bgBtn--marais {
+  background-color: #D4C9A1;
+}
+button.bgBtn--jungle {
+  background-color: #525C2A;
+}
+button.bgBtn--savane {
   background-color: #7F4C27;
 }
 
-#section__jungle button {
-  background-color: #525C2A;
-}
-
-#section__aquatique button {
-  background-color: #2A595C;
-}
-
-#header {
-  z-index: 10;
-}
-
-#main {
-  height: 100vh;
-  width: 100vw;
-}
-#main section {
-  height: 33.3333333333%;
-  background-size: cover;
-  position: relative;
-  background-position: center;
-}
-#main section h2, #main section button {
-  position: absolute;
-  z-index: 10;
-  color: white;
-  display: inline;
-}
-#main section h2 {
-  font-family: IBM Plex Serif, serif;
-  font-weight: bold;
-  text-transform: capitalize;
-  bottom: 15px;
-  left: 7%;
-  letter-spacing: 2px;
-  font-size: 1.5rem;
-}
-#main section button {
-  right: 7%;
-  bottom: 15px;
-  padding: 8px 16px;
-  border-radius: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-}
-#main section button a {
-  font-family: Homenaje, sans-serif;
-  font-size: 1.5rem;
-  letter-spacing: 2px;
-}
-#main section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
-  z-index: 5;
-}
-
-@media screen and (min-width: 1000px) {
-  #header {
-    position: absolute;
+@media screen and (min-width: 744px) {
+  button a {
+    font-size: 24px;
   }
-  #header nav {
-    border: none;
-    background: linear-gradient(to bottom, rgba(102, 102, 102, 0.38) 0%, rgba(102, 102, 102, 0.38) 11%, rgba(255, 255, 255, 0.38) 66%, rgba(255, 255, 255, 0.38) 100%);
-  }
-  #main section {
-    height: 50vh;
-  }
-  #main section h2 {
-    display: none;
-  }
-  #main section button {
+}
+@media screen and (min-width: 1280px) {
+  button {
     top: 50%;
     left: 50%;
+    bottom: unset;
+    right: unset;
     transform: translate(-50%, -50%);
-    max-width: fit-content;
-    max-height: fit-content;
-    border-radius: inherit;
-    box-shadow: 5px 6px 12.3px 0px white;
-    border-left: 5px solid white;
-  }
-  #section__aquatique button {
-    background: #31CEFF;
-  }
-  #section__jungle button {
-    background: #0C3F03;
-  }
-  #section__savane,
-  #section__aquatique {
-    width: 50vw;
-    float: left;
-  }
-  #section__aquatique {
-    box-shadow: -39px 4px 45.1px -13px #FFFCFC;
-  }
-  #section__jungle {
-    width: 100vw;
-    height: 50vh;
-    clear: both;
-    box-shadow: 15px -45px 45.1px -13px #FFFCFC;
   }
 }
-@media screen and (min-width: 1100px) {
-  #header {
-    max-width: 100%;
+h2 {
+  letter-spacing: 1.2px;
+  color: #FFFFFF;
+  text-transform: capitalize;
+  font-family: IBM Plex Serif, serif;
+  font-weight: 500;
+  font-size: 20px;
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+}
+
+@media screen and (min-width: 744px) {
+  h2 {
+    font-size: 30px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  h2 {
+    text-shadow: 3px 3px 3px black;
+    transform: translate(-50%, -50%);
+    bottom: unset;
+    left: unset;
+    top: 90%;
+    left: 50%;
+  }
+}
+body {
+  background-color: grey;
+}
+
+@media screen and (min-width: 1280px) {
+  header {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.54), rgba(73, 73, 73, 0));
   }
 }

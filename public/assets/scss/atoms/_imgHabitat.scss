@@ -1,0 +1,23 @@
+.img--habitat {
+    height: calc(100vh / 3);
+    width: 100vw;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 744px) {
+    .img--habitat {
+        float: left;
+    }
+    section:first-child, section:nth-child(2) {
+        width: 50vw;
+        height: 50vh;
+        box-shadow: 8px -3px 20px 13px #FFFCFC;
+    }
+    section:last-child {
+        height: 50vh;
+        box-shadow: -2px 5px 20px 13px #FFFCFC;
+    }
+}

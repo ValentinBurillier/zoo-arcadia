@@ -32,7 +32,7 @@ class Animal
     private ?string $image = null;
 
     #[ORM\ManyToOne(inversedBy: 'animals')]
-    private ?Habitat $habitat = null;
+    private ?Habitats $habitat = null;
 
     #[ORM\ManyToOne(inversedBy: 'animals')]
     private ?User $veterinaire = null;
@@ -129,12 +129,12 @@ class Animal
         return $this;
     }
 
-    public function getHabitat(): ?Habitat
+    public function getHabitat(): ?Habitats
     {
         return $this->habitat;
     }
 
-    public function setHabitat(?habitat $habitat): static
+    public function setHabitat(?habitats $habitat): static
     {
         $this->habitat = $habitat;
 

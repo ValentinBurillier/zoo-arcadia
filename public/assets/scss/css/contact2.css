@@ -266,15 +266,6 @@ footer img {
     height: 32px;
   }
 }
-#emailError, #passwordError, #errorMsg, #titleError, #descriptionError, #messageError {
-  color: red;
-  font-weight: bold;
-  letter-spacing: 2px;
-  font-size: 10px;
-  padding: 2px;
-  background: #FFFFFF;
-}
-
 form {
   width: 95%;
   row-gap: 2vh;
