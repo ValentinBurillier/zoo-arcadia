@@ -25,4 +25,10 @@ h2 {
         top: 90%;
         left: 50%;
     }
+    section[data-habitat="selected"] {
+        h2 {
+            transform: none;
+            scale: 1.2;
+        }
+    }
 }

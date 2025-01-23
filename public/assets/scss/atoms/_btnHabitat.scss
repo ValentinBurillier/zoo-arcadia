@@ -35,4 +35,10 @@ button {
         right: unset;
         transform: translate(-50%, -50%);
     }
+    section[data-habitat="selected"] {
+      button {
+        transform: none;
+        scale: 1.4;
+      }
+    }
 }

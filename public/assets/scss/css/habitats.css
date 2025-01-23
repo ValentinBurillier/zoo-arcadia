@@ -172,6 +172,10 @@ button.bgBtn--savane {
     right: unset;
     transform: translate(-50%, -50%);
   }
+  section[data-habitat=selected] button {
+    transform: none;
+    scale: 1.4;
+  }
 }
 h2 {
   letter-spacing: 1.2px;
@@ -198,6 +202,10 @@ h2 {
     left: unset;
     top: 90%;
     left: 50%;
+  }
+  section[data-habitat=selected] h2 {
+    transform: none;
+    scale: 1.2;
   }
 }
 section[data-habitat=selected] h2 {
@@ -229,6 +237,11 @@ section[data-habitat=selected] p {
   max-width: 500px;
 }
 
+@media screen and (min-width: 1280px) {
+  section[data-habitat=selected] p {
+    font-size: 20px;
+  }
+}
 p {
   display: none;
 }
