@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Repository\AnimalRepository;
+use App\Repository\AnimalsRepository;
 use App\Repository\HabitatsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -15,14 +15,17 @@ class HabitatsController extends AbstractController
     public function index(HabitatsRepository $habitatsRepository): Response
     {
         $habitats = $habitatsRepository->findAll();
+       
         return $this->render('habitats/index.html.twig', [
             'habitats' => $habitats
         ]);
     }
 
     #[Route('/habitats/{name}', name: 'app_habitat')]
-    public function show(string $name, HabitatsRepository $habitatsRepository): JsonResponse
+    public function show(string $name, HabitatsRepository $habitatsRepository, AnimalsRepository $animalRepository): JsonResponse
     {
+        $animals = $animalRepository->findAll();
+        dd($animals);
         $habitat = $habitatsRepository->findOneBy(['name' => $name]);
 
         if(!$habitat) {
