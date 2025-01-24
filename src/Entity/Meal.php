@@ -23,10 +23,6 @@ class Meal
     #[ORM\Column]
     private ?float $quantity = null;
 
-    #[ORM\ManyToOne(inversedBy: 'meals')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Animal $animal = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -64,18 +60,6 @@ class Meal
     public function setQuantity(float $quantity): static
     {
         $this->quantity = $quantity;
-
-        return $this;
-    }
-
-    public function getAnimal(): ?Animal
-    {
-        return $this->animal;
-    }
-
-    public function setAnimal(?Animal $animal): static
-    {
-        $this->animal = $animal;
 
         return $this;
     }

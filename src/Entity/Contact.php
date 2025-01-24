@@ -26,10 +26,6 @@ class Contact
     #[ORM\Column(type: Types::TEXT)]
     private ?string $message = null;
 
-    #[ORM\ManyToOne(targetEntity: Statut::class)]
-    #[ORM\JoinColumn(name: "statut_id", referencedColumnName: "id", nullable: false, options: ["default" => 1])]
-    private ?Statut $statut = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -79,17 +75,6 @@ class Contact
     public function setMessage(string $message): static
     {
         $this->message = $message;
-
-        return $this;
-    }
-    public function getStatut(): ?Statut
-    {
-        return $this->statut;
-    }
-
-    public function setStatut(?Statut $statut): self
-    {
-        $this->statut = $statut;
 
         return $this;
     }

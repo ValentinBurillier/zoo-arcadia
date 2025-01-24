@@ -19,11 +19,6 @@ class Animals
     #[ORM\Column(length: 255)]
     private ?string $surname = null;
 
-    #[ORM\ManyToOne(inversedBy: 'animaux')]
-    #[ORM\JoinColumn(nullable: false)]
-    #[ORM\Column]
-    private ?int $habitatId = null;
-
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
@@ -52,18 +47,6 @@ class Animals
     public function setSurname(string $surname): static
     {
         $this->surname = $surname;
-
-        return $this;
-    }
-
-    public function getHabitatId(): ?int
-    {
-        return $this->habitatId;
-    }
-
-    public function setHabitatId(int $habitatId): static
-    {
-        $this->habitatId = $habitatId;
 
         return $this;
     }

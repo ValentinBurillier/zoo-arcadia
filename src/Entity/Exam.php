@@ -24,9 +24,6 @@ class Exam
     private ?string $food = null;
 
     #[ORM\ManyToOne(inversedBy: 'exams')]
-    private ?Animal $animal = null;
-
-    #[ORM\ManyToOne(inversedBy: 'exams')]
     private ?User $veterinaire = null;
 
     public function getId(): ?int
@@ -66,18 +63,6 @@ class Exam
     public function setFood(string $food): static
     {
         $this->food = $food;
-
-        return $this;
-    }
-
-    public function getAnimal(): ?Animal
-    {
-        return $this->animal;
-    }
-
-    public function setAnimal(?Animal $animal): static
-    {
-        $this->animal = $animal;
 
         return $this;
     }

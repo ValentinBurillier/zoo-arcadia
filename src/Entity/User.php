@@ -40,12 +40,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     /**
-     * @var Collection<int, Animal>
-     */
-    #[ORM\OneToMany(targetEntity: Animal::class, mappedBy: 'veterinaire')]
-    private Collection $animals;
-
-    /**
      * @var Collection<int, Exam>
      */
     #[ORM\OneToMany(targetEntity: Exam::class, mappedBy: 'veterinaire')]
@@ -54,7 +48,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function __construct()
     {
         $this->roles = [self::ROLE_EMPLOYE];
-        $this->animals = new ArrayCollection();
         $this->exams = new ArrayCollection();
     }
 
@@ -131,36 +124,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
-    }
-
-    /**
-     * @return Collection<int, Animal>
-     */
-    public function getAnimals(): Collection
-    {
-        return $this->animals;
-    }
-
-    public function addAnimal(Animal $animal): static
-    {
-        if (!$this->animals->contains($animal)) {
-            $this->animals->add($animal);
-            $animal->setVeterinaire($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAnimal(Animal $animal): static
-    {
-        if ($this->animals->removeElement($animal)) {
-            // set the owning side to null (unless already changed)
-            if ($animal->getVeterinaire() === $this) {
-                $animal->setVeterinaire(null);
-            }
-        }
-
-        return $this;
     }
 
     /**

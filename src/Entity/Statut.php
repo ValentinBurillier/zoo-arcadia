@@ -18,18 +18,6 @@ class Statut
     #[ORM\Column(length: 255)]
     private ?string $statut = null;
 
-    #[ORM\OneToMany(mappedBy: "statut", targetEntity: Reviews::class)]
-    private Collection $reviews;
-
-    #[ORM\OneToMany(mappedBy: "statut", targetEntity: Contact::class)]
-    private Collection $contacts;
-
-    public function __construct()
-    {
-        $this->contacts = new ArrayCollection();
-        $this->reviews = new ArrayCollection();
-    }
-
     public function getId(): ?int
     {
         return $this->id;
