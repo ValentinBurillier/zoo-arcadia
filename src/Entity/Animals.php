@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\AnimalsRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AnimalsRepository::class)]
@@ -21,6 +22,13 @@ class Animals
 
     #[ORM\Column(length: 255)]
     private ?string $image = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $arrival_date = null;
+
+    #[ORM\ManyToOne(inversedBy: 'animals')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Habitats $habitat = null;
 
     public function getId(): ?int
     {
@@ -59,6 +67,30 @@ class Animals
     public function setImage(string $image): static
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getArrivalDate(): ?\DateTimeInterface
+    {
+        return $this->arrival_date;
+    }
+
+    public function setArrivalDate(\DateTimeInterface $arrival_date): static
+    {
+        $this->arrival_date = $arrival_date;
+
+        return $this;
+    }
+
+    public function getHabitat(): ?Habitats
+    {
+        return $this->habitat;
+    }
+
+    public function setHabitat(?Habitats $habitat): static
+    {
+        $this->habitat = $habitat;
 
         return $this;
     }
