@@ -1,0 +1,83 @@
+@import "../base/_typography";
+@import "../base/_colors";
+@import "../base/_reset";
+@import "../base/_mixins";
+
+@import "../layouts/_header2";
+
+section {
+    @include fullScreen;
+    @include bg-img-cover-no-repeat;
+    position: relative;
+    @include d-flex-col-center;
+    display: none;
+}
+section[data-id="0"] {
+    display: flex;
+    row-gap: 16px;
+}
+.animalsSection {
+    h2 {
+        padding: 8px 24px;
+        color: $white;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        font-family: $thirdFont;
+        font-size: 24px;
+        background-color: rgba(217, 217, 217, 0.23);
+        border: 1px solid $white;
+    }
+    h3 {
+        color: $white;
+        font-family: $thirdFont;
+        $font-size: 16px;
+        text-transform: capitalize;
+        letter-spacing: 3px;
+    }
+}
+main ul {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include d-flex-col-center;
+    flex-direction: row;
+    column-gap: 16px;
+    bottom: 16px;
+    li {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: $white;
+        box-shadow: 3px 4px 5.5px -3px black;
+    }
+}
+
+@media screen and (min-width: 744px) {
+    main {
+        display: flex;
+        ul {
+            display: none;
+        }
+    }
+    section[data-id="1"], section[data-id="2"] {
+        display: flex;
+    }
+    section {
+        width: 50vw;
+    }
+    section[data-id="1"] ul {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1244px) {
+    section[data-id="2"] {
+        display: flex;
+    }
+    section {
+        width: calc(100vw / 3);
+    }
+    section[data-id="2"] ul {
+        display: none;
+    }
+}

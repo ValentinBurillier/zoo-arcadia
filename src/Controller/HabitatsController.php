@@ -39,29 +39,22 @@ class HabitatsController extends AbstractController
     }
 
     #[Route('/habitats/{name}/{animal}', name: 'app_animal')]
-    public function animals(string $name, string $animal, HabitatsRepository $habitatsRepository, AnimalRepository $animalRepository): Response
+    public function animals(string $name, string $animal, HabitatsRepository $habitatsRepository, AnimalsRepository $animalsRepository): Response
     {
-        $habitats = $habitatsRepository->findAll();
-        foreach($habitats as $hab) {
-            foreach($hab->getAnimals() as $anim){
-                if($animal === $anim->getName()) {
-                    $image = $anim->getImage();
-                }
-            };
-           
+        $habitatSelected = $habitatsRepository->findOneBy(['name' => $name]);
+       
+        $animals = $habitatSelected->getAnimals();
+        $allAnimals = [];
+        foreach($animals as $animal) {
+            $allAnimals[] = $animal;
         }
-        $animalData = $animalRepository->findOneBy(['name' => $animal]);
-        $habitat = $habitatsRepository->findOneBy(['name' => $name]);
-        if(!$habitat) {
-            return new JsonResponse(['error' => 'Habitat not found'], Response::HTTP_NOT_FOUND);
-        }
-        return $this->render('habitats/animal.html.twig', [
-            'animalData' => $animalData,
-            'image' => $image,
-            'name' => $name,
-            'animal' => $animal,
-            'habitat' => $habitat,
-            'habitats' => $habitats
+
+        $iconMenu = $allAnimals[0]->getHabitat()->getIconMenu();
+
+        return $this->render('habitats/animals.html.twig', [
+            'habitatSelected' => $habitatSelected,
+            'allAnimals' => $allAnimals,
+            'iconMenu' => $iconMenu
         ]);
     }
 }

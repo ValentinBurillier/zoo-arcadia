@@ -1,0 +1,33 @@
+{% set iconMenu = iconMenu %}
+{% set pageName = 'habitatsPage' %}
+
+{% extends "base.html.twig" %}
+{% block title %}Arcadia | Animaux {% endblock %}
+{% block style %} 
+  <link rel="stylesheet" href="{{ asset('assets/scss/css/animals.css') }}?{{ "now"|date("U") }}" type="text/css">
+{% endblock %}
+
+{# BODY #}
+{% block body %}
+  {# HEADER #}
+    {% block header %}
+        {% include "components/headerConnect.html.twig" %}
+    {% endblock %}
+
+  <main id="main">
+    {% set i = 0 %}
+    {% for animal in allAnimals %}
+      <section class="animalsSection name--{{ animal.name }}" style="background-image: url('{{ asset('assets/images/' ~ animal.image) }}')" data-id="{{i}}">
+        <h2>{{ animal.name }}</h2>
+        <h3>{{ animal.surname }}</h3>
+      </section>
+      {% set i = i + 1 %}
+    {% endfor %}
+    <ul id="changeAnimalsBtn">
+      <li data-li="0"></li>
+      <li data-li="1"></li>
+      <li data-li="2"></li>
+    </ul>
+  </main>
+  <script src="{{ asset('assets/scripts/changeAnimals.js' )}}"></script>
+{% endblock %}
