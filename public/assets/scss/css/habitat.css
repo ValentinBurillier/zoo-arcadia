@@ -18,181 +18,110 @@ a {
   color: inherit;
 }
 
-body {
-  height: 100vh;
-  width: 100vw;
-}
-
-nav {
+header nav {
   display: flex;
-  padding-left: 7%;
-  padding-right: 7%;
-  padding-top: 0.5rem;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-}
-nav img {
-  width: 44px;
-  height: 44px;
-}
-nav img:hover {
-  cursor: pointer;
 }
 
-@media screen and (max-width: 999px) {
-  header nav ul {
-    display: none;
-  }
-}
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 1280px) {
   nav {
-    padding-top: 0.5rem;
-  }
-  nav .main__title {
-    font-size: 2.2rem;
-  }
-  nav img {
-    width: 3rem;
-    height: 3rem;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 }
-@media screen and (min-width: 1000px) {
-  nav {
-    background: linear-gradient(to right, rgba(44, 138, 0, 0.47), rgba(217, 130, 0, 0.62));
-    padding-left: 4%;
-    padding-right: 4%;
-    padding-top: 0%;
-    position: relative;
-    z-index: 1000;
-  }
-  nav .img__display {
-    display: none;
-  }
-  nav ul {
-    display: inherit;
-    list-style-type: none;
-    display: flex;
-    column-gap: 1rem;
-  }
-  nav ul li a {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
-  }
-  .nav__div {
-    display: none;
-  }
-}
-.main__title {
-  color: white;
+h1 {
+  color: #FFFFFF;
   font-family: IBM Plex Serif, serif;
-  font-weight: bold;
-  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 32px;
   text-transform: uppercase;
 }
 
-@media screen and (min-width: 600px) {
-  .main__title {
-    font-size: 3rem;
+@media screen and (min-width: 744px) {
+  h1 {
+    font-size: 36px;
   }
 }
-#header {
-  position: absolute;
-  z-index: 5;
-  width: 100%;
+.iconMenu__header {
+  width: 45px;
+  height: 45px;
 }
 
-@media screen and (min-width: 1000px) {
-  #header {
-    position: relative;
-  }
-  #header nav {
-    background: white;
-    border-bottom: 4px solid white;
+@media screen and (min-width: 744px) {
+  .iconMenu__header {
+    width: 50px;
+    height: 50px;
   }
 }
-@media screen and (min-width: 1100px) {
-  #header {
-    max-width: 1336px;
-    margin: 0 auto;
+@media screen and (min-width: 1280px) {
+  .iconMenu__header {
+    display: none;
   }
 }
-#section__Container {
+header nav ul {
   display: none;
 }
 
-#main {
+@media screen and (min-width: 1280px) {
+  header nav ul {
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+    letter-spacing: 2px;
+  }
+  header nav ul li a {
+    color: #FFFFFF;
+    font-family: IBM Plex Serif, serif;
+    font-weight: normal;
+    font-size: 24px;
+  }
+}
+header {
+  width: 100vw;
+  height: 45px;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (min-width: 744px) {
+  header {
+    height: 60px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  header.fill {
+    position: relative;
+    border-bottom: 4px solid #FFFFFF;
+    background: #243123;
+  }
+  header.bg--green {
+    background-color: #243123;
+  }
+  header.bg--brown {
+    background-color: #7F4C27;
+  }
+}
+section {
   height: 100vh;
   width: 100vw;
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
-  row-gap: 3rem;
+  row-gap: 16px;
 }
-#main h2, #main p, #main button {
-  position: relative;
-  z-index: 5;
-}
-#main h2 {
-  width: 100vw;
-  text-align: center;
-  font-family: IBM Plex Serif, serif;
-  text-transform: capitalize;
-  font-weight: bold;
-  font-size: 2rem;
-  max-width: 450px;
-  margin: 0 auto;
-}
-#main p {
-  font-family: Tahoma, sans-serif;
-  font-size: 1rem;
-  font-weight: bold;
-  width: 90%;
-  text-align: center;
-  line-height: 2.5rem;
-  letter-spacing: 2px;
-  max-width: 450px;
-  margin: 0 auto;
-}
-#main button {
-  font-family: Homenaje, sans-serif;
-  font-size: 1.4rem;
-  border-radius: 15%;
-  letter-spacing: 3px;
-  color: white;
-  border: none;
-  padding: 0.5rem 1.5rem;
-}
-#main ul {
-  position: fixed;
-  display: flex;
-  transform: translate(-50%, -50%);
-  bottom: 2vh;
-  left: 50%;
-  list-style: none;
-  column-gap: 1.5rem;
-  z-index: 100;
-}
-#main ul li {
-  border-radius: 50%;
-  width: 1rem;
-  height: 1rem;
-}
-#main ul li:not([class^=selected__]) {
-  background-color: white;
-}
-#main ul li:not([class^=selected__]):hover {
-  cursor: pointer;
-  scale: 1.1;
-}
-
-.main__savane::before {
+section::after {
   content: "";
   position: absolute;
   top: 0;
@@ -202,111 +131,67 @@ nav img:hover {
   background-color: rgba(127, 76, 39, 0.43);
   z-index: 1;
 }
-
-#title__savane, #btn__savane, .bg__savane, .selected__savane {
-  background: #7F4C27;
+section h2, section p, section button {
+  position: relative;
+  z-index: 5;
+  color: #FFFFFF;
+  text-align: center;
+}
+section h2 {
+  width: 100vw;
+  padding: 8px 0px;
+  font-size: 24px;
+  max-width: 500px;
+  letter-spacing: 1.2px;
+  text-transform: capitalize;
+  font-family: IBM Plex Serif, serif;
+  font-weight: 500;
+  font-size: 20px;
+}
+section h2.savane {
+  background-color: #7F4C27;
+}
+section h2.marais {
+  background-color: #D4C9A1;
+}
+section h2.jungle {
+  background-color: #525C2A;
+}
+section p {
+  font-family: Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 280%;
+  letter-spacing: 1.2px;
+  max-width: 500px;
+}
+section button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Homenaje, sans-serif;
+  font-weight: 400;
+  letter-spacing: 2px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 117px;
+}
+section button.marais {
+  background-color: #D4C9A1;
+}
+section button.jungle {
+  background-color: #525C2A;
+}
+section button.savane {
+  background-color: #7F4C27;
 }
 
-.main__aquatique::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 194, 255, 0.2);
-  z-index: 1;
-}
-
-#title__aquatique, #btn__aquatique, .bg__aquatique, .selected__aquatique {
-  background: #31CEFF;
-}
-
-.main__jungle::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(35, 61, 1, 0.41);
-  z-index: 1;
-}
-
-#title__jungle, #btn__jungle, .bg__jungle, .selected__jungle {
-  background: #0C3F03;
-}
-
-@media screen and (min-width: 700px) {
-  #main p {
-    font-size: 1.5rem;
-    font-weight: 500;
+@media screen and (min-width: 1244px) {
+  section {
+    row-gap: 48px;
   }
-}
-@media screen and (min-width: 1000px) {
-  #header {
-    position: absolute;
-    max-width: none;
-  }
-  #header nav {
-    border: none;
-    background: linear-gradient(to bottom, rgba(102, 102, 102, 0.38) 0%, rgba(102, 102, 102, 0.38) 11%, rgba(255, 255, 255, 0.38) 66%, rgba(255, 255, 255, 0.38) 100%);
-  }
-  #main > :not(section) {
-    display: none;
-  }
-  #section__Container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  #section__Container section:first-child {
-    width: 40%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    row-gap: 4rem;
-  }
-  #section__Container section:last-child {
-    width: 60%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    row-gap: 1.5rem;
-  }
-  #section__Container section:last-child button {
-    max-width: fit-content;
-    max-height: fit-content;
-    border-radius: inherit;
-    box-shadow: 5px 6px 12.3px 0px white;
-  }
-  #main h2 {
-    width: 100%;
-  }
-  #main h2:hover {
-    cursor: pointer;
-    scale: 1.1;
-  }
-  #main p {
-    line-height: 4rem;
-  }
-}
-@media screen and (min-width: 1200px) {
-  #main h2 {
-    font-size: 2.2rem;
-  }
-  #main p {
-    font-size: 2rem;
-    max-width: 550px;
-  }
-  #main button {
-    font-size: 1.5rem;
+  section > * {
+    scale: 1.2;
   }
 }

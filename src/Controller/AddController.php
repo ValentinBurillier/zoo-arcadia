@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 use App\Entity\Habitats;
+use App\Entity\Services;
+use App\Repository\HabitatsRepository;
 use App\Entity\Animals;
 use App\Entity\Species;
 use Doctrine\ORM\EntityManagerInterface;
@@ -26,10 +28,14 @@ class AddController extends AbstractController
     }
 
     #[Route('/habitats/getAll', name: 'app_get_all_habitats')]
-    public function getAllHabitats(EntityManagerInterface $em): Response
+    public function getAllHabitats(EntityManagerInterface $em, HabitatsRepository $habitatsRepository): Response
     {
-        $habitat = $em->getRepository(Habitats::class)->findOneBy(['name' => 'savane'])->getId();
-        dd($habitat);
+        $habitat = $habitatsRepository->find(1);
+        $animals = $habitat->getAnimals();
+        foreach ($habitat->getAnimals() as $animal) {
+            dump($animal);
+        }
+        
     }
 
     #[Route('/species/add', name: 'add_species')]
@@ -58,6 +64,19 @@ class AddController extends AbstractController
         $animal->setHabitat($habitat);
 
         $em->persist($animal);
+        $em->flush();
+        die;
+    }
+
+    #[Route('/services/add', name: 'app_add_service')]
+    public function addService(EntityManagerInterface $em): Response
+    {
+        $service = new Services();
+        $service->setTitle("visite guidée (gratuit)");
+        $service->setDescription("visite des habitats");
+        $service->setUrlIcon("zoo-arcadia-carte.webp");
+
+        $em->persist($service);
         $em->flush();
         die;
     }

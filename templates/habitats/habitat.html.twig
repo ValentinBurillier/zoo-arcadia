@@ -1,61 +1,26 @@
-{% if habitat.name == 'jungle' %}
-  {% set iconMenu = 'zoo-arcadia-green_menu' %}
-
-{% elseif habitat.name == 'savane' %}
-  {% set iconMenu = 'zoo-arcadia-brown_menu' %}
-
-{% elseif habitat.name == 'aquatique' %}
-  {% set iconMenu = 'zoo-arcadia-blue_menu' %}
-
-{% endif %}
-
-{% set pageName = 'habitatPage' %}
+{% set iconMenu = habitatSelected.iconmenu %}
+{% set pageName = 'habitatsPage' %}
 
 {% extends "base.html.twig" %}
-{% block title %}Arcadia | Habitat {{ habitat.name }}{% endblock %}
+{% block title %}Arcadia | {{ habitatSelected.name }}{% endblock %}
 {% block style %} 
   <link rel="stylesheet" href="{{ asset('assets/scss/css/habitat.css') }}?{{ "now"|date("U") }}" type="text/css">
 {% endblock %}
 
 {# BODY #}
 {% block body %}
-
   {# HEADER #}
-    <header id="header" class="box-menu">
-        {% include "components/nav.html.twig" %}
-    </header>
+    {% block header %}
+        {% include "components/headerConnect.html.twig" %}
+    {% endblock %}
 
-  <main id="main" style="background-image: url('../assets/images/{{habitat.image}}')" class="main__{{ habitat.name }}">
-      <h2 id="title__{{ habitat.name }}">{{ habitat.name }}</h2>
-      <p id="parah__{{ habitat.name }}">{{ habitat.description }}</p>
-      <button id="btn__{{ habitat.name }}"><a href="{{ path('app_animal', {'name': habitat.name|lower, 'animal': habitat.animals|first.name }) }}">Découvrir</a></button>
-    
-    <section id="section__Container">
-      <section>
-        {% for habitatTwo in habitats %}
-          {% if habitatTwo.name == habitat.name %}
-            <h2 class="bg__{{ habitat.name }}" style="border-radius: 0% 0% 0% 50%; text-decoration: underline; width: initial; padding: 0.5rem 4rem;">{{ habitatTwo.name }}</h2>
-          {% else %}
-            <h2>{{ habitatTwo.name }}</h2>
-          {% endif %}
-        {% endfor %}
-      </section>
-      <section>
-        <p id="parah__{{ habitat.name }}">{{ habitat.description }}</p>
-        <button id="btn__{{ habitat.name }}"><a href="{{ path('app_animal', {'name': habitat.name|lower, 'animal': habitat.animals| first.name } ) }}">Découvrir</a></button>
-      </section>
-    </section>
-
-    <ul>
-      {% for habitatTwo in habitats %}
-        {% if habitatTwo.name == habitat.name %}
-          <li class="selected__{{ habitatTwo.name }} list__{{ habitatTwo.name }}"></li>
-        {% else %}
-          <li class="list__{{ habitatTwo.name }}"></li>
-        {% endif %}
-      {% endfor %}
-    </ul>
+  <main id="main">
+    <section id="habitat--selected" 
+      style="background-image: url('{{ asset('assets/images/' ~ habitatSelected.image) }}')">
+      <h2 class="{{ habitatSelected.name }}">{{ habitatSelected.name }}</h2>
+      <p class="{{ habitatSelected.name }}">{{ habitatSelected.description }}</p>
+      <button class="{{ habitatSelected.name }}"><a href="{{ path('app_animal', {'name': habitatSelected.name, 'animal': allAnimals[0].name })}}">Découvrir</a></button>
+  </section>
 
   </main>
-  <script src="{{ asset('assets/scripts/changeHabitat.js' )}}"></script>
 {% endblock %}

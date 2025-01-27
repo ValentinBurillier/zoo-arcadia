@@ -1,4 +1,4 @@
-section[data-habitat="selected"] {
+#habitat--selected {
     h2 {
         width: 100vw;
         position: initial;
@@ -7,19 +7,13 @@ section[data-habitat="selected"] {
         font-size: 24px;
         max-width: 500px;
     }
-    &#section__savane {
-        h2 {
-            background-color: $terre;
-        }
+    h2.savane {
+        background-color: $terre;
     }
-    &#section__marais {
-        h2 {
-            background-color: $marais;
-        }
+    h2.marais {
+        background-color: $marais;
     }
-    &#section__jungle {
-        h2 {
-            background-color: $greenLow;
-        }
+    h2.jungle {
+        background-color: $greenLow;
     }
 }

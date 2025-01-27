@@ -31,6 +31,9 @@ class Habitats
     #[ORM\OneToMany(targetEntity: Animals::class, mappedBy: 'habitat', orphanRemoval: true)]
     private Collection $animals;
 
+    #[ORM\Column(length: 255)]
+    private ?string $icon_menu = null;
+
     public function __construct()
     {
         $this->animals = new ArrayCollection();
@@ -103,6 +106,18 @@ class Habitats
                 $animal->setHabitat(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIconMenu(): ?string
+    {
+        return $this->icon_menu;
+    }
+
+    public function setIconMenu(string $icon_menu): static
+    {
+        $this->icon_menu = $icon_menu;
 
         return $this;
     }

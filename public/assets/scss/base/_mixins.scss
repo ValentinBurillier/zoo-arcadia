@@ -4,8 +4,10 @@
   justify-content: center;
   align-items: center;
 }
-@mixin bg-img-cover-no-repeat($img-url) {
-  background: url(#{$img-url});
+@mixin bg-img-cover-no-repeat($img-url: null) {
+  @if $img-url != null {
+    background: url(#{$img-url});
+  }
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -25,5 +27,20 @@
   width: 100%;
   height: 100%;
   background-color: #{$opacity};
+  z-index: 1;
+}
+
+@mixin lowUp {
+  position: relative;
+  z-index: 1;
+}
+
+@mixin middleUp {
+  position: relative;
   z-index: 5;
+}
+
+@mixin maxUp {
+  position: relative;
+  z-index: 10;
 }

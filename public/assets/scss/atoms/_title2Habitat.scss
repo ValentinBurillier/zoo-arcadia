@@ -9,26 +9,3 @@ h2 {
     bottom: 5%;
     left: 5%;
 }
-
-@media screen and (min-width: 744px) {
-    h2 {
-        font-size: 30px;
-    }
-}
-
-@media screen and (min-width: 1280px) {
-    h2 {
-        text-shadow: 3px 3px 3px black;
-        transform: translate(-50%, -50%);
-        bottom: unset;
-        left: unset;
-        top: 90%;
-        left: 50%;
-    }
-    section[data-habitat="selected"] {
-        h2 {
-            transform: none;
-            scale: 1.2;
-        }
-    }
-}

@@ -15,27 +15,26 @@ class HabitatsController extends AbstractController
     public function index(HabitatsRepository $habitatsRepository): Response
     {
         $habitats = $habitatsRepository->findAll();
-       
+        $iconMenu = $habitatsRepository->find(3)->getIconMenu();
+
         return $this->render('habitats/index.html.twig', [
-            'habitats' => $habitats
+            'habitats' => $habitats,
+            'iconMenu' => $iconMenu
         ]);
     }
 
     #[Route('/habitats/{name}', name: 'app_habitat')]
-    public function show(string $name, HabitatsRepository $habitatsRepository, AnimalsRepository $animalRepository): JsonResponse
+    public function habitat(string $name, HabitatsRepository $habitatsRepository): Response
     {
-        $animals = $animalRepository->findAll();
-        dd($animals);
-        $habitat = $habitatsRepository->findOneBy(['name' => $name]);
-
-        if(!$habitat) {
-            return new JsonResponse(['error' => 'Habitat not found'], Response::HTTP_NOT_FOUND);
+        $habitatSelected = $habitatsRepository->findOneBy(['name' => $name]);
+        $animals = $habitatSelected->getAnimals();
+        $allAnimals = [];
+        foreach($animals as $animal) {
+            $allAnimals[] = $animal;
         }
-
-        return new JsonResponse([
-            'id' => $habitat->getId(),
-            'name' => $habitat->getName(),
-            'description' => $habitat->getDescription()
+        return $this->render('habitats/habitat.html.twig', [
+            'habitatSelected' => $habitatSelected,
+            'allAnimals' => $allAnimals
         ]);
     }
 

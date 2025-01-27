@@ -20,25 +20,3 @@ button {
       background-color: $terre;
     }
 }
-
-@media screen and (min-width: 744px) {
-    button a {
-        font-size: 24px;
-    }
-}
-
-@media screen and (min-width: 1280px) {
-    button {
-        top: 50%;
-        left: 50%;
-        bottom: unset;
-        right: unset;
-        transform: translate(-50%, -50%);
-    }
-    section[data-habitat="selected"] {
-      button {
-        transform: none;
-        scale: 1.4;
-      }
-    }
-}

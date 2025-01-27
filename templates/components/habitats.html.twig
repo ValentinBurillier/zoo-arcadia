@@ -7,9 +7,7 @@
       style="background-image: url('assets/images/{{habitat.image}}')"
     >
       <h2>{{ habitat.name }}</h2>
-      <p>{{ habitat.description }}</p>
-      {# <button class="bgBtn--{{ habitat.name }}" data-id="{{ habitat.name }}"><a href="{{ path('app_habitat', {'name': habitat.name|lower }) }}">Découvrir</a></button> #}
-      <button class="bgBtn--{{ habitat.name }}" data-id="{{ habitat.name }}">Découvrir</button>
+      <button class="bgBtn--{{ habitat.name }}" data-id="{{ habitat.name }}"><a href="{{ path('app_habitat', {'name': habitat.name })}}">Découvrir</a></button>
     </section>
 
   {% endfor %}
