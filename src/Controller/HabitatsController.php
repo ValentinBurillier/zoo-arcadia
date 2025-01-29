@@ -48,7 +48,7 @@ class HabitatsController extends AbstractController
         foreach($animals as $animal) {
             $allAnimals[] = $animal;
         }
-
+   
         $iconMenu = $allAnimals[0]->getHabitat()->getIconMenu();
 
         return $this->render('habitats/animals.html.twig', [

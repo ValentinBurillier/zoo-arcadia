@@ -20,6 +20,25 @@
       <section class="animalsSection name--{{ animal.name }}" style="background-image: url('{{ asset('assets/images/' ~ animal.image) }}')" data-id="{{i}}">
         <h2>{{ animal.name }}</h2>
         <h3>{{ animal.surname }}</h3>
+        <div class="detailsAnimal" style="display:none;">
+        <img src="{{ asset('assets/images/cross-zoo-arcadia-valentin-burillier.webp') }}"/>
+          <ul>
+            <li><p>Fiche technique</br>de {{ animal.name }}</p></li>
+            <li><p>Espèce : {{ animal.specie.specie }}</p></li>
+            <li><p>Date d'arrivée : {{ animal.arrivalDate|date('d/m/Y') }}</p></li>
+            <li><p>Habitat : {{ animal.habitat.name }}</p></li>
+          </ul>
+
+          <ul>
+            <li><p>Notes vétérinaires</br>02/02/12</p></li>
+            <li><p>Etat : {{ animal.currentState}}</p></li>
+            <li><p>Nourriture :
+            {% for foodItem in animal.food %}
+              {{ foodItem.name|trim }}{% if not loop.last %}, {% endif %}
+            {% endfor %}
+            </p></li>
+          </ul>
+        </div>
       </section>
       {% set i = i + 1 %}
     {% endfor %}
@@ -29,5 +48,5 @@
       <li data-li="2"></li>
     </ul>
   </main>
-  <script src="{{ asset('assets/scripts/changeAnimals.js' )}}"></script>
+  <script src="{{ asset('assets/scripts/changeAnimals.js' )}}?{{ "now"|date("U") }}"></script>
 {% endblock %}

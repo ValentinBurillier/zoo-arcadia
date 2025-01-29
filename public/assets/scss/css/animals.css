@@ -145,7 +145,7 @@ section[data-id="0"] {
   letter-spacing: 3px;
 }
 
-main ul {
+main ul:not(div ul) {
   position: fixed;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -157,7 +157,7 @@ main ul {
   column-gap: 16px;
   bottom: 16px;
 }
-main ul li {
+main ul:not(div ul) li {
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -165,11 +165,45 @@ main ul li {
   box-shadow: 3px 4px 5.5px -3px black;
 }
 
+.detailsAnimal {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  row-gap: 32px;
+}
+.detailsAnimal img {
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+}
+.detailsAnimal ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 16px;
+}
+.detailsAnimal ul p {
+  font-size: 24px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
 @media screen and (min-width: 744px) {
   main {
     display: flex;
   }
-  main ul {
+  main ul:not(div ul) {
     display: none;
   }
   section[data-id="1"], section[data-id="2"] {
@@ -178,7 +212,7 @@ main ul li {
   section {
     width: 50vw;
   }
-  section[data-id="1"] ul {
+  section[data-id="1"] ul:not(div ul) {
     display: none;
   }
 }
@@ -189,7 +223,7 @@ main ul li {
   section {
     width: 33.3333333333vw;
   }
-  section[data-id="2"] ul {
+  section[data-id="2"] ul:not(div ul) {
     display: none;
   }
 }
