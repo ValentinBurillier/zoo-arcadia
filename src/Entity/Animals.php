@@ -42,9 +42,19 @@ class Animals
     #[ORM\OneToMany(targetEntity: ImagesAnimals::class, mappedBy: 'animal', orphanRemoval: true)]
     private Collection $imagesAnimals;
 
+    #[ORM\Column(length: 255)]
+    private ?string $current_state = null;
+
+    /**
+     * @var Collection<int, Foods>
+     */
+    #[ORM\ManyToMany(targetEntity: Foods::class, inversedBy: 'animals')]
+    private Collection $food;
+
     public function __construct()
     {
         $this->imagesAnimals = new ArrayCollection();
+        $this->food = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -150,6 +160,42 @@ class Animals
                 $imagesAnimal->setAnimal(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCurrentState(): ?string
+    {
+        return $this->current_state;
+    }
+
+    public function setCurrentState(string $current_state): static
+    {
+        $this->current_state = $current_state;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Foods>
+     */
+    public function getFood(): Collection
+    {
+        return $this->food;
+    }
+
+    public function addFood(Foods $food): static
+    {
+        if (!$this->food->contains($food)) {
+            $this->food->add($food);
+        }
+
+        return $this;
+    }
+
+    public function removeFood(Foods $food): static
+    {
+        $this->food->removeElement($food);
 
         return $this;
     }
