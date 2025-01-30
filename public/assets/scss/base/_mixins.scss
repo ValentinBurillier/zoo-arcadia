@@ -15,7 +15,7 @@
 @mixin bg-footer-links($color) {
   background-color: #{$color};
 }
-@mixin fullScreen {
+@mixin fullScreen($bg-color: null) {
   height: 100vh;
   width: 100vw;
 }

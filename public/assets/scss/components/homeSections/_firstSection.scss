@@ -1,0 +1,48 @@
+@import "../../atoms/btn";
+#firstSection {
+    position: relative;
+    @include fullScreen;
+    img {
+        display: none;
+    }
+    @include bg-img-cover-no-repeat('../../images/zoo-arcadia-background.webp');
+    div {
+        background-color: $green;
+        height: 80px;
+        width: 100vw;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translate(-50%, -50%);
+        @include d-flex-col-center;
+        button {
+            background-color: $lightgreen;
+            font-family: $mainTitle;
+        }
+    }
+}
+
+@media screen and (min-width: 744px) {
+    #firstSection {
+        img {
+            display: block;
+            object-fit: fill;
+            @include fullContainer;
+        }
+        div {
+            background-color: transparent;
+            button {
+                background-color: $darkTerre;
+                box-shadow: 0px 0px 20px 3px $white;
+            }
+        }
+    } 
+}
+
+@media screen and (min-width: 1280px) {
+    #firstSection {
+        img {
+            object-fit: cover;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+button {
+    border: none;
+    padding: 8px 16px;
+    font-size: 24px;
+    @include d-flex-col-center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: $white;
+    font-weight: bold;
+    & > * {
+        font-size: 20px;
+    }
+}

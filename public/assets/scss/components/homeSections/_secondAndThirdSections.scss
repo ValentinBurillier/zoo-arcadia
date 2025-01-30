@@ -1,25 +1,4 @@
-@import "../base/_typography";
-@import "../base/_colors";
-@import "../base/_reset";
-@import "../base/_mixins";
-
-@import "../layouts/_header2";
-@import "../components/homeSections/_firstSection";
-@import "../atoms/_title2Form";
-// @import "../layouts/homepage/_secondThirdSection";
-
-* {
-    color: $white;
-    text-align: center;
-}
-
-@media screen and (min-width: 1280px) {
-    header nav ul li a {
-        font-weight: bold;
-        letter-spacing: 5px;
-    }
-}
-
+@import "../../atoms/_title2Form";
 #secondSection, #thirdSection {
     @include fullScreen;
     @include d-flex-col-center;
@@ -45,6 +24,7 @@
 #thirdSection {
     background: $green;
 }
+
 @media screen and (min-width: 744px) {
     #secondSection {
         border-right: 2px solid #ffffff;
