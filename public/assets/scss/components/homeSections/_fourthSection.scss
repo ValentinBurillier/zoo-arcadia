@@ -1,33 +1,12 @@
-@import "../base/_typography";
-@import "../base/_colors";
-@import "../base/_reset";
-@import "../base/_mixins";
-
-@import "../layouts/_header2";
-@import "../components/homeSections/_firstSection";
-@import "../components/homeSections/_secondAndThirdSections";
-@import "../components/homeSections/_fourthSection";
-
-* {
-    color: $white;
-    text-align: center;
-}
-
-@media screen and (min-width: 1280px) {
-    header nav ul li a {
-        font-weight: bold;
-        letter-spacing: 5px;
-    }
-}
-
+@import "../../atoms/_title2Form";
 #fourthSection {
+    @include fullScreen;
+    max-height: 600px;
     @include d-flex-col-center;
     row-gap: 7vh;
     position: relative;
     clear: both;
-    @include fullScreen;
     background-color: $black;
-    max-height: 600px;
     img {
         width: 90%;
         max-width: 350px;

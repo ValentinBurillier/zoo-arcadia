@@ -185,17 +185,6 @@ h2 {
   font-size: 28px;
 }
 
-* {
-  color: #FFFFFF;
-  text-align: center;
-}
-
-@media screen and (min-width: 1280px) {
-  header nav ul li a {
-    font-weight: bold;
-    letter-spacing: 5px;
-  }
-}
 #secondSection, #thirdSection {
   height: 100vh;
   width: 100vw;
@@ -238,5 +227,161 @@ h2 {
   #secondSection img, #thirdSection img {
     max-width: 450px;
     max-height: 280px;
+  }
+}
+h2 {
+  text-align: center;
+  color: #FFFFFF;
+  font-family: IBM Plex Serif, serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 28px;
+}
+
+#fourthSection {
+  height: 100vh;
+  width: 100vw;
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 7vh;
+  position: relative;
+  clear: both;
+  background-color: #000000;
+}
+#fourthSection img {
+  width: 90%;
+  max-width: 350px;
+}
+#fourthSection button {
+  background-color: #525C2A;
+  width: 75%;
+  padding: 8px 16px;
+  border-radius: 20%;
+  max-width: 300px;
+  line-height: 125%;
+}
+#fourthSection button a {
+  font-size: 16px;
+  font-weight: normal;
+}
+#fourthSection h2 {
+  background-color: #0C3F03;
+  position: absolute;
+  width: 100%;
+  font-size: 24px;
+  padding: 4px 0px;
+}
+#fourthSection h2:first-child {
+  top: 5%;
+}
+#fourthSection h2:last-child {
+  bottom: 5%;
+}
+
+@media screen and (min-width: 744px) {
+  #fourthSection {
+    max-width: 1280px;
+    margin: 0 auto;
+    flex-direction: row-reverse;
+    column-gap: 5vw;
+  }
+  #fourthSection h2:first-child {
+    top: 10%;
+  }
+  #fourthSection h2:last-child {
+    bottom: 10%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  #fourthSection {
+    column-gap: 128px;
+  }
+  #fourthSection img, #fourthSection button {
+    scale: 1.2;
+  }
+  #fourthSection button {
+    line-height: 125%;
+  }
+}
+* {
+  color: #FFFFFF;
+  text-align: center;
+}
+
+@media screen and (min-width: 1280px) {
+  header nav ul li a {
+    font-weight: bold;
+    letter-spacing: 5px;
+  }
+}
+#fourthSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 7vh;
+  position: relative;
+  clear: both;
+  height: 100vh;
+  width: 100vw;
+  background-color: #000000;
+  max-height: 600px;
+}
+#fourthSection img {
+  width: 90%;
+  max-width: 350px;
+}
+#fourthSection button {
+  background-color: #525C2A;
+  width: 75%;
+  padding: 8px 16px;
+  border-radius: 20%;
+  max-width: 300px;
+  line-height: 125%;
+}
+#fourthSection button a {
+  font-size: 16px;
+  font-weight: normal;
+}
+#fourthSection h2 {
+  background-color: #0C3F03;
+  position: absolute;
+  width: 100%;
+  font-size: 24px;
+  padding: 4px 0px;
+}
+#fourthSection h2:first-child {
+  top: 5%;
+}
+#fourthSection h2:last-child {
+  bottom: 5%;
+}
+
+@media screen and (min-width: 744px) {
+  #fourthSection {
+    max-width: 1280px;
+    margin: 0 auto;
+    flex-direction: row-reverse;
+    column-gap: 5vw;
+  }
+  #fourthSection h2:first-child {
+    top: 10%;
+  }
+  #fourthSection h2:last-child {
+    bottom: 10%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  #fourthSection {
+    column-gap: 128px;
+  }
+  #fourthSection img, #fourthSection button {
+    scale: 1.2;
+  }
+  #fourthSection button {
+    line-height: 125%;
   }
 }
