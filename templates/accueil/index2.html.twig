@@ -1,0 +1,20 @@
+{% set iconMenu = 'zoo-arcadia-green_menu.webp' %}
+{% set pageName = 'habitatsPage' %}
+
+{% extends "base.html.twig" %}
+{% block title %}Arcadia | Habitats{% endblock %}
+{% block style %} 
+  <link rel="stylesheet" href="{{ asset('assets/scss/css/home.css') }}?{{ "now"|date("U") }}" type="text/css">
+{% endblock %}
+
+{# BODY #}
+{% block body %}
+  {# HEADER #}
+    {% block header %}
+        {% include "components/headerConnect.html.twig" %}
+    {% endblock %}
+
+  <main id="main">
+    {% include 'components/homePage/firstSection.html.twig' %}
+  </main>
+{% endblock %}
