@@ -7,6 +7,7 @@
 @import "../components/homeSections/_firstSection";
 @import "../components/homeSections/_secondAndThirdSections";
 @import "../components/homeSections/_fourthSection";
+@import "../components/homeSections/_fifthSection";
 
 * {
     color: $white;
@@ -17,71 +18,5 @@
     header nav ul li a {
         font-weight: bold;
         letter-spacing: 5px;
-    }
-}
-
-#fourthSection {
-    @include d-flex-col-center;
-    row-gap: 7vh;
-    position: relative;
-    clear: both;
-    @include fullScreen;
-    background-color: $black;
-    max-height: 600px;
-    img {
-        width: 90%;
-        max-width: 350px;
-    }
-    button {
-        background-color: $greenLow;
-        width: 75%;
-        padding: 8px 16px;
-        border-radius: 20%;
-        max-width: 300px;
-        line-height: 125%;
-        a {
-            font-size: 16px;
-            font-weight: normal;
-        }
-    }
-    h2 {
-        background-color: $lightgreen;
-        position: absolute;
-        width: 100%;
-        font-size: 24px;
-        padding: 4px 0px;
-    }
-    h2:first-child {
-        top: 5%;
-    }
-    h2:last-child {
-        bottom: 5%;
-    }
-}
-
-@media screen and (min-width: 744px) {
-    #fourthSection {
-        max-width: 1280px;
-        margin: 0 auto;
-        flex-direction: row-reverse;
-        column-gap: 5vw;
-        h2:first-child {
-            top: 10%;
-        }
-        h2:last-child  {
-            bottom: 10%;
-        }
-    }
-}
-
-@media screen and (min-width: 1280px) {
-    #fourthSection {
-        column-gap: 128px;
-        img, button {
-            scale: 1.2;
-        }
-        button {
-            line-height: 125%;
-        }
     }
 }

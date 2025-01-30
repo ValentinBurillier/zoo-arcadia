@@ -306,6 +306,80 @@ h2 {
     line-height: 125%;
   }
 }
+#fifthSection {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(61deg, #006333 50%, #054000 50%);
+  overflow-y: scroll;
+  position: relative;
+  max-width: 1280px;
+  margin: auto;
+  text-transform: capitalize;
+}
+#fifthSection h2 {
+  display: none;
+}
+#fifthSection .container div {
+  width: 80%;
+  height: 210px;
+  margin: 0 auto;
+  border-radius: 20%;
+  background: white;
+  overflow-x: hidden;
+  position: relative;
+  max-width: 340px;
+}
+#fifthSection .container div img {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  display: block;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#fifthSection .container div h3 {
+  background: rgba(6, 40, 0, 0.8);
+  font-size: 1.3rem;
+  text-align: center;
+  padding: 1rem;
+  letter-spacing: 1px;
+}
+#fifthSection .container div p {
+  color: #000000;
+  font-size: 1.5rem;
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+  padding: 1.2rem 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#fifthSection .container div:first-child {
+  margin-top: 3.2rem;
+}
+#fifthSection .container div {
+  margin-bottom: 3.2rem;
+}
+
+@media screen and (min-width: 744px) {
+  #fifthSection {
+    height: auto;
+  }
+  #fifthSection .container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 32px;
+  }
+  #fifthSection .container div {
+    margin-top: 3.2rem;
+    margin-bottom: 3.2rem;
+  }
+}
 * {
   color: #FFFFFF;
   text-align: center;
@@ -315,73 +389,5 @@ h2 {
   header nav ul li a {
     font-weight: bold;
     letter-spacing: 5px;
-  }
-}
-#fourthSection {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  row-gap: 7vh;
-  position: relative;
-  clear: both;
-  height: 100vh;
-  width: 100vw;
-  background-color: #000000;
-  max-height: 600px;
-}
-#fourthSection img {
-  width: 90%;
-  max-width: 350px;
-}
-#fourthSection button {
-  background-color: #525C2A;
-  width: 75%;
-  padding: 8px 16px;
-  border-radius: 20%;
-  max-width: 300px;
-  line-height: 125%;
-}
-#fourthSection button a {
-  font-size: 16px;
-  font-weight: normal;
-}
-#fourthSection h2 {
-  background-color: #0C3F03;
-  position: absolute;
-  width: 100%;
-  font-size: 24px;
-  padding: 4px 0px;
-}
-#fourthSection h2:first-child {
-  top: 5%;
-}
-#fourthSection h2:last-child {
-  bottom: 5%;
-}
-
-@media screen and (min-width: 744px) {
-  #fourthSection {
-    max-width: 1280px;
-    margin: 0 auto;
-    flex-direction: row-reverse;
-    column-gap: 5vw;
-  }
-  #fourthSection h2:first-child {
-    top: 10%;
-  }
-  #fourthSection h2:last-child {
-    bottom: 10%;
-  }
-}
-@media screen and (min-width: 1280px) {
-  #fourthSection {
-    column-gap: 128px;
-  }
-  #fourthSection img, #fourthSection button {
-    scale: 1.2;
-  }
-  #fourthSection button {
-    line-height: 125%;
   }
 }

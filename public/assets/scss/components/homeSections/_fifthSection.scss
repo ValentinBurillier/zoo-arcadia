@@ -1,0 +1,132 @@
+#fifthSection {
+    @include fullScreen;
+    background: linear-gradient(61deg, #006333 50%, #054000 50%);
+    overflow-y: scroll;
+    position: relative;
+    max-width: 1280px;
+    margin: auto;
+    text-transform: capitalize;
+    h2 {
+      display: none;
+    }
+    .container div {
+      width: 80%;
+      height: 210px;
+      margin: 0 auto;
+      border-radius: 20%;
+      background: white;
+      overflow-x: hidden;
+      position: relative;
+      max-width: 340px;
+      img {
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+        display: block;
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      h3 {
+        background: rgba(6, 40, 0, 0.8);
+        font-size: 1.3rem;
+        text-align: center;
+        padding: 1rem;
+        letter-spacing: 1px;
+      }
+      p {
+        color: $black;
+        font-size: 1.5rem;
+        text-align: center;
+        width: 90%;
+        margin: 0 auto;
+        padding: 1.2rem 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    .container div:first-child {
+      margin-top: 3.2rem
+    }
+    .container div {
+      margin-bottom: 3.2rem;
+    }
+  }
+@media screen and (min-width: 744px) {
+    #fifthSection {
+        height: auto;
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            gap: 32px;
+            div {
+                margin-top: 3.2rem;
+                margin-bottom: 3.2rem;
+            }
+        }
+        // .container div:first-child {
+        // top: 25%;
+        // left: 25%;
+        // transform: translate(-50%, -50%);
+        // position: absolute;
+        // }
+        // .container div:nth-child(2) {
+        // top: 75%;
+        // left: 25%;
+        // transform: translate(-50%, -50%);
+        // position: absolute;
+        // }
+        // .container div:last-child {
+        // top: 50%;
+        // left: 80%;
+        // transform: translate(-50%, -50%);
+        // position: absolute;
+        // }
+    }
+}
+//   @media screen and (min-width: 700px) {
+//     #fifthSection {
+//       background: linear-gradient(23deg, #006333 50%, #054000 50%);
+//       h2 {
+//         display: block;
+//         font-size: 2rem;
+//         position: absolute;
+//         z-index: 100;
+//         top: 0;
+//         left: 0;
+//         background-color: #0C3F03;
+//         text-align: center;
+//         width: 100%;
+//         padding: 0.8rem;
+//         color: white;
+//         transform: none;
+//         padding-top: 1.5rem;
+//       }
+//       .container div {
+//         border-radius: 10%;
+//         scale: 1.2;
+//       }
+//       .container div:first-child {
+//         top: 25%;
+//         left: 25%;
+//         transform: translate(-50%, -50%);
+//         position: absolute;
+//       }
+//       .container div:nth-child(2) {
+//         top: 75%;
+//         left: 25%;
+//         transform: translate(-50%, -50%);
+//         position: absolute;
+//       }
+//       .container div:last-child {
+//         top: 50%;
+//         left: 80%;
+//         transform: translate(-50%, -50%);
+//         position: absolute;
+//       }
+//     }
+//   }
