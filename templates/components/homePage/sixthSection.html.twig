@@ -1,4 +1,23 @@
 <section id="sixthSection">
-<h2>Ils parlent de nous !</h2>
-<h2>Laisser un avis <a href="#">Envoyer</a></h2>
+<div class="test">
+    <h2>Ils parlent de nous !</h2>
+    <div class="reviewsContainer">
+    {% set limit = 5 %}
+    {% for review in reviews %}
+    <div class="reviewContainer">
+        <div class="starsContainer">
+            {% set score = review.score %}
+            {% for i in 1..5 %}
+                {% if i <= score %}
+                    <span>⭐</span> {# Étoile remplie #}
+                {% endif %}
+            {% endfor %}
+        </div>
+        <h3>{{ review.comment }}</h3>
+        <h4>{{ review.pseudo }}</h4>
+    </div>
+    {% endfor %}
+    </div>
+    <h2>Laisser un avis <button><a href="#">Envoyer</a></button></h2>
+    </div>
 </section>

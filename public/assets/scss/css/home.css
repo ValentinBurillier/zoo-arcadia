@@ -380,6 +380,129 @@ h2 {
     margin-bottom: 3.2rem;
   }
 }
+#sixthSection {
+  height: 100vh;
+  width: 100vw;
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+#sixthSection .test {
+  height: 90%;
+  width: 100%;
+}
+#sixthSection .reviewsContainer {
+  height: calc(100% - 75px);
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  row-gap: 2vh;
+}
+#sixthSection .reviewsContainer .reviewContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 16px;
+}
+#sixthSection .reviewsContainer .reviewContainer h3 {
+  font-size: 20px;
+  font-weight: normal;
+  max-width: 95%;
+}
+#sixthSection .reviewsContainer .reviewContainer h4 {
+  font-size: 18px;
+}
+#sixthSection .reviewsContainer .reviewContainer .starsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+#sixthSection .reviewsContainer .reviewContainer .starsContainer span {
+  font-size: 24px;
+}
+#sixthSection .reviewContainer > * {
+  color: #000000;
+}
+#sixthSection h2 {
+  background-color: #0C3F03;
+  width: 100vw;
+  font-size: 24px;
+  padding: 4px 0px;
+}
+#sixthSection h2:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  column-gap: 16px;
+  font-size: 20px;
+}
+#sixthSection button {
+  background-color: #F58500;
+  padding: 8px;
+}
+#sixthSection button a {
+  font-size: 14px;
+}
+
+@media screen and (min-width: 744px) {
+  .reviewsContainer {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+footer {
+  background-color: #363636;
+  width: 100vw;
+  height: 164px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+footer ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1rem;
+}
+footer ul li {
+  font-family: Tahoma, sans-serif;
+  font-weight: normal;
+  color: #FFFFFF;
+  letter-spacing: 1.5px;
+  text-align: center;
+}
+footer ul li a {
+  font-size: 16px;
+}
+
+@media screen and (min-width: 744px) {
+  footer {
+    height: 66px;
+  }
+  footer ul {
+    width: 100vw;
+    flex-direction: row;
+    justify-content: space-around;
+    row-gap: 0px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  footer ul li a {
+    font-size: 18px;
+  }
+}
 * {
   color: #FFFFFF;
   text-align: center;

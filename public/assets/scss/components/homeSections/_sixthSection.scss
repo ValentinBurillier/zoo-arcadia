@@ -1,0 +1,99 @@
+// @import "../../atoms/_title2Form";
+// @import "../../atoms/btn";
+// #sixthSection {
+//     @include fullScreen;
+//     background-color: $white;
+//     position: relative;
+//     h2 {
+//         background-color: $lightgreen;
+//         position: absolute;
+//         width: 100%;
+//         font-size: 24px;
+//         padding: 4px 0px;
+//     }
+//     h2:first-child {
+//         top: 5%;
+//     }
+//     h2:last-child {
+//         bottom: 5%;
+//         @include d-flex-col-center;
+//         flex-direction: row;
+//         column-gap: 16px;
+//         font-size: 20px;
+//     }
+//     button {
+//         background-color: $orange;
+//         padding: 8px;
+//         a {
+//             font-size: 14px;
+//         }
+//     }
+// }
+
+#sixthSection {
+    @include fullScreen;
+    max-height: 600px;
+    @include d-flex-col-center;
+    background-color: $white;
+    position: relative;
+    overflow: hidden;
+    .test {
+        height: 90%;
+        width: 100%;
+    }
+    .reviewsContainer {
+        height: calc(100% - 75px);
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+        row-gap: 2vh;
+        .reviewContainer {
+            @include d-flex-col-center;
+            row-gap: 16px;
+            h3 {
+                font-size: 20px;
+                font-weight: normal;
+                max-width: 95%;
+            }
+            h4 {
+                font-size: 18px;
+            }
+            .starsContainer {
+                @include d-flex-col-center;
+                flex-direction: row;
+                span {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+    & .reviewContainer > * {
+        color: $black;
+    }
+    h2 {
+        background-color: $lightgreen;
+        width: 100vw;
+        font-size: 24px;
+        padding: 4px 0px;
+    }
+    h2:last-child {
+        @include d-flex-col-center;
+        flex-direction: row;
+        column-gap: 16px;
+        font-size: 20px;
+    }
+    button {
+        background-color: $orange;
+        padding: 8px;
+        a {
+            font-size: 14px;
+        }
+    }
+}
+
+@media screen and (min-width: 744px) {
+    .reviewsContainer {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
