@@ -1,0 +1,112 @@
+{% set iconMenu = 'zoo-arcadia-green_menu' %}
+{% set pageName = 'EmployePage' %}
+
+{% extends "base.html.twig" %}
+{% block title %}Arcadia | Interface Employe{% endblock %}
+{% block style %} 
+  <link rel="stylesheet" href="{{ asset('assets/scss/css/employe.css') }}?{{ "now"|date("U") }}" type="text/css">
+{% endblock %}
+
+{# BODY #}
+{% block body %}
+
+    <header>
+        <h1>Arcadia</h1>
+        <nav>
+            <ul>
+                <li><h2>Avis à vérifier</h2></li>
+                <li><h2>Services</h2></li>
+                <li><h2>Alimentation</h2></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main id="main">
+        {# {% block formEmploye %}
+            {% include "components/formEmploye.html.twig" %}
+        {% endblock %} #}
+        <section id="alimentation__laptop" style="display:none">
+        {% for review in reviews %}
+                <ul id="reviews__list">
+                    <ul class="user__data">
+                        <li>{{ review.date }}</li>
+                        <li>{{ review.pseudo }}</li>
+                    
+
+                    <li id="stars__score">
+                        {% set score = review.score %}
+                        {% for i in 1..5 %}
+                            <img src="{{ asset('assets/images/gold_star.png') }}" width="20" height="20" />
+                        {% endfor %}
+                    </li>
+
+                    
+                    <li id="icon__statut">
+                        <img src="{{ asset('assets/images/zoo-arcadia-valid.webp') }}" width="20" height="20" />
+                        <img src="{{ asset('assets/images/zoo-arcadia-cancel.webp') }}" width="20" height="20" />
+                    </li>
+                    </ul>
+                    <li>{{ review.comment }}</li>
+                    <hr />
+                </ul>
+            {% endfor %}
+        </section>
+
+        <section id="services__laptop" style="display: none">
+            {% for service in services %}
+                <ul id="services">
+                    <li>
+                        <h3>{{ service.title }}</h3>
+                        <img src="{{ asset('assets/images/' ~ service.urlIcon) }}" width="25" height:"25" />
+                    </li>
+                    <li>{{ service.description }}</li>
+                    <hr />
+                </ul>
+            {% endfor %}
+            <button type="submit" class="btn__submit">Valider</button>
+        </section>
+
+        <section id="alimentation__laptop">
+        <ul>
+            <ul class="habitats__list">
+            {% for habitat in habitats %}
+                {% if habitat.name == "jungle" %}
+                    <li><h3 class="habitatActif">{{ habitat.name }}</h3></li>
+                {% else %}
+                    <li><h3>{{ habitat.name }}</h3></li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+
+            <ul class="animals__list">
+                {% for habitat in habitats %}
+                    {% if habitat.name == "jungle" %}
+                        {% for animal in habitat.animals %}
+                            <li></h4>{{ animal.name }}</h4></li>
+                        {% endfor %}
+                    {% else %}
+                        {% for animal in habitat.animals %}
+                            <li style="display: none"></h4>{{ animal.name }}</h4></li>
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </ul>
+        {{ form_start(form) }}
+        <div class="timeOfDish">
+                        <h3>Date et heure du repas :</h3>
+                        {{ form_widget(form.timeOfDish) }} {# Afficher l'input #}
+                    </div>
+        <div class="food">
+                    <h3>Nourriture et quantité (kg) :</h3>
+                        {{ form_widget(form.food) }} {# Afficher l'input #}
+                        {{ form_widget(form.quantity) }} {# Afficher l'input #}
+                    </div>
+
+                    <input type="submit" value="Valider" class="btnForm"/>
+        {{ form_end(form) }}
+        </section>
+    </main>
+    <script src="{{ asset('assets/scripts/test.js' )}}"></script>
+{% endblock %}
