@@ -10,7 +10,7 @@
 {# BODY #}
 {% block body %}
 
-    <header>
+    <header id="header">
         <h1>Arcadia</h1>
         <nav>
             <ul>
@@ -23,14 +23,50 @@
 
 
     <main id="main">
+        <ul>
+            <li id="reviewsToCheck" class="tasks">
+                <h2>Avis à vérifier</h2>
+                <section>
+                    {% for review in reviews %}
+                        <ul class="reviews__list hidden">
+                            <ul class="user__data">
+                                <li>{{ review.date| date('d/m/Y')}}</li>
+                                <li>{{ review.pseudo }}</li>
+                    
+                                <li class="stars__score">
+                                    {% set score = review.score %}
+                                    {% for i in 1..5 %}
+                                        <img src="{{ asset('assets/images/gold_star.png') }}" />
+                                    {% endfor %}
+                                </li>
+                                <li class="comment">{{ review.comment }}</li>
+                                <li class="icon__statut">
+                                    <img src="{{ asset('assets/images/zoo-arcadia-valid.webp') }}" />
+                                    <img src="{{ asset('assets/images/zoo-arcadia-cancel.webp') }}" />
+                                </li>
+                            </ul>
+                            <hr />
+                        </ul>
+                    {% endfor %}
+                </section>
+            </li>
+            <li id="services" class="tasks">
+                <h2>Services</h2>
+                <section></section>
+            </li>
+            <li id="mealsAnimals" class="tasks">
+                <h2>Alimentation</h2>
+                <section></section>
+            </li>
+        </ul>
         {# {% block formEmploye %}
             {% include "components/formEmploye.html.twig" %}
         {% endblock %} #}
-        <section id="alimentation__laptop" style="display:none">
+        {# <section id="alimentation__laptop" style="display:none">
         {% for review in reviews %}
                 <ul id="reviews__list">
                     <ul class="user__data">
-                        <li>{{ review.date }}</li>
+                        <li>{{ review.date| date('d/m/Y')}}</li>
                         <li>{{ review.pseudo }}</li>
                     
 
@@ -93,20 +129,8 @@
                 {% endfor %}
             </ul>
         </ul>
-        {{ form_start(form) }}
-        <div class="timeOfDish">
-                        <h3>Date et heure du repas :</h3>
-                        {{ form_widget(form.timeOfDish) }} {# Afficher l'input #}
-                    </div>
-        <div class="food">
-                    <h3>Nourriture et quantité (kg) :</h3>
-                        {{ form_widget(form.food) }} {# Afficher l'input #}
-                        {{ form_widget(form.quantity) }} {# Afficher l'input #}
-                    </div>
 
-                    <input type="submit" value="Valider" class="btnForm"/>
-        {{ form_end(form) }}
-        </section>
+        </section> #}
     </main>
-    <script src="{{ asset('assets/scripts/test.js' )}}"></script>
+    <script src="{{ asset('assets/scripts/employe.js' )}}"></script>
 {% endblock %}

@@ -1,0 +1,40 @@
+#reviewsToCheck {
+    .reviews__list {
+      padding: 16px;
+      .user__data {
+        color: $terre;
+        row-gap: 12px;
+        li:first-child, li:nth-child(2) {
+          display: contents;
+        }
+        li {
+          font-family: $mainTitle;
+          font-size: 1rem;
+          font-weight: bold;
+          list-style: none;
+        }
+        .stars__score, .icon__statut {
+          text-align: center;
+          @include d-flex-col-center;
+          flex-direction: row;
+          img {
+            @include heightAndWidth(30px);
+          }
+        }
+        .icon__statut img {
+            @include heightAndWidth(25px);
+        } 
+        .comment {
+          text-align: center;
+          font-size: 16px;
+          color: $terre;
+    
+        }
+      }
+    }
+    hr {
+      background: $terre;
+      height: 0.3rem;
+      width: 90%;
+    }
+}

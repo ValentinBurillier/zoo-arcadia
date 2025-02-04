@@ -1,0 +1,19 @@
+#body {
+    @include fullScreen;
+    @include bg-img-cover-no-repeat("../../images/zoo-arcadia-elephant.webp");
+}
+@media screen and (min-width: 744px) {
+    #body {
+        display: flex;
+        flex-direction: row;
+    }
+}
+@media screen and (min-width: 1280px) {
+    html {
+      background-color: rgba(59, 29, 5, 0.839);
+    }
+    #body {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+}

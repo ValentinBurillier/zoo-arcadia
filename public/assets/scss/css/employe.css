@@ -20,422 +20,199 @@ a {
 }
 
 #body {
-  width: 100vw;
   height: 100vh;
-  background: url("../../images/zoo-arcadia-elephant.webp");
+  width: 100vw;
+  background: url(../../images/zoo-arcadia-elephant.webp);
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
 }
 
-header {
-  text-transform: uppercase;
-  font-size: 2rem;
-  font-family: IBM Plex Serif, serif;
-  font-weight: bold;
-  color: white;
-  text-align: center;
-  padding-top: 1rem;
-  letter-spacing: 1px;
-  margin-bottom: 2.5rem;
+@media screen and (min-width: 744px) {
+  #body {
+    display: flex;
+    flex-direction: row;
+  }
 }
-
-.actif {
-  height: 75vh;
-  overflow-y: scroll;
+@media screen and (min-width: 1280px) {
+  html {
+    background-color: rgba(59, 29, 5, 0.839);
+  }
+  #body {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
 }
-
 #main {
-  height: 75%;
-  overflow: scroll;
-  color: #7A4200;
-  position: relative;
-}
-#main details {
-  width: 75%;
-  background-color: #D9D9D9;
-  text-align: center;
-  margin: 0 auto;
-  max-width: 500px;
-}
-#main details summary {
-  background-color: #D9D9D9;
-  font-family: IBM Plex Serif, serif;
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding-left: 20px;
-  list-style: none;
-  position: relative;
-}
-#main details summary:hover {
-  cursor: pointer;
-}
-#main details summary::before {
-  content: "▶"; /* Utilisez le symbole que vous préférez pour la flèche */
   position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 52.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80%;
+  width: 90%;
+  background: rgba(0, 128, 0, 0.2);
 }
-#main details ul {
-  padding: 0rem 1rem;
-  padding-top: 1rem;
-  margin: 0 auto;
-  position: relative;
+#main ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 16px;
+}
+#main ul li {
   background-color: #D9D9D9;
-}
-#main details ul li {
-  text-align: left;
-  font-family: IBM Plex Serif, serif;
-  font-size: 1rem;
-  padding-left: 0.5rem;
-  font-weight: bold;
-  list-style: none;
-}
-#main details ul li:not(li:last-child) {
-  margin-bottom: 0.5rem;
-}
-#main details ul img {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-}
-#main details ul hr {
-  background: #7A4200;
-  height: 0.25rem;
   width: 100%;
 }
-#main details ul:last-child {
-  padding-bottom: 1rem;
+#main ul li h2 {
+  color: #7F4C27;
+  font-family: IBM Plex Serif, serif;
+  font-weight: bold;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
 }
-#main details ul:last-child hr {
-  display: none;
-}
-#main details:not(details:last-child) {
-  margin-bottom: 1.5rem;
-}
-#main details[open] summary::before {
-  content: "▼"; /* Changez la flèche pour un triangle vers le bas */
+#main ul li h2::before {
+  content: "▶";
+  margin-left: 16px;
+  margin-right: 16px;
 }
 
-#reviews__list .user__data {
+#main .hidden {
+  display: none;
+}
+#main .taskSelected, #main .taskSelectedContainer {
+  height: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+}
+#main .taskSelected {
+  overflow-y: scroll;
+}
+#main .taskSelected h2::before {
+  content: "▼";
+}
+
+@media screen and (min-width: 744px) {
+  #main {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    height: 100%;
+    width: 75%;
+    overflow-y: scroll;
+  }
+  #main > ul {
+    height: 100%;
+    justify-content: start;
+  }
+  #main ul li h2 {
+    display: none;
+  }
+  #main .hidden {
+    display: block;
+  }
+}
+#header {
+  font-family: IBM Plex Serif, serif;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+}
+#header h1 {
+  text-transform: uppercase;
+  font-size: 32px;
+}
+#header nav {
+  display: none;
+}
+
+@media screen and (min-width: 744px) {
+  #header {
+    height: 100%;
+    width: 30%;
+    position: relative;
+  }
+  #header h1 {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+  }
+  #header nav {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #header nav ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 16px;
+  }
+  #header nav ul li h2 {
+    font-size: 24px;
+    letter-spacing: 1.2px;
+  }
+}
+#reviewsToCheck .reviews__list {
+  padding: 16px;
+}
+#reviewsToCheck .reviews__list .user__data {
+  color: #7F4C27;
+  row-gap: 12px;
+}
+#reviewsToCheck .reviews__list .user__data li:first-child, #reviewsToCheck .reviews__list .user__data li:nth-child(2) {
+  display: contents;
+}
+#reviewsToCheck .reviews__list .user__data li {
+  font-family: IBM Plex Serif, serif;
+  font-size: 1rem;
+  font-weight: bold;
+  list-style: none;
+}
+#reviewsToCheck .reviews__list .user__data .stars__score, #reviewsToCheck .reviews__list .user__data .icon__statut {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+#reviewsToCheck .reviews__list .user__data .stars__score img, #reviewsToCheck .reviews__list .user__data .icon__statut img {
+  width: 30px;
+  height: 30px;
+}
+#reviewsToCheck .reviews__list .user__data .icon__statut img {
+  width: 25px;
+  height: 25px;
+}
+#reviewsToCheck .reviews__list .user__data .comment {
+  text-align: center;
+  font-size: 16px;
+  color: #7F4C27;
+}
+#reviewsToCheck hr {
+  background: #7F4C27;
+  height: 0.3rem;
+  width: 90%;
+}
+
+.reviews__list .user__data {
   display: flex;
   justify-content: space-between;
   padding: 0;
   width: 100%;
 }
-#reviews__list #stars__score img, #reviews__list #icon__statut img {
+.reviews__list #stars__score img, .reviews__list #icon__statut img {
   position: inherit;
 }
-#reviews__list #icon__statut, #reviews__list #stars__score {
+.reviews__list #icon__statut, .reviews__list #stars__score {
   display: flex;
   justify-content: center;
   align-items: center;
   column-gap: 0.5rem;
-}
-
-#alimentation details {
-  width: 100%;
-}
-#alimentation details .habitat {
-  font-size: 1.3rem;
-  text-transform: capitalize;
-}
-#alimentation details:not(details[open]) summary::before {
-  content: "▶";
-}
-
-#alimentation[open] > summary {
-  margin-bottom: 1.2rem;
-}
-
-#alimentation[open] summary {
-  text-align: left;
-  padding-left: 3rem;
-}
-
-#main #alimentation[open] details {
-  margin-bottom: 1rem;
-}
-
-#alimentation .animals summary {
-  font-size: 1rem;
-  color: black;
-  text-transform: capitalize;
-}
-
-form label, form h3 {
-  display: block;
-  text-align: left;
-  margin: 0 auto;
-  font-family: Tahoma, sans-serif;
-  font-weight: normal;
-  font-size: 0.8rem;
-  width: 80%;
-  color: black;
-  padding: 1rem 0rem;
-  letter-spacing: 1px;
-}
-form input {
-  background: #5F2D00;
-  color: #FFFFFF;
-}
-form input:not([value=valider]) {
-  border-left: 5px solid #5E1515;
-  box-shadow: 3px 4px 0px -3px rgba(55, 55, 55, 0.79);
-  padding: 5px;
-}
-form .food input {
-  display: inline-block;
-  width: 100px;
-  height: 30px;
-  text-align: center;
-  font-weight: 600;
-  font-size: 0.8rem;
-  letter-spacing: 1px;
-}
-form input[type=submit] {
-  border: none;
-  border-left: 5px solid #FFFFFF;
-  box-shadow: 5px 6px 12.3px 0px #FFFFFF;
-  background: #7F4C27;
-  font-family: Homenaje, sans-serif;
-  font-weight: normal;
-  font-size: 1.5rem;
-  margin-top: 1rem;
-  letter-spacing: 4px;
-  padding: 0.25rem 1.8rem;
-}
-
-#meal_food {
-  margin-right: 1rem;
-}
-
-@media screen and (min-width: 700px) {
-  form label, form h3 {
-    font-size: 1rem;
-  }
-  .food {
-    margin-bottom: 1rem;
-  }
-}
-@media screen and (min-width: 1000px) {
-  body {
-    display: flex;
-  }
-  header {
-    position: relative;
-    padding: none;
-    margin: none;
-    width: 30%;
-    height: 100%;
-  }
-  header h1 {
-    position: absolute;
-    top: 1.5rem;
-    left: 2rem;
-    font-family: IBM Plex Serif, serif;
-    font-weight: bold;
-    letter-spacing: 1px;
-    font-size: 2rem;
-  }
-  header nav {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  header nav ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    row-gap: 2rem;
-    text-align: left;
-    width: max-content;
-  }
-  header nav ul h2 {
-    font-family: IBM Plex Serif, serif;
-    font-weight: bold;
-    letter-spacing: 1px;
-    font-size: 1.5rem;
-    text-transform: capitalize;
-  }
-  #main::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(217, 217, 217, 0.24);
-    z-index: 5;
-  }
-  #main {
-    padding: none;
-    padding: 1.5rem 1.5rem 0% 1.5rem;
-    margin: none;
-    height: 100%;
-    width: 70%;
-    list-style: none;
-    color: #FFFFFF;
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-    border-left: 4px solid #FFFFFF;
-  }
-  #alimentation__laptop {
-    position: relative;
-    z-index: 100;
-  }
-  #reviews__list {
-    position: relative;
-    z-index: 10;
-    margin-top: 1.5rem;
-  }
-  #reviews__list hr {
-    height: 5px;
-    background: #7F4C27;
-    border: none;
-  }
-  .user__data {
-    margin-bottom: 1rem;
-  }
-  .user__data ~ li {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-    list-style: none;
-    letter-spacing: 1px;
-  }
-  .user__data li {
-    font-size: 1.5rem;
-    font-weight: bold;
-    list-style: none;
-  }
-  .user__data #stars__score img {
-    width: 30px;
-    height: 30px;
-  }
-  .user__data #icon__statut img {
-    height: 30px;
-    width: 30px;
-  }
-  #services__laptop {
-    position: relative;
-  }
-  #services__laptop #services {
-    position: relative;
-    z-index: 10;
-    margin-top: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-  }
-  #services__laptop #services > li {
-    display: flex;
-    column-gap: 1.5rem;
-    font-size: 1.5rem;
-  }
-  #services__laptop #services > li h3 {
-    font-size: 1.5rem;
-  }
-  #services__laptop #services > li img {
-    width: 30px;
-    height: 30px;
-  }
-  #services__laptop #services hr {
-    height: 5px;
-    background: #7F4C27;
-    border: none;
-  }
-  .btn__submit {
-    font-size: 1.3rem;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    border: none;
-    margin-top: 2rem;
-    color: #FFFFFF;
-    position: relative;
-    z-index: 10;
-    letter-spacing: 4px;
-    background: #7F4C27;
-    padding: 1rem 2rem;
-    box-shadow: 5px 6px 12.3px 0px #FFFFFF;
-    border-left: 5px solid #FFFFFF;
-  }
-}
-#alimentation__laptop {
-  position: relative;
-  z-index: 100;
-}
-#alimentation__laptop > ul {
-  margin-bottom: 2rem;
-}
-#alimentation__laptop > ul .habitats__list, #alimentation__laptop > ul .animals__list {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-#alimentation__laptop > ul .habitats__list h3, #alimentation__laptop > ul .animals__list h3 {
-  font-size: 1.7rem;
-}
-#alimentation__laptop > ul .habitats__list li, #alimentation__laptop > ul .animals__list li {
-  list-style: none;
-  width: 33.3333333333%;
-  text-align: center;
-  text-transform: capitalize;
-  font-weight: bold;
-  font-size: 1.4rem;
-  letter-spacing: 0.5px;
-}
-#alimentation__laptop > ul .animals__list {
-  margin-top: 2rem;
-}
-#alimentation__laptop form {
-  width: 60%;
-  margin: 0 auto;
-  text-align: center;
-}
-#alimentation__laptop form div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-#alimentation__laptop form div h3 {
-  text-align: center;
-  font-size: 1.4rem;
-  font-weight: bold;
-}
-#alimentation__laptop form div input {
-  border: none;
-  height: 3rem;
-  padding: 0rem 2rem;
-  font-size: 1.5rem;
-}
-#alimentation__laptop form .food {
-  display: block;
-}
-#alimentation__laptop form input[type=submit] {
-  padding: 0.5rem 2rem;
-}
-
-@media screen and (min-width: 1400px) {
-  form {
-    scale: 1.1;
-  }
-}
-@media screen and (min-width: 1600px) {
-  body {
-    max-width: 1600px;
-    margin: 0 auto;
-  }
-  #main {
-    display: flex;
-    justify-content: center;
-    height: 500px;
-    align-self: center;
-    padding: none;
-  }
 }
