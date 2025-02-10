@@ -31,10 +31,22 @@
     
         }
       }
+      .valid_review, .delete_review {
+        border: none;
+        background: none;
+      }
     }
     hr {
       background: $terre;
       height: 0.3rem;
       width: 90%;
+    }
+}
+
+@media screen and (min-width: 744px) {
+    #reviewsToCheck {
+        section {
+            display: initial;
+        }
     }
 }

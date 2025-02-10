@@ -2,22 +2,22 @@
 
 namespace App\Repository;
 
-use App\Entity\Meal;
+use App\Entity\Meals;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Meal>
+ * @extends ServiceEntityRepository<Meals>
  */
-class MealRepository extends ServiceEntityRepository
+class MealsRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Meal::class);
+        parent::__construct($registry, Meals::class);
     }
 
     //    /**
-    //     * @return Meal[] Returns an array of Meal objects
+    //     * @return Meals[] Returns an array of Meals objects
     //     */
     //    public function findByExampleField($value): array
     //    {
@@ -31,7 +31,7 @@ class MealRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?Meal
+    //    public function findOneBySomeField($value): ?Meals
     //    {
     //        return $this->createQueryBuilder('m')
     //            ->andWhere('m.exampleField = :val')

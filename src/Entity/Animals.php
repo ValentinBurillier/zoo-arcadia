@@ -51,10 +51,17 @@ class Animals
     #[ORM\ManyToMany(targetEntity: Foods::class, inversedBy: 'animals')]
     private Collection $food;
 
+    /**
+     * @var Collection<int, Meals>
+     */
+    #[ORM\OneToMany(targetEntity: Meals::class, mappedBy: 'animal', orphanRemoval: true)]
+    private Collection $meals;
+
     public function __construct()
     {
         $this->imagesAnimals = new ArrayCollection();
         $this->food = new ArrayCollection();
+        $this->meals = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -196,6 +203,36 @@ class Animals
     public function removeFood(Foods $food): static
     {
         $this->food->removeElement($food);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Meals>
+     */
+    public function getMeals(): Collection
+    {
+        return $this->meals;
+    }
+
+    public function addMeal(Meals $meal): static
+    {
+        if (!$this->meals->contains($meal)) {
+            $this->meals->add($meal);
+            $meal->setAnimal($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMeal(Meals $meal): static
+    {
+        if ($this->meals->removeElement($meal)) {
+            // set the owning side to null (unless already changed)
+            if ($meal->getAnimal() === $this) {
+                $meal->setAnimal(null);
+            }
+        }
 
         return $this;
     }

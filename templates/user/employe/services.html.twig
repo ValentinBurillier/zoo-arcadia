@@ -1,0 +1,18 @@
+{% block services %}
+<h2>Services</h2>
+<section>
+    {% for service in services %}
+            <form id="form--{{ service.title }}" class="form" method="post" action="{{ path('app_modifications_services')}}">
+                <input type="text" name="title" value="{{ service.title | capitalize }}"/>
+                <input type="text" name="description" value="{{ service.description | capitalize }}"/>
+                <div>
+                    <input type="file" name="file"/>
+                    <img src="{{ asset('assets/images/' ~ service.urlIcon) }}" />
+                </div>
+                <input type="hidden" name="id" value="{{ service.id }}">
+                <button type="submit" class="btn__submit">Valider</button>
+            </form>
+            <hr />
+    {% endfor %}
+</section>
+{% endblock %}

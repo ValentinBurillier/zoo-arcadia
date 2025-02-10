@@ -29,20 +29,20 @@
                 <section>
                     {% for review in reviews %}
                         <ul class="reviews__list hidden">
-                            <ul class="user__data">
-                                <li>{{ review.date| date('d/m/Y')}}</li>
-                                <li>{{ review.pseudo }}</li>
+                            <ul class="user__data" data-id="{{review.id}}">
+                                <li data-date="date">{{ review.date| date('d/m/Y')}}</li>
+                                <li data-pseudo="pseudo">{{ review.pseudo }}</li>
                     
-                                <li class="stars__score">
+                                <li class="stars__score" data-score="{{review.score}}">
                                     {% set score = review.score %}
                                     {% for i in 1..5 %}
                                         <img src="{{ asset('assets/images/gold_star.png') }}" />
                                     {% endfor %}
                                 </li>
-                                <li class="comment">{{ review.comment }}</li>
+                                <li class="comment" data-comment="comment">{{ review.comment }}</li>
                                 <li class="icon__statut">
-                                    <img src="{{ asset('assets/images/zoo-arcadia-valid.webp') }}" />
-                                    <img src="{{ asset('assets/images/zoo-arcadia-cancel.webp') }}" />
+                                    <button class="valid_review"><img src="{{ asset('assets/images/zoo-arcadia-valid.webp') }}"/></button>
+                                    <button class="delete_review"><img src="{{ asset('assets/images/zoo-arcadia-cancel.webp') }}"/></button>
                                 </li>
                             </ul>
                             <hr />
@@ -51,12 +51,14 @@
                 </section>
             </li>
             <li id="services" class="tasks">
-                <h2>Services</h2>
-                <section></section>
+                {% block services %}
+                    {% include "user/employe/services.html.twig" %}
+                {% endblock %}
             </li>
             <li id="mealsAnimals" class="tasks">
-                <h2>Alimentation</h2>
-                <section></section>
+                {% block alimentation %}
+                    {% include "user/employe/alimentation.html.twig"%}
+                {% endblock %}
             </li>
         </ul>
         {# {% block formEmploye %}

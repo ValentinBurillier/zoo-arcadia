@@ -82,8 +82,6 @@ a {
 }
 #main .taskSelected, #main .taskSelectedContainer {
   height: 100%;
-  max-width: 350px;
-  margin: 0 auto;
 }
 #main .taskSelected {
   overflow-y: scroll;
@@ -195,12 +193,97 @@ a {
   font-size: 16px;
   color: #7F4C27;
 }
+#reviewsToCheck .reviews__list .valid_review, #reviewsToCheck .reviews__list .delete_review {
+  border: none;
+  background: none;
+}
 #reviewsToCheck hr {
   background: #7F4C27;
   height: 0.3rem;
   width: 90%;
 }
 
+@media screen and (min-width: 744px) {
+  #reviewsToCheck section {
+    display: initial;
+  }
+}
+#services .form {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 16px;
+}
+#services .form input {
+  font-family: IBM Plex Serif, serif;
+  font-size: 1rem;
+  font-weight: bold;
+  list-style: none;
+  color: #7F4C27;
+  text-align: center;
+  padding: 8px 16px;
+}
+#services .form div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+#services .form button {
+  padding: 4px 8px;
+  border: none;
+  letter-spacing: 1.2px;
+  color: white;
+  background-color: #7F4C27;
+}
+#services img {
+  width: 30px;
+  height: 30px;
+}
+#services hr {
+  background: #7F4C27;
+  height: 0.3rem;
+  width: 90%;
+}
+
+@media screen and (min-width: 744px) {
+  #services {
+    display: none;
+  }
+}
+#mealsAnimals section form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 16px;
+}
+#mealsAnimals section form button {
+  padding: 4px 8px;
+  border: none;
+  letter-spacing: 1.2px;
+  color: white;
+  background-color: #7F4C27;
+}
+#mealsAnimals section form div label {
+  color: #7F4C27;
+  font-family: IBM Plex Serif, serif;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-right: 8px;
+}
+#mealsAnimals section form input[name="meal[quantity]"] {
+  max-width: 50px;
+}
+
+@media screen and (min-width: 744px) {
+  #mealsAnimals {
+    display: none;
+  }
+}
 .reviews__list .user__data {
   display: flex;
   justify-content: space-between;

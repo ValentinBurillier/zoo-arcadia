@@ -1,0 +1,41 @@
+#services {
+    .form {
+        padding: 16px;
+        @include d-flex-col-center;
+        row-gap: 16px;
+            input {
+                font-family: $mainTitle;
+                font-size: 1rem;
+                font-weight: bold;
+                list-style: none;
+                color: $terre;
+                text-align: center;
+                padding: 8px 16px;
+            }
+            div {
+                @include d-flex-col-center;
+                flex-direction: row;
+            }
+            button {
+                padding: 4px 8px;
+                border: none;
+                letter-spacing: 1.2px;
+                color: white;
+                background-color: $terre;
+            }
+    }
+        img {
+            @include heightAndWidth(30px);
+        }
+        hr {
+            background: $terre;
+            height: 0.3rem;
+            width: 90%;
+        }
+}
+
+@media screen and (min-width: 744px) {
+    #services {
+        display: none;
+    }
+}

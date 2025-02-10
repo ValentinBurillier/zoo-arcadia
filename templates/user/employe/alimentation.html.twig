@@ -1,0 +1,13 @@
+{% block alimentation %}
+<h2>Alimentation</h2>
+<section>
+    {{ form_start(formMeal) }}
+        {{ form_row(formMeal.date) }}
+        {{ form_row(formMeal.hours) }}
+        {{ form_row(formMeal.animal) }}
+        {{ form_row(formMeal.food) }}
+        {{ form_row(formMeal.quantity) }}
+        <button class="btn btn-primary">Envoyer</button>
+    {{ form_end(formMeal) }}
+</section>
+{% endblock %}

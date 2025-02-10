@@ -5,7 +5,11 @@ namespace App\Controller;
 use DateTime;
 use App\Entity\Reviews;
 use App\Entity\Statut;
+use App\Repository\ReviewsRepository;
 use App\Form\ReviewsType;
+use App\Repository\StatutRepository;
+use Doctrine\ORM\EntityManager;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -62,5 +66,35 @@ class ReviewsController extends AbstractController
         return $this->render('reviews/index.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+    #[Route('avis/valider/{id}', name:'app_reviews_validate', methods: 'POST')]
+    public function validate(Request $request, ReviewsRepository $reviewsRepository, EntityManagerInterface $entityManager, StatutRepository $statutRepository):JsonResponse
+    {
+        // Récupérer l'id de l'avis
+        $id = $request->attributes->get('id');
+
+        $review = $reviewsRepository->find($id);
+        $statut = $statutRepository->find(2);
+        $review->setStatus($statut);
+        
+
+        $entityManager->persist($review);
+        $entityManager->flush();
+
+        return new JsonResponse(['success' => true, 'message' => 'Avis validé avec succès'], Response::HTTP_OK);
+    }
+
+    #[Route('avis/supprimer/{id}', name:'app_reviews_delete', methods: 'POST')]
+    public function delete(Request $request, ReviewsRepository $reviewsRepository, EntityManagerInterface $entityManager):JsonResponse
+    {
+        // Récupérer l'id de l'avis
+        $id = $request->attributes->get('id');
+
+        $review = $reviewsRepository->find($id);
+        $entityManager->remove($review);
+        $entityManager->flush();
+
+        return new JsonResponse(['success' => true, 'message' => 'Avis supprimé avec succès'], Response::HTTP_OK);
     }
 }

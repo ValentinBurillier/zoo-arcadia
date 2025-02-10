@@ -1,0 +1,35 @@
+#mealsAnimals {
+    section {
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            row-gap: 16px;
+            button {
+                padding: 4px 8px;
+                border: none;
+                letter-spacing: 1.2px;
+                color: white;
+                background-color: $terre;
+            }
+            div label {
+                color: $terre;
+                font-family: $mainTitle;
+                font-size: 1rem;
+                font-weight: bold;
+                margin-right: 8px;
+            }
+            input[name="meal[quantity]"] {
+                max-width: 50px;
+            }
+        }
+ 
+        }
+    }
+
+@media screen and (min-width: 744px) {
+    #mealsAnimals {
+        display: none;
+    }
+}

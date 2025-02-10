@@ -1,0 +1,10 @@
+#mealsAnimals li {
+  width: auto;
+  background-color: red;
+}
+
+@media screen and (min-width: 744px) {
+  #mealsAnimals {
+    display: none;
+  }
+}
