@@ -14,7 +14,6 @@
             }
             div {
                 @include d-flex-col-center;
-                flex-direction: row;
             }
             button {
                 padding: 4px 8px;
@@ -22,6 +21,9 @@
                 letter-spacing: 1.2px;
                 color: white;
                 background-color: $terre;
+            }
+            input[type="file"] {
+                font-size: 12px;
             }
     }
         img {
@@ -32,10 +34,4 @@
             height: 0.3rem;
             width: 90%;
         }
-}
-
-@media screen and (min-width: 744px) {
-    #services {
-        display: none;
-    }
 }

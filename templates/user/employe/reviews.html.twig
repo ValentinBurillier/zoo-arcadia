@@ -1,0 +1,26 @@
+{% block reviews %}
+<h2 class="listClose">Avis à vérifier</h2>
+<section class="taskClose">
+    {% for review in reviews %}
+        <ul class="reviews__list">
+            <ul class="user__data" data-id="{{review.id}}">
+                <li data-date="date">{{ review.date| date('d/m/Y')}}</li>
+                <li data-pseudo="pseudo">{{ review.pseudo }}</li>
+    
+                <li class="stars__score" data-score="{{review.score}}">
+                    {% set score = review.score %}
+                    {% for i in 1..5 %}
+                        <img src="{{ asset('assets/images/gold_star.png') }}" />
+                    {% endfor %}
+                </li>
+                <li class="comment" data-comment="comment">{{ review.comment }}</li>
+                <li class="icon__statut">
+                    <button class="valid_review"><img src="{{ asset('assets/images/zoo-arcadia-valid.webp') }}"/></button>
+                    <button class="delete_review"><img src="{{ asset('assets/images/zoo-arcadia-cancel.webp') }}"/></button>
+                </li>
+            </ul>
+            <hr />
+        </ul>
+    {% endfor %}
+</section>
+{% endblock %}

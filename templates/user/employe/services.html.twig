@@ -1,6 +1,6 @@
 {% block services %}
-<h2>Services</h2>
-<section>
+<h2 class="listClose">Services</h2>
+<section class="taskClose">
     {% for service in services %}
             <form id="form--{{ service.title }}" class="form" method="post" action="{{ path('app_modifications_services')}}">
                 <input type="text" name="title" value="{{ service.title | capitalize }}"/>

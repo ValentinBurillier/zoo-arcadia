@@ -25,30 +25,9 @@
     <main id="main">
         <ul>
             <li id="reviewsToCheck" class="tasks">
-                <h2>Avis à vérifier</h2>
-                <section>
-                    {% for review in reviews %}
-                        <ul class="reviews__list hidden">
-                            <ul class="user__data" data-id="{{review.id}}">
-                                <li data-date="date">{{ review.date| date('d/m/Y')}}</li>
-                                <li data-pseudo="pseudo">{{ review.pseudo }}</li>
-                    
-                                <li class="stars__score" data-score="{{review.score}}">
-                                    {% set score = review.score %}
-                                    {% for i in 1..5 %}
-                                        <img src="{{ asset('assets/images/gold_star.png') }}" />
-                                    {% endfor %}
-                                </li>
-                                <li class="comment" data-comment="comment">{{ review.comment }}</li>
-                                <li class="icon__statut">
-                                    <button class="valid_review"><img src="{{ asset('assets/images/zoo-arcadia-valid.webp') }}"/></button>
-                                    <button class="delete_review"><img src="{{ asset('assets/images/zoo-arcadia-cancel.webp') }}"/></button>
-                                </li>
-                            </ul>
-                            <hr />
-                        </ul>
-                    {% endfor %}
-                </section>
+                {% block reviews %}
+                    {% include "user/employe/reviews.html.twig" %}
+                {% endblock %}
             </li>
             <li id="services" class="tasks">
                 {% block services %}
@@ -61,78 +40,6 @@
                 {% endblock %}
             </li>
         </ul>
-        {# {% block formEmploye %}
-            {% include "components/formEmploye.html.twig" %}
-        {% endblock %} #}
-        {# <section id="alimentation__laptop" style="display:none">
-        {% for review in reviews %}
-                <ul id="reviews__list">
-                    <ul class="user__data">
-                        <li>{{ review.date| date('d/m/Y')}}</li>
-                        <li>{{ review.pseudo }}</li>
-                    
-
-                    <li id="stars__score">
-                        {% set score = review.score %}
-                        {% for i in 1..5 %}
-                            <img src="{{ asset('assets/images/gold_star.png') }}" width="20" height="20" />
-                        {% endfor %}
-                    </li>
-
-                    
-                    <li id="icon__statut">
-                        <img src="{{ asset('assets/images/zoo-arcadia-valid.webp') }}" width="20" height="20" />
-                        <img src="{{ asset('assets/images/zoo-arcadia-cancel.webp') }}" width="20" height="20" />
-                    </li>
-                    </ul>
-                    <li>{{ review.comment }}</li>
-                    <hr />
-                </ul>
-            {% endfor %}
-        </section>
-
-        <section id="services__laptop" style="display: none">
-            {% for service in services %}
-                <ul id="services">
-                    <li>
-                        <h3>{{ service.title }}</h3>
-                        <img src="{{ asset('assets/images/' ~ service.urlIcon) }}" width="25" height:"25" />
-                    </li>
-                    <li>{{ service.description }}</li>
-                    <hr />
-                </ul>
-            {% endfor %}
-            <button type="submit" class="btn__submit">Valider</button>
-        </section>
-
-        <section id="alimentation__laptop">
-        <ul>
-            <ul class="habitats__list">
-            {% for habitat in habitats %}
-                {% if habitat.name == "jungle" %}
-                    <li><h3 class="habitatActif">{{ habitat.name }}</h3></li>
-                {% else %}
-                    <li><h3>{{ habitat.name }}</h3></li>
-                {% endif %}
-            {% endfor %}
-            </ul>
-
-            <ul class="animals__list">
-                {% for habitat in habitats %}
-                    {% if habitat.name == "jungle" %}
-                        {% for animal in habitat.animals %}
-                            <li></h4>{{ animal.name }}</h4></li>
-                        {% endfor %}
-                    {% else %}
-                        {% for animal in habitat.animals %}
-                            <li style="display: none"></h4>{{ animal.name }}</h4></li>
-                        {% endfor %}
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </ul>
-
-        </section> #}
     </main>
     <script src="{{ asset('assets/scripts/employe.js' )}}?{{ "now"|date("U") }}"></script>
 {% endblock %}

@@ -19,8 +19,14 @@
           font-size: 24px;
           display: flex;
           align-items: center;
-          &::before {
+          
+          &.listClose::before {
             content: '▶';
+            margin-left: 16px;
+            margin-right: 16px;
+          }
+          &::before {
+            content: '▼';
             margin-left: 16px;
             margin-right: 16px;
           }

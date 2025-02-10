@@ -2,20 +2,15 @@
 // src/Controller/UserController.php
 
 namespace App\Controller;
-use App\Form\AnimalType;
-use App\Entity\Animal; // Ajoutez ceci
+
 use App\Entity\Meals;
 use App\Form\MealType;
-use App\Entity\Services;
-use App\Form\ServicesType;
-use App\Entity\Habitats;
 use App\Repository\AnimalsRepository;
 use App\Repository\FoodsRepository;
-use App\Repository\HabitatsRepository;
-use App\Repository\StatutRepository;
 use App\Repository\ReviewsRepository;
-use Doctrine\ORM\EntityManagerInterface; // Importez l'interface ici
 use App\Repository\ServicesRepository;
+use App\Repository\StatutRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,19 +19,25 @@ use Symfony\Component\Routing\Attribute\Route;
 class UserController extends AbstractController
 {
     #[Route('/employe', name: 'app_employe')]
-    public function employe(Request $request, ServicesRepository $servicesRepository, ReviewsRepository $reviewsRepository, StatutRepository $statutRepository, HabitatsRepository $habitatsRepository, ServicesType $servicesType, EntityManagerInterface $em, AnimalsRepository $animalsRepository, FoodsRepository $foodsRepository): Response
-    {
+    public function employe(
+        Request $request,
+        ServicesRepository $servicesRepository,
+        ReviewsRepository $reviewsRepository,
+        StatutRepository $statutRepository,
+        AnimalsRepository $animalsRepository,
+        FoodsRepository $foodsRepository,
+        EntityManagerInterface $em
+    ): Response {
+        // Vérification du statut "to_checked"
         $statusChecked = $statutRepository->findOneBy(['statut' => 'to_checked']);
-        $idStatusChecked = $statusChecked->getId();
-        $reviews = $reviewsRepository->findBy(['status' => $idStatusChecked]);
-        
-        // SERVICES
-        $services = $servicesRepository->findAll();
+        $reviews = $statusChecked ? $reviewsRepository->findBy(['status' => $statusChecked->getId()]) : [];
 
-        // Habitats
+        // Récupération des données
+        $services = $servicesRepository->findAll();
         $animals = $animalsRepository->findAll();
         $foods = $foodsRepository->findAll();
-        // Alimentation
+
+        // Création du formulaire
         $meal = new Meals();
         $formMeal = $this->createForm(MealType::class, $meal, [
             'animals' => $animals,
@@ -44,9 +45,10 @@ class UserController extends AbstractController
         ]);
         $formMeal->handleRequest($request);
 
-        if($formMeal->isSubmitted() && $formMeal->isValid()) {
+        if ($formMeal->isSubmitted() && $formMeal->isValid()) {
             $em->persist($meal);
             $em->flush();
+            $this->addFlash('success', 'Le repas a bien été ajouté.');
 
             return $this->redirectToRoute('app_employe');
         }
@@ -60,21 +62,33 @@ class UserController extends AbstractController
         ]);
     }
 
-    #[Route('/employe/services/modifications', name:'app_modifications_services')]
-    public function modificationsServices(Request $request, ServicesRepository $servicesRepository, EntityManagerInterface $em)
+    #[Route('/employe/services/modifications', name: 'app_modifications_services', methods: ['POST'])]
+    public function modificationsServices(Request $request, ServicesRepository $servicesRepository, EntityManagerInterface $em): Response
     {
-        // Récupéré les données du formulaire soumis
         $data = $request->request->all();
-        $serviceInDb = $servicesRepository->find($data['id']);
-        $serviceInDb->setTitle($data['title']);
-        $serviceInDb->setDescription($data['description']);
+
+        if (!isset($data['id'], $data['title'], $data['description'])) {
+            $this->addFlash('danger', 'Données invalides.');
+            return $this->redirectToRoute('app_employe');
+        }
+
+        $service = $servicesRepository->find($data['id']);
+
+        if (!$service) {
+            $this->addFlash('danger', 'Service introuvable.');
+            return $this->redirectToRoute('app_employe');
+        }
+
+        $service->setTitle($data['title']);
+        $service->setDescription($data['description']);
         
-        // Persister les modifications et flusher la base de données
-        $em->persist($serviceInDb);
+        $em->persist($service);
         $em->flush();
+        
+        $this->addFlash('success', 'Le service a bien été modifié.');
+
         return $this->redirectToRoute('app_employe');
     }
-
 
     #[Route('/veterinaire', name: 'app_user')]
     public function veterinaire(): Response

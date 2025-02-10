@@ -1,48 +1,35 @@
 window.addEventListener('DOMContentLoaded', () => {
+document.querySelector('.taskClose').classList.toggle('taskClose');
+
   // Récupère les tâches de l'employe <li>
   const listEmployeTasks = document.querySelectorAll('#main .tasks');
   
-  // Afficher en grand la liste sélectionnée lors du clique
-  listEmployeTasks.forEach((task) => {
-    if (window.screen.width <= 744) {
-    task.addEventListener('click', (taskSelected) => {
-      if(taskSelected.target.parentNode.classList.length === 1) {
-        taskSelected = taskSelected.target.parentNode;
-        openTask(listEmployeTasks, taskSelected);
-      } else if (taskSelected.target.parentNode.classList.length === 2) {
-        taskSelected.target.parentNode.classList.remove("taskSelected");
-        taskSelected.target.parentNode.parentNode.classList.remove("taskSelectedContainer");
-        console.log(taskSelected.target.parentNode.classList[1]);
-        taskSelected.target.parentNode.querySelector('section').style.display = "none";
-        const listsHidden = taskSelected.target.parentNode.parentNode.querySelectorAll('.tasks[style.display === "none"]');
-      }
-    })
-  }})
-})
-
-function detectIfClassIsSelected(taskToDeselect, task) {
-  if(taskToDeselect.classList.length > 0) {
-    while(taskToDeselect.classList.length > 0) {
-      taskToDeselect.classList.remove(taskToDeselect.classList[0]);
-    }
-  }
-}
-
-function openTask(listEmployeTasks, taskSelected) {
-  listEmployeTasks.forEach((e) => {
-    if(e === taskSelected) {
-      taskSelected.classList.add('taskSelected');
-      taskSelected.querySelector('section').style.display = "initial";
-      taskSelected.parentNode.classList.add('taskSelectedContainer');
-      const containerReviews = taskSelected.querySelectorAll('.hidden');
-      containerReviews.forEach((review) => {
-      review.classList.remove('hidden');
+    listEmployeTasks.forEach((task) => {
+      task.addEventListener('click', () => {
+        if (window.innerWidth <= 744) {
+          const section = task.querySelector('section');
+          section.classList.toggle('taskClose');
+          section.parentNode.querySelector('h2').classList.toggle('listClose');
+        }
       })
-    } else {
-      e.classList.remove('taskSelected');
-    }
+    })
+
+    // Changer l'affichage sur ordinateur des tâches lors du clique
+    const listTasksComputer = document.querySelectorAll('#header ul li');
+    listTasksComputer.forEach((task) => {
+      task.addEventListener('click', () => {
+      const titleTwoTaskSelected = task.querySelector('h2');
+      listEmployeTasks.forEach((e) => {
+        let titleTwoMain = e.querySelector('h2');
+        if(titleTwoMain.textContent === titleTwoTaskSelected.textContent) {
+          titleTwoMain.nextElementSibling.classList.toggle('taskClose');
+        } else if(!titleTwoMain.nextElementSibling.classList.contains('taskClose')) {
+         titleTwoMain.nextElementSibling.classList.add('taskClose');
+        }
+      })
+      })
+    })
   })
-}
 
 
 // Autoriser ou supprimer un avis en fonction du clique sur le bouton
@@ -86,17 +73,10 @@ function confirmReview(choice, btnChoice) {
           let response = JSON.parse(xhr.responseText);
           if (response.success) {
               alert(response.message);
+              location.reload();
           }
       }
   };
 
   xhr.send();
 }
-
-// Supprimer le display none de la section ReviewsToCheck
-window.addEventListener('resize', () => {
-  const sectionReviewsToCheck = document.querySelector('#reviewsToCheck section');
-  if(window.innerWidth >= 744) {
-    sectionReviewsToCheck.style.display = "initial";
-  }
-})
