@@ -1,24 +1,19 @@
 {% set iconMenu = 'zoo-arcadia-green_menu' %}
-{% set pageName = 'EmployePage' %}
+{% set pageName = 'VétérinairePage' %}
 
 {% extends "base.html.twig" %}
-{% block title %}Arcadia | Interface Employe{% endblock %}
+{% block title %}Arcadia | Interface Vétérinaire{% endblock %}
 {% block style %} 
   <link rel="stylesheet" href="{{ asset('assets/scss/css/veterinaire.css') }}?{{ "now"|date("U") }}" type="text/css">
 {% endblock %}
 
 {# BODY #}
 {% block body %}
-    <header id="header">
-        <h1>Arcadia</h1>
-        <nav>
-            <ul>
-                {% for habitat in habitats %}
-                    <li><h2>{{ habitat.name | capitalize }}</h2></li>
-                {% endfor %}
-            </ul>
-        </nav>
-    </header>
+
+    {# IMPORT HEADER #}
+    {% block header %}
+        {% include "user/veterinaire/header.html.twig" %}
+    {% endblock %}
 
     <main id="main">
     <ul>
@@ -29,47 +24,27 @@
                 {% for animal in habitat.animals %}
                 <section class="dataAnimals">
                 <h3 class="animalClose">{{ animal.name }}</h3>
-                    <section class="mealAnimal">
-                        {% for meals in animal.meals %}
-                            <h4>Dernier repas</h4>
-                            <div>
-                                <p>Date : {{ meals.date | date('d/m/Y') }}</p>
-                                <p>Heure : {{ meals.hours | date('H:i') }}</p>
-                            </div>
-                            <div>
-                                <p>Nourriture : {{ meals.food.name }}</p>
-                                <p>Quantité : {{ meals.quantity }}</p>
-                            </div>
-                        {% endfor %}
-                    </section>
                     
-                    <section class="reportAnimal">
-                 
+                    {# IMPORT LAST MEAL SECTION #}
+                    <section class="mealAnimal">
+                        {% block lastMeal %}
+                            {% include "user/veterinaire/lastMeal.html.twig" %}
+                        {% endblock %}
                     </section>
-               
+
                 </section>
                 {% endfor %}
             </section>
         </li>
         {% endfor %}
-        <li id="formCommentHabitat">
-        {{ form_start(formComment) }}
-            {{ form_row(formComment.habitat) }}
-            {{ form_row(formComment.comment) }}
-            <button class="btn btn-primary">Envoyer</button>
-        {{ form_end(formComment) }}
-        </li>
+     
+            {% block formComment %}
+                {% include "user/veterinaire/formComment.html.twig" %}
+            {% endblock %}
 
-        <li id="formReportAnimal">
-            {{ form_start(formReport) }}
-                {{ form_row(formReport.animal) }}
-                {{ form_row(formReport.food) }}
-                {{ form_row(formReport.weight) }}
-                {{ form_row(formReport.date) }}
-                {{ form_row(formReport.details) }}
-                <button class="btn btn-primary">Envoyer</button>
-            {{ form_end(formReport) }}
-        </li>
+            {% block formReport %}
+                {% include "user/veterinaire/formReport.html.twig" %}
+            {% endblock %}
     </ul>
     </main>
 

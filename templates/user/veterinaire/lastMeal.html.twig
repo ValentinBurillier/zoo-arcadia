@@ -1,0 +1,13 @@
+{% block lastMeal %}
+    {% for meals in animal.meals %}
+        <h4>Dernier repas</h4>
+        <div>
+            <p>Date : {{ meals.date | date('d/m/Y') }}</p>
+            <p>Heure : {{ meals.hours | date('H:i') }}</p>
+        </div>
+        <div>
+            <p>Nourriture : {{ meals.food.name }}</p>
+            <p>Quantité : {{ meals.quantity }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

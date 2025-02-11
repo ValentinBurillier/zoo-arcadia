@@ -161,13 +161,13 @@ a {
     letter-spacing: 1.2px;
   }
 }
-#formCommentHabitat form {
+#formCommentHabitat form, #formReportAnimal form {
   display: flex;
   flex-direction: column;
   row-gap: 8px;
   padding: 16px;
 }
-#formCommentHabitat form div {
+#formCommentHabitat form div, #formReportAnimal form div {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -175,20 +175,20 @@ a {
   align-items: start;
   row-gap: 8px;
 }
-#formCommentHabitat form label[for=comment_habitat] {
+#formCommentHabitat form label[for=comment_habitat], #formReportAnimal form label[for=comment_habitat] {
   display: none;
 }
-#formCommentHabitat form label[for=comment_comment] {
+#formCommentHabitat form label[for=comment_comment], #formReportAnimal form label[for=comment_comment] {
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 1.2px;
   font-family: IBM Plex Serif, serif;
 }
-#formCommentHabitat form textarea {
+#formCommentHabitat form textarea, #formReportAnimal form textarea {
   width: 100%;
   padding: 16px;
 }
-#formCommentHabitat form button {
+#formCommentHabitat form button, #formReportAnimal form button {
   padding: 4px 8px;
   border: none;
   letter-spacing: 1.2px;

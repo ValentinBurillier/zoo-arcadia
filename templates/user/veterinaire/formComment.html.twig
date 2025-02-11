@@ -1,0 +1,9 @@
+{% block formComment %}
+<li id="formCommentHabitat">
+    {{ form_start(formComment) }}
+        {{ form_row(formComment.habitat) }}
+        {{ form_row(formComment.comment) }}
+        <button class="btn btn-primary">Envoyer</button>
+    {{ form_end(formComment) }}
+</li>
+{% endblock %}
