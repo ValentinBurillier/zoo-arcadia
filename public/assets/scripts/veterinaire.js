@@ -53,4 +53,8 @@ window.addEventListener('DOMContentLoaded', () => {
             xhr.send();
         })
     })
+
+
+    // Récupérer le dernier repas de chaque animal lors du clique
+
 })

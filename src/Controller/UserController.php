@@ -4,9 +4,11 @@
 namespace App\Controller;
 
 use App\Entity\Comments;
+use App\Entity\Exam;
 use App\Entity\Meals;
 use App\Form\MealType;
 use App\Form\CommentType;
+use App\Form\ExamType;
 use App\Repository\AnimalsRepository;
 use App\Repository\FoodsRepository;
 use App\Repository\HabitatsRepository;
@@ -93,18 +95,19 @@ class UserController extends AbstractController
         return $this->redirectToRoute('app_employe');
     }
 
-    #[Route('/veterinaire', name: 'app_user')]
+    #[Route('/veterinaire', name: 'app_veterinaire')]
     public function veterinaire(
         HabitatsRepository $habitatsRepository, 
         AnimalsRepository $animalsRepository,
         Request $request,
-        EntityManagerInterface $em
+        EntityManagerInterface $em,
+        FoodsRepository $foodsRepository
         ): Response
     {
         $animals = $animalsRepository->findAll();
         $habitats = $habitatsRepository->findAll();
 
-        // Création du formulaire
+        // Création du formulaire Commentaire
         $comment = new Comments();
         $formComment = $this->createForm(CommentType::class, $comment, [
             'habitats' => $habitats
@@ -121,12 +124,32 @@ class UserController extends AbstractController
         }
 
 
+        // Création du formulaire pour écrire un rapport
 
+        $foods = $foodsRepository->findAll();
+        $report = new Exam();
+
+        $formReport = $this->createForm(ExamType::class, $report, [
+            'animals' => $animals,
+            'foods' => $foods
+        ]);
+
+        $formReport->handleRequest($request);
+
+        if ($formReport->isSubmitted() && $formReport->isValid()) {
+            $em->persist($report);
+            $em->flush();
+            $this->addFlash('success', 'Le rapport a bien été ajouté.');
+
+            return $this->redirectToRoute('app_veterinaire');
             
+        };
+        
         return $this->render('user/veterinaire.html.twig',[
             'animals' => $animals,
             'habitats' => $habitats,
-            'formComment' => $formComment->createView()
+            'formComment' => $formComment->createView(),
+            'formReport' => $formReport->createView(),
         ]);
     }
 

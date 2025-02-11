@@ -44,7 +44,7 @@
                     </section>
                     
                     <section class="reportAnimal">
-
+                 
                     </section>
                
                 </section>
@@ -59,7 +59,17 @@
             <button class="btn btn-primary">Envoyer</button>
         {{ form_end(formComment) }}
         </li>
-        
+
+        <li id="formReportAnimal">
+            {{ form_start(formReport) }}
+                {{ form_row(formReport.animal) }}
+                {{ form_row(formReport.food) }}
+                {{ form_row(formReport.weight) }}
+                {{ form_row(formReport.date) }}
+                {{ form_row(formReport.details) }}
+                <button class="btn btn-primary">Envoyer</button>
+            {{ form_end(formReport) }}
+        </li>
     </ul>
     </main>
 
