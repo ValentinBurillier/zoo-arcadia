@@ -19,17 +19,24 @@ window.addEventListener('DOMContentLoaded', () => {
 
         // Changer l'affichage sur ordinateur des tâches lors du clique
         const listTasksComputer = document.querySelectorAll('#header ul li');
+        console.log(listTasksComputer);
         listTasksComputer.forEach((task) => {
           task.addEventListener('click', () => {
-          const titleTwoTaskSelected = task.querySelector('h2');
-          listVeterinaireTasks.forEach((e) => {
-            let titleTwoMain = e.querySelector('h2');
-            if(titleTwoMain.textContent === titleTwoTaskSelected.textContent) {
-              titleTwoMain.nextElementSibling.classList.toggle('habitatClose');
-            } else if(!titleTwoMain.nextElementSibling.classList.contains('habitatClose')) {
-             titleTwoMain.nextElementSibling.classList.add('habitatClose');
+            if(window.innerWidth >= 744) {
+              const titleTwoTaskSelected = task.querySelector('h2').textContent.toLowerCase(); // li header "savane"
+              console.log(titleTwoTaskSelected);
+
+              listVeterinaireTasks.forEach((e) => {
+                if(titleTwoTaskSelected === e.textContent.toLowerCase()) {
+                  e.nextElementSibling.classList.toggle('habitatClose');
+                  console.log(e);
+                } else if(!e.nextElementSibling.classList.contains('habitatClose')) {
+                  e.nextElementSibling.classList.add('habitatClose');
+                }
+              })
             }
-          })
+          
+          
         })
     })
 
@@ -53,8 +60,4 @@ window.addEventListener('DOMContentLoaded', () => {
             xhr.send();
         })
     })
-
-
-    // Récupérer le dernier repas de chaque animal lors du clique
-
 })
