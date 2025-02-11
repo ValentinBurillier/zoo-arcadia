@@ -9,14 +9,59 @@
 
 {# BODY #}
 {% block body %}
-    <header>
+    <header id="header">
         <h1>Arcadia</h1>
+        <nav>
+            <ul>
+                {% for habitat in habitats %}
+                    <li><h2>{{ habitat.name | capitalize }}</h2></li>
+                {% endfor %}
+            </ul>
+        </nav>
     </header>
 
     <main id="main">
-        {% block formEmploye %}
-            {% include "components/veterinaire.html.twig" %}
-        {% endblock %}
+    <ul>
+        {% for habitat in habitats %}
+        <li id="{{ habitat.name }}" class="tasks">
+            <h2 class="listClose" data-title="{{ habitat.name }}">{{ habitat.name }}</h2>
+            <section class="habitatClose">
+                {% for animal in habitat.animals %}
+                <section class="dataAnimals">
+                <h3 class="animalClose">{{ animal.name }}</h3>
+                    <section class="mealAnimal">
+                        {% for meals in animal.meals %}
+                            <h4>Dernier repas</h4>
+                            <div>
+                                <p>Date : {{ meals.date | date('d/m/Y') }}</p>
+                                <p>Heure : {{ meals.hours | date('H:i') }}</p>
+                            </div>
+                            <div>
+                                <p>Nourriture : {{ meals.food.name }}</p>
+                                <p>Quantité : {{ meals.quantity }}</p>
+                            </div>
+                        {% endfor %}
+                    </section>
+                    
+                    <section class="reportAnimal">
+
+                    </section>
+               
+                </section>
+                {% endfor %}
+            </section>
+        </li>
+        {% endfor %}
+        <li id="formCommentHabitat">
+        {{ form_start(formComment) }}
+            {{ form_row(formComment.habitat) }}
+            {{ form_row(formComment.comment) }}
+            <button class="btn btn-primary">Envoyer</button>
+        {{ form_end(formComment) }}
+        </li>
+        
+    </ul>
     </main>
-    <script src="{{ asset('assets/scripts/test.js' )}}"></script>
+
+    <script src="{{ asset('assets/scripts/veterinaire.js' )}}"></script>
 {% endblock %}

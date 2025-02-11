@@ -30,10 +30,17 @@ class Foods
     #[ORM\OneToMany(targetEntity: Meals::class, mappedBy: 'food', orphanRemoval: true)]
     private Collection $meal;
 
+    /**
+     * @var Collection<int, Exam>
+     */
+    #[ORM\OneToMany(targetEntity: Exam::class, mappedBy: 'food', orphanRemoval: true)]
+    private Collection $exams;
+
     public function __construct()
     {
         $this->animals = new ArrayCollection();
         $this->meal = new ArrayCollection();
+        $this->exams = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -104,6 +111,36 @@ class Foods
             // set the owning side to null (unless already changed)
             if ($meal->getFood() === $this) {
                 $meal->setFood(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Exam>
+     */
+    public function getExams(): Collection
+    {
+        return $this->exams;
+    }
+
+    public function addExam(Exam $exam): static
+    {
+        if (!$this->exams->contains($exam)) {
+            $this->exams->add($exam);
+            $exam->setFood($this);
+        }
+
+        return $this;
+    }
+
+    public function removeExam(Exam $exam): static
+    {
+        if ($this->exams->removeElement($exam)) {
+            // set the owning side to null (unless already changed)
+            if ($exam->getFood() === $this) {
+                $exam->setFood(null);
             }
         }
 

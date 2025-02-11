@@ -12,7 +12,7 @@
       li {
         background-color: $grey;
         width: 100%;
-        h2 {
+        h2, h3 {
           color: $terre;
           font-family: $mainTitle;
           font-weight: bold;
@@ -20,7 +20,7 @@
           display: flex;
           align-items: center;
           
-          &.listClose::before {
+          &.listClose::before, &.animalClose::before {
             content: '▶';
             margin-left: 16px;
             margin-right: 16px;

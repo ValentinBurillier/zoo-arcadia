@@ -19,131 +19,233 @@ a {
   color: inherit;
 }
 
-body {
-  width: 100vw;
+#body {
   height: 100vh;
-  background: url("../../images/zoo-arcadia-elephant.webp");
+  width: 100vw;
+  background: url(../../images/zoo-arcadia-elephant.webp);
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
 }
 
-header h1 {
-  text-transform: uppercase;
-  font-size: 2rem;
-  font-family: IBM Plex Serif, serif;
-  font-weight: bold;
-  color: white;
-  text-align: center;
-  padding-top: 1rem;
-  letter-spacing: 1px;
-  margin-bottom: 2.5rem;
+@media screen and (min-width: 744px) {
+  #body {
+    display: flex;
+    flex-direction: row;
+  }
 }
-
-.actif {
-  height: 75vh;
-  overflow-y: scroll;
+@media screen and (min-width: 1280px) {
+  html {
+    background-color: rgba(59, 29, 5, 0.839);
+  }
+  #body {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
 }
-
 #main {
-  height: 75%;
-  overflow: scroll;
-  color: #7A4200;
-  position: relative;
-}
-#main details {
-  width: 75%;
-  background-color: #D9D9D9;
-  text-align: center;
-  margin: 0 auto;
-  max-width: 500px;
-}
-#main details summary {
-  background-color: #D9D9D9;
-  font-family: IBM Plex Serif, serif;
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding-left: 20px;
-  list-style: none;
-  position: relative;
-}
-#main details summary:hover {
-  cursor: pointer;
-}
-#main details summary::before {
-  content: "▶"; /* Utilisez le symbole que vous préférez pour la flèche */
   position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 52.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80%;
+  width: 90%;
+  background: rgba(0, 128, 0, 0.2);
 }
-#main details ul {
-  padding: 0rem 1rem;
-  padding-top: 1rem;
-  margin: 0 auto;
-  position: relative;
+#main ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 16px;
+}
+#main ul li {
   background-color: #D9D9D9;
-}
-#main details ul li {
-  text-align: left;
-  font-family: IBM Plex Serif, serif;
-  font-size: 1rem;
-  padding-left: 0.5rem;
-  font-weight: bold;
-  list-style: none;
-}
-#main details ul li:not(li:last-child) {
-  margin-bottom: 0.5rem;
-}
-#main details ul img {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-}
-#main details ul hr {
-  background: #7A4200;
-  height: 0.25rem;
   width: 100%;
 }
-#main details ul:last-child {
-  padding-bottom: 1rem;
+#main ul li h2, #main ul li h3 {
+  color: #7F4C27;
+  font-family: IBM Plex Serif, serif;
+  font-weight: bold;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
 }
-#main details ul:last-child hr {
+#main ul li h2.listClose::before, #main ul li h2.animalClose::before, #main ul li h3.listClose::before, #main ul li h3.animalClose::before {
+  content: "▶";
+  margin-left: 16px;
+  margin-right: 16px;
+}
+#main ul li h2::before, #main ul li h3::before {
+  content: "▼";
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+#main .hidden {
   display: none;
 }
-#main details:not(details:last-child) {
-  margin-bottom: 1.5rem;
+#main .taskSelected, #main .taskSelectedContainer {
+  height: 100%;
 }
-#main details[open] summary::before {
-  content: "▼"; /* Changez la flèche pour un triangle vers le bas */
+#main .taskSelected {
+  overflow-y: scroll;
+}
+#main .taskSelected h2::before {
+  content: "▼";
 }
 
-#habitats details {
+@media screen and (min-width: 744px) {
+  #main {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    height: 100%;
+    width: 75%;
+    overflow-y: scroll;
+  }
+  #main > ul {
+    height: 100%;
+    justify-content: start;
+  }
+  #main ul li h2 {
+    display: none;
+  }
+  #main .hidden {
+    display: block;
+  }
+}
+#header {
+  font-family: IBM Plex Serif, serif;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+}
+#header h1 {
+  text-transform: uppercase;
+  font-size: 32px;
+}
+#header nav {
+  display: none;
+}
+
+@media screen and (min-width: 744px) {
+  #header {
+    height: 100%;
+    width: 30%;
+    position: relative;
+  }
+  #header h1 {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+  }
+  #header nav {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #header nav ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 16px;
+  }
+  #header nav ul li h2 {
+    font-size: 24px;
+    letter-spacing: 1.2px;
+  }
+}
+#formCommentHabitat form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  padding: 16px;
+}
+#formCommentHabitat form div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-items: start;
+  row-gap: 8px;
+}
+#formCommentHabitat form label[for=comment_habitat] {
+  display: none;
+}
+#formCommentHabitat form label[for=comment_comment] {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1.2px;
+  font-family: IBM Plex Serif, serif;
+}
+#formCommentHabitat form textarea {
   width: 100%;
+  padding: 16px;
 }
-#habitats details .habitat {
-  font-size: 1.3rem;
-  text-transform: capitalize;
-}
-#habitats details:not(details[open]) summary::before {
-  content: "▶";
-}
-
-#habitats[open] > summary {
-  margin-bottom: 1.2rem;
+#formCommentHabitat form button {
+  padding: 4px 8px;
+  border: none;
+  letter-spacing: 1.2px;
+  color: white;
+  background-color: #7F4C27;
 }
 
-#habitats[open] summary {
-  text-align: left;
-  padding-left: 3rem;
+#main ul li h3 {
+  margin-left: 16px;
+  font-size: 16px;
+  color: #000000;
 }
 
-#main #habitats[open] details {
-  margin-bottom: 1rem;
+.mealAnimal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 8px;
+}
+.mealAnimal h4 {
+  font-size: 20px;
+}
+.mealAnimal div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 8px;
+}
+.mealAnimal div p {
+  color: #7F4C27;
+  font-family: Tahoma, sans-serif;
+  font-size: 16px;
+  letter-spacing: 1.1px;
+  font-weight: bold;
 }
 
-#habitats .animals summary {
-  font-size: 1rem;
-  color: black;
-  text-transform: capitalize;
+@media screen and (max-width: 743px) {
+  #main > ul {
+    height: 100%;
+    justify-content: initial;
+    overflow: auto;
+  }
+  #main > ul::-webkit-scrollbar {
+    display: none;
+  }
+}
+.taskClose, .habitatClose {
+  display: none;
+}
+
+@media screen and (min-width: 744px) {
+  #main {
+    background: #D9D9D9;
+  }
+  #main ul {
+    row-gap: 0;
+  }
 }

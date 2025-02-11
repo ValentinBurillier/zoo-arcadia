@@ -1,5 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
-document.querySelector('.taskClose').classList.toggle('taskClose');
+  if(window.innerWidth >= 744) {
+    document.querySelector('.habitatClose').classList.toggle('habitatClose');
+  }
 
   // Récupère les tâches de l'employe <li>
   const listEmployeTasks = document.querySelectorAll('#main .tasks');

@@ -34,9 +34,16 @@ class Habitats
     #[ORM\Column(length: 255)]
     private ?string $icon_menu = null;
 
+    /**
+     * @var Collection<int, Comments>
+     */
+    #[ORM\OneToMany(targetEntity: Comments::class, mappedBy: 'habitat', orphanRemoval: true)]
+    private Collection $comments;
+
     public function __construct()
     {
         $this->animals = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -118,6 +125,36 @@ class Habitats
     public function setIconMenu(string $icon_menu): static
     {
         $this->icon_menu = $icon_menu;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Comments>
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comments $comment): static
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments->add($comment);
+            $comment->setHabitat($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comments $comment): static
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getHabitat() === $this) {
+                $comment->setHabitat(null);
+            }
+        }
 
         return $this;
     }

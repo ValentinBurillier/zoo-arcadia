@@ -3,10 +3,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Comments;
 use App\Entity\Meals;
 use App\Form\MealType;
+use App\Form\CommentType;
 use App\Repository\AnimalsRepository;
 use App\Repository\FoodsRepository;
+use App\Repository\HabitatsRepository;
 use App\Repository\ReviewsRepository;
 use App\Repository\ServicesRepository;
 use App\Repository\StatutRepository;
@@ -91,8 +94,50 @@ class UserController extends AbstractController
     }
 
     #[Route('/veterinaire', name: 'app_user')]
-    public function veterinaire(): Response
+    public function veterinaire(
+        HabitatsRepository $habitatsRepository, 
+        AnimalsRepository $animalsRepository,
+        Request $request,
+        EntityManagerInterface $em
+        ): Response
     {
-        return $this->render('user/veterinaire.html.twig');
+        $animals = $animalsRepository->findAll();
+        $habitats = $habitatsRepository->findAll();
+
+        // Création du formulaire
+        $comment = new Comments();
+        $formComment = $this->createForm(CommentType::class, $comment, [
+            'habitats' => $habitats
+        ]);
+        $formComment->handleRequest($request);
+
+        if ($formComment->isSubmitted() && $formComment->isValid()) {
+            $comment->setDate(new \DateTime());
+            $em->persist($comment);
+            $em->flush();
+            $this->addFlash('success', 'Le repas a bien été ajouté.');
+
+            return $this->redirectToRoute('app_veterinaire');
+        }
+
+
+
+            
+        return $this->render('user/veterinaire.html.twig',[
+            'animals' => $animals,
+            'habitats' => $habitats,
+            'formComment' => $formComment->createView()
+        ]);
     }
+
+    #[Route('/veterinaire/{animal}', name: 'app_veterinaire_animal', methods: ['GET'])]
+    public function getAnimalData(Request $request, AnimalsRepository $animalsRepository): Response
+    {
+        $animalSelected = $request->attributes->get('animal');
+        $animal = $animalsRepository->findOneBy(['name' => $animalSelected]);
+        return $this->render('user/animalData.html.twig', [
+            'animal' => $animal
+        ]);
+    }
+
 }

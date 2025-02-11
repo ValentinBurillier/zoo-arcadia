@@ -63,7 +63,7 @@ a {
   background-color: #D9D9D9;
   width: 100%;
 }
-#main ul li h2 {
+#main ul li h2, #main ul li h3 {
   color: #7F4C27;
   font-family: IBM Plex Serif, serif;
   font-weight: bold;
@@ -71,12 +71,12 @@ a {
   display: flex;
   align-items: center;
 }
-#main ul li h2.listClose::before {
+#main ul li h2.listClose::before, #main ul li h2.animalClose::before, #main ul li h3.listClose::before, #main ul li h3.animalClose::before {
   content: "▶";
   margin-left: 16px;
   margin-right: 16px;
 }
-#main ul li h2::before {
+#main ul li h2::before, #main ul li h3::before {
   content: "▼";
   margin-left: 16px;
   margin-right: 16px;

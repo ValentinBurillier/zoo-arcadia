@@ -14,21 +14,62 @@ class Exam
     #[ORM\Column]
     private ?int $id = null;
 
+    #[ORM\ManyToOne(inversedBy: 'exams')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Animals $animal = null;
+
+    #[ORM\ManyToOne(inversedBy: 'exams')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Foods $food = null;
+
+    #[ORM\Column]
+    private ?float $weight = null;
+
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $state = null;
-
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $food = null;
-
-    #[ORM\ManyToOne(inversedBy: 'exams')]
-    private ?User $veterinaire = null;
+    private ?string $details = null;
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getAnimal(): ?Animals
+    {
+        return $this->animal;
+    }
+
+    public function setAnimal(?Animals $animal): static
+    {
+        $this->animal = $animal;
+
+        return $this;
+    }
+
+    public function getFood(): ?Foods
+    {
+        return $this->food;
+    }
+
+    public function setFood(?Foods $food): static
+    {
+        $this->food = $food;
+
+        return $this;
+    }
+
+    public function getWeight(): ?float
+    {
+        return $this->weight;
+    }
+
+    public function setWeight(float $weight): static
+    {
+        $this->weight = $weight;
+
+        return $this;
     }
 
     public function getDate(): ?\DateTimeInterface
@@ -43,38 +84,14 @@ class Exam
         return $this;
     }
 
-    public function getState(): ?string
+    public function getDetails(): ?string
     {
-        return $this->state;
+        return $this->details;
     }
 
-    public function setState(string $state): static
+    public function setDetails(string $details): static
     {
-        $this->state = $state;
-
-        return $this;
-    }
-
-    public function getFood(): ?string
-    {
-        return $this->food;
-    }
-
-    public function setFood(string $food): static
-    {
-        $this->food = $food;
-
-        return $this;
-    }
-
-    public function getVeterinaire(): ?User
-    {
-        return $this->veterinaire;
-    }
-
-    public function setVeterinaire(?User $veterinaire): static
-    {
-        $this->veterinaire = $veterinaire;
+        $this->details = $details;
 
         return $this;
     }
