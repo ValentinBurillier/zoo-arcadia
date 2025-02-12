@@ -40,7 +40,28 @@
         <li id="horaires" class="taskAdmin">
             <h2>Horaires</h2>
             <section class="hidden">
-
+                    {{ form_start(formHoraires) }}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Jour</th>
+                <th>Ouverture</th>
+                <th>Fermeture</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for jour in ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'] %}
+                <tr>
+                    <td>{{ jour }}</td>
+                    <td>{{ form_widget(attribute(formHoraires, jour ~ '_opening'), {'attr': {'class': 'form-control'}}) }}</td>
+                    <td>{{ form_widget(attribute(formHoraires, jour ~ '_closing'), {'attr': {'class': 'form-control'}}) }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <button type="submit" class="btn btn-success">Enregistrer</button>
+    {{ form_end(formHoraires) }}
             </section>
         </li>
         <li id="habitat" class="taskAdmin">

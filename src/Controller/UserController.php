@@ -11,11 +11,13 @@ use App\Entity\User;
 use App\Form\MealType;
 use App\Form\CommentType;
 use App\Form\ExamType;
+use App\Form\HorairesType;
 use App\Form\ServicesType;
 use App\Form\UserType;
 use App\Repository\AnimalsRepository;
 use App\Repository\FoodsRepository;
 use App\Repository\HabitatsRepository;
+use App\Repository\HorairesRepository;
 use App\Repository\ReviewsRepository;
 use App\Repository\ServicesRepository;
 use App\Repository\StatutRepository;
@@ -168,7 +170,7 @@ class UserController extends AbstractController
     }
 
     #[Route('/administrateur', name:'app_administrateur')]
-    public function administrateur(Request $request, EntityManagerInterface $em, ServicesRepository $servicesRepository): Response
+    public function administrateur(Request $request, EntityManagerInterface $em, ServicesRepository $servicesRepository, HorairesRepository $horairesRepository): Response
     {
         // GET services
         $services = $servicesRepository->findAll();
@@ -183,6 +185,25 @@ class UserController extends AbstractController
             }
 
             $formServices[] = $formService->createView();
+        }
+
+
+        // Get horaires
+        $horaires = $horairesRepository->findAll();
+        $formHoraires = $this->createForm(HorairesType::class, null, [
+            'horaires' => $horaires,
+        ]);
+        $formHoraires->handleRequest($request);
+        if ($formHoraires->isSubmitted() && $formHoraires->isValid()) {
+            foreach ($horaires as $horaire) {
+                $jour = $horaire->getJour();
+                $horaire->setOpeningHours($formHoraires->get($jour . '_opening')->getData());
+                $horaire->setClosingHours($formHoraires->get($jour . '_closing')->getData());
+            }
+
+            $em->flush();
+            $this->addFlash('success', 'Les horaires ont été mis à jour.');
+            return $this->redirectToRoute('app_administrateur');
         }
 
         // CREATE NEW USER
@@ -201,7 +222,8 @@ class UserController extends AbstractController
 
         return $this->render('user/administrateur.html.twig',[
             'formCreateUser' => $formCreateUser,
-            'formServices' => $formServices
+            'formServices' => $formServices,
+            'formHoraires' => $formHoraires->createView(),
         ]);
     }
 

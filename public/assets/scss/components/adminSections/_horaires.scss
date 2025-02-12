@@ -1,0 +1,36 @@
+li#horaires {
+    row-gap: 2vh;
+    form {
+        @include d-flex-col-center;
+        row-gap: 16px;
+        input {
+            color: $terre;
+            font-weight: bold;
+            font-family: $mainTitle;
+            padding: 4px;
+        }
+        button {
+            border: none;
+            padding: 8px 12px;
+            width: 70%;
+            border-left: 5px solid white;
+            color: $white;
+            background-color: $terre;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            scale: 0.8;
+            margin-top: 8px;
+        }
+        table {
+            border-spacing: 2.2vh;
+        }
+    }
+    
+    th, td {
+        font-family: $mainTitle;
+        color: $white;
+        font-weight: bold;
+        letter-spacing: 1.2px;
+        
+    }
+}
