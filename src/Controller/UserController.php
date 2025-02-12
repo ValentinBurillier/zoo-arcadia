@@ -11,6 +11,10 @@ use App\Entity\User;
 use App\Form\MealType;
 use App\Form\CommentType;
 use App\Form\ExamType;
+use App\Form\HabitatsType;
+use App\Form\administrateur\HabitatTypeTwo;
+use App\Form\HabitatsTypeTwo;
+use App\Form\HabitatTypeTwo as FormHabitatTypeTwo;
 use App\Form\HorairesType;
 use App\Form\ServicesType;
 use App\Form\UserType;
@@ -170,7 +174,7 @@ class UserController extends AbstractController
     }
 
     #[Route('/administrateur', name:'app_administrateur')]
-    public function administrateur(Request $request, EntityManagerInterface $em, ServicesRepository $servicesRepository, HorairesRepository $horairesRepository): Response
+    public function administrateur(Request $request, EntityManagerInterface $em, ServicesRepository $servicesRepository, HorairesRepository $horairesRepository, HabitatsRepository $habitatsRepository): Response
     {
         // GET services
         $services = $servicesRepository->findAll();
@@ -206,6 +210,20 @@ class UserController extends AbstractController
             return $this->redirectToRoute('app_administrateur');
         }
 
+        // GET habitats
+        $habitats = $habitatsRepository->findAll();
+        $formHabitats = $this->createForm(HabitatsTypeTwo::class, ['habitats' => $habitats]);
+        $formHabitats->handleRequest($request);
+        if ($formHabitats->isSubmitted() && $formHabitats->isValid()) {
+            foreach ($habitats as $habitat) {
+                $em->persist($habitat);
+            }
+            $em->flush();
+
+            $this->addFlash('success', 'Les habitats ont été mis à jour avec succès !');
+            return $this->redirectToRoute('app_administrateur');
+        }
+
         // CREATE NEW USER
         $user = new User();
         $formCreateUser = $this->createForm(UserType::class, $user);
@@ -224,6 +242,7 @@ class UserController extends AbstractController
             'formCreateUser' => $formCreateUser,
             'formServices' => $formServices,
             'formHoraires' => $formHoraires->createView(),
+            'formHabitats' => $formHabitats->createView()
         ]);
     }
 

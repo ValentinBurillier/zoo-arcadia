@@ -65,8 +65,25 @@
             </section>
         </li>
         <li id="habitat" class="taskAdmin">
+        
             <h2>Habitat</h2>
             <section class="hidden">
+{{ form_start(formHabitats) }}
+
+<div id="habitats-container">
+    {% for habitatForm in formHabitats.habitats %}
+        <div class="habitat-container" data-index="{{ loop.index }}">
+            <h5>{{ form_widget(habitatForm.name) }}</h5>
+            <div class="habitat-details hidden" id="habitat-details-{{ loop.index }}">
+                <p><strong>Description:</strong> {{ form_widget(habitatForm.description) }}</p>
+                <p><strong>Lien:</strong> {{ form_widget(habitatForm.iconMenu) }}</p>
+                <button type="submit" class="btn btn-primary">Enregistrer</button>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{{ form_end(formHabitats) }}
 
             </section>
         </li>
