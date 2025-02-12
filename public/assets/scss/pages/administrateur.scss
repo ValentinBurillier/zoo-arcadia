@@ -1,0 +1,89 @@
+@import "../base/_typography";
+@import "../base/_colors";
+@import "../base/_reset";
+@import "../base/_mixins";
+
+@import "../layouts/_bodyInterface";
+// @import "../layouts/_mainInterface";
+@import "../components/_headerInterface";
+// @import "../components/_formCommentHabitat";
+
+header {
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    transform: translate(-50%);
+}
+main {
+    height: 100%;
+    width: 100%;
+    ul {
+        position: relative;
+        z-index: 10;
+        height: 100%;
+        width: 100%;
+        @include d-flex-col-center;
+        row-gap: 20px;
+        li h2 {
+            color: $white;
+            font-family: $mainTitle;
+            font-weight: bold;
+            font-size: 24px;
+            letter-spacing: 1.2px;
+        }
+    }
+    &::before {
+        @include opacity(rgba(89, 41, 0, 0.48));
+    }
+}
+.taskAdmin {
+    @include d-flex-col-center;
+    row-gap: 32px;
+}
+.hidden {
+    display: none;
+}
+
+#createAccount {
+    form {
+        @include d-flex-col-center;
+        row-gap: 20px;
+        input[type="email"] {
+            padding: 8px;
+            color: $terre;
+        }
+        label {
+            color: $white;
+            font-family: $mainTitle;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 1.2px;
+        }
+        .container-types {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            row-gap: 16px;
+        }
+        #user_roles {
+            display: flex;
+            column-gap: 8px;
+        }
+        button {
+            border: none;
+            padding: 8px 16px;
+            border-left: 5px solid white;
+            color: $white;
+            background-color: $terre;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            scale: 0.8;
+        }
+    }
+}
+
+@media screen and (min-width: 550px) {
+    #createAccount {
+        scale: 1.3;
+    }
+}

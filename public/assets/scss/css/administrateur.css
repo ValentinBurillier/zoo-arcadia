@@ -1,0 +1,185 @@
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+body, main {
+  position: relative;
+}
+
+ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#body {
+  height: 100vh;
+  width: 100vw;
+  background: url(../../images/zoo-arcadia-elephant.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@media screen and (min-width: 744px) {
+  #body {
+    display: flex;
+    flex-direction: row;
+  }
+}
+@media screen and (min-width: 1280px) {
+  html {
+    background-color: rgba(59, 29, 5, 0.839);
+  }
+  #body {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+}
+#header {
+  font-family: IBM Plex Serif, serif;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+}
+#header h1 {
+  text-transform: uppercase;
+  font-size: 32px;
+}
+#header nav {
+  display: none;
+}
+
+@media screen and (min-width: 744px) {
+  #header {
+    height: 100%;
+    width: 30%;
+    position: relative;
+  }
+  #header h1 {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+  }
+  #header nav {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #header nav ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 16px;
+  }
+  #header nav ul li h2 {
+    font-size: 24px;
+    letter-spacing: 1.2px;
+  }
+}
+header {
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+main {
+  height: 100%;
+  width: 100%;
+}
+main ul {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 20px;
+}
+main ul li h2 {
+  color: #FFFFFF;
+  font-family: IBM Plex Serif, serif;
+  font-weight: bold;
+  font-size: 24px;
+  letter-spacing: 1.2px;
+}
+main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(89, 41, 0, 0.48);
+  z-index: 1;
+}
+
+.taskAdmin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 32px;
+}
+
+.hidden {
+  display: none;
+}
+
+#createAccount form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 20px;
+}
+#createAccount form input[type=email] {
+  padding: 8px;
+  color: #7F4C27;
+}
+#createAccount form label {
+  color: #FFFFFF;
+  font-family: IBM Plex Serif, serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+}
+#createAccount form .container-types {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+#createAccount form #user_roles {
+  display: flex;
+  column-gap: 8px;
+}
+#createAccount form button {
+  border: none;
+  padding: 8px 16px;
+  border-left: 5px solid white;
+  color: #FFFFFF;
+  background-color: #7F4C27;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  scale: 0.8;
+}
+
+@media screen and (min-width: 550px) {
+  #createAccount {
+    scale: 1.3;
+  }
+}

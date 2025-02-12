@@ -1,0 +1,57 @@
+{% set iconMenu = 'zoo-arcadia-green_menu' %}
+{% set pageName = 'administrateurPage' %}
+
+{% extends "base.html.twig" %}
+{% block title %}Arcadia | Interface Administrateur{% endblock %}
+{% block style %} 
+  <link rel="stylesheet" href="{{ asset('assets/scss/css/administrateur.css') }}?{{ "now"|date("U") }}" type="text/css">
+{% endblock %}
+
+{# BODY #}
+{% block body %}
+    <header id="header">
+        <h1>Arcadia</h1>
+    </header>
+
+    <main id="main">
+    <ul>
+        <li id="createAccount" class="taskAdmin">
+            <h2>Créer un compte</h2>
+            <section class="hidden">
+                {{ form_start(formCreateUser) }}
+                    {{ form_row(formCreateUser.email) }}
+                    {{ form_row(formCreateUser.roles) }}
+                    <button class="btn btn-primary">Envoyer</button>
+                {{ form_end(formCreateUser) }}
+            </section>
+        </li>
+
+        <li id="services" class="taskAdmin">
+            <h2>Services</h2>
+            <section class="hidden">
+
+            </section>
+        </li>
+        <li id="horaires" class="taskAdmin">
+            <h2>Horaires</h2>
+            <section class="hidden">
+
+            </section>
+        </li>
+        <li id="habitat" class="taskAdmin">
+            <h2>Habitat</h2>
+            <section class="hidden">
+
+            </section>
+        </li>
+        <li id="animaux" class="taskAdmin">
+            <h2>Animaux</h2>
+            <section class="hidden">
+
+            </section>
+        </li>
+    </ul>
+    </main>
+
+    <script src="{{ asset('assets/scripts/administrateur.js' )}}?{{ "now"|date("U") }}"></script>
+{% endblock %}

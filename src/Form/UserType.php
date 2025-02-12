@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Form\DataTransformer\RolesArrayToStringTransformer;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -30,14 +31,15 @@ class UserType extends AbstractType
                     'class' => "container-types"
                 ],
                 'expanded' => true,
-                'multiple' => true,
+                'multiple' => false,
                 'required' => true,
                 'choice_attr' => function () {
                     return ['class' => 'radio-wrapper']; // Ajoute une classe spécifique
                 },
                 'label' => 'Type :'
-            ])
-        ;
+            ]);
+
+            $builder->get('roles')->addModelTransformer(new RolesArrayToStringTransformer());
     }
 
     public function configureOptions(OptionsResolver $resolver): void

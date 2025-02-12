@@ -6,9 +6,11 @@ namespace App\Controller;
 use App\Entity\Comments;
 use App\Entity\Exam;
 use App\Entity\Meals;
+use App\Entity\User;
 use App\Form\MealType;
 use App\Form\CommentType;
 use App\Form\ExamType;
+use App\Form\UserType;
 use App\Repository\AnimalsRepository;
 use App\Repository\FoodsRepository;
 use App\Repository\HabitatsRepository;
@@ -160,6 +162,27 @@ class UserController extends AbstractController
         $animal = $animalsRepository->findOneBy(['name' => $animalSelected]);
         return $this->render('user/animalData.html.twig', [
             'animal' => $animal
+        ]);
+    }
+
+    #[Route('/administrateur', name:'app_administrateur', methods: ['GET'])]
+    public function administrateur(Request $request, EntityManagerInterface $em): Response
+    {
+        $user = new User();
+        $formCreateUser = $this->createForm(UserType::class, $user);
+        $formCreateUser->handleRequest($request);
+
+        if ($formCreateUser->isSubmitted() && $formCreateUser->isValid()) {
+            $em->persist($user);
+            $em->flush();
+
+            $this->addFlash('success', 'L\'utilisateur a bien été créé.');
+
+            return $this->redirectToRoute('app_administrateur');
+        }
+
+        return $this->render('user/administrateur.html.twig',[
+            'formCreateUser' => $formCreateUser
         ]);
     }
 
