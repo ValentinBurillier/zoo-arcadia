@@ -1,0 +1,67 @@
+li#services {
+    row-gap: 2vh;
+    section:not([class="hidden"]) {
+        display: flex;
+        flex-direction: column;
+        row-gap: 4vh;
+    }
+    form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        label {
+            color: $white;
+        }
+        input {
+            border: none;
+    padding: 4px;
+    color: #ffffff;
+    background: none;
+    border-right: 1px solid #b3b3b3;
+    border-bottom: 2px solid #ffffff;
+    letter-spacing: 1.2px;
+        }
+        button {
+            border: none;
+            padding: 8px 12px;
+            width: 70%;
+            border-left: 5px solid white;
+            color: $white;
+            background-color: $terre;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            scale: 0.8;
+        }
+        button[type="submit"] {
+            margin-top: 8px;
+        }
+    div#services {
+        @include d-flex-col-center;
+        row-gap: 8px;
+     
+    }
+    div#services > div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+    }
+    }
+}
+
+@media screen and (min-width: 570px) {
+    li#services {
+        row-gap: 32px;
+        section:not([class="hidden"]){
+        
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            form {
+                max-width: 350px;
+                flex: 1;
+            }
+        } 
+    }
+}

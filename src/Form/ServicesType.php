@@ -16,14 +16,17 @@ class ServicesType extends AbstractType
             ->add('title', TextType::class, [
                 'label' => 'Titre',
                 'required' => true,
+                'attr' => ['class' => 'form-control']
             ])
             ->add('description', TextType::class, [
                 'label' => 'Description',
                 'required' => true,
+                'attr' => ['class' => 'form-control']
             ])
             ->add('url_icon', TextType::class, [
                 'label' => 'Lien',
                 'required' => true,
+                'attr' => ['class' => 'form-control']
             ])
         ;
     }

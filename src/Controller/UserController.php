@@ -6,10 +6,12 @@ namespace App\Controller;
 use App\Entity\Comments;
 use App\Entity\Exam;
 use App\Entity\Meals;
+use App\Entity\Services;
 use App\Entity\User;
 use App\Form\MealType;
 use App\Form\CommentType;
 use App\Form\ExamType;
+use App\Form\ServicesType;
 use App\Form\UserType;
 use App\Repository\AnimalsRepository;
 use App\Repository\FoodsRepository;
@@ -165,9 +167,25 @@ class UserController extends AbstractController
         ]);
     }
 
-    #[Route('/administrateur', name:'app_administrateur', methods: ['GET'])]
-    public function administrateur(Request $request, EntityManagerInterface $em): Response
+    #[Route('/administrateur', name:'app_administrateur')]
+    public function administrateur(Request $request, EntityManagerInterface $em, ServicesRepository $servicesRepository): Response
     {
+        // GET services
+        $services = $servicesRepository->findAll();
+        $formServices = [];
+        foreach ($services as $service) {
+            $formService = $this->createForm(ServicesType::class, $service);
+            $formService->handleRequest($request);
+
+            if($formService->isSubmitted() && $formService->isValid()) {
+                $em->flush();
+                return $this->redirectToRoute('app_administrateur');
+            }
+
+            $formServices[] = $formService->createView();
+        }
+
+        // CREATE NEW USER
         $user = new User();
         $formCreateUser = $this->createForm(UserType::class, $user);
         $formCreateUser->handleRequest($request);
@@ -182,7 +200,8 @@ class UserController extends AbstractController
         }
 
         return $this->render('user/administrateur.html.twig',[
-            'formCreateUser' => $formCreateUser
+            'formCreateUser' => $formCreateUser,
+            'formServices' => $formServices
         ]);
     }
 

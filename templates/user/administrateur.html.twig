@@ -29,7 +29,12 @@
         <li id="services" class="taskAdmin">
             <h2>Services</h2>
             <section class="hidden">
-
+                {% for formService in formServices %}
+                    {{ form_start(formService) }}
+                        {{ form_widget(formService) }}
+                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    {{ form_end(formService) }}
+                {% endfor %}
             </section>
         </li>
         <li id="horaires" class="taskAdmin">
