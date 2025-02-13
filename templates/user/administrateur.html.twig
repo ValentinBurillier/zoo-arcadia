@@ -90,7 +90,14 @@
         <li id="animaux" class="taskAdmin">
             <h2>Animaux</h2>
             <section class="hidden">
+            {% for animal in animals %}
+    <h2>{{ animal.name }} {{ animal.surname }}</h2>
 
+    {{ form_start(formAnimals[animal.id]) }}
+        {{ form_widget(formAnimals[animal.id]) }}
+        <button type="submit">Mettre à jour</button>
+    {{ form_end(formAnimals[animal.id]) }}
+{% endfor %}
             </section>
         </li>
     </ul>

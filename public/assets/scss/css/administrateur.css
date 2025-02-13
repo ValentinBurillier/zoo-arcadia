@@ -266,6 +266,67 @@ li#habitat .hidden {
   }
 }
 
+li#animaux .hidden {
+  display: initial;
+  height: 100vh;
+  width: 100vw;
+  overflow-y: scroll;
+  position: relative;
+  z-index: 20;
+}
+li#animaux .hidden h2 {
+  text-align: center;
+  margin-bottom: 16px;
+}
+li#animaux .hidden form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+li#animaux .hidden form label {
+  color: #FFFFFF;
+  font-family: IBM Plex Serif, serif;
+}
+li#animaux .hidden form input, li#animaux .hidden form select {
+  width: 195px;
+  max-width: 195px;
+}
+li#animaux .hidden form button {
+  border: none;
+  padding: 8px 12px;
+  width: 70%;
+  border-left: 5px solid white;
+  color: #FFFFFF;
+  background-color: #7F4C27;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  scale: 0.8;
+  margin-top: 8px;
+  max-width: 200px;
+}
+li#animaux .hidden form input {
+  border: none;
+  padding: 4px;
+  color: #7F4C27;
+  font-family: IBM Plex Serif, serif;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+}
+li#animaux .hidden form div#animals {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+}
+li#animaux .hidden form div#animals > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
 header {
   position: absolute;
   z-index: 10;

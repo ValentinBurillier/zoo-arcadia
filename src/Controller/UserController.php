@@ -13,6 +13,7 @@ use App\Form\CommentType;
 use App\Form\ExamType;
 use App\Form\HabitatsType;
 use App\Form\administrateur\HabitatTypeTwo;
+use App\Form\AnimalsType;
 use App\Form\HabitatsTypeTwo;
 use App\Form\HabitatTypeTwo as FormHabitatTypeTwo;
 use App\Form\HorairesType;
@@ -174,7 +175,7 @@ class UserController extends AbstractController
     }
 
     #[Route('/administrateur', name:'app_administrateur')]
-    public function administrateur(Request $request, EntityManagerInterface $em, ServicesRepository $servicesRepository, HorairesRepository $horairesRepository, HabitatsRepository $habitatsRepository): Response
+    public function administrateur(Request $request, EntityManagerInterface $em, ServicesRepository $servicesRepository, HorairesRepository $horairesRepository, HabitatsRepository $habitatsRepository, AnimalsRepository $animalsRepository): Response
     {
         // GET services
         $services = $servicesRepository->findAll();
@@ -238,11 +239,30 @@ class UserController extends AbstractController
             return $this->redirectToRoute('app_administrateur');
         }
 
+        // GET ANIMALS
+        $animals = $animalsRepository->findAll(); // Récupère tous les animaux
+$formAnimals = [];
+
+foreach ($animals as $animal) {
+    $form = $this->createForm(AnimalsType::class, $animal);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        $em->flush();
+        $this->addFlash('success', 'Mise à jour réussie');
+        return $this->redirectToRoute('app_administrateur'); // Redirection après mise à jour
+    }
+
+    $formAnimals[$animal->getId()] = $form->createView(); // Convertir en FormView
+}
+        
         return $this->render('user/administrateur.html.twig',[
             'formCreateUser' => $formCreateUser,
             'formServices' => $formServices,
             'formHoraires' => $formHoraires->createView(),
-            'formHabitats' => $formHabitats->createView()
+            'formHabitats' => $formHabitats->createView(),
+            'formAnimals' => $formAnimals,
+            'animals' => $animals
         ]);
     }
 

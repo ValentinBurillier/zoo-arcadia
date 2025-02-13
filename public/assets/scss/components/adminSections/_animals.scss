@@ -1,0 +1,56 @@
+li#animaux {
+    .hidden {
+        display: initial;
+        height: 100vh;
+        width: 100vw;
+        overflow-y: scroll;
+        position: relative;
+        z-index: 20;
+        h2 {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        form {
+            @include d-flex-col-center;
+            label {
+                color: $white;
+                font-family: $mainTitle;
+            }
+            input, select {
+                width: 195px;
+                max-width: 195px;
+            }
+            button {
+                border: none;
+                padding: 8px 12px;
+                width: 70%;
+                border-left: 5px solid white;
+                color: $white;
+                background-color: $terre;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+                scale: 0.8;
+                margin-top: 8px;
+                max-width: 200px;
+            }
+            input {
+                border: none;
+                padding: 4px;
+                color: $terre;
+                font-family: $mainTitle;
+                letter-spacing: 1.2px;
+                font-weight: 600;
+            }
+            div#animals {
+                display: flex;
+                flex-direction: column;
+                row-gap: 4px;
+            }
+            div#animals > div {
+                @include d-flex-col-center;
+                justify-content: space-between;
+                flex-direction: row;
+            }
+        }
+    }
+}
