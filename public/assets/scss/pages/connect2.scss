@@ -20,7 +20,14 @@
     header {
         background: $terre;
     }
+    main {
+        overflow: hidden;
+    }
     h2 {
         color: $terre;
     }
+}
+
+#header::before, #main::before {
+    @include opacity("#0c01017a");
 }

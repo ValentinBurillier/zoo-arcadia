@@ -190,6 +190,8 @@ span[id$=Error] {
 }
 
 form {
+  position: relative;
+  z-index: 20;
   height: 100%;
   width: 85%;
   row-gap: 7vh;

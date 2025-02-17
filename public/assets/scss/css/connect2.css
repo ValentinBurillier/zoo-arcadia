@@ -190,6 +190,8 @@ span[id$=Error] {
 }
 
 form {
+  position: relative;
+  z-index: 20;
   height: 100%;
   width: 85%;
   row-gap: 7vh;
@@ -328,7 +330,20 @@ footer img {
   header {
     background: #7F4C27;
   }
+  main {
+    overflow: hidden;
+  }
   h2 {
     color: #7F4C27;
   }
+}
+#header::before, #main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0c01017a;
+  z-index: 1;
 }
