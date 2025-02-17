@@ -5,6 +5,7 @@
     {% set limit = 5 %}
     {% for review in reviews %}
     <div class="reviewContainer">
+        <h4>{{ review.pseudo }}</h4>
         <div class="starsContainer">
             {% set score = review.score %}
             {% for i in 1..5 %}
@@ -14,10 +15,10 @@
             {% endfor %}
         </div>
         <h3>{{ review.comment }}</h3>
-        <h4>{{ review.pseudo }}</h4>
+        
     </div>
     {% endfor %}
     </div>
-    <h2>Laisser un avis <button><a href="#">Envoyer</a></button></h2>
+    <h2>Laisser un avis <button><a href="{{ path('app_reviews') }}">Envoyer</a></button></h2>
     </div>
 </section>

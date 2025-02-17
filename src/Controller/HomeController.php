@@ -18,7 +18,7 @@ class HomeController extends AbstractController
     $reviews = $reviewsRepository->findBy(['status' => $idStatusChecked]);
 
     $services = $servicesRepository->findAll();
-    return $this->render('accueil/index2.html.twig', [
+    return $this->render('accueil/index.html.twig', [
       'services' => $services,
       'reviews' => $reviews
     ]);

@@ -33,6 +33,9 @@ header nav {
     padding-left: 32px;
     padding-right: 32px;
   }
+  nav .menu img {
+    display: none;
+  }
 }
 h1 {
   color: #FFFFFF;
@@ -80,6 +83,7 @@ header nav ul {
     font-family: IBM Plex Serif, serif;
     font-weight: normal;
     font-size: 24px;
+    text-shadow: 2px 2px 2px #000000;
   }
 }
 header {
@@ -222,7 +226,6 @@ h2 {
   #secondSection, #thirdSection {
     height: 100vh;
     width: 50vw;
-    float: left;
   }
   #secondSection img, #thirdSection img {
     max-width: 450px;
@@ -248,7 +251,6 @@ h2 {
   align-items: center;
   row-gap: 7vh;
   position: relative;
-  clear: both;
   background-color: #000000;
 }
 #fourthSection img {
@@ -508,6 +510,46 @@ footer ul li a {
   text-align: center;
 }
 
+@media screen and (max-width: 743px) {
+  ul.hidden {
+    display: none;
+  }
+  ul.menu:not(.hidden) {
+    position: fixed;
+    background: linear-gradient(to bottom, #0C3F03, #000000);
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 2.5vh;
+  }
+  ul.menu:not(.hidden) img {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    box-shadow: 3px 6px 3.4px 1px #092D00;
+  }
+  ul.menu:not(.hidden) a {
+    font-size: 32px;
+    font-family: IBM Plex Serif, serif;
+    font-weight: normal;
+    text-align: center;
+    letter-spacing: 1.5px;
+  }
+}
+@media screen and (min-width: 744px) {
+  #containerSections {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
 @media screen and (min-width: 1280px) {
   header nav ul li a {
     font-weight: bold;

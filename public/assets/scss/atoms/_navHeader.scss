@@ -12,5 +12,8 @@ header nav {
     nav {
         padding-left: 32px;
         padding-right: 32px;
+        .menu img {
+            display: none;
+        }
     }
 }

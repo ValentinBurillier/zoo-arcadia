@@ -1,28 +1,38 @@
-{% set iconMenu = 'zoo-arcadia-green_menu' %}
-{% set pageName = 'homePage' %}
+{% set iconMenu = 'zoo-arcadia-green_menu.webp' %}
+
 
 {% extends "base.html.twig" %}
 {% block title %}Arcadia | Accueil{% endblock %}
 {% block style %} 
-  <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}?{{ "now"|date("U") }}" type="text/css">
+  <link rel="stylesheet" href="{{ asset('assets/scss/css/home.css') }}?{{ "now"|date("U") }}" type="text/css">
 {% endblock %}
 
 {# BODY #}
 {% block body %}
-
   {# HEADER #}
-  {% include 'components/headerTest.html.twig' %}
-{% for message in app.flashes('success') %}
-    <div class="alert alert-success">
-        {{ message }}
+    {% block header %}
+        {% include "components/headerConnect.html.twig" %}
+    {% endblock %}
+
+  {# MAIN #}
+  <main id="main">
+    {% include 'components/homePage/firstSection.html.twig' %}
+    <div id="containerSections">
+      {% include 'components/homePage/secondSection.html.twig' %}
+      {% include 'components/homePage/thirdSection.html.twig' %}
     </div>
-{% endfor %}
-  <main id="main__{{ pageName }}">
-    {% include 'components/homePage/secondSection.html.twig' %}
-    {% include 'components/homePage/thirdSection.html.twig' %}
     {% include 'components/homePage/fourthSection.html.twig' %}
     {% include 'components/homePage/fifthSection.html.twig' %}
     {% include 'components/homePage/sixthSection.html.twig' %}
   </main>
-  <script src="{{ asset('assets/scripts/menu.js') }}"></script>
+
+  {# FOOTER #}
+  {% block footerReviews %}
+    {% include "components/footerReviews.html.twig" %}
+  {% endblock %}
+
+  {# SCRIPTS JS #}
+  <script src="{{ asset('assets/scripts/menuBurger.js' )}}"></script>
+
+{# END BODY #}
 {% endblock %}
