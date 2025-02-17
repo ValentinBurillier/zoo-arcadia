@@ -31,6 +31,16 @@
     {% include "components/footerReviews.html.twig" %}
   {% endblock %}
 
+<div class="alert-container">
+    {% for type, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+</div>
+
   {# SCRIPTS JS #}
   <script src="{{ asset('assets/scripts/menuBurger.js' )}}"></script>
 

@@ -1,0 +1,54 @@
+/* Conteneur pour les alertes */
+.alert-container {
+    position: fixed;
+    top: 20px; /* Ajustez la position depuis le haut */
+    left: 50%;
+    transform: translateX(-50%); /* Centrer horizontalement */
+    width: auto; /* Ajustez la largeur si nécessaire */
+    z-index: 1050; /* Au-dessus des autres éléments */
+    pointer-events: none; /* Empêche les clics sur l'overlay */
+}
+
+/* Style de base pour les alertes */
+.alert {
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    opacity: 0; /* Initialement invisible */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transitions */
+    pointer-events: auto; /* Permet les clics sur l'alerte */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre légère */
+}
+
+/* Styles par type */
+.alert-success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.alert-danger {
+    background-color: #F44336;
+    color: white;
+}
+
+.alert-info {
+    background-color: #2196F3;
+    color: white;
+}
+
+.alert-warning {
+    background-color: #FF9800;
+    color: white;
+}
+
+/* Animation d'apparition */
+.alert.show {
+    opacity: 1;
+    transform: translateY(0); /* Position finale */
+}
+
+/* Animation de disparition */
+.alert.hide {
+    opacity: 0;
+    transform: translateY(-20px); /* Légèrement au-dessus */
+}
