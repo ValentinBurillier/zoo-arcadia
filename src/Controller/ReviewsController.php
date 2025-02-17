@@ -22,7 +22,6 @@ class ReviewsController extends AbstractController
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
         $review = new Reviews();
-
         $form = $this->createForm(ReviewsType::class, $review);
         $form->handleRequest($request);
 
@@ -33,6 +32,7 @@ class ReviewsController extends AbstractController
         if ($form->isSubmitted()) {
             // Si le formulaire est valide, enregistrer les données
             if ($form->isValid()) {
+                
                 $cleanPseudo = htmlspecialchars($review->getPseudo(), ENT_QUOTES, 'UTF-8');
                 $cleanComment = htmlspecialchars($review->getComment(), ENT_QUOTES, 'UTF-8');
                 $score = $review->getScore();
@@ -44,7 +44,7 @@ class ReviewsController extends AbstractController
 
                 // Vérifier si l'objet Statut existe
                 if ($statut) {
-                    $review->setStatut($statut);
+                    $review->setStatus($statut);
                 }
 
                 // Persister les données

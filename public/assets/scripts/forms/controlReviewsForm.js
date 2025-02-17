@@ -77,7 +77,7 @@ const elementsFormToCheck = [
                 form.submit();
             }
     } else {
-        alert('Veuillez recommencer');
+      const msgStars = document.querySelector('#msgStars');
+      msgStars.innerHTML = "Indiquez une note";
     }
   }
- 

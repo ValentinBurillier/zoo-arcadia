@@ -96,7 +96,7 @@ nav img:hover {
     display: none;
   }
 }
-.main__title {
+.main__title a {
   color: white;
   font-family: IBM Plex Serif, serif;
   font-weight: bold;
@@ -105,7 +105,7 @@ nav img:hover {
 }
 
 @media screen and (min-width: 600px) {
-  .main__title {
+  .main__title a {
     font-size: 3rem;
   }
 }
@@ -118,6 +118,8 @@ form {
   justify-content: center;
   align-items: center;
   row-gap: 3%;
+  position: relative;
+  z-index: 20;
 }
 form > input {
   height: 35px;
@@ -178,12 +180,11 @@ input[name="reviews[pseudo]"], textarea[name="reviews[comment]"] {
   text-align: center;
 }
 
-#errorForm, #errorFormComment {
+#errorForm, #errorFormComment, #msgStars {
   color: red;
   font-weight: bold;
   letter-spacing: 2px;
   font-size: 10px;
-  padding: 2px;
   background: #FFFFFF;
 }
 
@@ -259,13 +260,32 @@ footer ul li a {
   background-position: 35% center;
 }
 
+#header {
+  position: relative;
+  z-index: 20;
+}
 #header .img__display {
   border-radius: 10px;
+}
+#header nav {
+  position: relative;
+  z-index: 20;
 }
 
 #main {
   height: calc(100% - 54px);
   overflow: hidden;
+}
+
+#header::before, #main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0c01017a;
+  z-index: 1;
 }
 
 @media screen and (min-width: 1000px) {

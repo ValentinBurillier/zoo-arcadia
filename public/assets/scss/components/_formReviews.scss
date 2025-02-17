@@ -4,6 +4,8 @@ form {
   height: 100%;
   @include d-flex-col-center;
   row-gap: 3%;
+  position: relative;
+  z-index: 20;
   > input {
     height: 35px;
     border: none;
@@ -60,12 +62,11 @@ input[name="reviews[pseudo]"], textarea[name="reviews[comment]"] {
   text-align: center;
 }
 
-#errorForm, #errorFormComment {
+#errorForm, #errorFormComment, #msgStars {
   color: $red;
     font-weight: bold;
     letter-spacing: 2px;
     font-size: 10px;
-    padding: 2px;
     background: $white;
 }
 @media screen and (min-width: 600px) {

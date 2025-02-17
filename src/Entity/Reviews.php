@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ReviewsRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ReviewsRepository::class)]
 class Reviews
@@ -15,12 +16,16 @@ class Reviews
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: "Le pseudo est obligatoire")]
+    #[Assert\Length(max: 255, maxMessage: "Le pseudo ne doit pas dépasser 255 caractères.")]
     private ?string $pseudo = null;
 
     #[ORM\Column(type: Types::SMALLINT)]
     private ?int $score = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(message: "Le commentaire ne peut pas être vide.")]
+    #[Assert\Length(min: 1, minMessage: "Le commentaire doit contenir au moins 1 caractères.")]
     private ?string $comment = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, options: ["default" => "CURRENT_TIMESTAMP"])]
@@ -42,7 +47,7 @@ class Reviews
 
     public function setPseudo(string $pseudo): static
     {
-        $this->pseudo = $pseudo;
+        $this->pseudo = htmlspecialchars($pseudo, ENT_QUOTES, 'UTF-8');
 
         return $this;
     }
@@ -66,7 +71,7 @@ class Reviews
 
     public function setComment(string $comment): static
     {
-        $this->comment = $comment;
+        $this->comment = htmlspecialchars($comment, ENT_QUOTES, 'UTF-8');
 
         return $this;
     }

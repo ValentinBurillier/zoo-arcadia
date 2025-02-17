@@ -1,4 +1,4 @@
-h1 {
+h1 a {
     color: $white;
     font-family: $mainTitle;
     font-weight: 600;
@@ -8,7 +8,7 @@ h1 {
 }
 
 @media screen and (min-width: 744px) {
-    h1 {
+    h1 a {
         font-size: 36px;
     }
 }

@@ -1,8 +1,8 @@
-$bg__header: white;
 @import "../base/_typography";
 @import "../base/_colors";
 @import "../base/_reset";
-@import "../base/mixins";
+@import "../base/_mixins";
+
 @import "../layouts/_bodyFullViewport";
 @import "../components/_nav";
 @import "../components/_logo";
@@ -15,15 +15,23 @@ $bg__header: white;
 
 }
 #header {
+  position: relative;
+  z-index: 20;
   .img__display {
     border-radius: 10px;
+  }
+  nav {
+    position: relative;
+    z-index: 20;
   }
 }
 #main {
   height: calc(100% - 54px);
   overflow: hidden;
 }
-
+#header::before, #main::before {
+  @include opacity("#0c01017a");
+}
 @media screen and (min-width: 1000px) {
   #header {
     nav {

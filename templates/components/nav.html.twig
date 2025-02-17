@@ -1,12 +1,12 @@
 {% block nav %}
   <nav>
-    <h1 class="main__title">Arcadia</h1>
+    <h1 class="main__title"><a href="{{ path('app_home')}}">Arcadia</a></h1>
     <img src="{{asset('assets/images/'~ iconMenu ~'.webp')}}" class="img__display"/>
     <ul>
-      <li><a href="#">Services</a></li>
-      <li><a href="#">Habitats</a></li>
-      <li><a href="#">Contact</a></li>
-      <li><a href="#">Connexion</a></li>
+      <li><a href="{{ path('app_services') }}">Services</a></li>
+      <li><a href="{{ path('app_habitats') }}">Habitats</a></li>
+      <li><a href="{{ path('app_contact') }}">Contact</a></li>
+      <li><a href="{{ path('login') }}">Connexion</a></li>
     </ul>
   </nav>
 {% endblock %}

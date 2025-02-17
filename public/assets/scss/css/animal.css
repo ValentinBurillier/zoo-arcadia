@@ -96,7 +96,7 @@ nav img:hover {
     display: none;
   }
 }
-.main__title {
+.main__title a {
   color: white;
   font-family: IBM Plex Serif, serif;
   font-weight: bold;
@@ -105,7 +105,7 @@ nav img:hover {
 }
 
 @media screen and (min-width: 600px) {
-  .main__title {
+  .main__title a {
     font-size: 3rem;
   }
 }
