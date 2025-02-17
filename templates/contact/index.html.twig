@@ -1,5 +1,4 @@
-{% set iconMenu = 'zoo-arcadia-green_menu' %}
-{% set pageName = 'contact' %}
+{% set iconMenu = 'zoo-arcadia-green_menu.webp' %}
 
 {% extends "base.html.twig" %}
 {% block title %}Arcadia | Contact{% endblock %}
@@ -26,4 +25,5 @@
   {% endblock %}
 
 <script src="{{ asset('assets/scripts/forms/controlContactForm.js' )}}?{{ "now"|date("U") }}"></script>
+<script src="{{ asset('assets/scripts/menuBurger.js' )}}"></script>
 {% endblock %}

@@ -35,8 +35,11 @@
     max-height: 600px;
     @include d-flex-col-center;
     background-color: $white;
-    position: relative;
+
+    width: 100%;
     overflow: hidden;
+    white-space: nowrap;
+    position: relative;
     .test {
         height: 90%;
         width: 100%;
@@ -47,6 +50,8 @@
         flex-direction: column;
         overflow-y: scroll;
         row-gap: 2vh;
+        white-space: nowrap;
+        animation: scroll 10s linear infinite;
         .reviewContainer {
             @include d-flex-col-center;
             row-gap: 16px;
@@ -95,5 +100,14 @@
     .reviewsContainer {
         flex-wrap: wrap;
         justify-content: center;
+    }
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(10%);
     }
 }

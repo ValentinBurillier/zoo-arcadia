@@ -17,3 +17,34 @@ header nav ul {
         }
     }
 }
+
+@media screen and (max-width: 743px) {
+    ul.hidden {
+        display: none;
+    }
+    ul.menu:not(.hidden) {
+        position: fixed;
+        background: linear-gradient(to bottom, #0C3F03, #000000);
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        z-index: 20;
+        @include d-flex-col-center;
+        row-gap: 2.5vh;
+        img {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            box-shadow: 3px 6px 3.4px 1px #092D00;
+        }
+        a {
+            font-size: 32px;
+            color: $white;
+            font-family: $mainTitle;
+            font-weight: normal;
+            text-align: center;
+            letter-spacing: 1.5px;
+        }
+    }
+}

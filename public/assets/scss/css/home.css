@@ -5,6 +5,18 @@
   font-size: 16px;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
+}
+
+body {
+  -ms-overflow-style: none;
+}
+
 body, main {
   position: relative;
 }
@@ -84,6 +96,39 @@ header nav ul {
     font-weight: normal;
     font-size: 24px;
     text-shadow: 2px 2px 2px #000000;
+  }
+}
+@media screen and (max-width: 743px) {
+  ul.hidden {
+    display: none;
+  }
+  ul.menu:not(.hidden) {
+    position: fixed;
+    background: linear-gradient(to bottom, #0C3F03, #000000);
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 2.5vh;
+  }
+  ul.menu:not(.hidden) img {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    box-shadow: 3px 6px 3.4px 1px #092D00;
+  }
+  ul.menu:not(.hidden) a {
+    font-size: 32px;
+    color: #FFFFFF;
+    font-family: IBM Plex Serif, serif;
+    font-weight: normal;
+    text-align: center;
+    letter-spacing: 1.5px;
   }
 }
 header {
@@ -391,8 +436,10 @@ h2 {
   justify-content: center;
   align-items: center;
   background-color: #FFFFFF;
-  position: relative;
+  width: 100%;
   overflow: hidden;
+  white-space: nowrap;
+  position: relative;
 }
 #sixthSection .test {
   height: 90%;
@@ -404,6 +451,8 @@ h2 {
   flex-direction: column;
   overflow-y: scroll;
   row-gap: 2vh;
+  white-space: nowrap;
+  animation: scroll 10s linear infinite;
 }
 #sixthSection .reviewsContainer .reviewContainer {
   display: flex;
@@ -462,6 +511,14 @@ h2 {
     justify-content: center;
   }
 }
+@keyframes scroll {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(10%);
+  }
+}
 footer {
   background-color: #363636;
   width: 100vw;
@@ -510,38 +567,6 @@ footer ul li a {
   text-align: center;
 }
 
-@media screen and (max-width: 743px) {
-  ul.hidden {
-    display: none;
-  }
-  ul.menu:not(.hidden) {
-    position: fixed;
-    background: linear-gradient(to bottom, #0C3F03, #000000);
-    height: 100vh;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    z-index: 20;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    row-gap: 2.5vh;
-  }
-  ul.menu:not(.hidden) img {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    box-shadow: 3px 6px 3.4px 1px #092D00;
-  }
-  ul.menu:not(.hidden) a {
-    font-size: 32px;
-    font-family: IBM Plex Serif, serif;
-    font-weight: normal;
-    text-align: center;
-    letter-spacing: 1.5px;
-  }
-}
 @media screen and (min-width: 744px) {
   #containerSections {
     display: flex;

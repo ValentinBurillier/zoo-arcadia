@@ -6,6 +6,18 @@
   font-size: 16px;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
+}
+
+body {
+  -ms-overflow-style: none;
+}
+
 body, main {
   position: relative;
 }
