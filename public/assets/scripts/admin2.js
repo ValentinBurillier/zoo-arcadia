@@ -184,6 +184,7 @@ listInputRoles.forEach((e) => {
 let alertMsg = document.querySelector('.alert-success');
 console.log(alertMsg);
 alertMsg.addEventListener('click', () => {
+  
   alertMsg.style.display = "none";
 })
 

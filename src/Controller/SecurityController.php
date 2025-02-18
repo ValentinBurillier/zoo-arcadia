@@ -8,23 +8,48 @@ use App\Form\LoginType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\SecurityBundle\Security;
-use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
     #[Route('/login', name: 'login')]
-    public function login(Request $request, EntityManagerInterface $em, AuthenticationUtils $authenticationUtils)
+    public function login(Request $request, EntityManagerInterface $em)
     {
-        // Récupérer les erreurs de connexion (si existantes)
-        $error = $authenticationUtils->getLastAuthenticationError();
+        $user = new User();
         
-        // Récupérer le dernier email saisi
-        $lastUsername = $authenticationUtils->getLastUsername();
+        $form = $this->createForm(LoginType::class, $user);
+        $form->handleRequest($request);
+        if($form->isSubmitted()) {
+            if($form->isValid()) {
+                $email = $user->getEmail();
+                $password = $user->getPassword();
+                $getUser = $em->getRepository(User::class)->findOneBy(['email' => $email]);
+                if(isset($getUser)) {
+                    if (password_verify($password, $getUser->getPassword())) {
 
-        return $this->render('security/login.html.twig', [
-            'last_username' => $lastUsername,
-            'error' => $error
+                        // L'utilisateur est vérifié. Redirection selon role
+                        $role = $getUser->getRoles()[0];
+                        switch($role) {
+                            case 'ROLE_ADMIN':
+                                return $this->redirectToRoute('app_admin');
+                            case 'ROLE_EMPLOYE':
+                                return $this->redirectToRoute('app_employe');
+                            case 'ROLE_VETERINAIRE':
+                                return $this->redirectToRoute('app_veterinaire');
+                            default:
+                                throw new \Exception('Role inconnu');
+                        }
+                    } else {
+                        $this->addFlash('error', 'Mot de passe incorrect.');
+                    }
+                } else {
+                    $this->addFlash('error', 'Utilisateur non trouvé.');
+                }
+            } else {
+                $this->addFlash('error', 'Formulaire invalide.');
+            }
+        }
+        return $this->render('security/index.html.twig', [
+            'form' => $form->createView()
         ]);
     }
 
