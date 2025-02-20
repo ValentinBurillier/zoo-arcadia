@@ -4,6 +4,7 @@ const menu = document.querySelector('.menu');
 const crossCloseMenu = document.querySelector('.crossMenu');
 
 menuImg.addEventListener('click', () => {
+    console.log('click');
     menu.classList.toggle('hidden');
 })
 

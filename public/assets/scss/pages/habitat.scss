@@ -2,3 +2,45 @@
 @import "../base/_colors";
 @import "../base/_reset";
 @import "../base/_mixins";
+
+@import "../layouts/_header2";
+@import "../atoms/_btnHabitat";
+main {
+    @include fullScreen;
+    section {
+        @include fullContainer;
+        @include bg-img-cover-no-repeat;
+        @include d-flex-col-center;
+        text-align: center;
+        color: $white;
+        row-gap: 2.3vh;
+        &.savane::before {
+            @include opacity("rgba(127,76,39,0.43)");
+        }
+        &.jungle::before {
+            @include opacity("rgba(35,61,1,0.41)");
+        }
+        &.marais::before {
+            @include opacity("rgba(107,107,107,0.77)");
+        }
+        h2 {
+            font-size: 40px;
+            font-weight: $mainTitle;
+            font-weight: bold;
+            width: 100%;
+            z-index: 10;
+        }
+        p {
+            font-family: $thirdFont;
+            font-size: 20px;
+            line-height: 175%;
+            width: 90%;
+            max-width: 550px;
+            z-index: 10;
+        }
+        button {
+            position: initial;
+            z-index: 10;
+        }
+    }
+}

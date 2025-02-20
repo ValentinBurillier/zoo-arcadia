@@ -8,48 +8,55 @@ use App\Form\LoginType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\Password\UserPasswordHasherInterface;
+
+
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
     #[Route('/login', name: 'login')]
-    public function login(Request $request, EntityManagerInterface $em)
+    public function login(EntityManagerInterface $entityManager, Request $request): Response
     {
-        $user = new User();
-        
-        $form = $this->createForm(LoginType::class, $user);
-        $form->handleRequest($request);
-        if($form->isSubmitted()) {
-            if($form->isValid()) {
-                $email = $user->getEmail();
-                $password = $user->getPassword();
-                $getUser = $em->getRepository(User::class)->findOneBy(['email' => $email]);
-                if(isset($getUser)) {
-                    if (password_verify($password, $getUser->getPassword())) {
-
-                        // L'utilisateur est vérifié. Redirection selon role
-                        $role = $getUser->getRoles()[0];
-                        switch($role) {
-                            case 'ROLE_ADMIN':
-                                return $this->redirectToRoute('app_admin');
-                            case 'ROLE_EMPLOYE':
-                                return $this->redirectToRoute('app_employe');
-                            case 'ROLE_VETERINAIRE':
-                                return $this->redirectToRoute('app_veterinaire');
-                            default:
-                                throw new \Exception('Role inconnu');
+        $form = $this->createForm(LoginType::class);
+        if($request->getMethod() === 'POST') {
+            $data = $request->request->all();
+            if(isset($data['login']['email']) && $data !== null) {
+                $email = $data['login']['email'];
+                if(isset($data['login']['password']) && $data !== null) {
+                    $pass = $data['login']['password'];
+                    if($entityManager->getRepository(User::class)->findOneBy(['email' => $email])) {
+                        $user = $entityManager->getRepository(User::class)->findOneBy(['email' => $email]);
+                        $userPass = $user->getPassword();
+                        $test = password_verify($pass, $userPass);
+                        
+                        if($test === true) {
+                            
+                            $roleUser = $user->getRoles()[0];
+                            
+                            switch($roleUser) {
+                                case 'ROLE_ADMIN':
+                                    return $this->redirectToRoute('app_admin');
+                                    break;
+                                case 'ROLE_EMPLOYE':
+                                    return $this->redirectToRoute('app_employe');
+                                    break;
+                                case 'ROLE_VETERINAIRE':
+                                    return $this->redirectToRoute('app_veterinaire');
+                                    break;
+                                default:
+                                    return $this->redirectToRoute('login');
+                                    break;
+                            }
                         }
-                    } else {
-                        $this->addFlash('error', 'Mot de passe incorrect.');
                     }
-                } else {
-                    $this->addFlash('error', 'Utilisateur non trouvé.');
                 }
-            } else {
-                $this->addFlash('error', 'Formulaire invalide.');
             }
-        }
+        }   
+        
         return $this->render('security/index.html.twig', [
-            'form' => $form->createView()
+            'form' => $this->createForm(LoginType::class)
         ]);
     }
 

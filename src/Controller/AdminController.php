@@ -18,7 +18,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Bundle\SecurityBundle\Attribute\IsGranted;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Component\Security\Core\Security;
 
 
 class AdminController extends AbstractController
@@ -26,8 +27,10 @@ class AdminController extends AbstractController
     
 
     #[Route('/admin', name: 'app_admin')]
+    // #[IsGranted('ROLE_ADMIN')]
     public function index(Request $request, EntityManagerInterface $entityManagerInterface, UserPasswordHasherInterface $passwordHasher): Response
     {
+
         // FirstItem
         $user = new User();
         $form = $this->createForm(UserType::class, $user);

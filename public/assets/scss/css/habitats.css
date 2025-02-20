@@ -195,13 +195,13 @@ button {
   border: none;
   border-radius: 117px;
 }
-button.bgBtn--marais {
+button.bgBtn--marais, button.marais {
   background-color: #D4C9A1;
 }
-button.bgBtn--jungle {
+button.bgBtn--jungle, button.jungle {
   background-color: #525C2A;
 }
-button.bgBtn--savane {
+button.bgBtn--savane, button.savane {
   background-color: #7F4C27;
 }
 

@@ -15,9 +15,9 @@
     {% endblock %}
 
   <main id="main">
-    <section id="habitat--selected" 
+    <section id="habitat--selected" class="{{ habitatSelected.name }}" 
       style="background-image: url('{{ asset('assets/images/' ~ habitatSelected.image) }}')">
-      <h2 class="{{ habitatSelected.name }}">{{ habitatSelected.name }}</h2>
+      <h2 class="{{ habitatSelected.name }}">{{ habitatSelected.name |capitalize }}</h2>
       <p class="{{ habitatSelected.name }}">{{ habitatSelected.description }}</p>
       <button class="{{ habitatSelected.name }}"><a href="{{ path('app_animal', {'name': habitatSelected.name, 'animal': allAnimals[0].name })}}">Découvrir</a></button>
   </section>

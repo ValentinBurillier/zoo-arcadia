@@ -10,13 +10,13 @@ button {
     padding: 8px 16px;
     border: none;
     border-radius: 117px;
-    &.bgBtn--marais {
+    &.bgBtn--marais, &.marais {
       background-color: $marais;
     }
-    &.bgBtn--jungle {
+    &.bgBtn--jungle, &.jungle {
       background-color: $greenLow;
     }
-    &.bgBtn--savane {
+    &.bgBtn--savane, &.savane {
       background-color: $terre;
     }
 }
