@@ -1,0 +1,8 @@
+# .htaccess
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(index|app_.*|config_.*|var_.*|translations_.*|public_.*|bundles_.*)\.php$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>

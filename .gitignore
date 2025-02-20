@@ -1,17 +1,36 @@
+# Ignore .env.local et autres fichiers de configuration locaux
+.env.local
+.env.*.local
 
-###> symfony/framework-bundle ###
-/.env.local
-/.env.local.php
-/.env.*.local
-/config/secrets/prod/prod.decrypt.private.php
-/public/bundles/
+# Ignore les fichiers de configuration de l'IDE
+/.idea/
+/.vscode/
+
+# Ignore les répertoires de build et de cache
 /var/
 /vendor/
-###< symfony/framework-bundle ###
 
-###> symfony/webpack-encore-bundle ###
-/node_modules/
 /public/build/
-npm-debug.log
-yarn-error.log
-###< symfony/webpack-encore-bundle ###
+
+# Ignore les fichiers de log
+/var/logs/*
+/var/log/
+
+# Ignore les fichiers générés par Symfony
+/public/uploads/
+
+# Ignore le répertoire node_modules si tu utilises npm ou yarn pour le frontend
+/node_modules/
+
+# Ignore les fichiers système (MacOS, Windows)
+.DS_Store
+Thumbs.db
+
+# Fichiers temporaires et de sauvegarde
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Fichiers créés par l'éditeur de texte (ex : vim, emacs)
+*~
