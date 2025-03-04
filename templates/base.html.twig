@@ -15,5 +15,6 @@
         {% endblock %}  
         {% block scripts %}{% endblock %}
         <script src="{{ asset('assets/scripts/messagesFlash.js' )}}"></script>
+        <script src="{{ asset('assets/scripts/changePage.js') }} ? {{ "now" | date('U') }}"></script>
     </body>
 </html>

@@ -42,7 +42,7 @@
 </div>
 
   {# SCRIPTS JS #}
-  <script src="{{ asset('assets/scripts/menuBurger.js' )}}"></script>
+  <script src="{{ asset('assets/scripts/menuBurger.js' )}} ? {{ "now" | date('U') }}"></script>
 
 {# END BODY #}
 {% endblock %}
